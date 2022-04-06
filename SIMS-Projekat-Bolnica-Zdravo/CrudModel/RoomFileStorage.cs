@@ -1,10 +1,15 @@
+// File:    RoomFileStorage.cs
+// Author:  Dusan
+// Created: Sunday, April 3, 2022 7:50:52 PM
+// Purpose: Definition of Class RoomFileStorage
+
 using System;
-using System.Collections.Generic;
 
 namespace CrudModel
 {
    public class RoomFileStorage
    {
+        List<Room> roomList;
       public bool CreateRoom(Room newRoom)
       {
          throw new NotImplementedException();

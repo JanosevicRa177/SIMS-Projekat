@@ -1,3 +1,8 @@
+// File:    WarehouseFileStorage.cs
+// Author:  Dusan
+// Created: Monday, April 4, 2022 4:48:20 PM
+// Purpose: Definition of Class WarehouseFileStorage
+
 using System;
 using System.Collections.Generic;
 
@@ -5,6 +10,7 @@ namespace CrudModel
 {
    public class WarehouseFileStorage
    {
+        List<Warehouse> warehouseList;
       public bool CreateWarehouse(Warehouse newWarehouse)
       {
          throw new NotImplementedException();

@@ -16,19 +16,18 @@ using System.Windows.Shapes;
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
     /// <summary>
-    /// Interaction logic for Doctor.xaml
+    /// Interaction logic for addAppointmentDialogDoctor.xaml
     /// </summary>
-    public partial class Doctor : Window
+    public partial class addAppointmentDialogDoctor : Window
     {
-        public Doctor()
+        public addAppointmentDialogDoctor()
         {
             InitializeComponent();
         }
 
-        private void addAppointment_Click(object sender, RoutedEventArgs e)
+        private void createAppointmentDoctor_Click(object sender, RoutedEventArgs e)
         {
-            addAppointmentDialogDoctor Dia = new addAppointmentDialogDoctor();
-            Dia.ShowDialog();
+            Appointment a = new Appointment();
         }
     }
 }

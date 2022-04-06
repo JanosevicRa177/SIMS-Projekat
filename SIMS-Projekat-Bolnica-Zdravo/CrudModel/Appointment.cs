@@ -1,3 +1,8 @@
+// File:    Appointment.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:13:42 PM
+// Purpose: Definition of Class Appointment
+
 using System;
 
 namespace CrudModel
@@ -9,7 +14,7 @@ namespace CrudModel
             set;
             get;
         }
-        public int duration
+      public int duration
         {
             set;
             get;
@@ -20,58 +25,22 @@ namespace CrudModel
             get;
         }
 
-        public System.Collections.Generic.List<Room> room;
-      
-      public System.Collections.Generic.List<Room> Room
-      {
-         get
-         {
-            if (room == null)
-               room = new System.Collections.Generic.List<Room>();
-            return room;
-         }
-         set
-         {
-            RemoveAllRoom();
-            if (value != null)
-            {
-               foreach (Room oRoom in value)
-                  AddRoom(oRoom);
-            }
-         }
-      }
-      
-      
-      public void AddRoom(Room newRoom)
-      {
-         if (newRoom == null)
-            return;
-         if (this.room == null)
-            this.room = new System.Collections.Generic.List<Room>();
-         if (!this.room.Contains(newRoom))
-            this.room.Add(newRoom);
-      }
-      
-      
-      public void RemoveRoom(Room oldRoom)
-      {
-         if (oldRoom == null)
-            return;
-         if (this.room != null)
-            if (this.room.Contains(oldRoom))
-               this.room.Remove(oldRoom);
-      }
-      
-      
-      public void RemoveAllRoom()
-      {
-         if (room != null)
-            room.Clear();
-      }
-      public MedicalRecord medicalRecord;
-      
-      
-      public MedicalRecord MedicalRecord
+        public Room room
+        {
+            set;
+            get;
+        }
+        public MedicalRecord medicalRecord
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for MedicalRecord
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
+        public MedicalRecord MedicalRecord
       {
          get
          {
@@ -95,10 +64,17 @@ namespace CrudModel
             }
          }
       }
-      public Doctor doctor;
-      
-      
-      public Doctor Doctor
+      public Doctor doctor
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for Doctor
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
+        public Doctor Doctor
       {
          get
          {

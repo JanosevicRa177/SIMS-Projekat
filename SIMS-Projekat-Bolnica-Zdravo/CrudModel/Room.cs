@@ -1,3 +1,8 @@
+// File:    Room.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:13:43 PM
+// Purpose: Definition of Class Room
+
 using System;
 
 namespace CrudModel
@@ -25,9 +30,17 @@ namespace CrudModel
             get;
         }
 
-        public System.Collections.Generic.List<Equipment> equipment;
-      
-      public System.Collections.Generic.List<Equipment> Equipment
+        public System.Collections.Generic.List<Equipment> equipment
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for collection of Equipment
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public System.Collections.Generic.List<Equipment> Equipment
       {
          get
          {
@@ -46,7 +59,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Add a new Equipment in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
       public void AddEquipment(Equipment newEquipment)
       {
          if (newEquipment == null)
@@ -57,7 +73,10 @@ namespace CrudModel
             this.equipment.Add(newEquipment);
       }
       
-      
+      /// <summary>
+      /// Remove an existing Equipment from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveEquipment(Equipment oldEquipment)
       {
          if (oldEquipment == null)
@@ -67,38 +86,14 @@ namespace CrudModel
                this.equipment.Remove(oldEquipment);
       }
       
-      
+      /// <summary>
+      /// Remove all instances of Equipment from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllEquipment()
       {
          if (equipment != null)
             equipment.Clear();
-      }
-      public Meeting meeting;
-      
-      
-      public Meeting Meeting
-      {
-         get
-         {
-            return meeting;
-         }
-         set
-         {
-            if (this.meeting == null || !this.meeting.Equals(value))
-            {
-               if (this.meeting != null)
-               {
-                  Meeting oldMeeting = this.meeting;
-                  this.meeting = null;
-                  oldMeeting.RemoveRoom(this);
-               }
-               if (value != null)
-               {
-                  this.meeting = value;
-                  this.meeting.AddRoom(this);
-               }
-            }
-         }
       }
    
    }

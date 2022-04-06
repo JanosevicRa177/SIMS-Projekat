@@ -1,10 +1,16 @@
+// File:    SecretaryFileStorage.cs
+// Author:  Dusan
+// Created: Sunday, April 3, 2022 4:42:32 PM
+// Purpose: Definition of Class SecretaryFileStorage
+
 using System;
-using System.Collections.Generic;
 
 namespace CrudModel
 {
    public class SecretaryFileStorage
    {
+
+        List<Secretary> secretaryList;
       public bool CreateSecretary(Secretary newSecretary)
       {
          throw new NotImplementedException();

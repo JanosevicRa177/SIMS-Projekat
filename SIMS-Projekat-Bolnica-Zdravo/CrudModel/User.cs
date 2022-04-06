@@ -1,3 +1,8 @@
+// File:    User.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:08:04 PM
+// Purpose: Definition of Class User
+
 using System;
 
 namespace CrudModel
@@ -19,7 +24,7 @@ namespace CrudModel
             set;
             get;
         }
-        public String surname
+      public String surname
         {
             set;
             get;

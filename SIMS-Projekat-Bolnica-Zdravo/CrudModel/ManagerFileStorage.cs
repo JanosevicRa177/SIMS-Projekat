@@ -1,3 +1,8 @@
+// File:    ManagerFileStorage.cs
+// Author:  Dusan
+// Created: Sunday, April 3, 2022 4:42:31 PM
+// Purpose: Definition of Class ManagerFileStorage
+
 using System;
 using System.Collections.Generic;
 
@@ -5,6 +10,8 @@ namespace CrudModel
 {
    public class ManagerFileStorage
    {
+
+        List<Manager> managerList;
       public bool CreateManager(Manager newManager)
       {
          throw new NotImplementedException();

@@ -1,3 +1,8 @@
+// File:    MeetingFileStorage.cs
+// Author:  Dusan
+// Created: Sunday, April 3, 2022 7:55:27 PM
+// Purpose: Definition of Class MeetingFileStorage
+
 using System;
 using System.Collections.Generic;
 
@@ -5,6 +10,7 @@ namespace CrudModel
 {
    public class MeetingFileStorage
    {
+        List<Meeting> meetingList;
       public bool CreateMeeting(Meeting newMeeting)
       {
          throw new NotImplementedException();

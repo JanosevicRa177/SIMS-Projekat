@@ -1,4 +1,10 @@
+// File:    Meeting.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:13:45 PM
+// Purpose: Definition of Class Meeting
+
 using System;
+using System.Collections.Generic;
 
 namespace CrudModel
 {
@@ -20,100 +26,56 @@ namespace CrudModel
             get;
         }
 
-        public System.Collections.Generic.List<Room> room;
-      
-      public System.Collections.Generic.List<Room> Room
-      {
-         get
-         {
-            if (room == null)
-               room = new System.Collections.Generic.List<Room>();
-            return room;
-         }
-         set
-         {
-            RemoveAllRoom();
-            if (value != null)
-            {
-               foreach (Room oRoom in value)
-                  AddRoom(oRoom);
-            }
-         }
-      }
-      
-      
-      public void AddRoom(Room newRoom)
-      {
-         if (newRoom == null)
-            return;
-         if (this.room == null)
-            this.room = new System.Collections.Generic.List<Room>();
-         if (!this.room.Contains(newRoom))
-         {
-            this.room.Add(newRoom);
-            newRoom.Meeting = this;
-         }
-      }
-      
-      
-      public void RemoveRoom(Room oldRoom)
-      {
-         if (oldRoom == null)
-            return;
-         if (this.room != null)
-            if (this.room.Contains(oldRoom))
-            {
-               this.room.Remove(oldRoom);
-               oldRoom.Meeting = null;
-            }
-      }
-      
-      
-      public void RemoveAllRoom()
-      {
-         if (room != null)
-         {
-            System.Collections.ArrayList tmpRoom = new System.Collections.ArrayList();
-            foreach (Room oldRoom in room)
-               tmpRoom.Add(oldRoom);
-            room.Clear();
-            foreach (Room oldRoom in tmpRoom)
-               oldRoom.Meeting = null;
-            tmpRoom.Clear();
-         }
-      }
-      public Doctor requiredToCome;
-      
-      
-      public Doctor RequiredToCome
-      {
+        public Room room;
+      public List<Doctor> requiredToCome
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for Doctor
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
+        public List<Doctor> RequiredToCome
+        {
          get
          {
             return requiredToCome;
          }
          set
          {
-            this.requiredToCome = value;
+            this.requiredToCome  = value;
          }
       }
       public Doctor invitedDoctor;
       
-      
-      public Doctor InvitedDoctor
-        {
+      /// <summary>
+      /// Property for Doctor
+      /// </summary>
+      /// <pdGenerated>Default opposite class property</pdGenerated>
+        public List<Doctor> invitedDoctors
+      {
          get
          {
-            return invitedDoctor;
+            return invitedDoctors;
          }
          set
          {
-            this.invitedDoctor = value;
+            this.invitedDoctors = value;
          }
       }
-      public Secretary secretary;
-      
-      
-      public Secretary Secretary
+        public Secretary secretary
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for Secretary
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
+        public Secretary Secretary
       {
          get
          {

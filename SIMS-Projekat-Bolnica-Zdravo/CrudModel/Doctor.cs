@@ -1,14 +1,31 @@
+// File:    Doctor.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:13:06 PM
+// Purpose: Definition of Class Doctor
+
 using System;
 
 namespace CrudModel
 {
    public class Doctor : User
    {
-      public Specialization specialization;
-      
-      public System.Collections.Generic.List<Appointment> appointment;
-      
-      public System.Collections.Generic.List<Appointment> Appointment
+      public Specialization specialization
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Appointment> appointment
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for collection of Appointment
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public System.Collections.Generic.List<Appointment> Appointment
       {
          get
          {
@@ -27,7 +44,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Add a new Appointment in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
       public void AddAppointment(Appointment newAppointment)
       {
          if (newAppointment == null)
@@ -41,7 +61,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Remove an existing Appointment from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveAppointment(Appointment oldAppointment)
       {
          if (oldAppointment == null)
@@ -54,7 +77,10 @@ namespace CrudModel
             }
       }
       
-      
+      /// <summary>
+      /// Remove all instances of Appointment from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllAppointment()
       {
          if (appointment != null)

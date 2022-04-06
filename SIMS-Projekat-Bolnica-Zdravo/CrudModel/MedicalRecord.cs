@@ -1,3 +1,8 @@
+// File:    MedicalRecord.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:38:07 PM
+// Purpose: Definition of Class MedicalRecord
+
 using System;
 
 namespace CrudModel
@@ -15,9 +20,17 @@ namespace CrudModel
             get;
         }
 
-        public System.Collections.Generic.List<Appointment> appointment;
-      
-      public System.Collections.Generic.List<Appointment> Appointment
+        public System.Collections.Generic.List<Appointment> appointment
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for collection of Appointment
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public System.Collections.Generic.List<Appointment> Appointment
       {
          get
          {
@@ -36,7 +49,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Add a new Appointment in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
       public void AddAppointment(Appointment newAppointment)
       {
          if (newAppointment == null)
@@ -50,7 +66,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Remove an existing Appointment from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveAppointment(Appointment oldAppointment)
       {
          if (oldAppointment == null)
@@ -63,7 +82,10 @@ namespace CrudModel
             }
       }
       
-      
+      /// <summary>
+      /// Remove all instances of Appointment from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllAppointment()
       {
          if (appointment != null)
@@ -77,6 +99,11 @@ namespace CrudModel
             tmpAppointment.Clear();
          }
       }
-   
-   }
+      public Patient patient
+        {
+            set;
+            get;
+        }
+
+    }
 }

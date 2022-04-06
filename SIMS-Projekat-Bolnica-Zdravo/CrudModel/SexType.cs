@@ -2,7 +2,7 @@ using System;
 
 namespace CrudModel
 {
-   public enum SexType
+   public enum Gender
    {
       male,
       female

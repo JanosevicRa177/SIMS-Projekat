@@ -1,3 +1,8 @@
+// File:    NoteFileStorage.cs
+// Author:  Dusan
+// Created: Wednesday, April 6, 2022 12:11:56 PM
+// Purpose: Definition of Class NoteFileStorage
+
 using System;
 using System.Collections.Generic;
 
@@ -5,6 +10,8 @@ namespace CrudModel
 {
    public class NoteFileStorage
    {
+
+        List<Note> noteList;
       public bool CreateNote(Note newNote)
       {
          throw new NotImplementedException();

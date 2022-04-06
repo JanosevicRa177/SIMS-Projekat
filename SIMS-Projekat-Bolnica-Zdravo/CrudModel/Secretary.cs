@@ -1,16 +1,21 @@
+// File:    Secretary.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:13:07 PM
+// Purpose: Definition of Class Secretary
+
 using System;
 
 namespace CrudModel
 {
    public class Secretary : User
    {
-      public System.Collections.Generic.List<Meeting> meeting
-        {
-            set;
-            get;
-        }
-
-        public System.Collections.Generic.List<Meeting> Meeting
+      public System.Collections.Generic.List<Meeting> meeting;
+      
+      /// <summary>
+      /// Property for collection of Meeting
+      /// </summary>
+      /// <pdGenerated>Default opposite class collection property</pdGenerated>
+      public System.Collections.Generic.List<Meeting> Meeting
       {
          get
          {
@@ -29,7 +34,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Add a new Meeting in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
       public void AddMeeting(Meeting newMeeting)
       {
          if (newMeeting == null)
@@ -43,7 +51,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Remove an existing Meeting from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveMeeting(Meeting oldMeeting)
       {
          if (oldMeeting == null)
@@ -56,7 +67,10 @@ namespace CrudModel
             }
       }
       
-      
+      /// <summary>
+      /// Remove all instances of Meeting from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllMeeting()
       {
          if (meeting != null)

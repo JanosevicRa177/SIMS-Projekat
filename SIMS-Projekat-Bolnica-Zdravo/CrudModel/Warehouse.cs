@@ -1,3 +1,8 @@
+// File:    Warehouse.cs
+// Author:  Dusan
+// Created: Monday, April 4, 2022 4:42:21 PM
+// Purpose: Definition of Class Warehouse
+
 using System;
 
 namespace CrudModel
@@ -19,11 +24,23 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public int warehouseID;
-      
-      public System.Collections.Generic.List<Equipment> equipment;
-      
-      public System.Collections.Generic.List<Equipment> Equipment
+      public int warehouseID
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Equipment> equipment
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for collection of Equipment
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public System.Collections.Generic.List<Equipment> Equipment
       {
          get
          {
@@ -42,7 +59,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Add a new Equipment in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
       public void AddEquipment(Equipment newEquipment)
       {
          if (newEquipment == null)
@@ -53,7 +73,10 @@ namespace CrudModel
             this.equipment.Add(newEquipment);
       }
       
-      
+      /// <summary>
+      /// Remove an existing Equipment from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveEquipment(Equipment oldEquipment)
       {
          if (oldEquipment == null)
@@ -63,7 +86,10 @@ namespace CrudModel
                this.equipment.Remove(oldEquipment);
       }
       
-      
+      /// <summary>
+      /// Remove all instances of Equipment from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllEquipment()
       {
          if (equipment != null)

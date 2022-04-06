@@ -1,3 +1,8 @@
+// File:    EquipmentFileStorage.cs
+// Author:  Dusan
+// Created: Monday, April 4, 2022 4:48:32 PM
+// Purpose: Definition of Class EquipmentFileStorage
+
 using System;
 using System.Collections.Generic;
 
@@ -5,6 +10,7 @@ namespace CrudModel
 {
    public class EquipmentFileStorage
    {
+        List<Equipment> listEquipment;
       public bool CreateEquipment(Equipment newEquipment)
       {
          throw new NotImplementedException();

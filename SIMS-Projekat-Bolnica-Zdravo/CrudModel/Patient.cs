@@ -1,3 +1,8 @@
+// File:    Patient.cs
+// Author:  Dusan
+// Created: Wednesday, March 30, 2022 4:13:07 PM
+// Purpose: Definition of Class Patient
+
 using System;
 
 namespace CrudModel
@@ -9,7 +14,7 @@ namespace CrudModel
             set;
             get;
         }
-        public int sexType
+        public Gender gender
         {
             set;
             get;
@@ -26,6 +31,10 @@ namespace CrudModel
             get;
         }
 
+        /// <summary>
+        /// Property for collection of Note
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
         public System.Collections.Generic.List<Note> Note
       {
          get
@@ -45,7 +54,10 @@ namespace CrudModel
          }
       }
       
-      
+      /// <summary>
+      /// Add a new Note in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
       public void AddNote(Note newNote)
       {
          if (newNote == null)
@@ -56,7 +68,10 @@ namespace CrudModel
             this.note.Add(newNote);
       }
       
-      
+      /// <summary>
+      /// Remove an existing Note from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveNote(Note oldNote)
       {
          if (oldNote == null)
@@ -66,7 +81,10 @@ namespace CrudModel
                this.note.Remove(oldNote);
       }
       
-      
+      /// <summary>
+      /// Remove all instances of Note from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllNote()
       {
          if (note != null)

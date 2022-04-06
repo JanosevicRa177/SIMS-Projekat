@@ -1,0 +1,51 @@
+﻿<Window x:Class="SIMS_Projekat_Bolnica_Zdravo.Windows.addAppointmentDialogDoctor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
+        mc:Ignorable="d"
+        Title="addAppointmentDialogDoctor" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row = "5" Content="Create" Margin="261,1,261,0" HorizontalAlignment="Center" Width="270" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"
+                Name="createAppointmentDoctor" Click="createAppointmentDoctor_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.589"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.74"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label Content="Patient:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="152" Height="50"
+               FontSize="34"></Label>
+        <TextBlock x:Name="patientsName" Grid.Column="1" Margin="0,10,10,10" >
+            
+        </TextBlock>
+        <Label Content="Doctor:" Grid.Column="0"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="214" Height="50"
+               FontSize="34" Grid.Row="1"></Label>
+        <Label Content="Datum:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="152" Height="50"
+               FontSize="34" Grid.Row="2"></Label>
+        <Label Content="Duration:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="214" Height="50"
+               FontSize="34" Grid.Row="3"></Label>
+        <Label Content="Room:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="214" Height="50"
+               FontSize="34" Grid.Row="4"></Label>
+        <TextBlock x:Name="doctorsName" Grid.Column="1" Margin="10,10,0,10" Grid.Row="1" />
+        <TextBlock x:Name="dateYear" Grid.Column="1" Margin="10,10,0,10" Grid.Row="2" />
+        <TextBlock x:Name="duration" Grid.Column="1" Margin="10,10,0,10" Grid.Row="3" />
+        <TextBlock x:Name="room" Grid.Column="1" Margin="10,10,0,10" Grid.Row="4" />
+    </Grid>
+</Window>

@@ -1,11 +1,20 @@
+// File:    AppointmentFileStorage.cs
+// Author:  Dusan
+// Created: Sunday, April 3, 2022 8:00:41 PM
+// Purpose: Definition of Class AppointmentFileStorage
+
 using System;
 using System.Collections.Generic;
 
 namespace CrudModel
 {
+
+    
    public class AppointmentFileStorage
    {
-      public bool CreateAppointment(Appointment newAppointment)
+
+       List<Appointment> appointmentList;
+        public bool CreateAppointment(Appointment newAppointment)
       {
          throw new NotImplementedException();
       }

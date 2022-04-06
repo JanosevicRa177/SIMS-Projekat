@@ -1,3 +1,8 @@
+// File:    MedicalRecordFileStorage.cs
+// Author:  Dusan
+// Created: Sunday, April 3, 2022 8:06:22 PM
+// Purpose: Definition of Class MedicalRecordFileStorage
+
 using System;
 using System.Collections.Generic;
 
@@ -5,6 +10,7 @@ namespace CrudModel
 {
    public class MedicalRecordFileStorage
    {
+        List<MedicalRecord> medicalRecordList;
       public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
       {
          throw new NotImplementedException();
