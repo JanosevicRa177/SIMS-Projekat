@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIMS_Projekat_Bolnica_Zdravo.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Sekretar_Click_1(object sender, RoutedEventArgs e)
+        {
+            Secretary sc = new Secretary();
+            sc.Show();
+        }
+
+        private void Lekar_Click(object sender, RoutedEventArgs e)
+        {
+            Doctor dr = new Doctor();
+            dr.Show();
+        }
+
+        private void Pacijent_Click(object sender, RoutedEventArgs e)
+        {
+            Patient pt = new Patient();
+            pt.Show();
+        }
+
+        private void Upravnik_Click(object sender, RoutedEventArgs e)
+        {
+            Manager mn = new Manager();
+            mn.Show();
         }
     }
 }
