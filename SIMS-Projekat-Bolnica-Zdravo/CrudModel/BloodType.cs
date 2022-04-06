@@ -4,10 +4,10 @@ namespace CrudModel
 {
    public enum BloodType
    {
-      a+,
-      b+,
-      o+,
-      ab+,
+      a1,
+      b1,
+      o1,
+      ab1,
       a,
       b,
       o,

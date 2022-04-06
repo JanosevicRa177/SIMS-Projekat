@@ -14,13 +14,41 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public String name;
-      public String surname;
-      public Address address;
-      public String password;
-      public String mobilePhone;
-      public String mail;
-      public int userID;
-   
-   }
+      public String name
+        {
+            set;
+            get;
+        }
+        public String surname
+        {
+            set;
+            get;
+        }
+        public Address address
+        {
+            set;
+            get;
+        }
+        public String password
+        {
+            set;
+            get;
+        }
+        public String mobilePhone
+        {
+            set;
+            get;
+        }
+        public String mail
+        {
+            set;
+            get;
+        }
+        public int userID
+        {
+            set;
+            get;
+        }
+
+    }
 }

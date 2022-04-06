@@ -4,10 +4,18 @@ namespace CrudModel
 {
    public class MedicalRecord
    {
-      public int medicalRecordID;
-      public int bloodType;
-      
-      public System.Collections.Generic.List<Appointment> appointment;
+      public int medicalRecordID
+        {
+            set;
+            get;
+        }
+        public int bloodType
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Appointment> appointment;
       
       public System.Collections.Generic.List<Appointment> Appointment
       {

@@ -4,10 +4,26 @@ namespace CrudModel
 {
    public class Address
    {
-      public String country;
-      public String city;
-      public String street;
-      public String number;
-   
-   }
+        public String country
+        {
+            set;
+            get;
+        }
+      public String city
+        {
+            set;
+            get;
+        }
+        public String street
+        {
+            set;
+            get;
+        }
+        public String number
+        {
+            set;
+            get;
+        }
+
+    }
 }

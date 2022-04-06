@@ -4,11 +4,23 @@ namespace CrudModel
 {
    public class Appointment
    {
-      public DateTime timeBegin;
-      public int duration;
-      public int appointmentID;
-      
-      public System.Collections.Generic.List<Room> room;
+      public DateTime timeBegin
+        {
+            set;
+            get;
+        }
+        public int duration
+        {
+            set;
+            get;
+        }
+        public int appointmentID
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Room> room;
       
       public System.Collections.Generic.List<Room> Room
       {

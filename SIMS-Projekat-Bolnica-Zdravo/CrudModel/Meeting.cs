@@ -4,11 +4,23 @@ namespace CrudModel
 {
    public class Meeting
    {
-      public DateTime timeBegin;
-      public int duration;
-      public int meetingID;
-      
-      public System.Collections.Generic.List<Room> room;
+      public DateTime timeBegin
+        {
+            set;
+            get;
+        }
+        public int duration
+        {
+            set;
+            get;
+        }
+        public int meetingID
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Room> room;
       
       public System.Collections.Generic.List<Room> Room
       {
@@ -70,32 +82,32 @@ namespace CrudModel
             tmpRoom.Clear();
          }
       }
-      public Doctor required to come;
+      public Doctor requiredToCome;
       
       
-      public Doctor Required to come
+      public Doctor RequiredToCome
       {
          get
          {
-            return required to come;
+            return requiredToCome;
          }
          set
          {
-            this.required to come = value;
+            this.requiredToCome = value;
          }
       }
-      public Doctor invited doctor;
+      public Doctor invitedDoctor;
       
       
-      public Doctor Invited doctor
-      {
+      public Doctor InvitedDoctor
+        {
          get
          {
-            return invited doctor;
+            return invitedDoctor;
          }
          set
          {
-            this.invited doctor = value;
+            this.invitedDoctor = value;
          }
       }
       public Secretary secretary;

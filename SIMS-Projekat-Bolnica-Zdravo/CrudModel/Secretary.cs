@@ -4,9 +4,13 @@ namespace CrudModel
 {
    public class Secretary : User
    {
-      public System.Collections.Generic.List<Meeting> meeting;
-      
-      public System.Collections.Generic.List<Meeting> Meeting
+      public System.Collections.Generic.List<Meeting> meeting
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Meeting> Meeting
       {
          get
          {

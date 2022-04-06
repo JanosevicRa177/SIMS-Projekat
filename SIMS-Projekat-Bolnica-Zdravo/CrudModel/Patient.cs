@@ -4,13 +4,29 @@ namespace CrudModel
 {
    public class Patient : User
    {
-      public int personalInsuranceNumber;
-      public int sexType;
-      
-      public MedicalRecord medicalRecord;
-      public System.Collections.Generic.List<Note> note;
-      
-      public System.Collections.Generic.List<Note> Note
+      public int personalInsuranceNumber
+        {
+            set;
+            get;
+        }
+        public int sexType
+        {
+            set;
+            get;
+        }
+
+        public MedicalRecord medicalRecord
+        {
+            set;
+            get;
+        }
+        public System.Collections.Generic.List<Note> note
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Note> Note
       {
          get
          {

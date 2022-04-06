@@ -4,7 +4,11 @@ namespace CrudModel
 {
    public class Specialization
    {
-      public String specializations;
-   
-   }
+      public String specializations
+        {
+            set;
+            get;
+        }
+
+    }
 }

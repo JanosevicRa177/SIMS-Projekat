@@ -19,9 +19,13 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public int roomID;
-      
-      public System.Collections.Generic.List<Equipment> equipment;
+      public int roomID
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Equipment> equipment;
       
       public System.Collections.Generic.List<Equipment> Equipment
       {
