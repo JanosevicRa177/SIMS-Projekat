@@ -30,24 +30,28 @@ namespace SIMS_Projekat_Bolnica_Zdravo
         {
             Secretary sc = new Secretary();
             sc.Show();
+            this.Close();
         }
 
         private void Lekar_Click(object sender, RoutedEventArgs e)
         {
             Doctor dr = new Doctor();
             dr.Show();
+            this.Close();
         }
 
         private void Pacijent_Click(object sender, RoutedEventArgs e)
         {
             Patient pt = new Patient();
             pt.Show();
+            this.Close();
         }
 
         private void Upravnik_Click(object sender, RoutedEventArgs e)
         {
             Manager mn = new Manager();
             mn.Show();
+            this.Close();
         }
     }
 }
