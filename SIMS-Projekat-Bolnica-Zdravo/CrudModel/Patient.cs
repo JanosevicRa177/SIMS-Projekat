@@ -9,6 +9,11 @@ namespace CrudModel
 {
    public class Patient : User
    {
+
+        public Patient()
+        {
+            this.name = "Jovan";
+        }
       public int personalInsuranceNumber
         {
             set;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrudModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     {
         public DoctorWindow()
         {
+            Appointments.DataContext = new AppointmentFileStorage();
+            Appointment xd = new Appointment();
+            MessageBox.Show(xd.duration.ToString());
+            AppointmentFileStorage.appointmentList.Add(xd);
             InitializeComponent();
         }
 
@@ -28,6 +33,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor();
             dia.Show();
+            Appointments.Items.Refresh();
         }
     }
 }
