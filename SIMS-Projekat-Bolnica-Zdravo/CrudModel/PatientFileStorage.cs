@@ -1,7 +1,3 @@
-// File:    PatientFileStorage.cs
-// Author:  Dusan
-// Created: Wednesday, March 30, 2022 4:08:11 PM
-// Purpose: Definition of Class PatientFileStorage
 
 using System;
 using System.Collections.Generic;
@@ -11,6 +7,7 @@ namespace CrudModel
 {
    public class PatientFileStorage
    {
+
         static public ObservableCollection<Patient> patientList
         {
             set;
@@ -26,9 +23,11 @@ namespace CrudModel
                 patientList.Add(p);
             }
         }
+     
       public bool CreatePatient(Patient newPatient)
       {
-         throw new NotImplementedException();
+            patientList.Add(newPatient);
+            return true;
       }
       
       public bool DeletePatient(int userID)

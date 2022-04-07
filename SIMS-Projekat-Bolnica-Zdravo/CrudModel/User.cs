@@ -34,7 +34,7 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public bool InformationChange(String newName, String newSurname, String newAddress, String newPassword)
+      public bool InformationChange(String newName, String newSurname, Address newAddress, String newPassword)
       {
          throw new NotImplementedException();
       }

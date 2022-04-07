@@ -9,42 +9,47 @@ namespace CrudModel
 {
    public class Patient : User
    {
-
-        public Patient(int personalInsuranceNumber,Gender gender,string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
+    
+        public Patient(Gender gender,string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
         {
             this.userID = User.generateID();
             this.gender = gender;
             this.personalInsuranceNumber = personalInsuranceNumber;
         }
-
-        public int personalInsuranceNumber
-        {
-            set;
-            get;
-        }
+        
+ 
         public Gender gender
         {
             set;
             get;
         }
-
+        public Patient(String name, String surname, Address address, String password,
+            String mobilePhone, String mail,Gender gender)
+        {
+            userID = User.generateID();
+            this.name = name;
+            this.surname = surname;
+            this.address = address;
+            this.password = password;
+            this.mobilePhone = mobilePhone;
+            this.mail = mail;
+            this.gender = gender;
+        }
         public MedicalRecord medicalRecord
         {
             set;
             get;
         }
 
-        /// <summary>
-        /// Property for collection of Note
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.Generic.List<Note> note
+      
+
+        public System.Collections.Generic.List<Note> notes
       {
          get
          {
-            if (note == null)
-               note = new System.Collections.Generic.List<Note>();
-            return note;
+            if (notes == null)
+               notes = new System.Collections.Generic.List<Note>();
+            return notes;
          }
          set
          {
@@ -57,41 +62,28 @@ namespace CrudModel
          }
       }
       
-      /// <summary>
-      /// Add a new Note in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
       public void AddNote(Note newNote)
       {
          if (newNote == null)
             return;
-         if (this.note == null)
-            this.note = new System.Collections.Generic.List<Note>();
-         if (!this.note.Contains(newNote))
-            this.note.Add(newNote);
+         if (this.notes == null)
+            this.notes = new System.Collections.Generic.List<Note>();
+         if (!this.notes.Contains(newNote))
+            this.notes.Add(newNote);
       }
       
-      /// <summary>
-      /// Remove an existing Note from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveNote(Note oldNote)
       {
          if (oldNote == null)
             return;
-         if (this.note != null)
-            if (this.note.Contains(oldNote))
-               this.note.Remove(oldNote);
+         if (this.notes != null)
+            if (this.notes.Contains(oldNote))
+               this.notes.Remove(oldNote);
       }
-      
-      /// <summary>
-      /// Remove all instances of Note from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllNote()
       {
-         if (note != null)
-            note.Clear();
+         if (notes != null)
+            notes.Clear();
       }
    
    }
