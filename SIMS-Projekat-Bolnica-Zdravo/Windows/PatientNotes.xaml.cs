@@ -34,12 +34,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         public PatientNotes(Patient loggedPatient1)
         {
-            loggedPatient = loggedPatient1;
-            DataContext = this;
+            if(loggedPatient == null)
+                loggedPatient = loggedPatient1;
+            this.DataContext = this;
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public PatientNotes()
+        {
+            this.DataContext = this;
+            InitializeComponent();
+        }
+        private void Show_Home(object sender, RoutedEventArgs e)
         {
             PatientWindow pt = new PatientWindow();
             pt.Show();
@@ -61,7 +66,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void ShowNote(object sender, RoutedEventArgs e)
         {
-
+            NoteWindow nt = new NoteWindow((Note)NotesListGrid.SelectedItem);
+            nt.Show();
+            this.Close();
         }
 
         private void NotesListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
