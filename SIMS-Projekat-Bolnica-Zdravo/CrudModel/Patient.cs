@@ -10,11 +10,14 @@ namespace CrudModel
    public class Patient : User
    {
 
-        public Patient()
+        public Patient(int personalInsuranceNumber,Gender gender,string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
         {
-            this.name = "Jovan";
+            this.userID = User.generateID();
+            this.gender = gender;
+            this.personalInsuranceNumber = personalInsuranceNumber;
         }
-      public int personalInsuranceNumber
+
+        public int personalInsuranceNumber
         {
             set;
             get;
@@ -30,17 +33,12 @@ namespace CrudModel
             set;
             get;
         }
-        public System.Collections.Generic.List<Note> note
-        {
-            set;
-            get;
-        }
 
         /// <summary>
         /// Property for collection of Note
         /// </summary>
         /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.Generic.List<Note> Note
+        public System.Collections.Generic.List<Note> note
       {
          get
          {

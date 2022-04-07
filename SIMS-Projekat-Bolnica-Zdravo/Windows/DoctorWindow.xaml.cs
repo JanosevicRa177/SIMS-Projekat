@@ -22,11 +22,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     {
         public DoctorWindow()
         {
-            Appointments.DataContext = new AppointmentFileStorage();
-            Appointment xd = new Appointment();
-            MessageBox.Show(xd.duration.ToString());
-            AppointmentFileStorage.appointmentList.Add(xd);
             InitializeComponent();
+            Appointments.DataContext = new AppointmentFileStorage();
         }
 
         private void addAppointment_Click(object sender, RoutedEventArgs e)

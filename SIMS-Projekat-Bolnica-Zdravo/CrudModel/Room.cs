@@ -9,9 +9,17 @@ namespace CrudModel
 {
    public class Room
    {
-        public Room()
+        private static int ids = -1;
+        public Room(string name)
         {
-
+            this.name = name;
+            roomID = ++ids;
+        }
+        
+        public string name
+        {
+            set;
+            get;
         }
       public bool AddEquipment()
       {
