@@ -22,7 +22,7 @@ namespace CrudModel
             if (patientList == null)
             {
                 patientList = new ObservableCollection<Patient>();
-                Patient p = new Patient();
+                Patient p = new Patient(Gender.male,"Jovan","Jovanovic",new Address());
                 patientList.Add(p);
             }
         }

@@ -9,6 +9,14 @@ namespace CrudModel
 {
    public class Address { 
 
+
+    public Address(string country, string city,string street,string number)
+        {
+            this.country = country;
+            this.city = city;
+            this.street = street;
+            this.number = number;
+        }
       public String country
     {
         set;
