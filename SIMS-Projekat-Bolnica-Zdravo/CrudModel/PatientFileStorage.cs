@@ -1,13 +1,29 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class PatientFileStorage
    {
-        static public List<Patient> patientList = new List<Patient>();
 
+        static public ObservableCollection<Patient> patientList
+        {
+            set;
+            get;
+        }
+
+        public PatientFileStorage()
+        {
+            if (patientList == null)
+            {
+                patientList = new ObservableCollection<Patient>();
+                Patient p = new Patient();
+                patientList.Add(p);
+            }
+        }
+     
       public bool CreatePatient(Patient newPatient)
       {
             patientList.Add(newPatient);

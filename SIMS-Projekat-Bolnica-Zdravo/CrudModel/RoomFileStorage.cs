@@ -5,12 +5,23 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class RoomFileStorage
    {
-        static public List<Room> roomList = new List<Room>();
+        static public ObservableCollection<Room> roomList = new ObservableCollection<Room>();
+
+        public RoomFileStorage()
+        {
+            if (roomList == null)
+            {
+                roomList = new ObservableCollection<Room>();
+                Room r = new Room("202a");
+                roomList.Add(r);
+            }
+        }
       public bool CreateRoom(Room newRoom)
       {
          throw new NotImplementedException();

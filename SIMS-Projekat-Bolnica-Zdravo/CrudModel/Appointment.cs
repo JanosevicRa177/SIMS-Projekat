@@ -21,6 +21,12 @@ namespace CrudModel
             set;
             get;
         }
+
+        public Patient patient
+        {
+            get;
+            set;
+        }
         public int appointmentID
         {
             set;
@@ -33,9 +39,17 @@ namespace CrudModel
             get;
         }
 
+        public Appointment()
+        {
+            this.patient = new Patient();
+            this.duration = 20;
+            this.appointmentID = ++ids;
+        }
         public Appointment(DateTime date, int duration,int roomID,int doctorID, int patientID)
         {
+            this.patient = new Patient();
             this.timeBegin = date;
+            this.duration = 20;
             this.appointmentID = ++ids;
         }
 

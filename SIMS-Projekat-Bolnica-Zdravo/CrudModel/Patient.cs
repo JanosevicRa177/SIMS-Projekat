@@ -9,23 +9,24 @@ namespace CrudModel
 {
    public class Patient : User
    {
-        
-
-      public int personalInsuranceNumber
+    
+        public Patient(Gender gender,string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
         {
-            set;
-            get;
+            this.userID = User.generateID();
+            this.gender = gender;
+            this.personalInsuranceNumber = personalInsuranceNumber;
         }
+        
+ 
         public Gender gender
         {
             set;
             get;
         }
-        static int ids = -1;
         public Patient(String name, String surname, Address address, String password,
-            String mobilePhone, String mail,Gender gender, int personalInsuranceNumber)
+            String mobilePhone, String mail,Gender gender)
         {
-            userID = ++ids;
+            userID = User.generateID();
             this.name = name;
             this.surname = surname;
             this.address = address;
@@ -33,20 +34,16 @@ namespace CrudModel
             this.mobilePhone = mobilePhone;
             this.mail = mail;
             this.gender = gender;
-            this.personalInsuranceNumber = personalInsuranceNumber;
         }
         public MedicalRecord medicalRecord
         {
             set;
             get;
         }
-        public System.Collections.Generic.List<Note> notes
-        {
-            set;
-            get;
-        }
 
-        public System.Collections.Generic.List<Note> Notes
+      
+
+        public System.Collections.Generic.List<Note> notes
       {
          get
          {
