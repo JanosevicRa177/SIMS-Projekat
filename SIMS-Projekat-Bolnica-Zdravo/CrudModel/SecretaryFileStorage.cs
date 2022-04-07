@@ -4,6 +4,7 @@
 // Purpose: Definition of Class SecretaryFileStorage
 
 using System;
+using System.Collections.Generic;
 
 namespace CrudModel
 {

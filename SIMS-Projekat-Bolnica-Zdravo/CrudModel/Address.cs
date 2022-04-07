@@ -8,6 +8,12 @@ using System;
 namespace CrudModel
 {
    public class Address { 
+    public Address(String country,String city,String street)
+        {
+            this.country = country;
+            this.city = city;
+            this.street = street;
+        }
 
       public String country
     {

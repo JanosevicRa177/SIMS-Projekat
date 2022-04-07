@@ -4,11 +4,16 @@
 // Purpose: Definition of Class Specialization
 
 using System;
+using System.Collections.Generic;
 
 namespace CrudModel
 {
    public class Specialization
    {
+      public Specialization(String spec)
+        {
+            this.specializations = spec;
+        }
       public String specializations
         {
             set;

@@ -9,6 +9,17 @@ namespace CrudModel
 {
    public class Doctor : User
    {
+      public Doctor(int id,String name, String surname,String email,String password,Address address,String phone,Specialization spec)
+        {
+            this.userID = id;
+            this.name = name;
+            this.surname = surname;
+            this.mail = email;
+            this.address = address;
+            this.password = password;
+            this.mobilePhone = phone;
+            this.specialization = spec;
+        }
       public Specialization specialization
         {
             set;
@@ -20,6 +31,7 @@ namespace CrudModel
             set;
             get;
         }
+      
 
         /// <summary>
         /// Property for collection of Appointment
@@ -61,11 +73,12 @@ namespace CrudModel
          }
       }
       
-      /// <summary>
-      /// Remove an existing Appointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
-      public void RemoveAppointment(Appointment oldAppointment)
+
+        /// <summary>
+        /// Remove an existing Appointment from the collection
+        /// </summary>
+        /// <pdGenerated>Default Remove</pdGenerated>
+        public void RemoveAppointment(Appointment oldAppointment)
       {
          if (oldAppointment == null)
             return;
