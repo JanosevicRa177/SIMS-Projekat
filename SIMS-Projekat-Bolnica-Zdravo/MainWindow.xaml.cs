@@ -43,7 +43,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
         private void Pacijent_Click(object sender, RoutedEventArgs e)
         {
-            Patient pt = new Patient();
+            PatientWindow pt = new PatientWindow();
             pt.Show();
             this.Close();
         }

@@ -7,10 +7,14 @@ using System;
 
 namespace CrudModel
 {
-   public class Patient : User
-   {
+    public class Patient : User
+    {
 
-        public Patient(Gender gender,string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
+        public Patient() : base()
+        {
+
+        }
+        public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
         {
             this.userID = User.generateID();
             this.gender = gender;
@@ -21,72 +25,62 @@ namespace CrudModel
             set;
             get;
         }
-
         public MedicalRecord medicalRecord
         {
             set;
             get;
         }
 
-        /// <summary>
-        /// Property for collection of Note
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.Generic.List<Note> note
-      {
-         get
-         {
-            if (note == null)
-               note = new System.Collections.Generic.List<Note>();
-            return note;
-         }
-         set
-         {
-            RemoveAllNote();
-            if (value != null)
+
+
+        public System.Collections.Generic.List<Note> notes
+        {
+            set;
+            get;
+        }
+
+        public System.Collections.Generic.List<Note> Notes
+        {
+            get
             {
-               foreach (Note oNote in value)
-                  AddNote(oNote);
+                if (notes == null)
+                    notes = new System.Collections.Generic.List<Note>();
+                return notes;
             }
-         }
-      }
-      
-      /// <summary>
-      /// Add a new Note in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
-      public void AddNote(Note newNote)
-      {
-         if (newNote == null)
-            return;
-         if (this.note == null)
-            this.note = new System.Collections.Generic.List<Note>();
-         if (!this.note.Contains(newNote))
-            this.note.Add(newNote);
-      }
-      
-      /// <summary>
-      /// Remove an existing Note from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
-      public void RemoveNote(Note oldNote)
-      {
-         if (oldNote == null)
-            return;
-         if (this.note != null)
-            if (this.note.Contains(oldNote))
-               this.note.Remove(oldNote);
-      }
-      
-      /// <summary>
-      /// Remove all instances of Note from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
-      public void RemoveAllNote()
-      {
-         if (note != null)
-            note.Clear();
-      }
-   
-   }
+            set
+            {
+                RemoveAllNote();
+                if (value != null)
+                {
+                    foreach (Note oNote in value)
+                        AddNote(oNote);
+                }
+            }
+        }
+
+        public void AddNote(Note newNote)
+        {
+            if (newNote == null)
+                return;
+            if (this.notes == null)
+                this.notes = new System.Collections.Generic.List<Note>();
+            if (!this.notes.Contains(newNote))
+                this.notes.Add(newNote);
+        }
+
+        public void RemoveNote(Note oldNote)
+        {
+            if (oldNote == null)
+                return;
+            if (this.notes != null)
+                if (this.notes.Contains(oldNote))
+                    this.notes.Remove(oldNote);
+        }
+        public void RemoveAllNote()
+        {
+            if (notes != null)
+                notes.Clear();
+        }
+
+    }
 }

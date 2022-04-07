@@ -7,21 +7,23 @@ using System;
 
 namespace CrudModel
 {
-   public class Address { 
+   public class Address {
 
 
-    public Address(string country, string city,string street,string number)
+       public Address(String country, String city, String street, String number) 
         {
             this.country = country;
             this.city = city;
             this.street = street;
             this.number = number;
         }
-      public String country
-    {
-        set;
-        get;
-    }
+
+
+          public String country
+        {
+            set;
+            get;
+        }
 
       public String city
         {
