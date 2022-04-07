@@ -10,7 +10,7 @@ namespace CrudModel
 {
    public class SpecializationFileStorage
    {
-        List<Specialization> specializationList;
+        static public List<Specialization> specializationList = new List<Specialization>();
       public bool CreateSpecialization(Specialization newSpecialization)
       {
          throw new NotImplementedException();

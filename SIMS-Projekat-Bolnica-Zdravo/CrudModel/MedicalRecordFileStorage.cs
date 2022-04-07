@@ -10,7 +10,7 @@ namespace CrudModel
 {
    public class MedicalRecordFileStorage
    {
-        List<MedicalRecord> medicalRecordList;
+        static public List<MedicalRecord> medicalRecordList = new List<MedicalRecord>();
       public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
       {
          throw new NotImplementedException();

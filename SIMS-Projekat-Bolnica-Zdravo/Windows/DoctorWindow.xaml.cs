@@ -1,5 +1,4 @@
-﻿using CrudModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +15,19 @@ using System.Windows.Shapes;
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
     /// <summary>
-    /// Interaction logic for Doctor.xaml
+    /// Interaction logic for DoctorWindow.xaml
     /// </summary>
-    public partial class Doctor : Window
+    public partial class DoctorWindow : Window
     {
-        public Doctor()
+        public DoctorWindow()
         {
             InitializeComponent();
         }
 
         private void addAppointment_Click(object sender, RoutedEventArgs e)
         {
-            addAppointmentDialogDoctor Dia = new addAppointmentDialogDoctor();
-            Dia.ShowDialog();
+            addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor();
+            dia.Show();
         }
     }
 }

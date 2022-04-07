@@ -6,46 +6,85 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         Title="addAppointmentDialogDoctor" Height="450" Width="800">
-    <Grid>
+    <Grid Name="firstgrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row = "5" Content="Create" Margin="261,1,261,0" HorizontalAlignment="Center" Width="270" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"
-                Name="createAppointmentDoctor" Click="createAppointmentDoctor_Click">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.589"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.74"/>
-                </TransformGroup>
-            </Button.RenderTransform>
+        <Grid Grid.Column="1" Grid.Row="3" Name="secondgrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="271*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="236*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Button Grid.Row = "6" Content="Create" FontSize="33" Grid.ColumnSpan="3"
+                Name="createAppointmentDoctor" Click="createAppointmentDoctor_Click" Grid.Column="1" Width="453">
         </Button>
-        <Label Content="Patient:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="152" Height="50"
-               FontSize="34"></Label>
-        <TextBlock x:Name="patientsName" Grid.Column="1" Margin="0,10,10,10" >
-            
-        </TextBlock>
-        <Label Content="Doctor:" Grid.Column="0"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="214" Height="50"
-               FontSize="34" Grid.Row="1"></Label>
-        <Label Content="Datum:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="152" Height="50"
-               FontSize="34" Grid.Row="2"></Label>
-        <Label Content="Duration:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="214" Height="50"
-               FontSize="34" Grid.Row="3"></Label>
-        <Label Content="Room:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="26,10,0,10" Width="214" Height="50"
-               FontSize="34" Grid.Row="4"></Label>
-        <TextBlock x:Name="doctorsName" Grid.Column="1" Margin="10,10,0,10" Grid.Row="1" />
-        <TextBlock x:Name="dateYear" Grid.Column="1" Margin="10,10,0,10" Grid.Row="2" />
-        <TextBlock x:Name="duration" Grid.Column="1" Margin="10,10,0,10" Grid.Row="3" />
-        <TextBlock x:Name="room" Grid.Column="1" Margin="10,10,0,10" Grid.Row="4" />
+        <TextBlock
+               FontSize="34" Grid.Column="1" Grid.Row="1">PatientID:</TextBlock>
+
+        <TextBlock  Grid.Column="1"
+               FontSize="34" Grid.Row="2">DoctorID:</TextBlock>
+        <TextBlock
+               FontSize="34" Grid.Row="3" Grid.Column="1">Duration:</TextBlock>
+        <TextBlock
+               FontSize="34" Grid.Row="5" Grid.Column="1">RoomID:</TextBlock>
+        <TextBlock
+               FontSize="34" Grid.Row="4" Grid.Column="1">Date:</TextBlock>
+        <TextBox x:Name="patientsName" Grid.Column="2"  Grid.Row="1" FontSize="34" Margin="5"/>
+        <TextBox x:Name="doctorsName" Grid.Column="2"  Grid.Row="2" FontSize="34" Margin="5"/>
+        <TextBox x:Name="duiration" Grid.Column="2"  Grid.Row="3" FontSize="34" Margin="5"/>
+        <TextBox x:Name="room" Grid.Column="2" Grid.Row="5" FontSize="34" Margin="5"/>
+        <Grid Grid.Column="2" Grid.Row="4" x:Name="secondgrid_Copy">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="dayaddAppointmentDialogDoctor" 
+                FontSize="34" Grid.Column="1" Width="50" Margin="5"/>
+            <TextBlock FontSize="34" Grid.Column="2">/</TextBlock>
+            <TextBox x:Name="monthaddAppointmentDialogDoctor" Grid.Column="3" 
+                FontSize="34" Width="50" Margin="5"/>
+            <TextBlock FontSize="34" Grid.Column="4">/</TextBlock>
+            <TextBox x:Name="yearaddAppointmentDialogDoctor" 
+                FontSize="34" Grid.Column="5" Margin="5,5,20,5" Width="100"/>
+            <TextBlock FontSize="34" Grid.Column="6" Margin="5">Time:</TextBlock>
+            <TextBox x:Name="houraddAppointmentDialogDoctor" 
+                FontSize="34" Grid.Column="7" Margin="5" Width="50"/>
+            <TextBlock FontSize="34" Grid.Column="8">:</TextBlock>
+            <TextBox x:Name="minuteaddAppointmentDialogDoctor" 
+                FontSize="34" Grid.Column="9" Margin="5,5,0,5" Width="50"/>
+        </Grid>
+        <TextBox x:Name="xd" 
+                FontSize="34" Grid.Row="7" Width="100" Grid.Column="1" Margin="5" Text="{Binding ElementName=xwed,Path=Value,UpdateSourceTrigger=LostFocus}"/>
+        <Slider x:Name="xwed" 
+                FontSize="34" Grid.Row="7" Grid.Column="2" Width="500" Margin="10,21,10,10" Value="{Binding Test, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="30" Maximum="180"/>
     </Grid>
 </Window>

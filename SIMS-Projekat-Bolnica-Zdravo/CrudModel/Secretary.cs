@@ -9,13 +9,17 @@ namespace CrudModel
 {
    public class Secretary : User
    {
-      public System.Collections.Generic.List<Meeting> meeting;
-      
-      /// <summary>
-      /// Property for collection of Meeting
-      /// </summary>
-      /// <pdGenerated>Default opposite class collection property</pdGenerated>
-      public System.Collections.Generic.List<Meeting> Meeting
+      public System.Collections.Generic.List<Meeting> meeting
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// Property for collection of Meeting
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public System.Collections.Generic.List<Meeting> Meeting
       {
          get
          {

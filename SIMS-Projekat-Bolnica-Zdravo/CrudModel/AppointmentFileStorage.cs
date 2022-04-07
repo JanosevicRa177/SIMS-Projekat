@@ -13,7 +13,7 @@ namespace CrudModel
    public class AppointmentFileStorage
    {
 
-       List<Appointment> appointmentList;
+        static public List<Appointment> appointmentList = new List<Appointment>();
         public bool CreateAppointment(Appointment newAppointment)
       {
          throw new NotImplementedException();

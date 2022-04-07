@@ -58,8 +58,8 @@
     <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Doctor.xaml.cs">
-      <DependentUpon>Doctor.xaml</DependentUpon>
+    <Compile Include="Windows\DoctorWindow.xaml.cs">
+      <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Manager.xaml.cs">
       <DependentUpon>Manager.xaml</DependentUpon>
@@ -114,7 +114,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Doctor.xaml">
+    <Page Include="Windows\DoctorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

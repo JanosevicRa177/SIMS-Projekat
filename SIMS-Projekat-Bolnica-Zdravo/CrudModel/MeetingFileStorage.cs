@@ -10,7 +10,7 @@ namespace CrudModel
 {
    public class MeetingFileStorage
    {
-        List<Meeting> meetingList;
+        static public List<Meeting> meetingList = new List<Meeting>();
       public bool CreateMeeting(Meeting newMeeting)
       {
          throw new NotImplementedException();

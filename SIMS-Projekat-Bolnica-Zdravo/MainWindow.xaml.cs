@@ -1,6 +1,7 @@
 ﻿using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
         private void Lekar_Click(object sender, RoutedEventArgs e)
         {
-            Doctor dr = new Doctor();
+            DoctorWindow dr = new DoctorWindow();
             dr.Show();
             this.Close();
         }

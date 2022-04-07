@@ -10,7 +10,7 @@ namespace CrudModel
 {
    public class PatientFileStorage
    {
-        List<Patient> patientList;
+        static public List<Patient> patientList = new List<Patient>();
       public bool CreatePatient(Patient newPatient)
       {
          throw new NotImplementedException();

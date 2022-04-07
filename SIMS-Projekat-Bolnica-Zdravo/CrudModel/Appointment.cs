@@ -9,7 +9,9 @@ namespace CrudModel
 {
    public class Appointment
    {
-      public DateTime timeBegin
+        static int ids = -1;
+
+        public DateTime timeBegin
         {
             set;
             get;
@@ -30,17 +32,25 @@ namespace CrudModel
             set;
             get;
         }
-        public MedicalRecord medicalRecord
+
+        public Appointment(DateTime date, int duration,int roomID,int doctorID, int patientID)
         {
-            set;
-            get;
+            this.timeBegin = date;
+            this.appointmentID = ++ids;
         }
+
+        public Appointment(DateTime dateTime)
+        {
+            this.timeBegin = dateTime;
+        }
+
+
 
         /// <summary>
         /// Property for MedicalRecord
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
-        public MedicalRecord MedicalRecord
+        public MedicalRecord medicalRecord
       {
          get
          {
@@ -64,17 +74,12 @@ namespace CrudModel
             }
          }
       }
-      public Doctor doctor
-        {
-            set;
-            get;
-        }
 
         /// <summary>
         /// Property for Doctor
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
-        public Doctor Doctor
+        public Doctor doctor
       {
          get
          {

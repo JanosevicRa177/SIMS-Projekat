@@ -4,13 +4,14 @@
 // Purpose: Definition of Class SecretaryFileStorage
 
 using System;
+using System.Collections.Generic;
 
 namespace CrudModel
 {
    public class SecretaryFileStorage
    {
 
-        List<Secretary> secretaryList;
+        static public List<Secretary> secretaryList = new List<Secretary>();
       public bool CreateSecretary(Secretary newSecretary)
       {
          throw new NotImplementedException();

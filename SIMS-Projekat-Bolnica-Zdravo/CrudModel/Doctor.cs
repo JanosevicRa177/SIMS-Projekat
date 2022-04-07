@@ -9,7 +9,7 @@ namespace CrudModel
 {
    public class Doctor : User
    {
-      public Specialization specialization
+        public Specialization specialization
         {
             set;
             get;
@@ -57,7 +57,7 @@ namespace CrudModel
          if (!this.appointment.Contains(newAppointment))
          {
             this.appointment.Add(newAppointment);
-            newAppointment.Doctor = this;
+            newAppointment.doctor = this;
          }
       }
       
@@ -73,7 +73,7 @@ namespace CrudModel
             if (this.appointment.Contains(oldAppointment))
             {
                this.appointment.Remove(oldAppointment);
-               oldAppointment.Doctor = null;
+               oldAppointment.doctor = null;
             }
       }
       
@@ -90,7 +90,7 @@ namespace CrudModel
                tmpAppointment.Add(oldAppointment);
             appointment.Clear();
             foreach (Appointment oldAppointment in tmpAppointment)
-               oldAppointment.Doctor = null;
+               oldAppointment.doctor = null;
             tmpAppointment.Clear();
          }
       }

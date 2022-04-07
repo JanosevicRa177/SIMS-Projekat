@@ -10,7 +10,7 @@ namespace CrudModel
 {
    public class EquipmentFileStorage
    {
-        List<Equipment> listEquipment;
+        static public List<Equipment> listEquipment = new List<Equipment>();
       public bool CreateEquipment(Equipment newEquipment)
       {
          throw new NotImplementedException();

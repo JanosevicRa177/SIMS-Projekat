@@ -10,7 +10,7 @@ namespace CrudModel
 {
    public class WarehouseFileStorage
    {
-        List<Warehouse> warehouseList;
+        static public List<Warehouse> warehouseList = new List<Warehouse>();
       public bool CreateWarehouse(Warehouse newWarehouse)
       {
          throw new NotImplementedException();

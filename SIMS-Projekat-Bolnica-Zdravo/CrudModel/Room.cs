@@ -9,6 +9,10 @@ namespace CrudModel
 {
    public class Room
    {
+        public Room()
+        {
+
+        }
       public bool AddEquipment()
       {
          throw new NotImplementedException();

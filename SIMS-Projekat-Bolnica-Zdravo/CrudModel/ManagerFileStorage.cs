@@ -11,7 +11,7 @@ namespace CrudModel
    public class ManagerFileStorage
    {
 
-        List<Manager> managerList;
+        static public List<Manager> managerList = new List<Manager>();
       public bool CreateManager(Manager newManager)
       {
          throw new NotImplementedException();

@@ -11,7 +11,7 @@ namespace CrudModel
    public class NoteFileStorage
    {
 
-        List<Note> noteList;
+        static public List<Note> noteList = new List<Note>();
       public bool CreateNote(Note newNote)
       {
          throw new NotImplementedException();

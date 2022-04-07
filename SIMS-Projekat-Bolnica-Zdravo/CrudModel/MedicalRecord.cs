@@ -62,7 +62,7 @@ namespace CrudModel
          if (!this.appointment.Contains(newAppointment))
          {
             this.appointment.Add(newAppointment);
-            newAppointment.MedicalRecord = this;
+            newAppointment.medicalRecord = this;
          }
       }
       
@@ -78,7 +78,7 @@ namespace CrudModel
             if (this.appointment.Contains(oldAppointment))
             {
                this.appointment.Remove(oldAppointment);
-               oldAppointment.MedicalRecord = null;
+               oldAppointment.medicalRecord = null;
             }
       }
       
@@ -95,7 +95,7 @@ namespace CrudModel
                tmpAppointment.Add(oldAppointment);
             appointment.Clear();
             foreach (Appointment oldAppointment in tmpAppointment)
-               oldAppointment.MedicalRecord = null;
+               oldAppointment.medicalRecord = null;
             tmpAppointment.Clear();
          }
       }

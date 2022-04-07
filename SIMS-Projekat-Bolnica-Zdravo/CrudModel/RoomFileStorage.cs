@@ -4,12 +4,13 @@
 // Purpose: Definition of Class RoomFileStorage
 
 using System;
+using System.Collections.Generic;
 
 namespace CrudModel
 {
    public class RoomFileStorage
    {
-        List<Room> roomList;
+        static public List<Room> roomList = new List<Room>();
       public bool CreateRoom(Room newRoom)
       {
          throw new NotImplementedException();
