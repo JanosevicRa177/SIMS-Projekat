@@ -9,27 +9,28 @@ namespace CrudModel
 {
    public class MedicalRecord
    {
+        public static int ids = -1;
       public int medicalRecordID
         {
             set;
             get;
         }
-        public int bloodType
+        public BloodType bloodType
         {
             set;
             get;
         }
-
+        public MedicalRecord(BloodType bloodType) 
+        {
+            medicalRecordID = ++ids;
+            this.bloodType = bloodType;
+        }
         public System.Collections.Generic.List<Appointment> appointment
         {
             set;
             get;
         }
 
-        /// <summary>
-        /// Property for collection of Appointment
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
         public System.Collections.Generic.List<Appointment> Appointment
       {
          get
@@ -49,10 +50,6 @@ namespace CrudModel
          }
       }
       
-      /// <summary>
-      /// Add a new Appointment in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
       public void AddAppointment(Appointment newAppointment)
       {
          if (newAppointment == null)
@@ -65,11 +62,7 @@ namespace CrudModel
             newAppointment.medicalRecord = this;
          }
       }
-      
-      /// <summary>
-      /// Remove an existing Appointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
+
       public void RemoveAppointment(Appointment oldAppointment)
       {
          if (oldAppointment == null)
@@ -82,10 +75,6 @@ namespace CrudModel
             }
       }
       
-      /// <summary>
-      /// Remove all instances of Appointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
       public void RemoveAllAppointment()
       {
          if (appointment != null)

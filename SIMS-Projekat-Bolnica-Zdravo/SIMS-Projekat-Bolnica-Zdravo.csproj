@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CrudModel\Gender.cs" />
     <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
@@ -64,8 +65,14 @@
     <Compile Include="Windows\Manager.xaml.cs">
       <DependentUpon>Manager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Patient.xaml.cs">
-      <DependentUpon>Patient.xaml</DependentUpon>
+    <Compile Include="Windows\PatientNotes.xaml.cs">
+      <DependentUpon>PatientNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NoteWindow.xaml.cs">
+      <DependentUpon>NoteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PatientWindow.xaml.cs">
+      <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Secretary.xaml.cs">
       <DependentUpon>Secretary.xaml</DependentUpon>
@@ -100,7 +107,6 @@
     <Compile Include="CrudModel\RoomFileStorage.cs" />
     <Compile Include="CrudModel\Secretary.cs" />
     <Compile Include="CrudModel\SecretaryFileStorage.cs" />
-    <Compile Include="CrudModel\SexType.cs" />
     <Compile Include="CrudModel\Specialization.cs" />
     <Compile Include="CrudModel\SpecializationFileStorage.cs" />
     <Compile Include="CrudModel\User.cs" />
@@ -122,7 +128,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Patient.xaml">
+    <Page Include="Windows\PatientNotes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\NoteWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\PatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
