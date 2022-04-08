@@ -54,7 +54,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void createAppointmentDoctor_Click(object sender, RoutedEventArgs e)
         {
-            Appointment a = new Appointment(appointmentDate.SelectedDate.Value, int.Parse(houraddAppointmentDialogDoctor.Text), int.Parse(minuteaddAppointmentDialogDoctor.Text), int.Parse(duration.Text), (Room)roomID.SelectedItem, (Doctor)doctorsCB.SelectedItem, this.pat,desc);
+            Appointment a = new Appointment(appointmentDate.SelectedDate.Value, int.Parse(houraddAppointmentDialogDoctor.Text), int.Parse(minuteaddAppointmentDialogDoctor.Text), int.Parse(duration.Text), (Room)roomID.SelectedItem, (Doctor)doctorsCB.SelectedItem,desc,pat);
             AppointmentFileStorage.appointmentList.Add(a);
             this.Close();
         }

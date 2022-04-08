@@ -36,9 +36,9 @@
         <TextBlock Text="All appointments" FontSize="50" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1" Margin="5"/>
         <DataGrid IsReadOnly="True" Height="300"  Grid.RowSpan="2" VerticalAlignment="Top" FontSize="30" SelectionMode="Single" Name="Appointments"  Grid.Column="2" Grid.Row="2" ItemsSource="{Binding appointmentList}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="patname" Header="Patients name" Binding="{Binding patient.name}"/>
-                <DataGridTextColumn x:Name="patsurname" Header="Patients surname" Binding="{Binding patient.surname}"/>
-                <DataGridTextColumn x:Name="patid" Header="Patients ID" Binding="{Binding patient.userID}"/>
+                <DataGridTextColumn x:Name="patname" Header="Patients name" Binding="{Binding medicalRecord.patient.name}"/>
+                <DataGridTextColumn x:Name="patsurname" Header="Patients surname" Binding="{Binding medicalRecord.patient.surname}"/>
+                <DataGridTextColumn x:Name="patid" Header="Patients ID" Binding="{Binding medicalRecord.patient.userID}"/>
                 <DataGridTextColumn x:Name="room" Header="Room" Binding="{Binding  room.name}"/>
                 <DataGridTextColumn x:Name="date" Header="Date" Binding="{Binding date}"/>
                 <DataGridTextColumn x:Name="time" Header="Time" Binding="{Binding time}"/>

@@ -15,6 +15,7 @@ namespace CrudModel
         {
             this.userID = User.generateID();
             this.gender = gender;
+            medicalRecord = new MedicalRecord(BloodType.b,this);
         }
 
         public Gender gender
@@ -22,12 +23,7 @@ namespace CrudModel
             set;
             get;
         }
-        public MedicalRecord medicalRecord
-        {
-            set;
-            get;
-        }
-
+        public MedicalRecord medicalRecord;
 
 
         public System.Collections.Generic.List<Note> notes

@@ -55,7 +55,10 @@ namespace CrudModel
             }
          }
       }
-      
+        public String getDoctorNameAndSurname()
+        {
+            return name + surname;
+        }
       /// <summary>
       /// Add a new Appointment in the collection
       /// </summary>

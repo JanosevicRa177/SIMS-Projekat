@@ -20,8 +20,9 @@ namespace CrudModel
             set;
             get;
         }
-        public MedicalRecord(BloodType bloodType) 
+        public MedicalRecord(BloodType bloodType,Patient pat) 
         {
+            patient = pat;
             medicalRecordID = ++ids;
             this.bloodType = bloodType;
         }
@@ -88,11 +89,7 @@ namespace CrudModel
             tmpAppointment.Clear();
          }
       }
-      public Patient patient
-        {
-            set;
-            get;
-        }
+        public Patient patient;
 
     }
 }

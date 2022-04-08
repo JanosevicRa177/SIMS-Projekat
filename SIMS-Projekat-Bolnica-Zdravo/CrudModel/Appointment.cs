@@ -33,12 +33,6 @@ namespace CrudModel
             set;
             get;
         }
-
-        public Patient patient
-        {
-            get;
-            set;
-        }
         public int appointmentID
         {
             set;
@@ -63,9 +57,9 @@ namespace CrudModel
             get;
         }
 
-        public Appointment(DateTime date,int hour,int minute,int duration,Room room,Doctor doc,Patient pat,string description)
+        public Appointment(DateTime date,int hour,int minute,int duration,Room room,Doctor doc,string description,Patient pat)
         {
-            this.patient = pat;
+            this.medicalRecord = pat.medicalRecord;
             this.doctor = doc;
             this.timeBegin = date;
             this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();

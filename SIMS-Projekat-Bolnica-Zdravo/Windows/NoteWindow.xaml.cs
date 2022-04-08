@@ -105,8 +105,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         private void ConfirmNote(object sender, RoutedEventArgs e)
         {
-            oldNoteName = note.noteName;
-            oldNoteContent = note.noteContent;
+            PatientNotes pn = new PatientNotes();
+            pn.Show();
+            this.Close();
         }
     }
 }

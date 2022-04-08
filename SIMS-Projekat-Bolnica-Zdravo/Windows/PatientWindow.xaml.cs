@@ -1,6 +1,8 @@
 ﻿using CrudModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,20 +17,26 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class PatientWindow : Window
+    public partial class PatientWindow : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
         static public Patient loggedPatient
         {
             get;
             set;
         }
-
-
         public PatientWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
-            new PatientFileStorage();
+            this.DataContext =  new DoctorFileStorage();
             if (loggedPatient == null) 
             {
                 Patient p = new Patient(Gender.male,"Mika", "Mikic",new Address("Srbija","Novi Sad","Ive Andrica", "23"),
@@ -53,6 +61,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Appointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void AddAppointment(object sender, RoutedEventArgs e)
+        {
+            AddAppointmentDialogPatient Add = new AddAppointmentDialogPatient();
+            Add.Show();
+            this.Close();
         }
     }
 }
