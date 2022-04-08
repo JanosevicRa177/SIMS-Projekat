@@ -14,7 +14,10 @@ namespace CrudModel
    public class AppointmentFileStorage
    {
 
-        public static ObservableCollection<Appointment> appointmentList { get; set; }
+        public static ObservableCollection<Appointment> appointmentList { 
+            get; 
+            set; 
+        }
 
         public AppointmentFileStorage()
         {

@@ -19,8 +19,8 @@ namespace CrudModel
             if (patientList == null)
             {
                 patientList = new ObservableCollection<Patient>();
-                //Patient p = new Patient(Gender.male,"Jovan","Jovanovic",new Address());
-               // patientList.Add(p);
+                Patient p = new Patient(Gender.male,"Jovan","Jovanovic",new Address("Serbia", "Novi sad", "Milsa Obilica", "21a"),"lozinka123","0624563211","jovanjovanoviczmaj@gmail.com");
+                patientList.Add(p);
             }
         }
      
@@ -40,14 +40,17 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public Patient GetPatientByID(int userID)
+      public static Patient GetPatientByID(int id)
       {
-         throw new NotImplementedException();
+         foreach (Patient p in patientList) {
+                if (p.userID == id) return p;
+         }
+            return null;
       }
       
-      public List<Patient> GetAllPatients()
+      public ObservableCollection<Patient> GetAllPatients()
       {
-         throw new NotImplementedException();
+            return patientList;
       }
    
    }

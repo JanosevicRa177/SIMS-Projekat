@@ -28,9 +28,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void addAppointment_Click(object sender, RoutedEventArgs e)
         {
-            addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor();
-            dia.Show();
-            Appointments.Items.Refresh();
+            _1addAppointmentDialogDoctor dia = new _1addAppointmentDialogDoctor();
+            dia.ShowDialog();
+        }
+
+        private void deleteAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            if (Appointments.SelectedIndex == -1 ) { MessageBox.Show("no row selected!"); return; }
+            AppointmentFileStorage.appointmentList.RemoveAt(Appointments.SelectedIndex);
         }
     }
 }

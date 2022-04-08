@@ -10,11 +10,8 @@ namespace CrudModel
     public class Patient : User
     {
 
-        public Patient() : base()
-        {
-
-        }
-        public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
+        
+        public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
         {
             this.userID = User.generateID();
             this.gender = gender;
