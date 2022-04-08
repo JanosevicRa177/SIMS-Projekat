@@ -1,4 +1,5 @@
-﻿using SIMS_Projekat_Bolnica_Zdravo.Windows;
+﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,12 +25,24 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     {
         public MainWindow()
         {
+            new AppointmentFileStorage();
+            new SpecializationFileStorage();
+            new DoctorFileStorage();
+            new PatientFileStorage();
+            new RoomFileStorage();
+            Console.WriteLine("shadiosad");
             InitializeComponent();
+            //new EquipmentFileStorage();
+            //new MedicalRecordFileStorage();
+            //new MeetingFileStorage();
+            //new NoteFileStorage();
+            //new SecretaryFileStorage();
+            //new WarehouseFileStorage();
         }
 
         private void Sekretar_Click_1(object sender, RoutedEventArgs e)
         {
-            Secretary sc = new Secretary();
+            Windows.Secretary sc = new Windows.Secretary();
             sc.Show();
             this.Close();
         }
@@ -50,7 +63,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
         private void Upravnik_Click(object sender, RoutedEventArgs e)
         {
-            Manager mn = new Manager();
+            Windows.Manager mn = new Windows.Manager();
             mn.Show();
             this.Close();
         }

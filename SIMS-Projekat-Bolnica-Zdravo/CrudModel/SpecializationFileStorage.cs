@@ -10,7 +10,21 @@ namespace CrudModel
 {
    public class SpecializationFileStorage
    {
-        static public List<Specialization> specializationList = new List<Specialization>();
+        static public List<Specialization> specializationList
+        {
+            set;
+            get;
+        }
+
+        public SpecializationFileStorage()
+        {
+            if (specializationList == null)
+            {
+                specializationList = new List<Specialization>();
+                Specialization sp = new Specialization("kardiohirurg");
+                specializationList.Add(sp);
+            }
+        }
       public bool CreateSpecialization(Specialization newSpecialization)
       {
          throw new NotImplementedException();

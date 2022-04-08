@@ -21,6 +21,7 @@ namespace CrudModel
             set;
             get;
         }
+
       public bool AddEquipment()
       {
          throw new NotImplementedException();

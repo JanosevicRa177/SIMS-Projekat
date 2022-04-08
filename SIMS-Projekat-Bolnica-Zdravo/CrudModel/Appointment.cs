@@ -11,6 +11,18 @@ namespace CrudModel
    {
         static int ids = -1;
 
+        public string date
+        {
+            set;
+            get;
+        }
+
+        public string time
+        {
+            set;
+            get;
+        }
+
         public DateTime timeBegin
         {
             set;
@@ -33,31 +45,63 @@ namespace CrudModel
             get;
         }
 
+        public int hour
+        {
+            set;
+            get;
+        }
+
+        public int minute
+        {
+            set;
+            get;
+        }
+
         public Room room
         {
             set;
             get;
         }
 
-        public Appointment()
+        public Appointment(DateTime date,int hour,int minute,int duration,Room room,Doctor doc,Patient pat,string description)
         {
-            this.patient = new Patient();
-            this.duration = 20;
-            this.appointmentID = ++ids;
-        }
-        public Appointment(DateTime date, int duration,int roomID,int doctorID, int patientID)
-        {
-            this.patient = new Patient();
+            this.patient = pat;
+            this.doctor = doc;
             this.timeBegin = date;
-            this.duration = 20;
+            this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();
+            this.duration = duration;
+            this.hour = hour;
+            this.minute = minute;
+            setTime();
+            this.room = room;
             this.appointmentID = ++ids;
+            this.description = description;
         }
 
-        public Appointment(DateTime dateTime)
+        public string description
         {
-            this.timeBegin = dateTime;
+            set;
+            get;
         }
 
+        private void setTime()
+        {
+            string var1 = "";
+            string vars = "";
+            string var5 = "";
+            string var6 = "";
+            int var = (this.minute + this.duration) % 60;
+            int var2 = (this.minute + this.duration) / 60;
+            int var3 = this.hour + var2;
+            if (var3 >= 24) var3 -= 24;
+            if (var3 <= 9) var1 = "0";
+            if (var <= 9) vars = "0";
+            if (this.hour <= 9) var5 = "0";
+            if (this.minute <= 9) var6 = "0";
+            this.time = var5 + this.hour.ToString() + ":" + var6 +this.minute.ToString();
+            this.time += " - " + var1 + var3;
+            this.time += ":" + vars + var;
+        }
 
 
         /// <summary>
@@ -93,8 +137,13 @@ namespace CrudModel
         /// Property for Doctor
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
+        /// 
         public Doctor doctor
-      {
+        {
+            set;
+            get;
+        }
+        public Doctor Doctor { 
          get
          {
             return doctor;

@@ -11,7 +11,11 @@ namespace CrudModel
 {
    public class RoomFileStorage
    {
-        static public ObservableCollection<Room> roomList = new ObservableCollection<Room>();
+        static public ObservableCollection<Room> roomList
+        {
+            set;
+            get;
+        }
 
         public RoomFileStorage()
         {
@@ -37,9 +41,14 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public Room GetRoomByID(int roomID)
+      public static Room GetRoomByID(int ID)
       {
-         throw new NotImplementedException();
+         foreach(Room r in roomList)
+            {
+                if (r.roomID == ID)
+                    return r;
+            }
+            return null;
       }
       
       public List<Room> GetAllRooms()

@@ -40,14 +40,17 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public Patient GetPatientByID(int userID)
+      public static Patient GetPatientByID(int id)
       {
-         throw new NotImplementedException();
+         foreach (Patient p in patientList) {
+                if (p.userID == id) return p;
+         }
+            return null;
       }
       
-      public List<Patient> GetAllPatients()
+      public ObservableCollection<Patient> GetAllPatients()
       {
-         throw new NotImplementedException();
+            return patientList;
       }
    
    }

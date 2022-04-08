@@ -5,12 +5,27 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class DoctorFileStorage
    {
-        static public List<Doctor> doctorList = new List<Doctor>();
+        static public ObservableCollection<Doctor> doctorList
+        {
+            set;
+            get;
+        }
+
+        public DoctorFileStorage()
+        {
+            if(doctorList == null)
+            {
+                doctorList = new ObservableCollection<Doctor>();
+                Doctor doca = new Doctor(SpecializationFileStorage.specializationList[0],"Milica","Milutinovic",new Address("Sirija","Beograd","Bulevar","21"),"123","0124454","milica@gmail.com");
+                doctorList.Add(doca);
+            }
+        }
       public bool CreateDoctor(Doctor newDoctor)
       {
          throw new NotImplementedException();
@@ -26,12 +41,19 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public Doctor GetDoctorByID(int doctorID)
+      public static Doctor GetDoctorByID(int doctorID)
       {
-         throw new NotImplementedException();
+         foreach(Doctor doc in doctorList)
+            {
+                if (doc.userID == doctorID)
+                {
+                    return doc;
+                }
+            }
+            return null;
       }
       
-      public List<Doctor> GetAllDoctors()
+      public ObservableCollection<Doctor> GetAllDoctors()
       {
             return doctorList;
          throw new NotImplementedException();

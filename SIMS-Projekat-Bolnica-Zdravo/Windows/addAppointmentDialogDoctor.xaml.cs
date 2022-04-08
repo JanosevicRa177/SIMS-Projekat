@@ -20,29 +20,43 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class addAppointmentDialogDoctor : Window
     {
-        public int Test
+        public Patient pat
         {
             set;
             get;
         }
-        public addAppointmentDialogDoctor()
+
+        public int dur
         {
-            Test = 30;
-            this.DataContext = this;
+            set;
+            get;
+        }
+
+        public string desc
+        {
+            set;
+            get;
+        }
+
+        public addAppointmentDialogDoctor(Patient pat,string desc)
+        {
+            this.pat = pat;
+            this.desc = desc;
             InitializeComponent();
+            this.DataContext = new
+            {
+                This = this,
+                Rooms = new RoomFileStorage(),
+                Docs = new DoctorFileStorage()
+            };
+
         }
 
         private void createAppointmentDoctor_Click(object sender, RoutedEventArgs e)
         {
-            Appointment a = new Appointment(new DateTime(int.Parse(yearaddAppointmentDialogDoctor.Text),int.Parse(monthaddAppointmentDialogDoctor.Text),int.Parse(dayaddAppointmentDialogDoctor.Text),int.Parse(houraddAppointmentDialogDoctor.Text),int.Parse(minuteaddAppointmentDialogDoctor.Text),0), int.Parse(duration.Text), int.Parse(room.Text), int.Parse(doctorsName.Text),int.Parse(patientsName.Text));
+            Appointment a = new Appointment(appointmentDate.SelectedDate.Value, int.Parse(houraddAppointmentDialogDoctor.Text), int.Parse(minuteaddAppointmentDialogDoctor.Text), int.Parse(duration.Text), (Room)roomID.SelectedItem, (Doctor)doctorsCB.SelectedItem, this.pat,desc);
             AppointmentFileStorage.appointmentList.Add(a);
             this.Close();
-        }
-
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            Test = (int)slider1.Value;
-            MessageBox.Show(Test.ToString());
         }
     }
 }
