@@ -49,5 +49,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             pn.Show();
             this.Close();
         }
+
+        private void Appointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
