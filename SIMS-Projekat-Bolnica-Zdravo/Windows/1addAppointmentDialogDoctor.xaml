@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
-        Title="New appointment" Height="450" Width="800">
+        Title="New appointment" Height="1000" Width="1820" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -21,11 +21,12 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel  Grid.Row="1" Grid.Column="4">
-            <RadioButton x:Name="Doc" Content="Doctor using app" FontSize="30" IsChecked="True"/>
-            <RadioButton x:Name="ADoc" Content="Another doctor" FontSize="30" />
-            <RadioButton x:Name="Spec" Content="Specialist" FontSize="30"/>
+            <RadioButton x:Name="Doc" Content="Doctor using app" FontSize="50" IsChecked="True" FontWeight="Black"/>
+            <RadioButton x:Name="ADoc" Content="Another doctor" FontSize="50" FontWeight="Black"/>
+            <RadioButton x:Name="Spec" Content="Specialist" FontSize="50" FontWeight="Black"/>
+            
         </StackPanel>
-        <DataGrid IsReadOnly="True" Name="PatientsG" ItemsSource="{Binding patientList}" Grid.Row="1" FontSize="25" Height="200" AutoGenerateColumns="False">
+        <DataGrid IsReadOnly="True" Name="PatientsG" ItemsSource="{Binding patientList}" Grid.Row="1" FontSize="60" Height="600" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>
@@ -33,10 +34,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="2" Grid.Column="4">
-        <TextBlock  FontSize="25" Text="Description of appointment:"/>
-        <TextBox FontSize="25" Height="auto" Name="desc"></TextBox>
+        <TextBlock  FontSize="50" Text="Description of appointment:"/>
+        <TextBox FontSize="50" Height="auto" Name="desc"></TextBox>
         </StackPanel>
-        <Button HorizontalAlignment="Right" x:Name="nextButton" Content="Next" Grid.Column="4" Grid.Row="3" FontSize="25" Height="40" Width="100" Click="nextButton_Click"></Button>
+        <Button HorizontalAlignment="Right" x:Name="nextButton" Content="Next" Grid.Column="4" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="nextButton_Click"></Button>
         
     </Grid>
 </Window>

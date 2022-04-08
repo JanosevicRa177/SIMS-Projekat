@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
-        Title="Add New Appointment" Height="800" Width="1200">
+        Title="Add New Appointment" Height="1000" Width="1820" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
     <Grid Name="firstgrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
