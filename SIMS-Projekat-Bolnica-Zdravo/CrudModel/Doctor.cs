@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Doctor
 
 using System;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
@@ -27,7 +28,7 @@ namespace CrudModel
             get;
         }
 
-        public System.Collections.Generic.List<Appointment> appointment
+        public ObservableCollection<Appointment> appointment
         {
             set;
             get;
@@ -37,12 +38,12 @@ namespace CrudModel
         /// Property for collection of Appointment
         /// </summary>
         /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.Generic.List<Appointment> Appointment
+        public ObservableCollection<Appointment> Appointment
       {
          get
          {
             if (appointment == null)
-               appointment = new System.Collections.Generic.List<Appointment>();
+               appointment = new ObservableCollection<Appointment>();
             return appointment;
          }
          set
@@ -68,7 +69,7 @@ namespace CrudModel
          if (newAppointment == null)
             return;
          if (this.appointment == null)
-            this.appointment = new System.Collections.Generic.List<Appointment>();
+            this.appointment = new ObservableCollection<Appointment>();
          if (!this.appointment.Contains(newAppointment))
          {
             this.appointment.Add(newAppointment);

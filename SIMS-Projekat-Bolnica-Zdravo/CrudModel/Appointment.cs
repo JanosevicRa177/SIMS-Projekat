@@ -103,6 +103,11 @@ namespace CrudModel
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
         public MedicalRecord medicalRecord
+        {
+            set;
+            get;
+        }
+        public MedicalRecord MedicalRecord
       {
          get
          {
