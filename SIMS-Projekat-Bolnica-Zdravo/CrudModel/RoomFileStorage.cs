@@ -24,6 +24,8 @@ namespace CrudModel
                 roomList = new ObservableCollection<Room>();
                 Room r = new Room("202a");
                 roomList.Add(r);
+                r = new Room("No Room");
+                roomList.Add(r);
             }
         }
       public bool CreateRoom(Room newRoom)

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class DatePickerPatient : Window
+    public partial class DateChangerPatient : Window
     {
-        public DatePickerPatient()
+        public DateChangerPatient()
         {
-            this.DataContext = new AddAppointmentDialogPatient();
+            this.DataContext = this;
             InitializeComponent();
         }
 
@@ -45,7 +45,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Cancel_Date(object sender, RoutedEventArgs e)
         {
-            AddAppointmentDialogPatient pt = new AddAppointmentDialogPatient();
+            ChangeAppointmentDialogPatient pt = new ChangeAppointmentDialogPatient();
             pt.Show();
             this.Close();
         }
@@ -61,8 +61,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 MessageBox.Show("Ne možete zakazati pregled u prošlosti ili za danas");
                 return;
             }
-            AddAppointmentDialogPatient.date = DatePicker.SelectedDate.Value;
-            AddAppointmentDialogPatient pt = new AddAppointmentDialogPatient();
+            ChangeAppointmentDialogPatient.date = DatePicker.SelectedDate.Value;
+            ChangeAppointmentDialogPatient pt = new ChangeAppointmentDialogPatient();
             pt.Show();
             this.Close();
         }

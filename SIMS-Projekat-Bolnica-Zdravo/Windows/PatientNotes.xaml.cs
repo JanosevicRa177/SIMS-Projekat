@@ -29,6 +29,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         public PatientNotes()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             this.DataContext = new PatientWindow();
             InitializeComponent();
         }
