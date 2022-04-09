@@ -122,10 +122,11 @@
                 FontSize="34" Grid.Row="0" Width="70" Grid.Column="1" Margin="0,5,5,5" Text="{Binding ElementName=slider1,Path=Value,UpdateSourceTrigger=LostFocus}"/>
                 <TextBlock x:Name="min" 
                 FontSize="34" Grid.Row="0" Grid.Column="2" Width="55" Margin="5" Text="min"/>
-                <Slider x:Name="slider1" VerticalAlignment="Center"
+                <Slider TickFrequency="30" IsSnapToTickEnabled="True" x:Name="slider1" VerticalAlignment="Center"
                 FontSize="34" Grid.Row="0" Grid.Column="3" Width="300" Margin="10,21,10,10" Value="{Binding This.dur, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="30" Maximum="180"/>
             </Grid>
         </Grid>
+        <TextBlock HorizontalAlignment="Left" Grid.RowSpan="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
