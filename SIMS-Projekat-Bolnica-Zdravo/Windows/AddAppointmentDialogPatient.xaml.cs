@@ -36,14 +36,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         public AddAppointmentDialogPatient()
         {
-            if (initialize) 
+            if (initialize)
             {
                 initialize = false;
-                date = DateTime.Today;
+                date = DateTime.Today.AddDays(1);
             }
             this.DataContext = new
             {
                 docs = new DoctorFileStorage(),
+                logged = new PatientWindow(),
                 This = this
             };
             InitializeComponent();
@@ -77,6 +78,39 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             DatePickerPatient pt = new DatePickerPatient();
             pt.Show();
             this.Close();
+        }
+
+        private void Cancel_Add_Appointment(object sender, RoutedEventArgs e)
+        {
+            PatientWindow pt = new PatientWindow();
+            pt.Show();
+            this.Close();
+        }
+
+        private void Confirm_Add_appointment(object sender, RoutedEventArgs e)
+        {
+            if ((Doctor)doctorsCB.SelectedItem == null)
+            {
+                MessageBox.Show("Niste izabrali Doktora");
+                return;
+            }
+            Room room;
+            foreach (Room r in RoomFileStorage.roomList)
+            {
+                if (r.name.Equals("No Room"))
+                {
+                    room = r;
+                    Appointment a = new Appointment(date, int.Parse(Hours.Text), int.Parse(Minutes.Text), 30, room, (Doctor)doctorsCB.SelectedItem, desc.Text, PatientWindow.loggedPatient);
+                    AppointmentFileStorage.appointmentList.Add(a);
+                    Doctor d = (Doctor)doctorsCB.SelectedItem;
+                    d.AddAppointment(a);
+                    PatientWindow.loggedPatient.medicalRecord.AddAppointment(a);
+                    PatientWindow pt = new PatientWindow();
+                    pt.Show();
+                    this.Close();
+                    return;
+                }
+            }
         }
     }
 }

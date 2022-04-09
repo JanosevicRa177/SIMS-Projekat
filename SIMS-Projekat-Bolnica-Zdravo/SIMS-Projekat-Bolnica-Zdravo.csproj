@@ -62,6 +62,12 @@
     <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ChangeAppointmentDialogPatient.xaml.cs">
+      <DependentUpon>ChangeAppointmentDialogPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DateChangerPatient.xaml.cs">
+      <DependentUpon>DateChangerPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Windows\DatePickerPatient.xaml.cs">
       <DependentUpon>DatePickerPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShowAppointmentDialogPatient.xaml.cs">
+      <DependentUpon>ShowAppointmentDialogPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
@@ -133,6 +142,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\ChangeAppointmentDialogPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DateChangerPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\DoctorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DatePickerPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ShowAppointmentDialogPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
