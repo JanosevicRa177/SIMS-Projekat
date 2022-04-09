@@ -53,7 +53,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Show_Notes(object sender, RoutedEventArgs e)
         {
-            PatientNotes pn = new PatientNotes(loggedPatient);
+            PatientNotes pn = new PatientNotes();
             pn.Show();
             this.Close();
         }

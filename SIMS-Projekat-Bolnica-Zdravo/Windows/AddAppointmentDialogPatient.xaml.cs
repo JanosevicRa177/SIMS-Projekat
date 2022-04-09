@@ -21,6 +21,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public static DateTime date
+        {
+            get;
+            set;
+        }
+        static Boolean initialize = true;
         protected virtual void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
@@ -30,7 +36,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         public AddAppointmentDialogPatient()
         {
-            this.DataContext = new DoctorFileStorage();
+            if (initialize) 
+            {
+                initialize = false;
+                date = DateTime.Today;
+            }
+            this.DataContext = new
+            {
+                docs = new DoctorFileStorage(),
+                This = this
+            };
             InitializeComponent();
         }
         private void Show_Notes(object sender, RoutedEventArgs e)
@@ -46,9 +61,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             pt.Show();
             this.Close();
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public int hours
         {
+            set;
+            get;
+        }
+        public int minutes
+        {
+            set;
+            get;
+        }
 
+        private void Pick_Date(object sender, RoutedEventArgs e)
+        {
+            DatePickerPatient pt = new DatePickerPatient();
+            pt.Show();
+            this.Close();
         }
     }
 }
