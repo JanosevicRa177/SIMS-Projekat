@@ -20,10 +20,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class DoctorWindow : Window
     {
+        public static Doctor loggedDoc
+        {
+            set;
+            get;
+        }
         public DoctorWindow()
         {
             InitializeComponent();
-            Appointments.DataContext = new AppointmentFileStorage();
+            loggedDoc = DoctorFileStorage.GetDoctorByID(0);
+            
+            this.DataContext = loggedDoc;
         }
 
         private void addAppointment_Click(object sender, RoutedEventArgs e)
@@ -35,7 +42,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void deleteAppointment_Click(object sender, RoutedEventArgs e)
         {
             if (Appointments.SelectedIndex == -1 ) { MessageBox.Show("no row selected!"); return; }
-            AppointmentFileStorage.appointmentList.RemoveAt(Appointments.SelectedIndex);
+            loggedDoc.Appointment.Remove((Appointment)Appointments.SelectedItem);
         }
     }
 }

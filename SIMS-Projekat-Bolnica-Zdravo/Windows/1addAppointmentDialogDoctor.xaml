@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
-        Title="New appointment" Height="620" Width="1317.6" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
+        Title="New appointment" Height="700" Width="1400" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -20,22 +20,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel  Grid.Row="1" Grid.Column="4">
-            <RadioButton x:Name="Doc" Content="Doctor using app" FontSize="50" IsChecked="True" FontWeight="Black"/>
-            <RadioButton x:Name="ADoc" Content="Another doctor" FontSize="50" FontWeight="Black"/>
-            <RadioButton x:Name="Spec" Content="Specialist" FontSize="50" FontWeight="Black"/>
-
-        </StackPanel>
-        <DataGrid IsReadOnly="True" Name="PatientsG" ItemsSource="{Binding patientList}" Grid.Row="1" FontSize="60" Height="600" AutoGenerateColumns="False">
+        <StackPanel Grid.Row="1">
+            <TextBox LostFocus="searchP_LostFocus" GotFocus="searchP_GotFocus" FontSize="40" Margin="5" Name="searchP" KeyUp="searchP_KeyUp">
+                Search patient
+            </TextBox>
+        <DataGrid IsReadOnly="True" Name="PatientsG" ItemsSource="{Binding patientList}"  FontSize="60" Height="400" Width="600" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
-                <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>
-                <DataGridTextColumn Header="ID" Binding="{Binding userID}"/>
+                <DataGridTextColumn Header="Name" Width="auto" Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Surname" Width="auto" Binding="{Binding surname}"/>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding userID}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="2" Grid.Column="4">
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="4">
             <TextBlock  FontSize="50" Text="Description of appointment:"/>
-            <TextBox FontSize="50" Height="auto" Name="desc"></TextBox>
+            <TextBox FontSize="50" Height="333" Name="desc"></TextBox>
         </StackPanel>
         <Button HorizontalAlignment="Right" x:Name="nextButton" Content="Next" Grid.Column="4" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="nextButton_Click"></Button>
 

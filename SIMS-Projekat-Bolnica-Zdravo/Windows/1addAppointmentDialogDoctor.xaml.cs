@@ -34,18 +34,26 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 return;
             }
             this.Close();
-            if (ADoc.IsChecked.Value) {
-                addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor((Patient)PatientsG.SelectedItem, desc.Text);
-                dia.ShowDialog();
-            }
-            //else if()
-            {
+            addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor((Patient)PatientsG.SelectedItem, desc.Text);
+            dia.ShowDialog();
+        }
 
-            }
-           // else
-            {
+        private void searchP_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(searchP.Text));
 
-            }
+            PatientsG.ItemsSource = filtered;
+        }
+
+        private void searchP_GotFocus(object sender, RoutedEventArgs e)
+        {
+            searchP.Text = "";
+        }
+
+        private void searchP_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(searchP.Text.Equals(""))
+                searchP.Text = "Search patient";
         }
     }
 }

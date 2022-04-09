@@ -21,7 +21,9 @@ namespace CrudModel
             if (specializationList == null)
             {
                 specializationList = new List<Specialization>();
-                Specialization sp = new Specialization("kardiohirurg");
+                Specialization sp = new Specialization("No specialization");
+                specializationList.Add(sp);
+                sp = new Specialization("Kardiohirurg");
                 specializationList.Add(sp);
             }
         }

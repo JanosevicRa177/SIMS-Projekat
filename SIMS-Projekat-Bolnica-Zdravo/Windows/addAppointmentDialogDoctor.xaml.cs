@@ -47,16 +47,45 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 This = this,
                 Rooms = new RoomFileStorage(),
-                Docs = new DoctorFileStorage()
+                Docs = new DoctorFileStorage(),
+                Specs = new SpecializationFileStorage()
             };
 
         }
 
         private void createAppointmentDoctor_Click(object sender, RoutedEventArgs e)
         {
+            if(appointmentDate.SelectedDate.Value < DateTime.Today)
+            {
+                MessageBox.Show("Cannot appoint for before");
+                return;
+            }
             Appointment a = new Appointment(appointmentDate.SelectedDate.Value, int.Parse(houraddAppointmentDialogDoctor.Text), int.Parse(minuteaddAppointmentDialogDoctor.Text), int.Parse(duration.Text), (Room)roomID.SelectedItem, (Doctor)doctorsCB.SelectedItem,desc,pat);
             AppointmentFileStorage.appointmentList.Add(a);
+            Doctor d = (Doctor)doctorsCB.SelectedItem;
+            d.AddAppointment(a);
+            pat.medicalRecord.AddAppointment(a);
             this.Close();
+        }
+
+        private void doctorsCB_Loaded(object sender, RoutedEventArgs e)
+        {
+            doctorsCB.SelectedItem = DoctorWindow.loggedDoc;
+        }
+
+        private void Spec_Loaded(object sender, RoutedEventArgs e)
+        {
+            Spec.SelectedItem = SpecializationFileStorage.specializationList[0] ;
+        }
+
+        private void roomID_Loaded(object sender, RoutedEventArgs e)
+        {
+            roomID.SelectedItem = RoomFileStorage.roomList[0];
+        }
+
+        private void appointmentDate_Loaded(object sender, RoutedEventArgs e)
+        {
+            appointmentDate.SelectedDate = DateTime.Today;
         }
     }
 }
