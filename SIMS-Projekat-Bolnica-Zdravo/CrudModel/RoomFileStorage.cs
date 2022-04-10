@@ -43,7 +43,7 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public static Room GetRoomByID(string ID)
+      public static Room GetRoomByID(int ID)
       {
          foreach(Room r in roomList)
             {

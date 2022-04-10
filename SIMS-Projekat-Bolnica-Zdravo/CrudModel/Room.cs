@@ -4,19 +4,30 @@ namespace CrudModel
 {
    public class Room
    {
-        public Room(string roomID, string purpose, int floor)
+        static int ids = -1;
+        public Room(string name,string purpose, int floor)
         {
+            this.name = name;
             this.purpose = purpose;
-            this.roomID = roomID;
+            this.roomID = ++ids;
             this.floor = floor;
         }
-        
+        public Room(string name)
+        {
+            this.name = name;
+            this.roomID = ++ids;
+        }
+
         public string purpose
         {
             set;
             get;
         }
-
+        public string name
+        {
+            set;
+            get;
+        }
         public int floor
         {
             set;
@@ -38,11 +49,11 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public string roomID
-        {
+      public int roomID
+      {
             set;
             get;
-        }
+      }
 
         public System.Collections.Generic.List<Equipment> equipment
         {

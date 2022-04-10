@@ -82,9 +82,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void signout_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
             var dia = new MainWindow();
             dia.Show();
+            this.Close();
         }
     }
 }

@@ -69,7 +69,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
             else if (xd.Equals("Upravnik"))
             {
-                Windows.Manager m = new Windows.Manager();
+                ManagerWindow m = new ManagerWindow();
                 m.Show();
             }
 

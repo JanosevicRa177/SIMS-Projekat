@@ -62,10 +62,11 @@
     <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\CreateRoomDialog.xaml.cs">
-      <DependentUpon>CreateRoomDialog.xaml</DependentUpon>
     <Compile Include="Windows\ChangeAppointmentDialogPatient.xaml.cs">
       <DependentUpon>ChangeAppointmentDialogPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateRoomDialog.xaml.cs">
+      <DependentUpon>CreateRoomDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DateChangerPatient.xaml.cs">
       <DependentUpon>DateChangerPatient.xaml</DependentUpon>
@@ -82,13 +83,8 @@
     <Compile Include="Windows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\DatePickerPatient.xaml.cs">
-      <DependentUpon>DatePickerPatient.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
-    <Compile Include="Windows\Manager.xaml.cs">
-      <DependentUpon>Manager.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
@@ -155,8 +151,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\CreateRoomDialog.xaml">
     <Page Include="Windows\ChangeAppointmentDialogPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CreateRoomDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -164,7 +163,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\DoctorWindow.xaml">
     <Page Include="Windows\DatePickerPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -181,13 +179,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Manager.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\ManagerWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\NoteWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
