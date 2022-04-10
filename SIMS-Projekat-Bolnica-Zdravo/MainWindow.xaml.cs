@@ -30,6 +30,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new DoctorFileStorage();
             new PatientFileStorage();
             new RoomFileStorage();
+            new ManagerFileStorage();
             Console.WriteLine("shadiosad");
             InitializeComponent();
             //new EquipmentFileStorage();
@@ -79,11 +80,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo
         private void cb_Loaded(object sender, RoutedEventArgs e)
         {
             cb.Text = "Selektuj ulogu!";
-        }
-
-        private void SU_GotFocus(object sender, RoutedEventArgs e)
-        {
-            cb.Items.Remove("Slektuj ulogu!");
         }
     }
 }
