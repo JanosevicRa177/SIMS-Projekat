@@ -26,9 +26,9 @@
         <Button Content="Glavni prozor" FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1" Click="Show_Home"/>
         <Button Content="Button" FontSize="20" HorizontalAlignment="Left" Margin="10,9.6,10,0" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="2"/>
         <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Doktor:" VerticalAlignment="Top" Height="39" Width="101"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,54,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Height="59" Width="101"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,59,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Height="59" Width="101"/>
         <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,118,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" Height="39" Width="101"/>
-        <ComboBox ItemsSource="{Binding docs.doctorList}" x:Name="doctorsCB"  Grid.Row="2" FontSize="25" Margin="0.4,10,9.8,341.4" Grid.ColumnSpan="2" Grid.Column="1">
+        <ComboBox ItemsSource="{Binding docs.doctorList}" x:Name="doctorsCB"  Grid.Row="2" FontSize="25" Margin="9.4,10,9.8,341.4" Grid.ColumnSpan="2" Grid.Column="1">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -52,8 +52,13 @@
         <Slider Grid.Column="1" x:Name="sliderMinutes" TickFrequency="30" Minimum="0" Maximum="30" IsSnapToTickEnabled="True" Grid.ColumnSpan="2" Width="250" HorizontalAlignment="Center" Margin="16.4,219,16.8,0" Grid.Row="2" VerticalAlignment="Top"/>
         <TextBlock FontSize="25" TextAlignment="Center" HorizontalAlignment="Left" Margin="64.4,118,0,0" Grid.Row="2" TextWrapping="Wrap" Text=":" VerticalAlignment="Top" Height="40" Width="12" Grid.Column="1"/>
 
-        <TextBox x:Name="Date" IsEnabled="False"  TextAlignment="Center" Text="{Binding This.date, Mode=OneWay,  StringFormat='yyyy/MM/dd'}" Grid.Column="1" HorizontalAlignment="Left" FontSize="25" Height="39" Margin="9.4,54,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Date" IsEnabled="False"  TextAlignment="Center" Text="{Binding This.date, Mode=OneWay,  StringFormat='yyyy/MM/dd'}" Grid.Column="1" HorizontalAlignment="Left" FontSize="25" Height="39" Margin="9.4,59,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Grid.ColumnSpan="2"/>
         <Button Content="Izaberi datum" FontSize="15
-" Grid.Column="2" HorizontalAlignment="Left" Margin="28.8,54,0,0" Grid.Row="2" VerticalAlignment="Top" Width="103" Height="39" Click="Pick_Date"/>
+" Grid.Column="2" HorizontalAlignment="Left" Margin="28.8,59,0,0" Grid.Row="2" VerticalAlignment="Top" Width="103" Height="39" Click="Pick_Date"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,255,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Opis:" VerticalAlignment="Top" Height="39" Width="101"/>
+        <TextBox x:Name="desc" Width="250" TextWrapping="Wrap" AcceptsReturn="True" BorderBrush="Gray" Background="LightGray" FontSize="15" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="20,260,20,50"/>
+
+        <Button Grid.Row="3" Margin="10,10,10,10" Content="Poništi" Click="Cancel_Add_Appointment"/>
+        <Button Grid.Row="3" Grid.Column="2" Margin="10,10,10,10" Content="Zakaži pregled" Click="Confirm_Add_appointment"/>
     </Grid>
 </Window>

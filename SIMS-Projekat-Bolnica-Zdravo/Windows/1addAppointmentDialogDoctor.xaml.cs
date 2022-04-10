@@ -38,22 +38,61 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             dia.ShowDialog();
         }
 
-        private void searchP_KeyUp(object sender, KeyEventArgs e)
+        private void searchPN_KeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(searchP.Text));
+            var filtered = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(searchPN.Text));
 
             PatientsG.ItemsSource = filtered;
         }
 
-        private void searchP_GotFocus(object sender, RoutedEventArgs e)
+        private void searchPN_GotFocus(object sender, RoutedEventArgs e)
         {
-            searchP.Text = "";
+            if (searchPN.Text.Equals("name"))
+            searchPN.Text = "";
         }
 
-        private void searchP_LostFocus(object sender, RoutedEventArgs e)
+        private void searchPN_LostFocus(object sender, RoutedEventArgs e)
         {
-            if(searchP.Text.Equals(""))
-                searchP.Text = "Search patient";
+            if(searchPN.Text.Equals(""))
+                searchPN.Text = "name";
         }
+        private void searchPS_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = PatientFileStorage.patientList.Where(patient => patient.surname.StartsWith(searchPS.Text));
+
+            PatientsG.ItemsSource = filtered;
+        }
+
+        private void searchPS_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchPS.Text.Equals("surname"))
+                searchPS.Text = "";
+        }
+
+        private void searchPS_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchPS.Text.Equals(""))
+                searchPS.Text = "surname";
+        }
+        private void searchPI_KeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = PatientFileStorage.patientList.Where(patient => patient.userID.ToString().StartsWith(searchPI.Text));
+
+            PatientsG.ItemsSource = filtered;
+        }
+
+        private void searchPI_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchPI.Text.Equals("id"))
+                searchPI.Text = "";
+        }
+
+        private void searchPI_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (searchPI.Text.Equals(""))
+                searchPI.Text = "id";
+        }
+
+
     }
 }

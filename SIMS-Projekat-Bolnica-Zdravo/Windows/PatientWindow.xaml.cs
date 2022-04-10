@@ -36,11 +36,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public PatientWindow()
         {
             InitializeComponent();
-            this.DataContext =  new DoctorFileStorage();
+            this.DataContext = loggedPatient;
             if (loggedPatient == null) 
             {
                 Patient p = new Patient(Gender.male,"Mika", "Mikic",new Address("Srbija","Novi Sad","Ive Andrica", "23"),
                 "asdasd","06111111","mailinator@gmail.com");
+                MedicalRecord mr = new MedicalRecord(BloodType.a1);
+                mr.patient = p;
+                p.medicalRecord = mr;
                 PatientFileStorage.patientList.Add(p);
                 loggedPatient = p;
                 loggedPatient.AddNote(new Note("Beleska1", "Neki kontent 1"));
@@ -68,6 +71,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             AddAppointmentDialogPatient Add = new AddAppointmentDialogPatient();
             Add.Show();
             this.Close();
+        }
+
+        private void Show_Appointment(object sender, RoutedEventArgs e)
+        {
+            ShowAppointmentDialogPatient Show = new ShowAppointmentDialogPatient((Appointment)Appointments.SelectedItem);
+            Show.Show();
+            this.Close();
+        }
+
+        private void signout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            var dia = new MainWindow();
+            dia.Show();
         }
     }
 }

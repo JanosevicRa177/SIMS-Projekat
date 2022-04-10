@@ -41,32 +41,45 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             //new WarehouseFileStorage();
         }
 
-        private void Sekretar_Click_1(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Secretary sc = new Windows.Secretary();
-            sc.Show();
+            ComboBoxItem cbi = (ComboBoxItem)cb.SelectedItem;
+            string xd = cbi.Content.ToString();
+            if (xd.Equals("Selektuj ulogu!"))
+            {
+                MessageBox.Show("SELEKTUJ ULOGU XD!");
+                return;
+            }
+  
+
+            if (xd.Equals("Sekretar"))
+            {
+                Windows.Secretary sc = new Windows.Secretary();
+                sc.Show();
+            }
+            else if (xd.Equals("Lekar"))
+            {
+                DoctorWindow dr = new DoctorWindow();
+                dr.Show();
+            }
+            else if (xd.Equals("Pacijent"))
+            {
+                PatientWindow pt = new PatientWindow();
+                pt.Show();
+            }
+            else if (xd.Equals("Upravnik"))
+            {
+                Windows.Manager m = new Windows.Manager();
+                m.Show();
+            }
+
+
             this.Close();
         }
 
-        private void Lekar_Click(object sender, RoutedEventArgs e)
+        private void cb_Loaded(object sender, RoutedEventArgs e)
         {
-            DoctorWindow dr = new DoctorWindow();
-            dr.Show();
-            this.Close();
-        }
-
-        private void Pacijent_Click(object sender, RoutedEventArgs e)
-        {
-            PatientWindow pt = new PatientWindow();
-            pt.Show();
-            this.Close();
-        }
-
-        private void Upravnik_Click(object sender, RoutedEventArgs e)
-        {
-            ManagerWindow mn = new ManagerWindow();
-            mn.Show();
-            this.Close();
+            cb.Text = "Selektuj ulogu!";
         }
     }
 }

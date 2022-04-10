@@ -26,7 +26,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
         }
 
+        public DateTime dt
+        {
+            set;
+            get;
+        }
         public int dur
+        {
+            set;
+            get;
+        }
+
+        public doctorShowAppointment x
         {
             set;
             get;
@@ -37,9 +48,42 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             set;
             get;
         }
+        public Appointment appo
+        {
+            set;
+            get;
+        }
+        public addAppointmentDialogDoctor(Appointment appo, doctorShowAppointment x) {
+            InitializeComponent();
+            this.x = x;
+            dt = appo.timeBegin;
+            this.appo = appo;
+            this.DataContext = new
+            {
+                Rooms = new RoomFileStorage(),
+                This1 = this,
+                Docs = new DoctorFileStorage(),
+                Specs = new SpecializationFileStorage()
+            };
+            this.pat = appo.medicalRecord.patient;
+            this.desc = appo.description;
+            roomID.SelectedItem = appo.room;
+            name.Text = appo.medicalRecord.patient.name;
+            surname.Text = appo.medicalRecord.patient.surname;
+            id.Text = appo.medicalRecord.patient.userID.ToString();
+            Spec.SelectedItem = appo.doctor;
+            Spec.IsEnabled = false;
+            doctorsCB.SelectedItem = appo.doctor;
+            doctorsCB.IsEnabled = false;
+            this.dur = appo.duration;
+            houraddAppointmentDialogDoctor.Text = appo.time[0].ToString() + appo.time[1].ToString();
+            minuteaddAppointmentDialogDoctor.Text = appo.time[3].ToString() + "0";
+            createAppointmentDoctor.Content = "Confirm";
+        }
 
         public addAppointmentDialogDoctor(Patient pat,string desc)
         {
+            dt = DateTime.Today;
             this.pat = pat;
             this.desc = desc;
             InitializeComponent();
@@ -55,6 +99,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void createAppointmentDoctor_Click(object sender, RoutedEventArgs e)
         {
+            if (createAppointmentDoctor.Content.Equals("Confirm"))
+            {
+                doctorShowAppointment.appointment.setTime();
+                doctorShowAppointment.appointment.timeBegin = (DateTime)appointmentDate.SelectedDate;
+                doctorShowAppointment.appointment.setDate();
+                x.Close();
+                x = new doctorShowAppointment(doctorShowAppointment.appointment);
+                x.Show();
+                this.Close();
+                return;
+            }
             if(appointmentDate.SelectedDate.Value < DateTime.Today)
             {
                 MessageBox.Show("Cannot appoint for before");
@@ -85,7 +140,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void appointmentDate_Loaded(object sender, RoutedEventArgs e)
         {
-            appointmentDate.SelectedDate = DateTime.Today;
+            appointmentDate.SelectedDate = dt;
         }
     }
 }
