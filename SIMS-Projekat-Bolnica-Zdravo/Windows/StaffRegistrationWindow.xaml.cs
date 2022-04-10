@@ -178,9 +178,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 man = new ManagerFileStorage(),
                 This = this
             };
-            DoctorFileStorage.doctorList = new ObservableCollection<CrudModel.Doctor>();
-            ManagerFileStorage.managerList = new ObservableCollection<CrudModel.Manager>();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

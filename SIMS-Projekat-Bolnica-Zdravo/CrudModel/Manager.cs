@@ -22,7 +22,6 @@ namespace CrudModel
             this.position = position;
 
         }
-   }
         public Manager(string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
         {
             this.userID = User.generateID();

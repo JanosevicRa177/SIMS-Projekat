@@ -44,6 +44,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             Note n = new Note("Prazno", "");
             PatientWindow.loggedPatient.AddNote(n);
+            NoteFileStorage.noteList.Add(n);
             NotesListGrid.Items.Refresh();
         }
 
