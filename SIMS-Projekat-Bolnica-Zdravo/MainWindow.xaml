@@ -5,20 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1250" Background="AntiqueWhite" WindowStartupLocation="CenterScreen"> 
-    <Grid>
+        Title="MainWindow" Height="700" Width="1250" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Sekretar" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Height="65" Width="100" Margin="59,38,0,0" Name="Sekretar" Click="Sekretar_Click_1"></Button>
-        <Button Content="Upravnik" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="65" Width="100" Margin="61,38,0,0"
-                Name="Upravnik" Click="Upravnik_Click"></Button>
-        <Button Content="Pacijent" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Height="65" Width="100" Margin="56,38,0,0"
-                Name="Pacijent" Click="Pacijent_Click"></Button>
-        <Button Content="Lekar" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Height="65" Width="100" Margin="61,38,0,0"
-                Name="Lekar" Click="Lekar_Click"></Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="80" Width="500" Grid.Column="1" Grid.Row="1" Margin="5">Dobrodošli!</TextBlock>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="2" Margin="5">Logovanje</TextBlock>
+        <ComboBox Loaded="cb_Loaded" Name="cb"  FontSize="30" Grid.Column="1" Grid.Row="3" Margin="5">
+            <ComboBoxItem GotFocus="SU_GotFocus" Name="SU" Content="Selektuj ulogu!" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="Lekar" Content="Lekar" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="Sekretar" Content="Sekretar" Tag="y"></ComboBoxItem>
+            <ComboBoxItem Name="Pacijent" Content="Pacijent" Tag="z"></ComboBoxItem>
+            <ComboBoxItem Name="Upravnik" Content="Upravnik" Tag="j"></ComboBoxItem>
+        </ComboBox>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="4" Margin="5">Email</TextBlock>
+        <TextBox FontSize="30" Grid.Column="1" Grid.Row="5" Margin="5"></TextBox>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="6" Margin="5" >Lozinka</TextBlock>
+        <TextBox FontSize="30" Grid.Column="1" Grid.Row="7" Margin="5"></TextBox>
+        <Button HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" Margin="5" FontSize="25">Zaboravljena lozinka?</Button>
+        <Button Name="Login" Click="Login_Click" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Column="1" Grid.Row="10" Margin="5" FontSize="40">Logovanje</Button>
     </Grid>
 </Window>

@@ -39,10 +39,23 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             dia.ShowDialog();
         }
 
-        private void deleteAppointment_Click(object sender, RoutedEventArgs e)
+        private void appintments_Click(object sender, RoutedEventArgs e)
         {
-            if (Appointments.SelectedIndex == -1 ) { MessageBox.Show("no row selected!"); return; }
-            loggedDoc.Appointment.Remove((Appointment)Appointments.SelectedItem);
+            DoctorsAppointments dia = new DoctorsAppointments();
+            dia.Show();
         }
+
+        private void Signout_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new MainWindow();
+            dia.Show();
+            this.Close();
+        }
+
+        /* private void deleteAppointment_Click(object sender, RoutedEventArgs e)
+         {
+             if (Appointments.SelectedIndex == -1 ) { MessageBox.Show("no row selected!"); return; }
+             loggedDoc.Appointment.Remove((Appointment)Appointments.SelectedItem);
+         }*/
     }
 }

@@ -62,6 +62,11 @@
     <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DoctorsAppointments.xaml.cs">
+      <DependentUpon>DoctorsAppointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\doctorShowAppointment.xaml.cs">
+      <DependentUpon>doctorShowAppointment.xaml</DependentUpon>
     <Compile Include="Windows\ChangeAppointmentDialogPatient.xaml.cs">
       <DependentUpon>ChangeAppointmentDialogPatient.xaml</DependentUpon>
     </Compile>
@@ -142,6 +147,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\DoctorsAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\doctorShowAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     <Page Include="Windows\ChangeAppointmentDialogPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
