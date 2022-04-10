@@ -30,13 +30,13 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Width="auto" LostFocus="searchPN_LostFocus" GotFocus="searchPN_GotFocus" FontSize="45" Margin="5" Name="searchPN" KeyUp="searchPN_KeyUp">
+                <TextBox Width="auto" LostFocus="searchPN_LostFocus" GotFocus="searchPN_GotFocus" FontSize="45" Margin="5" Name="searchPN" KeyUp="searchP_KeyUp">
                 name
             </TextBox>
-                <TextBox Grid.Column="1" Width="auto" LostFocus="searchPS_LostFocus" GotFocus="searchPS_GotFocus" FontSize="45" Margin="5" Name="searchPS" KeyUp="searchPS_KeyUp">
+                <TextBox Grid.Column="1" Width="auto" LostFocus="searchPS_LostFocus" GotFocus="searchPS_GotFocus" FontSize="45" Margin="5" Name="searchPS" KeyUp="searchP_KeyUp">
                   surname
             </TextBox>
-                <TextBox Grid.Column="2" Width="auto" LostFocus="searchPI_LostFocus" GotFocus="searchPI_GotFocus" Height="70" FontSize="45" Margin="5" Name="searchPI" KeyUp="searchPI_KeyUp">
+                <TextBox Grid.Column="2" Width="auto" LostFocus="searchPI_LostFocus" GotFocus="searchPI_GotFocus" Height="70" FontSize="45" Margin="5" Name="searchPI" KeyUp="searchP_KeyUp">
                    id
             </TextBox>
             </Grid>

@@ -1,6 +1,7 @@
 ﻿using CrudModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class _1addAppointmentDialogDoctor : Window
     {
+        public IEnumerable<Patient> filteredList {
+            get;
+            set;
+        }
+
         public _1addAppointmentDialogDoctor()
         {
             InitializeComponent();
             this.DataContext = new PatientFileStorage();
+            this.filteredList = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(""));
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
@@ -38,11 +45,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             dia.ShowDialog();
         }
 
-        private void searchPN_KeyUp(object sender, KeyEventArgs e)
+        private void searchP_KeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(searchPN.Text));
+            string name,id,surname;
+            name = (searchPN.Text.Equals("name")) ? "" : searchPN.Text;
+            surname = (searchPS.Text.Equals("surname")) ? "" : searchPS.Text;
+            id = (searchPI.Text.Equals("id")) ? "" : searchPI.Text;
 
-            PatientsG.ItemsSource = filtered;
+            filteredList = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(name));
+            filteredList = filteredList.Where(patient => patient.surname.StartsWith(surname));
+            filteredList = filteredList.Where(patient => patient.userID.ToString().StartsWith(id));
+            PatientsG.ItemsSource = filteredList;
         }
 
         private void searchPN_GotFocus(object sender, RoutedEventArgs e)
@@ -56,12 +69,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             if(searchPN.Text.Equals(""))
                 searchPN.Text = "name";
         }
-        private void searchPS_KeyUp(object sender, KeyEventArgs e)
-        {
-            var filtered = PatientFileStorage.patientList.Where(patient => patient.surname.StartsWith(searchPS.Text));
-
-            PatientsG.ItemsSource = filtered;
-        }
 
         private void searchPS_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -73,12 +80,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             if (searchPS.Text.Equals(""))
                 searchPS.Text = "surname";
-        }
-        private void searchPI_KeyUp(object sender, KeyEventArgs e)
-        {
-            var filtered = PatientFileStorage.patientList.Where(patient => patient.userID.ToString().StartsWith(searchPI.Text));
-
-            PatientsG.ItemsSource = filtered;
         }
 
         private void searchPI_GotFocus(object sender, RoutedEventArgs e)

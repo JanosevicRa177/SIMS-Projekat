@@ -11,9 +11,9 @@ namespace CrudModel
    {
         public Specialization(String spec)
         {
-            this.specializations = spec;
+            this.specialization = spec;
         }
-      public String specializations
+      public String specialization
         {
             set;
             get;

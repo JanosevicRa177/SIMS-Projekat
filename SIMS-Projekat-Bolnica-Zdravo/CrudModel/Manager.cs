@@ -25,6 +25,7 @@ namespace CrudModel
         public Manager(string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
         {
             this.userID = User.generateID();
+            this.position = "Manager";
         }
 
         public ObservableCollection<Room> room

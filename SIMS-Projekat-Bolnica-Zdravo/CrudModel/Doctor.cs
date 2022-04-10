@@ -33,6 +33,7 @@ namespace CrudModel
             this.mobilePhone = mobilePhone;
             this.mail = mail;
             this.specialization = spec;
+            this.position = "Doctor";
         }
 
         public Specialization specialization
