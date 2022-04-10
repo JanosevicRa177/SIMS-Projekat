@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrudModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +20,42 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class DoctorWindow : Window
     {
+        public static Doctor loggedDoc
+        {
+            set;
+            get;
+        }
         public DoctorWindow()
         {
             InitializeComponent();
+            loggedDoc = DoctorFileStorage.GetDoctorByID(0);
+            
+            this.DataContext = loggedDoc;
         }
 
         private void addAppointment_Click(object sender, RoutedEventArgs e)
         {
-            addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor();
+            _1addAppointmentDialogDoctor dia = new _1addAppointmentDialogDoctor();
+            dia.ShowDialog();
+        }
+
+        private void appintments_Click(object sender, RoutedEventArgs e)
+        {
+            DoctorsAppointments dia = new DoctorsAppointments();
             dia.Show();
         }
+
+        private void Signout_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new MainWindow();
+            dia.Show();
+            this.Close();
+        }
+
+        /* private void deleteAppointment_Click(object sender, RoutedEventArgs e)
+         {
+             if (Appointments.SelectedIndex == -1 ) { MessageBox.Show("no row selected!"); return; }
+             loggedDoc.Appointment.Remove((Appointment)Appointments.SelectedItem);
+         }*/
     }
 }

@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
@@ -13,7 +14,18 @@ namespace CrudModel
    public class AppointmentFileStorage
    {
 
-        static public List<Appointment> appointmentList = new List<Appointment>();
+        public static ObservableCollection<Appointment> appointmentList { 
+            get; 
+            set; 
+        }
+
+        public AppointmentFileStorage()
+        {
+            if(appointmentList == null)
+            {
+                appointmentList = new ObservableCollection<Appointment>();
+            }
+        }
         public bool CreateAppointment(Appointment newAppointment)
       {
          throw new NotImplementedException();

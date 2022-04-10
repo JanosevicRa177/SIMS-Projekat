@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Doctor
 
 using System;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
@@ -22,6 +23,18 @@ namespace CrudModel
             this.position = pos;
             this.gender = gender;
         }
+        public Doctor(Specialization spec, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
+        {
+            this.userID = User.generateID();
+            this.name = name;
+            this.surname = surname;
+            this.address = address;
+            this.password = password;
+            this.mobilePhone = mobilePhone;
+            this.mail = mail;
+            this.specialization = spec;
+        }
+
         public Specialization specialization
         {
             set;
@@ -38,7 +51,7 @@ namespace CrudModel
             get;
         }
 
-        public System.Collections.Generic.List<Appointment> appointment
+        public ObservableCollection<Appointment> appointment
         {
             set;
             get;
@@ -48,12 +61,12 @@ namespace CrudModel
         /// Property for collection of Appointment
         /// </summary>
         /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.Generic.List<Appointment> Appointment
+        public ObservableCollection<Appointment> Appointment
       {
          get
          {
             if (appointment == null)
-               appointment = new System.Collections.Generic.List<Appointment>();
+               appointment = new ObservableCollection<Appointment>();
             return appointment;
          }
          set
@@ -66,7 +79,10 @@ namespace CrudModel
             }
          }
       }
-      
+        public String getDoctorNameAndSurname()
+        {
+            return name + surname;
+        }
       /// <summary>
       /// Add a new Appointment in the collection
       /// </summary>
@@ -76,7 +92,7 @@ namespace CrudModel
          if (newAppointment == null)
             return;
          if (this.appointment == null)
-            this.appointment = new System.Collections.Generic.List<Appointment>();
+            this.appointment = new ObservableCollection<Appointment>();
          if (!this.appointment.Contains(newAppointment))
          {
             this.appointment.Add(newAppointment);

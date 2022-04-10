@@ -1,4 +1,5 @@
-﻿using SIMS_Projekat_Bolnica_Zdravo.Windows;
+﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,35 +25,61 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     {
         public MainWindow()
         {
+            new AppointmentFileStorage();
+            new SpecializationFileStorage();
+            new DoctorFileStorage();
+            new PatientFileStorage();
+            new RoomFileStorage();
+            new ManagerFileStorage();
+            Console.WriteLine("shadiosad");
             InitializeComponent();
+            //new EquipmentFileStorage();
+            //new MedicalRecordFileStorage();
+            //new MeetingFileStorage();
+            //new NoteFileStorage();
+            //new SecretaryFileStorage();
+            //new WarehouseFileStorage();
         }
 
-        private void Sekretar_Click_1(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            Secretary sc = new Secretary();
-            sc.Show();
+            ComboBoxItem cbi = (ComboBoxItem)cb.SelectedItem;
+            string xd = cbi.Content.ToString();
+            if (xd.Equals("Selektuj ulogu!"))
+            {
+                MessageBox.Show("SELEKTUJ ULOGU XD!");
+                return;
+            }
+  
+
+            if (xd.Equals("Sekretar"))
+            {
+                Windows.Secretary sc = new Windows.Secretary();
+                sc.Show();
+            }
+            else if (xd.Equals("Lekar"))
+            {
+                DoctorWindow dr = new DoctorWindow();
+                dr.Show();
+            }
+            else if (xd.Equals("Pacijent"))
+            {
+                PatientWindow pt = new PatientWindow();
+                pt.Show();
+            }
+            else if (xd.Equals("Upravnik"))
+            {
+                ManagerWindow m = new ManagerWindow();
+                m.Show();
+            }
+
+
             this.Close();
         }
 
-        private void Lekar_Click(object sender, RoutedEventArgs e)
+        private void cb_Loaded(object sender, RoutedEventArgs e)
         {
-            DoctorWindow dr = new DoctorWindow();
-            dr.Show();
-            this.Close();
-        }
-
-        private void Pacijent_Click(object sender, RoutedEventArgs e)
-        {
-            Patient pt = new Patient();
-            pt.Show();
-            this.Close();
-        }
-
-        private void Upravnik_Click(object sender, RoutedEventArgs e)
-        {
-            Manager mn = new Manager();
-            mn.Show();
-            this.Close();
+            cb.Text = "Selektuj ulogu!";
         }
     }
 }

@@ -9,12 +9,35 @@ namespace CrudModel
 {
    public class User
    {
-      public bool ChangePassword(String newPassword)
+
+        public User()
+        {
+
+        }
+        public User(string name, string surname, Address address, string password, string mobilePhone, string mail)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.address = address;
+            this.password = password;
+            this.mobilePhone = mobilePhone;
+            this.mail = mail;
+        }
+
+
+        public static int userIDS = -1;
+
+        public static int generateID()
+        {
+            return ++userIDS;
+        }
+
+        public bool ChangePassword(String newPassword)
       {
          throw new NotImplementedException();
       }
       
-      public bool InformationChange(String newName, String newSurname, String newAddress, String newPassword)
+      public bool InformationChange(String newName, String newSurname, Address newAddress, String newPassword)
       {
          throw new NotImplementedException();
       }

@@ -9,7 +9,17 @@ namespace CrudModel
 {
    public class Note
    {
+        public Note(String noteName,String noteContent) 
+        {
+            this.noteContent = noteContent;
+            this.noteName = noteName;
+        }
       public String noteContent
+        {
+            set;
+            get;
+        }
+        public String noteName
         {
             set;
             get;

@@ -1,7 +1,3 @@
-// File:    ManagerFileStorage.cs
-// Author:  Dusan
-// Created: Sunday, April 3, 2022 4:42:31 PM
-// Purpose: Definition of Class ManagerFileStorage
 
 using System;
 using System.Collections.Generic;
@@ -12,7 +8,7 @@ namespace CrudModel
    public class ManagerFileStorage
    {
 
-        static public ObservableCollection<CrudModel.Manager> managerList
+        static public ObservableCollection<Manager> managerList
         {
             get;
             set;
@@ -22,12 +18,15 @@ namespace CrudModel
             if (managerList == null)
             {
                 managerList = new ObservableCollection<Manager>();
+                Manager m = new Manager("Hana", "Smithr", new Address("Serbia", "Novi Sad", "Gogoljeva", "12"), "password123", "0654320234", "hanasmithr@gmail.com");
+                managerList.Add(m);
             }
         }
         public bool CreateManager(Manager newManager)
       {
-         throw new NotImplementedException();
-      }
+            managerList.Add(newManager);
+            return true;
+        }
       
       public bool DeleteManager(int userID)
       {
@@ -39,14 +38,18 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public Manager GetManagerByID(int userID)
+      public static Manager GetManagerByID(int userID)
       {
-         throw new NotImplementedException();
-      }
+            foreach (Manager m in managerList)
+            {
+                if (m.userID == userID) return m;
+            }
+            return null;
+        }
       
-      public List<Manager> GetAllManagers()
+      public ObservableCollection<Manager> GetAllManagers()
       {
-         throw new NotImplementedException();
+            return managerList;
       }
    
    }

@@ -1,19 +1,40 @@
-// File:    Room.cs
-// Author:  Dusan
-// Created: Wednesday, March 30, 2022 4:13:43 PM
-// Purpose: Definition of Class Room
-
 using System;
 
 namespace CrudModel
 {
    public class Room
    {
-        public Room()
+        static int ids = -1;
+        public Room(string name,string purpose, int floor)
         {
-
+            this.name = name;
+            this.purpose = purpose;
+            this.roomID = ++ids;
+            this.floor = floor;
         }
-      public bool AddEquipment()
+        public Room(string name)
+        {
+            this.name = name;
+            this.roomID = ++ids;
+        }
+
+        public string purpose
+        {
+            set;
+            get;
+        }
+        public string name
+        {
+            set;
+            get;
+        }
+        public int floor
+        {
+            set;
+            get;
+        }
+
+        public bool AddEquipment()
       {
          throw new NotImplementedException();
       }
@@ -29,10 +50,10 @@ namespace CrudModel
       }
       
       public int roomID
-        {
+      {
             set;
             get;
-        }
+      }
 
         public System.Collections.Generic.List<Equipment> equipment
         {
@@ -40,10 +61,6 @@ namespace CrudModel
             get;
         }
 
-        /// <summary>
-        /// Property for collection of Equipment
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
         public System.Collections.Generic.List<Equipment> Equipment
       {
          get
@@ -63,10 +80,6 @@ namespace CrudModel
          }
       }
       
-      /// <summary>
-      /// Add a new Equipment in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
       public void AddEquipment(Equipment newEquipment)
       {
          if (newEquipment == null)
@@ -77,10 +90,6 @@ namespace CrudModel
             this.equipment.Add(newEquipment);
       }
       
-      /// <summary>
-      /// Remove an existing Equipment from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveEquipment(Equipment oldEquipment)
       {
          if (oldEquipment == null)
@@ -89,11 +98,7 @@ namespace CrudModel
             if (this.equipment.Contains(oldEquipment))
                this.equipment.Remove(oldEquipment);
       }
-      
-      /// <summary>
-      /// Remove all instances of Equipment from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
+   
       public void RemoveAllEquipment()
       {
          if (equipment != null)
