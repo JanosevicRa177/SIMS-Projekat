@@ -318,7 +318,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                                 d.address.city = cityTextBox.Text;
                                 d.address.street = addressTextBox.Text;
                                 d.mobilePhone = phoneTextBox1.Text;
-                                d.specialization.specializations = specializationTextBox.Text;
+                                d.specialization.specialization = specializationTextBox.Text;
                                 d.gender = genderComboBox.Text;
                                 d.position = licenceComboBox.Text;
                                 d.address.number = numberTextBox.Text;
@@ -399,7 +399,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 cityTextBox.Text = doct.address.city;
                 addressTextBox.Text = doct.address.street;
                 phoneTextBox1.Text = doct.mobilePhone;
-                specializationTextBox.Text = doct.specialization.specializations;
+                specializationTextBox.Text = doct.specialization.specialization;
                 licenceComboBox.Text = doct.position;
                 genderComboBox.Text = doct.gender;
                 numberTextBox.Text = doct.address.number;
