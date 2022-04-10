@@ -13,7 +13,6 @@ namespace CrudModel
             get;
             set;
         }
-
         public ManagerFileStorage()
         {
             if (managerList == null)
@@ -23,7 +22,6 @@ namespace CrudModel
                 managerList.Add(m);
             }
         }
-
         public bool CreateManager(Manager newManager)
       {
             managerList.Add(newManager);

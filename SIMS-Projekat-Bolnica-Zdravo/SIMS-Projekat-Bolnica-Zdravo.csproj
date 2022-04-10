@@ -98,9 +98,12 @@
     <Compile Include="Windows\PatientWindow.xaml.cs">
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RegexValidationRules.cs" />
     <Compile Include="Windows\Secretary.xaml.cs">
       <DependentUpon>Secretary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\StaffRegistrationWindow.xaml.cs">
+      <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
     <Compile Include="Windows\ShowAppointmentDialogPatient.xaml.cs">
       <DependentUpon>ShowAppointmentDialogPatient.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\StaffRegistrationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     <Page Include="Windows\ShowAppointmentDialogPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

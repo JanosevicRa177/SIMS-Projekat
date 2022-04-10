@@ -7,9 +7,9 @@ using System;
 
 namespace CrudModel
 {
+
    public class Address {
-
-
+     
        public Address(String country, String city, String street, String number) 
         {
             this.country = country;
