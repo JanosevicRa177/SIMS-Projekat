@@ -25,16 +25,26 @@
         <Button Content="Glavni prozor" FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1"/>
         <Button Content="Button" FontSize="20" HorizontalAlignment="Left" Margin="10,9.6,10,0" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="2"/>
         <Button Content="Zakaži pregled" FontSize="20" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231" Height="60" Grid.ColumnSpan="3" Click="AddAppointment"/>
-        <DataGrid IsReadOnly="True" VerticalAlignment="Top" FontSize="12" SelectionMode="Single" Name="Appointments"  Grid.Row="2" Width="auto" ItemsSource="{Binding doctorList}" AutoGenerateColumns="False" Grid.ColumnSpan="3" SelectionChanged="Appointments_SelectionChanged" >
+        <DataGrid IsReadOnly="True" VerticalAlignment="Top" FontSize="12" SelectionMode="Single" Name="Appointments"  Grid.Row="2" Width="auto" ItemsSource="{Binding medicalRecord.appointment}" AutoGenerateColumns="False" Grid.ColumnSpan="3" SelectionChanged="Appointments_SelectionChanged" >
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="Doctor" Header="Doctor">
+                <DataGridTextColumn x:Name="Doctor" FontSize="15" Header="Doktor">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="name "/>
-                            <Binding Path="surname"/>
+                            <Binding Path="Doctor.name"/>
+                            <Binding Path="Doctor.surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
+                <DataGridTextColumn Header="Soba" FontSize="15" Binding="{Binding room.name}"/>
+                <DataGridTextColumn x:Name="date" FontSize="15" Header="Datum" Binding="{Binding date}"/>
+                <DataGridTextColumn x:Name="time" FontSize="15" Header="Vreme" Binding="{Binding time}"/>
+                <DataGridTemplateColumn Header="Prikaži">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button FontSize="15" Width="50" Margin="5,5,5,5" Click="Show_Appointment">Prikaži</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
