@@ -5,14 +5,26 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class ManagerFileStorage
    {
 
-        static public List<Manager> managerList = new List<Manager>();
-      public bool CreateManager(Manager newManager)
+        static public ObservableCollection<CrudModel.Manager> managerList
+        {
+            get;
+            set;
+        }
+        public ManagerFileStorage()
+        {
+            if (managerList == null)
+            {
+                managerList = new ObservableCollection<Manager>();
+            }
+        }
+        public bool CreateManager(Manager newManager)
       {
          throw new NotImplementedException();
       }

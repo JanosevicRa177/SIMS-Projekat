@@ -67,8 +67,12 @@
     <Compile Include="Windows\Patient.xaml.cs">
       <DependentUpon>Patient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RegexValidationRules.cs" />
     <Compile Include="Windows\Secretary.xaml.cs">
       <DependentUpon>Secretary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StaffRegistrationWindow.xaml.cs">
+      <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Secretary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StaffRegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

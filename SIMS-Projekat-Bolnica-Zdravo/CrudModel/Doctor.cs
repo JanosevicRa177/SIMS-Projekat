@@ -9,7 +9,30 @@ namespace CrudModel
 {
    public class Doctor : User
    {
+        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos,String gender)
+        {
+            this.userID = id;
+            this.name = name;
+            this.surname = surname;
+            this.mail = email;
+            this.password = password;
+            this.address = address;
+            this.mobilePhone = phone;
+            this.specialization = spec;
+            this.position = pos;
+            this.gender = gender;
+        }
         public Specialization specialization
+        {
+            set;
+            get;
+        }
+        public String position
+        {
+            set;
+            get;
+        }
+        public String gender
         {
             set;
             get;

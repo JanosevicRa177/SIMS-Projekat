@@ -5,13 +5,25 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class DoctorFileStorage
    {
-        static public List<Doctor> doctorList = new List<Doctor>();
-      public bool CreateDoctor(Doctor newDoctor)
+        static public ObservableCollection<CrudModel.Doctor> doctorList
+        {
+            get;
+            set;
+        }
+        public DoctorFileStorage()
+        {
+            if (doctorList == null)
+            {
+                doctorList = new ObservableCollection<Doctor>();
+            }
+        }
+        public bool CreateDoctor(Doctor newDoctor)
       {
          throw new NotImplementedException();
       }
@@ -31,7 +43,7 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public List<Doctor> GetAllDoctors()
+      public ObservableCollection<CrudModel.Doctor> GetAllDoctors()
       {
             return doctorList;
          throw new NotImplementedException();
