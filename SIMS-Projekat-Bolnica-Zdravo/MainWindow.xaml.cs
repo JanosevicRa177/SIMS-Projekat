@@ -31,7 +31,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new PatientFileStorage();
             new RoomFileStorage();
             new ManagerFileStorage();
-            Console.WriteLine("shadiosad");
             InitializeComponent();
             //new EquipmentFileStorage();
             //new MedicalRecordFileStorage();
