@@ -5,14 +5,29 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class SecretaryFileStorage
    {
+        
+        static public ObservableCollection<Secretary> secretaryList
+        {
+            set;
+            get;
+        }
 
-        static public List<Secretary> secretaryList = new List<Secretary>();
-      public bool CreateSecretary(Secretary newSecretary)
+        public SecretaryFileStorage()
+        {
+            if (secretaryList == null)
+            {
+                secretaryList = new ObservableCollection<Secretary>();
+                secretaryList.Add(new Secretary("Dragan", "Petrovic", "Dragan@gmail.com", "321",new Address("Serbia", "Novi Sad", "Slobodana Bajica", "5a"),"06987654321","Secretary"));
+
+            }
+        }
+        public bool CreateSecretary(Secretary newSecretary)
       {
          throw new NotImplementedException();
       }
