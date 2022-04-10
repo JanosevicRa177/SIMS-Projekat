@@ -30,6 +30,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new DoctorFileStorage();
             new PatientFileStorage();
             new RoomFileStorage();
+            new ManagerFileStorage();
             Console.WriteLine("shadiosad");
             InitializeComponent();
             //new EquipmentFileStorage();
@@ -63,7 +64,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
         private void Upravnik_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Manager mn = new Windows.Manager();
+            ManagerWindow mn = new ManagerWindow();
             mn.Show();
             this.Close();
         }
