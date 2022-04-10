@@ -18,7 +18,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
     public partial class ShowAppointmentDialogPatient : Window
     {
-        static Appointment appointment;
+        public static Appointment appointment;
         public ShowAppointmentDialogPatient(Appointment appointment1)
         {
             appointment = appointment1;

@@ -72,7 +72,7 @@ namespace CrudModel
             this.medicalRecord.patient = pat;
             this.doctor = doc;
             this.timeBegin = date;
-            this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();
+            this.setDate();
             this.duration = duration;
             this.hour = hour;
             this.minute = minute;
@@ -80,6 +80,11 @@ namespace CrudModel
             this.room = room;
             this.appointmentID = ++ids;
             this.description = description;
+        }
+
+        public void setDate()
+        {
+            this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();
         }
 
         public string description

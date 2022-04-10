@@ -62,7 +62,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 return;
             }
             ChangeAppointmentDialogPatient.date = DatePicker.SelectedDate.Value;
-            ChangeAppointmentDialogPatient pt = new ChangeAppointmentDialogPatient();
+            ChangeAppointmentDialogPatient pt = new  ChangeAppointmentDialogPatient();
             pt.Show();
             this.Close();
         }
