@@ -11,7 +11,7 @@ namespace CrudModel
 {
    public class RoomFileStorage
    {
-        static public ObservableCollection<Room> roomList
+        public static ObservableCollection<Room> roomList
         {
             set;
             get;
@@ -22,7 +22,7 @@ namespace CrudModel
             if (roomList == null)
             {
                 roomList = new ObservableCollection<Room>();
-                Room r = new Room("202a");
+                Room r = new Room("202a", "Operation room", 2);
                 roomList.Add(r);
             }
         }
@@ -41,7 +41,7 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public static Room GetRoomByID(int ID)
+      public static Room GetRoomByID(string ID)
       {
          foreach(Room r in roomList)
             {
