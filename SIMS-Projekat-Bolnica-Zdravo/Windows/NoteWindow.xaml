@@ -1,0 +1,34 @@
+﻿<Window x:Class="SIMS_Projekat_Bolnica_Zdravo.Windows.NoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Patient" Height="755" Width="430">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="390"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="Silver" />
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="3" Fill="DimGray" />
+        <Rectangle Grid.Row="4" Grid.ColumnSpan="3" Fill="Silver" />
+        <Button Content="Beleške" FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Click="Show_Notes"/>
+        <Button Content="Glavni prozor" FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1" Click="Show_Home"/>
+        <Button Content="Button" FontSize="20" HorizontalAlignment="Left" Margin="10,9.6,10,0" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="2"/>
+        <TextBox Name="NoteName" Background="Silver"  Text="{Binding Path = NameNote, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  TextAlignment="Center" FontSize="25" HorizontalAlignment="Left" Height="40" Margin="71.4,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Grid.ColumnSpan="2" Grid.Column="1" TextChanged="TextBox_TextChanged"/>
+        <TextBox Name="NoteContent" Background="GhostWhite" Text="{Binding Path = ContentNote, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  TextAlignment="Center" FontSize="25" HorizontalAlignment="Left" Height="390" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="424" Grid.ColumnSpan="3" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Poništi" HorizontalAlignment="Left" Margin="10,9.6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Click="ReverseNote"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131.4,9.6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Grid.Column="1" Click="ConfirmNote"/>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿<Window x:Class="SIMS_Projekat_Bolnica_Zdravo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1250" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="80" Width="500" Grid.Column="1" Grid.Row="1" Margin="5">Dobrodošli!</TextBlock>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="2" Margin="5">Logovanje</TextBlock>
+        <ComboBox Loaded="cb_Loaded" Name="cb"  FontSize="30" Grid.Column="1" Grid.Row="3" Margin="5">
+            <ComboBoxItem GotFocus="SU_GotFocus" Name="SU" Content="Selektuj ulogu!" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="Lekar" Content="Lekar" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="Sekretar" Content="Sekretar" Tag="y"></ComboBoxItem>
+            <ComboBoxItem Name="Pacijent" Content="Pacijent" Tag="z"></ComboBoxItem>
+            <ComboBoxItem Name="Upravnik" Content="Upravnik" Tag="j"></ComboBoxItem>
+        </ComboBox>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="4" Margin="5">Email</TextBlock>
+        <TextBox FontSize="30" Grid.Column="1" Grid.Row="5" Margin="5"></TextBox>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="6" Margin="5" >Lozinka</TextBlock>
+        <TextBox FontSize="30" Grid.Column="1" Grid.Row="7" Margin="5"></TextBox>
+        <Button HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" Margin="5" FontSize="25">Zaboravljena lozinka?</Button>
+        <Button Name="Login" Click="Login_Click" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Column="1" Grid.Row="10" Margin="5" FontSize="40">Logovanje</Button>
+    </Grid>
+</Window>

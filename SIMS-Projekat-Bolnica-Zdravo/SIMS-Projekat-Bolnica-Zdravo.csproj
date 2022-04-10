@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAD495B7-79B5-43C8-82EE-54BD4E7C9514}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SIMS_Projekat_Bolnica_Zdravo</RootNamespace>
+    <AssemblyName>SIMS-Projekat-Bolnica-Zdravo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CrudModel\Gender.cs" />
+    <Compile Include="Windows\1addAppointmentDialogDoctor.xaml.cs">
+      <DependentUpon>1addAppointmentDialogDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
+      <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DoctorsAppointments.xaml.cs">
+      <DependentUpon>DoctorsAppointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\doctorShowAppointment.xaml.cs">
+      <DependentUpon>doctorShowAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DoctorWindow.xaml.cs">
+      <DependentUpon>DoctorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Manager.xaml.cs">
+      <DependentUpon>Manager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NoteWindow.xaml.cs">
+      <DependentUpon>NoteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PatientNotes.xaml.cs">
+      <DependentUpon>PatientNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddAppointmentDialogPatient.xaml.cs">
+      <DependentUpon>AddAppointmentDialogPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PatientWindow.xaml.cs">
+      <DependentUpon>PatientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Secretary.xaml.cs">
+      <DependentUpon>Secretary.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CrudModel\Address.cs" />
+    <Compile Include="CrudModel\Appointment.cs" />
+    <Compile Include="CrudModel\AppointmentFileStorage.cs" />
+    <Compile Include="CrudModel\BloodType.cs" />
+    <Compile Include="CrudModel\Doctor.cs" />
+    <Compile Include="CrudModel\DoctorFileStorage.cs" />
+    <Compile Include="CrudModel\Equipment.cs" />
+    <Compile Include="CrudModel\EquipmentFileStorage.cs" />
+    <Compile Include="CrudModel\Manager.cs" />
+    <Compile Include="CrudModel\ManagerFileStorage.cs" />
+    <Compile Include="CrudModel\MedicalRecord.cs" />
+    <Compile Include="CrudModel\MedicalRecordFileStorage.cs" />
+    <Compile Include="CrudModel\Meeting.cs" />
+    <Compile Include="CrudModel\MeetingFileStorage.cs" />
+    <Compile Include="CrudModel\Note.cs" />
+    <Compile Include="CrudModel\NoteFileStorage.cs" />
+    <Compile Include="CrudModel\Patient.cs" />
+    <Compile Include="CrudModel\PatientFileStorage.cs" />
+    <Compile Include="CrudModel\Room.cs" />
+    <Compile Include="CrudModel\RoomFileStorage.cs" />
+    <Compile Include="CrudModel\Secretary.cs" />
+    <Compile Include="CrudModel\SecretaryFileStorage.cs" />
+    <Compile Include="CrudModel\Specialization.cs" />
+    <Compile Include="CrudModel\SpecializationFileStorage.cs" />
+    <Compile Include="CrudModel\User.cs" />
+    <Compile Include="CrudModel\Warehouse.cs" />
+    <Compile Include="CrudModel\WarehouseFileStorage.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\1addAppointmentDialogDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\addAppointmentDialogDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DoctorsAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\doctorShowAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DoctorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Manager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NoteWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\PatientNotes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddAppointmentDialogPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\PatientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Secretary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
