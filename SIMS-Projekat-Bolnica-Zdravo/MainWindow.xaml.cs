@@ -33,13 +33,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new ManagerFileStorage();
             new NoteFileStorage();
             new MedicalRecordFileStorage();
+            new SecretaryFileStorage();
             new RoomFileStorage();
             new AppointmentFileStorage();
             loadIDS();
             InitializeComponent();
             //new EquipmentFileStorage();
             //new MeetingFileStorage();
-            //new SecretaryFileStorage();
             //new WarehouseFileStorage();
         }
 

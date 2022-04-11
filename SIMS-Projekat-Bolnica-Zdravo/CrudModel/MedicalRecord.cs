@@ -198,6 +198,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.a;
             }
             else if (values[2].Equals("a+"))
@@ -206,6 +207,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.a1;
             }
             else if (values[2].Equals("b-"))
@@ -214,6 +216,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.b;
             }
             else if (values[2].Equals("b+"))
@@ -222,6 +225,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.b1;
             }
             else if (values[2].Equals("ab-"))
@@ -230,6 +234,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.ab;
             }
             else if (values[2].Equals("ab+"))
@@ -238,6 +243,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.ab1;
             }
             else if (values[2].Equals("o-"))
@@ -246,6 +252,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.o;
             }
             else if (values[2].Equals("o+"))
@@ -254,6 +261,7 @@ namespace CrudModel
                 Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
                 patient = p;
                 p.medicalRecord = this;
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.o1;
             }
         }

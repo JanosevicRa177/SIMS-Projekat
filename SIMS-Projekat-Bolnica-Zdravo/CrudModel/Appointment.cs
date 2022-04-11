@@ -3,13 +3,19 @@
 // Created: Wednesday, March 30, 2022 4:13:42 PM
 // Purpose: Definition of Class Appointment
 
+using ConsoleApp.serialization;
 using System;
 
 namespace CrudModel
 {
-    public class Appointment
+    public class Appointment : Serializable
     {
         private static int ids = -1;
+
+        public Appointment()
+        {
+
+        }
 
         public static int getids()
         {
@@ -120,6 +126,42 @@ namespace CrudModel
             this.time = var5 + this.hour.ToString() + ":" + var6 +this.minute.ToString();
             this.time += " - " + var1 + var3;
             this.time += ":" + vars + var;
+        }
+
+        public string[] toCSV()
+        {
+            string[] csvValues =
+            {
+                medicalRecord.medicalRecordID.ToString(),
+                doctor.userID.ToString(),
+                timeBegin.Day.ToString(),
+                timeBegin.Month.ToString(),
+                timeBegin.Year.ToString(),
+                duration.ToString(),
+                hour.ToString(),
+                minute.ToString(),
+                room.roomID.ToString(),
+                description,
+                appointmentID.ToString()
+            };
+            return csvValues;
+        }
+
+        public void fromCSV(string[] values)
+        {
+            this.medicalRecord = MedicalRecordFileStorage.GetMedicalRecordByID(int.Parse(values[0]));
+            this.doctor = DoctorFileStorage.GetDoctorByID(int.Parse(values[1]));
+            this.timeBegin = new DateTime(int.Parse(values[4]),int.Parse(values[3]),int.Parse(values[2]));
+            this.duration = int.Parse(values[5]);
+            this.hour = int.Parse(values[6]);
+            this.minute = int.Parse(values[7]);
+            this.room = RoomFileStorage.GetRoomByID(int.Parse(values[8]));
+            this.description = values[9];
+            this.appointmentID = int.Parse(values[10]);
+            setTime();
+            setDate();
+            doctor.AddAppointment(this);
+            medicalRecord.AddAppointment(this);
         }
 
 

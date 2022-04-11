@@ -251,6 +251,9 @@
     <Resource Include="icons\hospital.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="bin\Debug\secretary.txt" />
+    <Resource Include="bin\Debug\managers.txt" />
+    <Resource Include="bin\Debug\appoitments.txt" />
     <Resource Include="bin\Debug\doctors.txt" />
     <Resource Include="bin\Debug\ids.txt" />
     <Resource Include="bin\Debug\medicalRecords.txt" />
