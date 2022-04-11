@@ -41,9 +41,13 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public MedicalRecord GetMedicalRecordByID(int medicalRecordID)
+      public static MedicalRecord GetMedicalRecordByID(int medicalRecordID)
       {
-         throw new NotImplementedException();
+         foreach (MedicalRecord mr in medicalRecordList)
+            {
+                if (mr.medicalRecordID == medicalRecordID) return mr;
+            }
+            return null;
       }
       
       public List<MedicalRecord> GetAllMedicalRecord()

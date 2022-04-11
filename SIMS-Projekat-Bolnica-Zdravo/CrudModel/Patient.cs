@@ -5,6 +5,7 @@
 
 using ConsoleApp.serialization;
 using System;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
@@ -16,7 +17,7 @@ namespace CrudModel
         {
             if (notes == null) 
             {
-                notes = new System.Collections.Generic.List<Note>();
+                notes = new ObservableCollection<Note>();
             }
             this.userID = User.generateID();
             this.gender = gender;
@@ -25,7 +26,7 @@ namespace CrudModel
         {
             if (notes == null)
             {
-                notes = new System.Collections.Generic.List<Note>();
+                notes = new ObservableCollection<Note>();
             }
             address = new Address();
         }
@@ -41,18 +42,18 @@ namespace CrudModel
         }
 
 
-        public System.Collections.Generic.List<Note> notes
+        public ObservableCollection<Note> notes
         {
             set;
             get;
         }
 
-        public System.Collections.Generic.List<Note> Notes
+        public ObservableCollection<Note> Notes
         {
             get
             {
                 if (notes == null)
-                    notes = new System.Collections.Generic.List<Note>();
+                    notes = new ObservableCollection<Note>();
                 return notes;
             }
             set
@@ -71,7 +72,7 @@ namespace CrudModel
             if (newNote == null)
                 return;
             if (this.notes == null)
-                this.notes = new System.Collections.Generic.List<Note>();
+                this.notes = new ObservableCollection<Note>();
             if (!this.notes.Contains(newNote))
                 this.notes.Add(newNote);
         }
