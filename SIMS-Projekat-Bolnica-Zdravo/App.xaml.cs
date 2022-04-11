@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp.serialization;
+using CrudModel;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            Serializer<MedicalRecord> medicalRecorderializer = new Serializer<MedicalRecord>();
+            medicalRecorderializer.toCSV("medicalRecords.txt", MedicalRecordFileStorage.medicalRecordList);
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            patientSerializer.toCSV("patients.txt", PatientFileStorage.patientList);
+        }
     }
 }

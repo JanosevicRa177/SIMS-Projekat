@@ -44,7 +44,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.DataContext = new
             {
                 docs = new DoctorFileStorage(),
-                logged = new PatientWindow(),
                 This = this
             };
             InitializeComponent();

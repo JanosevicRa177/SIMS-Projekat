@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Patient" Height="755" Width="430">
+        Title="Patient" Height="750" Width="430" WindowStyle="None">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions >
             <RowDefinition Height="80"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="390"/>
+            <RowDefinition Height="410"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
@@ -34,8 +34,8 @@
         <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="350" Margin="9.4,10,0,0" Width="264" Grid.Row="1" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Margin="0,29,137.2,0" FontSize="20" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="331" Width="136" Grid.ColumnSpan="2" Grid.RowSpan="2"><Run Text="Ime:"/><LineBreak/><Run/><LineBreak/><Run Text="Prezime:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Soba:"/><LineBreak/><Run/><LineBreak/><Run Text="Datum i vreme:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Opis Pregleda:"/><LineBreak/><Run/><LineBreak/><LineBreak/><Run Text="Doktor:"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
 
-        <TextBlock x:Name="Name" FontSize="20" Text="{Binding patient.loggedPatient.name}" Grid.Row="1" Grid.Column="1" Margin="20.4,29,21.8,0" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="Surname" FontSize="20" Text="{Binding patient.loggedPatient.surname}" Grid.Row="2" Grid.Column="1" Margin="20.4,23,21.8,336" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Name" FontSize="20" Text="{Binding patient.name}" Grid.Row="1" Grid.Column="1" Margin="20.4,29,21.8,0" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Surname" FontSize="20" Text="{Binding patient.surname}" Grid.Row="2" Grid.Column="1" Margin="20.4,23,21.8,336" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="RoomName" FontSize="20" Text="{Binding appointment.room.name}"  Grid.Row="2" Grid.Column="1" Margin="20.4,76,21.8,283" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="DateAndTime" FontSize="20"  Grid.Row="2" Grid.Column="1" Margin="19.4,129,22.8,230" Grid.ColumnSpan="2">
             <TextBlock.Text>
