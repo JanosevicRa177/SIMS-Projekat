@@ -17,7 +17,7 @@ namespace CrudModel
             address = new Address();
         }
         
-        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos,String gender)
+        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos)
         {
             this.userID = id;
             this.name = name;

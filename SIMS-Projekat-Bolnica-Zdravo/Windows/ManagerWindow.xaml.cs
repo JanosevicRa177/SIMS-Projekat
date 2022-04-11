@@ -80,6 +80,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             if((Room)RoomsListGrid.SelectedItem != null)
             {
                 RoomFileStorage.roomList.Remove((Room)RoomsListGrid.SelectedItem);
+                inputName.Text = "";
+                inputPurpose.Text = "";
+                inputFloor.Text = "";
             }
         }
 
