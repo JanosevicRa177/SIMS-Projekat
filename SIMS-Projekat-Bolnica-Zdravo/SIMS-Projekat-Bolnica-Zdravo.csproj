@@ -70,6 +70,7 @@
     <Compile Include="Windows\CreateRoomDialog.xaml.cs">
       <DependentUpon>CreateRoomDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CreateRoomValidationRules.cs" />
     <Compile Include="Windows\DateChangerPatient.xaml.cs">
       <DependentUpon>DateChangerPatient.xaml</DependentUpon>
     </Compile>

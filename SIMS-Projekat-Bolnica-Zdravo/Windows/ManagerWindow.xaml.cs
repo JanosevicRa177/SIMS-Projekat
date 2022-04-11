@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,17 +53,63 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void editRoom_Click(object sender, RoutedEventArgs e)
         {
+            if ((Room)RoomsListGrid.SelectedItem != null)
+            {
+                Room r1 = (Room)RoomsListGrid.SelectedItem;
+                if ((inputName.Text != "") && (inputPurpose.Text != "") && (inputFloor.Text != "")){
+                    foreach (Room r2 in RoomFileStorage.roomList)
+                    {
+                        if (r1.roomID == r2.roomID)
+                        {
 
+                            r2.name = inputName.Text;
+                            r2.purpose = inputPurpose.Text;
+                            r2.floor = int.Parse(inputFloor.Text);
+                        }
+                    }
+                    inputName.Text = "";
+                    inputPurpose.Text = "";
+                    inputFloor.Text = "";
+                }
+            }
+                RoomsListGrid.Items.Refresh();
         }
 
         private void deleteRoom_Click(object sender, RoutedEventArgs e)
         {
-
+            if((Room)RoomsListGrid.SelectedItem != null)
+            {
+                RoomFileStorage.roomList.Remove((Room)RoomsListGrid.SelectedItem);
+            }
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new MainWindow();
+            dia.Show();
+            this.Close();
+        }
+
+        private void RoomsListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Room r = (Room)RoomsListGrid.SelectedItem;
+            if (r != null)
+            {
+                inputName.Text = r.name;
+                inputPurpose.Text = r.purpose;
+                inputFloor.Text = Convert.ToString(r.floor);
+            }
+        }
+
+        private void inputFloor_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
