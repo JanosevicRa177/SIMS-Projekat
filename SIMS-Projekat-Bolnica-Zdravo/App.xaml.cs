@@ -24,14 +24,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             patientSerializer.toCSV("patients.txt", PatientFileStorage.patientList);
             Serializer<Doctor> doctorSerializer = new Serializer<Doctor>();
             doctorSerializer.toCSV("doctors.txt", DoctorFileStorage.doctorList);
+ 
+            Serializer<Secretary> secretarySerializer = new Serializer<Secretary>();
+            secretarySerializer.toCSV("secretary.txt", SecretaryFileStorage.secretaryList);
+            Serializer<Manager> managersSerializer = new Serializer<Manager>();
+            managersSerializer.toCSV("managers.txt", ManagerFileStorage.managerList);
+
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
             appoitmentSerializer.toCSV("appoitments.txt", AppointmentFileStorage.appointmentList);
 
-
-
-
-
-            //ovo mora biti na kraju
             Serializer<Note> noteSerializer = new Serializer<Note>();
             noteSerializer.toCSV("notes.txt", NoteFileStorage.noteList);
             Serializer<IdsStorage> idsSerializer = new Serializer<IdsStorage>();
