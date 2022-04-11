@@ -17,6 +17,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     {
         private void Application_Exit(object sender, ExitEventArgs e)
         {
+
             Serializer<MedicalRecord> medicalRecorderializer = new Serializer<MedicalRecord>();
             medicalRecorderializer.toCSV("medicalRecords.txt", MedicalRecordFileStorage.medicalRecordList);
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
@@ -31,6 +32,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
 
             //ovo mora biti na kraju
+            Serializer<Note> noteSerializer = new Serializer<Note>();
+            noteSerializer.toCSV("notes.txt", NoteFileStorage.noteList);
             Serializer<IdsStorage> idsSerializer = new Serializer<IdsStorage>();
             new IdsStorage();
             idsSerializer.toCSV("ids.txt", IdsStorage.IDS);

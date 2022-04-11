@@ -25,8 +25,8 @@ namespace ConsoleApp.serialization
 
         public ObservableCollection<T> fromCSV(string fileName)
         {
+            string fullPath = Path.GetFullPath(fileName);
             ObservableCollection<T> objects = new ObservableCollection<T>();
-
             foreach(string line in File.ReadLines(fileName))
             {
                 string[] csvValues = line.Split(DELIMITER2);

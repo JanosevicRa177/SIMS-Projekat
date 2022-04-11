@@ -1,4 +1,5 @@
-﻿using CrudModel;
+﻿using ConsoleApp.serialization;
+using CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,10 +32,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             if (loggedPatient == null) 
             {
                 loggedPatient = PatientFileStorage.GetPatientByID(5);
-                loggedPatient.AddNote(new Note("Beleska1", "Neki kontent 1"));
-                loggedPatient.AddNote(new Note("Beleska2", "Neki kontent 2"));
-                loggedPatient.AddNote(new Note("Beleska3", "Neki kontent 3"));
-                loggedPatient.AddNote(new Note("Beleska4", "Neki kontent 4"));
             }
            
         }
