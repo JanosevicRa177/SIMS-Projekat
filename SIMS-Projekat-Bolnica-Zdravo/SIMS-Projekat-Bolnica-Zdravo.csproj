@@ -238,6 +238,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -248,6 +249,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\hospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\secretary.txt" />
+    <Resource Include="bin\Debug\managers.txt" />
+    <Resource Include="bin\Debug\appoitments.txt" />
+    <Resource Include="bin\Debug\doctors.txt" />
+    <Resource Include="bin\Debug\ids.txt" />
+    <Resource Include="bin\Debug\medicalRecords.txt" />
+    <Resource Include="bin\Debug\notes.txt" />
+    <Resource Include="bin\Debug\patients.txt" />
+    <Content Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe" />
+    <Content Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

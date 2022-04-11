@@ -574,6 +574,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void position_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (licenceComboBox.SelectedItem == null) return;
             if(licenceComboBox.SelectedItem.ToString().Equals("Manager") || licenceComboBox.SelectedItem.ToString().Equals("Secretary"))
             {
                 specializationTextBox.IsEnabled = false;
