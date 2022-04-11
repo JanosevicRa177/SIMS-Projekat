@@ -18,7 +18,9 @@ namespace CrudModel
             this.gender = gender;
         }
         public Patient()
-        { }
+        {
+            address = new Address();
+        }
         public Gender gender
         {
             set;

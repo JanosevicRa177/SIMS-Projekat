@@ -17,6 +17,9 @@ namespace CrudModel
             this.street = street;
             this.number = number;
         }
+        public Address() 
+        {
+        }
 
 
           public String country

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Patient" Height="755" Width="430">
+        Title="Patient" Height="750" Width="430">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions >
             <RowDefinition Height="80"/>
