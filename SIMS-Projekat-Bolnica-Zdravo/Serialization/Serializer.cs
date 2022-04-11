@@ -12,7 +12,7 @@ namespace ConsoleApp.serialization
         private static char DELIMITER2 = '|';
         public void toCSV(string fileName, ObservableCollection<T> objects)
         {
-            using (StreamWriter sw = new StreamWriter("patients.txt"))
+            using (StreamWriter sw = new StreamWriter(fileName))
             {
 
                 foreach (Serializable obj in objects)

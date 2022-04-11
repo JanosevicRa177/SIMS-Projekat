@@ -17,6 +17,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     {
         private void Application_Exit(object sender, ExitEventArgs e)
         {
+            Serializer<MedicalRecord> medicalRecorderializer = new Serializer<MedicalRecord>();
+            medicalRecorderializer.toCSV("medicalRecords.txt", MedicalRecordFileStorage.medicalRecordList);
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
             patientSerializer.toCSV("patients.txt", PatientFileStorage.patientList);
         }
