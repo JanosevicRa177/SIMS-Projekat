@@ -14,11 +14,19 @@ namespace CrudModel
         
         public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
         {
+            if (notes == null) 
+            {
+                notes = new System.Collections.Generic.List<Note>();
+            }
             this.userID = User.generateID();
             this.gender = gender;
         }
         public Patient()
         {
+            if (notes == null)
+            {
+                notes = new System.Collections.Generic.List<Note>();
+            }
             address = new Address();
         }
         public Gender gender

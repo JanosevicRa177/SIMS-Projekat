@@ -3,16 +3,31 @@
 // Created: Wednesday, April 6, 2022 12:11:56 PM
 // Purpose: Definition of Class NoteFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class NoteFileStorage
    {
 
-        static public List<Note> noteList = new List<Note>();
-      public bool CreateNote(Note newNote)
+        static public ObservableCollection<Note> noteList
+        {
+            set;
+            get;
+        }
+        public NoteFileStorage() 
+        {
+            if (noteList == null) 
+            {
+                noteList = new ObservableCollection<Note>();
+                Serializer<Note> noteSerializer = new Serializer<Note>();
+                noteList = noteSerializer.fromCSV("notes.txt");
+            }
+        }
+        public bool CreateNote(Note newNote)
       {
          throw new NotImplementedException();
       }

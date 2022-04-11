@@ -39,7 +39,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Add_Note(object sender, RoutedEventArgs e)
         {
             Note n = new Note("Prazno", "");
-            PatientWindow.loggedPatient.AddNote(n);
+            Patient p = PatientFileStorage.GetPatientByID(PatientWindow.loggedPatient.userID);
+            n.patient = p;
+            p.notes.Add(n);
             NoteFileStorage.noteList.Add(n);
             NotesListGrid.Items.Refresh();
         }
@@ -47,6 +49,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void DeleteNote(object sender, RoutedEventArgs e)
         {
             PatientWindow.loggedPatient.RemoveNote((Note)NotesListGrid.SelectedItem);
+            NoteFileStorage.noteList.Remove((Note)NotesListGrid.SelectedItem);
             NotesListGrid.Items.Refresh();
         }
 
