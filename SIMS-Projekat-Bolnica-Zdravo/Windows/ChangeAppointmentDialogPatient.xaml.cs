@@ -16,17 +16,8 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class ChangeAppointmentDialogPatient : Window, INotifyPropertyChanged
+    public partial class ChangeAppointmentDialogPatient : Window
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
         public static DateTime date
         {
             get;

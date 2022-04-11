@@ -25,18 +25,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     {
         public MainWindow()
         {
+            new NoteFileStorage();
+            new MedicalRecordFileStorage();
+            new RoomFileStorage();
             new AppointmentFileStorage();
             new SpecializationFileStorage();
             new DoctorFileStorage();
             new PatientFileStorage();
-            new RoomFileStorage();
             new ManagerFileStorage();
-            Console.WriteLine("shadiosad");
             InitializeComponent();
             //new EquipmentFileStorage();
-            //new MedicalRecordFileStorage();
             //new MeetingFileStorage();
-            //new NoteFileStorage();
             //new SecretaryFileStorage();
             //new WarehouseFileStorage();
         }

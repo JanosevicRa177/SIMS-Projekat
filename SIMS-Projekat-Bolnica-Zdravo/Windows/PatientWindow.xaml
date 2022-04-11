@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Patient" Height="755" Width="430">
+        Title="Patient" Height="755" Width="430" WindowStyle="None">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -20,7 +20,7 @@
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Button Grid.Row="0" Grid.Column="2" Margin="5" Name="signout" Content="Odjava" Height="50" VerticalAlignment="Center" FontSize="25" Panel.ZIndex="1" Click="signout_Click" > </Button>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="Silver" Panel.ZIndex="0" />
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="Silver" Panel.ZIndex="0" Margin="2,0" />
         <Rectangle Grid.Row="3" Grid.ColumnSpan="3" Fill="Silver" />
         <Button Content="Beleške" FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Click="Show_Notes"/>
         <Button Content="Glavni prozor" FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1"/>

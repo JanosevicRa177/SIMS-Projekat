@@ -20,7 +20,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     {
         public DatePickerPatient()
         {
-            this.DataContext = new AddAppointmentDialogPatient();
+            this.DataContext = AddAppointmentDialogPatient.date;
             InitializeComponent();
         }
 

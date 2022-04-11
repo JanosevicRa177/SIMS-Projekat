@@ -24,7 +24,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             appointment = appointment1;
             this.DataContext = new
             {
-                patient = new PatientWindow(),
+                patient = PatientWindow.loggedPatient,
                 appointment = appointment
             };
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             this.DataContext = new
             {
-                patient = new PatientWindow(),
+                patient = PatientWindow.loggedPatient,
                 appointment = appointment
             };
             InitializeComponent();
