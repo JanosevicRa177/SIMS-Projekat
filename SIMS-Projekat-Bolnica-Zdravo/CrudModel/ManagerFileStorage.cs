@@ -1,4 +1,5 @@
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,9 +18,8 @@ namespace CrudModel
         {
             if (managerList == null)
             {
-                managerList = new ObservableCollection<Manager>();
-                Manager m = new Manager("Hana", "Smithr", new Address("Serbia", "Novi Sad", "Gogoljeva", "12"), "password123", "0654320234", "hanasmithr@gmail.com");
-                managerList.Add(m);
+                Serializer<Manager> managerSerializer = new Serializer<Manager>();
+                managerList = managerSerializer.fromCSV("managers.txt");
             }
         }
         public bool CreateManager(Manager newManager)

@@ -28,12 +28,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public PatientWindow()
         {
             InitializeComponent();
-            this.DataContext = loggedPatient;
             if (loggedPatient == null) 
             {
                 loggedPatient = PatientFileStorage.GetPatientByID(5);
             }
-           
+            this.DataContext = loggedPatient;
         }
 
         private void Show_Notes(object sender, RoutedEventArgs e)
