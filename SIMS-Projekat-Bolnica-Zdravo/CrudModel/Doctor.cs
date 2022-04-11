@@ -3,14 +3,21 @@
 // Created: Wednesday, March 30, 2022 4:13:06 PM
 // Purpose: Definition of Class Doctor
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
-   public class Doctor : User
-   {
-        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos)
+   public class Doctor : User , Serializable
+    {
+
+        public Doctor()
+        {
+            address = new Address();
+        }
+        
+        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos,String gender)
         {
             this.userID = id;
             this.name = name;
@@ -133,6 +140,39 @@ namespace CrudModel
             tmpAppointment.Clear();
          }
       }
-   
-   }
+
+        public string[] toCSV()
+        {
+            string[] csvValues =
+            {
+                name,
+                surname,
+                address.country,
+                address.city,
+                address.street,
+                address.number,
+                password,
+                mobilePhone,
+                mail,
+                userID.ToString(),
+                specialization.specialization
+            };
+            return csvValues;
+        }
+
+        public void fromCSV(string[] values)
+        {
+            name = values[0];
+            surname = values[1];
+            address.country = values[2];
+            address.city = values[3];
+            address.street = values[4];
+            address.number = values[5];
+            password = values[6];
+            mobilePhone = values[7];
+            mail = values[8];
+            userID = int.Parse(values[9]);
+            specialization = SpecializationFileStorage.GetSpecialization(values[10]);
+        }
+    }
 }

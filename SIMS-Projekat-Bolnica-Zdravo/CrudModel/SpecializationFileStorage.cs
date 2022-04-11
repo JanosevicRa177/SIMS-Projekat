@@ -38,9 +38,12 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public List<Specialization> GetAllSpecialization()
+      public static Specialization GetSpecialization(string sp)
       {
-         throw new NotImplementedException();
+         foreach (Specialization s  in specializationList) {
+                if (s.specialization.Equals(sp)) return s;
+            }
+            return null;
       }
    
    }

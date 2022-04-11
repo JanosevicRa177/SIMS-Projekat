@@ -1,7 +1,9 @@
-﻿using CrudModel;
+﻿using ConsoleApp.serialization;
+using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -33,11 +35,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new MedicalRecordFileStorage();
             new RoomFileStorage();
             new AppointmentFileStorage();
+            loadIDS();
             InitializeComponent();
             //new EquipmentFileStorage();
             //new MeetingFileStorage();
             //new SecretaryFileStorage();
             //new WarehouseFileStorage();
+        }
+
+        public void loadIDS()
+        {
+            ObservableCollection<IdsStorage> ids = new ObservableCollection<IdsStorage>();
+            Serializer <IdsStorage> doctorserialzer = new Serializer<IdsStorage>();
+            ids = doctorserialzer.fromCSV("ids.txt");
+            ids[0].setALLIDS();
+
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)

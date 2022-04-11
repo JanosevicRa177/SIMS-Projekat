@@ -5,6 +5,16 @@ namespace CrudModel
    public class Room
    {
         static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
         public Room(string name,string purpose, int floor)
         {
             this.name = name;
