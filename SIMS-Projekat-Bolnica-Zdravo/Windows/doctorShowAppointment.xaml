@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
-        Title="Show Appointment" Height="700" Width="800" Background="AntiqueWhite" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Icon="..\icons\hospital.png" Title="Show Appointment" Height="700" Width="800" Background="AntiqueWhite" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
