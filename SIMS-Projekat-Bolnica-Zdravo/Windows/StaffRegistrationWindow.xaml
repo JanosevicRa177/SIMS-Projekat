@@ -107,16 +107,16 @@
         <Label Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Margin="17,11,0,0" Grid.ColumnSpan="2" Grid.Column="2"></Label>
         <TextBox x:Name="passwordTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Width="170" Margin="51,0,0,0" Grid.Column="3"></TextBox>
         <Label Content="Position:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Margin="17,10,0,0" Grid.ColumnSpan="2" Grid.Column="2"></Label>
-        <ComboBox x:Name="licenceComboBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Width="170" Margin="51,0,0,0" Grid.Column="3"></ComboBox>
+        <ComboBox x:Name="licenceComboBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Width="170" Margin="51,0,0,0" Grid.Column="3" SelectionChanged="position_SelectionChanged"></ComboBox>
         <Label Content="Specialization:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="5" Margin="17,11,0,0" Grid.ColumnSpan="2" Grid.Column="2"></Label>
-        <TextBox x:Name="specializationTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="5" Width="170" Margin="51,0,0,0" Grid.Column="3">
-            <TextBox.Text>
+        <ComboBox x:Name="specializationTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="5" Width="170" Margin="51,0,0,0" Grid.Column="3">
+            <ComboBox.Text>
                 <Binding Path="This.Test3" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
                         <val:RegexValidationRules ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
-            </TextBox.Text>
+            </ComboBox.Text>
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Grid>
@@ -133,7 +133,7 @@
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
-        </TextBox>
+        </ComboBox>
         <Label Content="Phone:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="6" Margin="17,11,0,0" Grid.ColumnSpan="2" Grid.Column="2"></Label>
         <TextBox x:Name="phoneTextBox1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="6" Width="170" Margin="51,0,0,0" Grid.Column="3">
             <TextBox.Text>
@@ -214,19 +214,16 @@
             </Validation.ErrorTemplate>
         </TextBox>
         <ComboBox x:Name="countryComboBox" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="7" Margin="20,22,0,0" Width="82" Height="18" Grid.ColumnSpan="2" Grid.Column="2"></ComboBox>
-        <Label Content="Gender:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="8" Margin="17,0,0,0" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <ComboBox x:Name="genderComboBox" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Margin="50,0,0,0" Width="39" Height="18" Grid.Column="3"></ComboBox>
         <Button x:Name="registerButton" Content="Register"  HorizontalAlignment="Left" Margin="4,39,0,0" Grid.Row="8" VerticalAlignment="Top" Grid.RowSpan="2" Width="86" Click="Button_Click" Grid.Column="3"/>
         <Button x:Name="deleteButton" Content="Delete"  HorizontalAlignment="Left" Margin="113,39,0,0" Grid.Row="8" VerticalAlignment="Top" Grid.RowSpan="2" Width="86" Click="deleteButton_Click" Grid.Column="3"/>
         <Button x:Name="updateButton" Content="Update"  HorizontalAlignment="Left" Margin="4,20,0,0" Grid.Row="9" VerticalAlignment="Top" Width="86" Click="updateButton_Click" Grid.Column="3"/>
         <Button x:Name="cancelButton" Content="Cancel"  HorizontalAlignment="Left" Margin="113,20,0,0" Grid.Row="9" VerticalAlignment="Top" Width="86" Click="cancelButton_Click" Grid.Column="3"/>
 
-        <DataGrid GotFocus="UserGrid_LostFocus" Grid.Row="4" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding docs.doctorList}" x:Name="UserGrid" Margin="0,43,1,10" Grid.RowSpan="5" SelectionChanged="UserGrid_SelectionChanged" Grid.ColumnSpan="2">
+        <DataGrid GotFocus="UserGrid_LostFocus" Grid.Row="4" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding docs.doctorList}" x:Name="UserGrid" Margin="0,43,1,10" Grid.RowSpan="5" SelectionChanged="UserGrid_SelectionChanged" Grid.ColumnSpan="2" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Email" Binding="{Binding mail}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Position" Binding="{Binding position}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Number:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="6" Margin="169,40,0,0" Grid.RowSpan="2" Grid.Column="3"/>
@@ -253,12 +250,18 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <DataGrid GotFocus="managerGrid_LostFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding man.managerList}" x:Name="managerGrid" Margin="0,24,1,29" Grid.RowSpan="5" SelectionChanged="managerGrid_SelectionChanged" Grid.ColumnSpan="2">
+        <DataGrid GotFocus="managerGrid_LostFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding man.managerList}" x:Name="managerGrid" Margin="0,24,1,29" Grid.RowSpan="5" SelectionChanged="managerGrid_SelectionChanged" Grid.ColumnSpan="2" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding mail}"/>
-                <DataGridTextColumn Header="Position" Binding="{Binding position}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid GotFocus="secretaryGrid_GotFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding sec.secretaryList}" x:Name="secretaryGrid" Margin="253,29,31,24" Grid.RowSpan="5" SelectionChanged="secretaryGrid_SelectionChanged" Grid.Column="3" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding mail}"/>
             </DataGrid.Columns>
         </DataGrid>
 
