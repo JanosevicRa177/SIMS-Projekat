@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CrudModel\Gender.cs" />
+    <Compile Include="Serialization\Serializable.cs" />
+    <Compile Include="Serialization\Serializer.cs" />
     <Compile Include="Windows\1addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>1addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>

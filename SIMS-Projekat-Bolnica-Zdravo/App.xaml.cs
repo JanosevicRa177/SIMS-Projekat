@@ -13,5 +13,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     /// </summary>
     public partial class App : Application
     {
+        void App_Exit(object sender, ExitEventArgs e)
+        {
+        }
     }
 }

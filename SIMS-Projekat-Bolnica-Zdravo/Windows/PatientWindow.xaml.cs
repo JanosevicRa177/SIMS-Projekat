@@ -17,17 +17,8 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class PatientWindow : Window, INotifyPropertyChanged
+    public partial class PatientWindow : Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
         static public Patient loggedPatient
         {
             get;

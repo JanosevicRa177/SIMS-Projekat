@@ -16,22 +16,18 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class PatientNotes: Window, INotifyPropertyChanged
+    public partial class PatientNotes: Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string name)
+        static public Patient loggedPatient
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
+            get;
+            set;
         }
         public PatientNotes()
         {
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.DataContext = new PatientWindow();
             InitializeComponent();
+            this.DataContext = PatientWindow.loggedPatient;
         }
         private void Show_Home(object sender, RoutedEventArgs e)
         {
