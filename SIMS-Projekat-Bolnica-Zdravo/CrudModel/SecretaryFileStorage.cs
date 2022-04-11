@@ -3,6 +3,7 @@
 // Created: Sunday, April 3, 2022 4:42:32 PM
 // Purpose: Definition of Class SecretaryFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,9 +23,8 @@ namespace CrudModel
         {
             if (secretaryList == null)
             {
-                secretaryList = new ObservableCollection<Secretary>();
-                secretaryList.Add(new Secretary("Dragan", "Petrovic", "Dragan@gmail.com", "321",new Address("Serbia", "Novi Sad", "Slobodana Bajica", "5a"),"06987654321","Secretary"));
-
+                Serializer<Secretary> secretarySerializer = new Serializer<Secretary>();
+                secretaryList = secretarySerializer.fromCSV("secretary.txt"); 
             }
         }
         public bool CreateSecretary(Secretary newSecretary)
