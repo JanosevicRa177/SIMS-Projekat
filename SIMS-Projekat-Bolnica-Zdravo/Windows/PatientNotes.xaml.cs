@@ -45,11 +45,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             NoteFileStorage.noteList.Add(n);
             NotesListGrid.Items.Refresh();
         }
-
         private void DeleteNote(object sender, RoutedEventArgs e)
         {
+            NoteFileStorage.DeleteNote((Note)NotesListGrid.SelectedItem);
             PatientWindow.loggedPatient.RemoveNote((Note)NotesListGrid.SelectedItem);
-            NoteFileStorage.noteList.Remove((Note)NotesListGrid.SelectedItem);
             NotesListGrid.Items.Refresh();
         }
 

@@ -32,9 +32,14 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public bool DeleteNote(int noteID)
+      public static bool DeleteNote(Note oldNote)
       {
-         throw new NotImplementedException();
+            if (oldNote == null)
+                return false;
+            if (noteList != null)
+                if (noteList.Contains(oldNote))
+                    noteList.Remove(oldNote);
+            return true;
       }
       
       public bool UpdateNote(Note note)
