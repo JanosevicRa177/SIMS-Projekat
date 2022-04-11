@@ -22,19 +22,28 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" BorderBrush="Black" BorderThickness="3" Grid.Row="5" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Create Room" Name="createRoom" Click="createRoom_Click"></Button>
-        <Button Grid.Column="1" BorderBrush="Black" BorderThickness="3" Grid.Row="5" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Edit Room" Name="editRoom" Click="editRoom_Click"></Button>
-        <Button Grid.Column="2" BorderBrush="Black" BorderThickness="3" Grid.Row="5" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Delete Room" Name="deleteRoom" Click="deleteRoom_Click"></Button>
-        <Button Grid.Column="3" BorderBrush="Black" BorderThickness="3" Grid.Row="5" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Cancel" Name="cancel" Click="cancel_Click"></Button>
+        <Button Grid.Column="0" BorderBrush="Black" BorderThickness="3" Grid.Row="6" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Create Room" Name="createRoom" Click="createRoom_Click"></Button>
+        <Button Grid.Column="1" BorderBrush="Black" BorderThickness="3" Grid.Row="6" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Edit Room" Name="editRoom" Click="editRoom_Click"></Button>
+        <Button Grid.Column="2" BorderBrush="Black" BorderThickness="3" Grid.Row="6" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Delete Room" Name="deleteRoom" Click="deleteRoom_Click"></Button>
+        <Button Grid.Column="3" BorderBrush="Black" BorderThickness="3" Grid.Row="6" Width="300" Height="65" FontSize="30" Background="MediumSeaGreen" Content="Cancel" Name="cancel" Click="cancel_Click"></Button>
+        <Button Grid.Column="3" BorderBrush="Black" BorderThickness="3" Grid.Row="0" Width="150" Height="65" FontSize="30" Background="MediumSeaGreen" HorizontalAlignment="Right" Content="Log Out" Name="logout" Click="logout_Click"></Button>
 
         <TextBlock Text="Rooms" FontSize="60" Grid.Column="0" Grid.Row="0" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <DataGrid Name ="RoomsListGrid" IsReadOnly="True" Height="300" Grid.RowSpan="3" Grid.ColumnSpan="4" VerticalAlignment="Top" FontSize="25" SelectionMode="Single" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding roomList}" AutoGenerateColumns="False">
+        <DataGrid Name ="RoomsListGrid" IsReadOnly="True" Height="300" Grid.RowSpan="3" Grid.ColumnSpan="4" VerticalAlignment="Top" FontSize="25" SelectionMode="Single" SelectionChanged="RoomsListGrid_SelectionChanged" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding roomList}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="roomName" Header="Room Name" Width="0.3*" Binding="{Binding name}"/>
                 <DataGridTextColumn x:Name="purpose" Header="Purpose" Width="*" Binding="{Binding purpose}"/>
                 <DataGridTextColumn x:Name="floor" Header="Floor" Width="0.3*" Binding="{Binding floor}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <TextBlock Text="Name:" FontSize="25" Grid.RowSpan="2" Grid.Column="0" Grid.Row="4" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Text="Purpose: " FontSize="25" Grid.Column="0" Grid.Row="4" Margin="5,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Text="Floor: " FontSize="25" Grid.Column="0" Grid.Row="4"  Grid.RowSpan="2" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <TextBox Name="inputName" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Width="450" Height="30" FontSize="20" HorizontalAlignment="Right" VerticalContentAlignment="Center" Margin="5,8,5,0" VerticalAlignment="Top"></TextBox>
+        <TextBox Name="inputPurpose" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Width="450" Height="30" FontSize="20" HorizontalAlignment="Right" VerticalContentAlignment="Center" Margin="5,46,5,16"></TextBox>
+        <TextBox x:Name="inputFloor" PreviewTextInput="inputFloor_PreviewTextInput" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"  Grid.RowSpan="2" Width="450" Height="30" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="5,82,5,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
