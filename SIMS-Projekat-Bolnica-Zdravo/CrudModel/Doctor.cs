@@ -16,7 +16,6 @@ namespace CrudModel
         {
             address = new Address();
         }
-
         
         public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos,String gender)
         {
@@ -29,7 +28,6 @@ namespace CrudModel
             this.mobilePhone = phone;
             this.specialization = spec;
             this.position = pos;
-            this.gender = gender;
         }
         public Doctor(Specialization spec, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
         {

@@ -3,15 +3,30 @@
 // Created: Sunday, April 3, 2022 8:06:22 PM
 // Purpose: Definition of Class MedicalRecordFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class MedicalRecordFileStorage
    {
-        static public List<MedicalRecord> medicalRecordList = new List<MedicalRecord>();
-      public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
+        static public ObservableCollection<MedicalRecord> medicalRecordList
+        {
+            set;
+            get;
+        }
+        public MedicalRecordFileStorage()
+        {
+            if (medicalRecordList == null)
+            {
+                medicalRecordList = new ObservableCollection<MedicalRecord>();
+                Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
+                medicalRecordList = medicalRecordSerializer.fromCSV("medicalRecords.txt");
+            }
+        }
+            public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
       {
          throw new NotImplementedException();
       }

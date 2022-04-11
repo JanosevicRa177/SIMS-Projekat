@@ -9,6 +9,21 @@ namespace CrudModel
 {
    public class Secretary : User
    {
+        public String position
+        {
+            get;
+            set;
+        }
+      public Secretary(String name,String surname,String email,String password,Address address,String phone,String position)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.mail = email;
+            this.password = password;
+            this.address = address;
+            this.mobilePhone = phone;
+            this.position = position;
+        }
       public System.Collections.Generic.List<Meeting> meeting
         {
             set;
