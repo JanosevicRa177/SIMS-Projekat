@@ -9,10 +9,22 @@ namespace CrudModel
 {
    public class Note
    {
+        private static int ids = -1;
+
+        public static int getids ()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
         public Note(String noteName,String noteContent) 
         {
             this.noteContent = noteContent;
             this.noteName = noteName;
+            this.noteID = ++ids;
         }
       public String noteContent
         {

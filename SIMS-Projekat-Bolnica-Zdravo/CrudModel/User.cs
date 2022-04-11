@@ -25,7 +25,17 @@ namespace CrudModel
         }
 
 
-        public static int userIDS = -1;
+        private static int userIDS = -1;
+
+        public static int getids()
+        {
+            return userIDS;
+        }
+
+        public static void setids(int set)
+        {
+            userIDS = set;
+        }
 
         public static int generateID()
         {

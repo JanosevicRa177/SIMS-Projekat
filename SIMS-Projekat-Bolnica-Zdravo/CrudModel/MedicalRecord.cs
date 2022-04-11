@@ -9,7 +9,17 @@ namespace CrudModel
 {
     public class MedicalRecord
     {
-        public static int ids = -1;
+        private static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
         public int medicalRecordID
         {
             set;

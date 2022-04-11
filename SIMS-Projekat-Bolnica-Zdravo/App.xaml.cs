@@ -19,6 +19,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo
         {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
             patientSerializer.toCSV("patients.txt", PatientFileStorage.patientList);
+            Serializer<Doctor> doctorSerializer = new Serializer<Doctor>();
+            doctorSerializer.toCSV("doctors.txt", DoctorFileStorage.doctorList);
+            Serializer<IdsStorage> idsSerializer = new Serializer<IdsStorage>();
+            new IdsStorage();
+            idsSerializer.toCSV("ids.txt", IdsStorage.IDS);
         }
     }
 }

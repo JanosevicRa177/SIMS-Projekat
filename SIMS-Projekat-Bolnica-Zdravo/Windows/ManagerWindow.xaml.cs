@@ -26,7 +26,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-        public static CrudModel.Manager loggedManager
+        public static Manager loggedManager
         {
             get;
             set;

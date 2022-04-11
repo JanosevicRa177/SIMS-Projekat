@@ -10,7 +10,25 @@ namespace CrudModel
 {
    public class Meeting
    {
-      public DateTime timeBegin
+
+        private static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
+
+        public Meeting ()
+        {
+            meetingID = ++ids;
+        }
+
+        public DateTime timeBegin
         {
             set;
             get;

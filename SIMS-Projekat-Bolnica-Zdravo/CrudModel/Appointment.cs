@@ -7,9 +7,19 @@ using System;
 
 namespace CrudModel
 {
-   public class Appointment
-   {
-        static int ids = -1;
+    public class Appointment
+    {
+        private static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
 
         public string date
         {
