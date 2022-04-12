@@ -31,6 +31,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new DoctorFileStorage();
             new PatientFileStorage();
             new ManagerFileStorage();
+            new SecretaryFileStorage();
             new NoteFileStorage();
             new MedicalRecordFileStorage();
             new RoomFileStorage();
@@ -39,7 +40,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             InitializeComponent();
             //new EquipmentFileStorage();
             //new MeetingFileStorage();
-            //new SecretaryFileStorage();
             //new WarehouseFileStorage();
         }
 
