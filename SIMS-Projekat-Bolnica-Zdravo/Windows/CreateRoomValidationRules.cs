@@ -26,13 +26,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
     public class MinMaxValidationRule : ValidationRule
     {
-        public double Min
+        public int Min
         {
             get;
             set;
         }
 
-        public double Max
+        public int Max
         {
             get;
             set;
