@@ -43,8 +43,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             if (value is int)
             {
                 int d = (int)value;
-                if (d < Min) { return new ValidationResult(false, "Floors start at 0"); x = false; }
-                if (d > Max) { return new ValidationResult(false, "Last floor is 3"); x = false; }
+                if (d < Min) return new ValidationResult(false, "Floors start at 0");
+                if (d > Max) return new ValidationResult(false, "Last floor is 3");
                 return new ValidationResult(true, null);
             }
             else
