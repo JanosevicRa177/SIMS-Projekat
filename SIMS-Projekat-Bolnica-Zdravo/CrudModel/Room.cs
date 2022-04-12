@@ -1,10 +1,11 @@
+using ConsoleApp.serialization;
 using System;
 
 namespace CrudModel
 {
-   public class Room
+   public class Room : Serializable
    {
-        static int ids = -1;
+        private static int ids = -1;
 
         public static int getids()
         {
@@ -22,6 +23,8 @@ namespace CrudModel
             this.roomID = ++ids;
             this.floor = floor;
         }
+
+        public Room() { }
         public Room(string name)
         {
             this.name = name;
@@ -114,6 +117,26 @@ namespace CrudModel
          if (equipment != null)
             equipment.Clear();
       }
-   
-   }
+
+        public string[] toCSV()
+        {
+            string[] csvValues =
+                {
+                name,
+                purpose,
+                floor.ToString(),
+                roomID.ToString()
+                };
+            return csvValues;
+        }
+
+        public void fromCSV(string[] values)
+        {
+            name = values[0];
+            purpose = values[1];
+            floor = int.Parse(values[2]);
+            roomID = int.Parse(values[3]);
+            RoomFileStorage.roomList.Add(this);
+        }
+    }
 }

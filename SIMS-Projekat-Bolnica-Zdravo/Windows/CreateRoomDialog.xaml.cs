@@ -60,7 +60,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 Room room = new Room(inputName.Text, inputPurpose.Text, int.Parse(inputFloor.Text));
                 RoomFileStorage.roomList.Add(room);
-                ManagerWindow.loggedManager.AddRoom(room);
             }
             else
             {
