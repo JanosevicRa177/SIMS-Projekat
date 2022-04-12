@@ -3,6 +3,7 @@
 // Created: Sunday, April 3, 2022 7:50:52 PM
 // Purpose: Definition of Class RoomFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,10 +23,8 @@ namespace CrudModel
             if (roomList == null)
             {
                 roomList = new ObservableCollection<Room>();
-                Room r = new Room("202a", "Operation room", 2);
-                roomList.Add(r);
-                r = new Room("No Room");
-                roomList.Add(r);
+                Serializer<Room> patientSerializer = new Serializer<Room>();
+                roomList = patientSerializer.fromCSV("room.txt");
             }
         }
       public bool CreateRoom(Room newRoom)

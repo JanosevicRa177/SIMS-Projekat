@@ -31,7 +31,7 @@
         
         <TextBox Name="inputName" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Width="450" Height="65" FontSize="30" HorizontalAlignment="Right" Margin="5"></TextBox>
         <TextBox Name="inputPurpose" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Width="450" Height="65" FontSize="30" HorizontalAlignment="Right" Margin="5"></TextBox>
-        <TextBox x:Name="inputFloor" PreviewTextInput="inputFloor_PreviewTextInput" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Width="450" Height="65" FontSize="30" HorizontalAlignment="Right" Margin="5">
+        <TextBox x:Name="inputFloor" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Width="450" Height="65" FontSize="30" HorizontalAlignment="Right" Margin="5">
             <TextBox.Text>
                 <Binding Path="Test" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -52,7 +52,7 @@
                         </Grid.ColumnDefinitions>
 
                         <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
-                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        <TextBlock FontSize="25" Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
                     </Grid>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
