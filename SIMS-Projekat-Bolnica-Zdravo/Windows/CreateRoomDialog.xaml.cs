@@ -30,8 +30,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             }
         }
 
-        private string test;
-        public string Test
+        private int test;
+        public int Test
         {
             get
             {
@@ -51,7 +51,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public CreateRoomDialog()
         {
             InitializeComponent();
-            this.DataContext = new RoomFileStorage();
+            this.DataContext = this;
         }
 
         private void createRoom_Click(object sender, RoutedEventArgs e)
@@ -74,12 +74,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             ManagerWindow mw = new ManagerWindow();
             mw.Show();
             this.Close();
-        }
-
-        private void inputFloor_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
