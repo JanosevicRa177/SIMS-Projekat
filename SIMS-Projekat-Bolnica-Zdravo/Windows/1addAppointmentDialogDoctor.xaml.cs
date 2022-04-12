@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
@@ -41,8 +42,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 return;
             }
             this.Close();
-            addAppointmentDialogDoctor dia = new addAppointmentDialogDoctor((Patient)PatientsG.SelectedItem, desc.Text);
-            dia.ShowDialog();
+            var dia = new addAppointmentDialogDoctor((Patient)PatientsG.SelectedItem, desc.Text);
+            dia.Show();
         }
 
         private void searchP_KeyUp(object sender, KeyEventArgs e)
