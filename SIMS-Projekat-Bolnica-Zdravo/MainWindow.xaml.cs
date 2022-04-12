@@ -34,6 +34,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             new SecretaryFileStorage();
             new NoteFileStorage();
             new MedicalRecordFileStorage();
+            new SecretaryFileStorage();
             new RoomFileStorage();
             new AppointmentFileStorage();
             loadIDS();
