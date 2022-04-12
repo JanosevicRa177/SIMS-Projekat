@@ -33,6 +33,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
             appoitmentSerializer.toCSV("appoitments.txt", AppointmentFileStorage.appointmentList);
 
+            Serializer<Room> roomSerializer = new Serializer<Room>();
+            roomSerializer.toCSV("room.txt", RoomFileStorage.roomList);
+
             Serializer<Note> noteSerializer = new Serializer<Note>();
             noteSerializer.toCSV("notes.txt", NoteFileStorage.noteList);
             Serializer<IdsStorage> idsSerializer = new Serializer<IdsStorage>();

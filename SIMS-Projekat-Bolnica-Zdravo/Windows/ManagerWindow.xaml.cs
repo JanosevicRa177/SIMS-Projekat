@@ -39,9 +39,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.DataContext = new RoomFileStorage();
             if (loggedManager == null)
             {
-                Manager m = new Manager("Hana", "Smith", new Address("Srbija", "Novi Sad", "Gogoljeva", "11/12"), "password123", "0654321123", "hanasmith@gmail.com");
-                ManagerFileStorage.managerList.Add(m);
-                loggedManager = m;
+                loggedManager = ManagerFileStorage.GetManagerByID(10);
             }
         }
         private void createRoom_Click(object sender, RoutedEventArgs e)
@@ -57,16 +55,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 Room r1 = (Room)RoomsListGrid.SelectedItem;
                 if ((inputName.Text != "") && (inputPurpose.Text != "") && (inputFloor.Text != "")){
-                    foreach (Room r2 in RoomFileStorage.roomList)
-                    {
-                        if (r1.roomID == r2.roomID)
-                        {
-
-                            r2.name = inputName.Text;
-                            r2.purpose = inputPurpose.Text;
-                            r2.floor = int.Parse(inputFloor.Text);
-                        }
-                    }
+                    r1.name = inputName.Text;
+                    r1.purpose = inputPurpose.Text;
+                    r1.floor = int.Parse(inputFloor.Text);
                     inputName.Text = "";
                     inputPurpose.Text = "";
                     inputFloor.Text = "";
