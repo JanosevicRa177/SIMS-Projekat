@@ -50,6 +50,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         public CreateRoomDialog()
         {
+            MinMaxValidationRule.x = false;
             InitializeComponent();
             this.DataContext = this;
         }
@@ -75,7 +76,5 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             mw.Show();
             this.Close();
         }
-
-       
     }
 }
