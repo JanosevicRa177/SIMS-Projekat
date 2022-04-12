@@ -71,8 +71,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
-            ManagerWindow mw = new ManagerWindow();
-            mw.Show();
             this.Close();
         }
 

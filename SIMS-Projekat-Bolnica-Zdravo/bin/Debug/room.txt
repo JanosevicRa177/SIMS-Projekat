@@ -1,3 +1,5 @@
 202a|Operation room|2|0
 No Room|Neki purpose|0|1
 soba|namena|1|4
+OR1|Operation room|1|5
+ada|da|1|5
