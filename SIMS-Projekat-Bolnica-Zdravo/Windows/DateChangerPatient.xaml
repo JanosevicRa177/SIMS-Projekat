@@ -1,0 +1,35 @@
+﻿<Window x:Class="SIMS_Projekat_Bolnica_Zdravo.Windows.DateChangerPatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Patient" Height="750" Width="430">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="390"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="Silver" />
+        <Rectangle Grid.Row="4" Grid.ColumnSpan="3" Fill="Silver" />
+        <Button Content="Beleške" FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Click="Show_Notes"/>
+        <Button Content="Glavni prozor" FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1" Click="Show_Home"/>
+        <Button Content="Button" FontSize="20" HorizontalAlignment="Left" Margin="10,9.6,10,0" Grid.Row="4" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="2"/>
+        
+        <Button Content="Poništi" HorizontalAlignment="Left" Margin="10,9.6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Click="Cancel_Date"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131.4,9.6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Grid.Column="1" Click="Confirm_Date"/>
+        <Viewbox Grid.Row="2" Grid.ColumnSpan="3">
+            <Calendar x:Name="DatePicker" Binding.SourceUpdated="Calendar_SourceUpdated"/>
+        </Viewbox>
+    </Grid>
+</Window>

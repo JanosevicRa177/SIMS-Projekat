@@ -9,6 +9,17 @@ namespace CrudModel
 {
    public class Equipment
    {
+        private static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public Equipment()
+        {
+            equipmentID = ++ids;
+        }
       public String name
         {
             set;

@@ -3,6 +3,7 @@
 // Created: Sunday, April 3, 2022 8:00:41 PM
 // Purpose: Definition of Class AppointmentFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +24,8 @@ namespace CrudModel
         {
             if(appointmentList == null)
             {
-                appointmentList = new ObservableCollection<Appointment>();
+                Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
+                appointmentList = doctorserialzer.fromCSV("appoitments.txt");
             }
         }
         public bool CreateAppointment(Appointment newAppointment)

@@ -16,33 +16,18 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class PatientNotes: Window, INotifyPropertyChanged
+    public partial class PatientNotes: Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
         static public Patient loggedPatient
         {
             get;
             set;
         }
-        public PatientNotes(Patient loggedPatient1)
-        {
-            if(loggedPatient == null)
-                loggedPatient = loggedPatient1;
-            this.DataContext = this;
-            InitializeComponent();
-        }
         public PatientNotes()
         {
-            this.DataContext = this;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             InitializeComponent();
+            this.DataContext = PatientWindow.loggedPatient;
         }
         private void Show_Home(object sender, RoutedEventArgs e)
         {
@@ -54,13 +39,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Add_Note(object sender, RoutedEventArgs e)
         {
             Note n = new Note("Prazno", "");
-            loggedPatient.AddNote(n);
+            Patient p = PatientFileStorage.GetPatientByID(PatientWindow.loggedPatient.userID);
+            n.patient = p;
+            p.notes.Add(n);
+            NoteFileStorage.noteList.Add(n);
             NotesListGrid.Items.Refresh();
         }
-
         private void DeleteNote(object sender, RoutedEventArgs e)
         {
-            loggedPatient.RemoveNote((Note)NotesListGrid.SelectedItem);
+            NoteFileStorage.DeleteNote((Note)NotesListGrid.SelectedItem);
+            PatientWindow.loggedPatient.RemoveNote((Note)NotesListGrid.SelectedItem);
             NotesListGrid.Items.Refresh();
         }
 

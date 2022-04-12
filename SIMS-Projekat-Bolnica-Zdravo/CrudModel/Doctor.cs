@@ -3,13 +3,32 @@
 // Created: Wednesday, March 30, 2022 4:13:06 PM
 // Purpose: Definition of Class Doctor
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
-   public class Doctor : User
-   {
+   public class Doctor : User , Serializable
+    {
+
+        public Doctor()
+        {
+            address = new Address();
+        }
+        
+        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos)
+        {
+            this.userID = id;
+            this.name = name;
+            this.surname = surname;
+            this.mail = email;
+            this.password = password;
+            this.address = address;
+            this.mobilePhone = phone;
+            this.specialization = spec;
+            this.position = pos;
+        }
         public Doctor(Specialization spec, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
         {
             this.userID = User.generateID();
@@ -20,9 +39,20 @@ namespace CrudModel
             this.mobilePhone = mobilePhone;
             this.mail = mail;
             this.specialization = spec;
+            this.position = "Doctor";
         }
 
         public Specialization specialization
+        {
+            set;
+            get;
+        }
+        public String position
+        {
+            set;
+            get;
+        }
+        public String gender
         {
             set;
             get;
@@ -110,6 +140,39 @@ namespace CrudModel
             tmpAppointment.Clear();
          }
       }
-   
-   }
+
+        public string[] toCSV()
+        {
+            string[] csvValues =
+            {
+                name,
+                surname,
+                address.country,
+                address.city,
+                address.street,
+                address.number,
+                password,
+                mobilePhone,
+                mail,
+                userID.ToString(),
+                specialization.specialization
+            };
+            return csvValues;
+        }
+
+        public void fromCSV(string[] values)
+        {
+            name = values[0];
+            surname = values[1];
+            address.country = values[2];
+            address.city = values[3];
+            address.street = values[4];
+            address.number = values[5];
+            password = values[6];
+            mobilePhone = values[7];
+            mail = values[8];
+            userID = int.Parse(values[9]);
+            specialization = SpecializationFileStorage.GetSpecialization(values[10]);
+        }
+    }
 }

@@ -1,28 +1,53 @@
-// File:    Room.cs
-// Author:  Dusan
-// Created: Wednesday, March 30, 2022 4:13:43 PM
-// Purpose: Definition of Class Room
-
+using ConsoleApp.serialization;
 using System;
 
 namespace CrudModel
 {
-   public class Room
+   public class Room : Serializable
    {
         private static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
+        public Room(string name,string purpose, int floor)
+        {
+            this.name = name;
+            this.purpose = purpose;
+            this.roomID = ++ids;
+            this.floor = floor;
+        }
+
+        public Room() { }
         public Room(string name)
         {
             this.name = name;
-            roomID = ++ids;
+            this.roomID = ++ids;
         }
-        
+
+        public string purpose
+        {
+            set;
+            get;
+        }
         public string name
         {
             set;
             get;
         }
+        public int floor
+        {
+            set;
+            get;
+        }
 
-      public bool AddEquipment()
+        public bool AddEquipment()
       {
          throw new NotImplementedException();
       }
@@ -38,10 +63,10 @@ namespace CrudModel
       }
       
       public int roomID
-        {
+      {
             set;
             get;
-        }
+      }
 
         public System.Collections.Generic.List<Equipment> equipment
         {
@@ -49,10 +74,6 @@ namespace CrudModel
             get;
         }
 
-        /// <summary>
-        /// Property for collection of Equipment
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
         public System.Collections.Generic.List<Equipment> Equipment
       {
          get
@@ -72,10 +93,6 @@ namespace CrudModel
          }
       }
       
-      /// <summary>
-      /// Add a new Equipment in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
       public void AddEquipment(Equipment newEquipment)
       {
          if (newEquipment == null)
@@ -86,10 +103,6 @@ namespace CrudModel
             this.equipment.Add(newEquipment);
       }
       
-      /// <summary>
-      /// Remove an existing Equipment from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
       public void RemoveEquipment(Equipment oldEquipment)
       {
          if (oldEquipment == null)
@@ -98,16 +111,32 @@ namespace CrudModel
             if (this.equipment.Contains(oldEquipment))
                this.equipment.Remove(oldEquipment);
       }
-      
-      /// <summary>
-      /// Remove all instances of Equipment from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
+   
       public void RemoveAllEquipment()
       {
          if (equipment != null)
             equipment.Clear();
       }
-   
-   }
+
+        public string[] toCSV()
+        {
+            string[] csvValues =
+                {
+                name,
+                purpose,
+                floor.ToString(),
+                roomID.ToString()
+                };
+            return csvValues;
+        }
+
+        public void fromCSV(string[] values)
+        {
+            name = values[0];
+            purpose = values[1];
+            floor = int.Parse(values[2]);
+            roomID = int.Parse(values[3]);
+            RoomFileStorage.roomList.Add(this);
+        }
+    }
 }

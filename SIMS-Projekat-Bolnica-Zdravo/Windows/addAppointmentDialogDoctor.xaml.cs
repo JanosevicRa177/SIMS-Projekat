@@ -103,7 +103,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 doctorShowAppointment.appointment.setTime();
                 doctorShowAppointment.appointment.timeBegin = (DateTime)appointmentDate.SelectedDate;
-                doctorShowAppointment.appointment.date = appo.timeBegin.Day.ToString() + "-" + appo.timeBegin.Month.ToString() + "-" + appo.timeBegin.Year.ToString();
+                doctorShowAppointment.appointment.setDate();
+                doctorShowAppointment.appointment.room = (Room)roomID.SelectedItem;
                 x.Close();
                 x = new doctorShowAppointment(doctorShowAppointment.appointment);
                 x.Show();

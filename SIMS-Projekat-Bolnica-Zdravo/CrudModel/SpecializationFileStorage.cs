@@ -5,12 +5,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class SpecializationFileStorage
    {
-        static public List<Specialization> specializationList
+        static public ObservableCollection<Specialization> specializationList
         {
             set;
             get;
@@ -20,7 +21,7 @@ namespace CrudModel
         {
             if (specializationList == null)
             {
-                specializationList = new List<Specialization>();
+                specializationList = new ObservableCollection<Specialization>();
                 Specialization sp = new Specialization("No specialization");
                 specializationList.Add(sp);
                 sp = new Specialization("Kardiohirurg");
@@ -37,9 +38,12 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public List<Specialization> GetAllSpecialization()
+      public static Specialization GetSpecialization(string sp)
       {
-         throw new NotImplementedException();
+         foreach (Specialization s  in specializationList) {
+                if (s.specialization.Equals(sp)) return s;
+            }
+            return null;
       }
    
    }

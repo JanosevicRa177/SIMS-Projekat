@@ -56,11 +56,27 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CrudModel\Gender.cs" />
+    <Compile Include="CrudModel\IdsStorage.cs" />
+    <Compile Include="Serialization\Serializable.cs" />
+    <Compile Include="Serialization\Serializer.cs" />
     <Compile Include="Windows\1addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>1addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ChangeAppointmentDialogPatient.xaml.cs">
+      <DependentUpon>ChangeAppointmentDialogPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateRoomDialog.xaml.cs">
+      <DependentUpon>CreateRoomDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CreateRoomValidationRules.cs" />
+    <Compile Include="Windows\DateChangerPatient.xaml.cs">
+      <DependentUpon>DateChangerPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DatePickerPatient.xaml.cs">
+      <DependentUpon>DatePickerPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DoctorsAppointments.xaml.cs">
       <DependentUpon>DoctorsAppointments.xaml</DependentUpon>
@@ -71,8 +87,8 @@
     <Compile Include="Windows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Manager.xaml.cs">
-      <DependentUpon>Manager.xaml</DependentUpon>
+    <Compile Include="Windows\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
@@ -86,8 +102,15 @@
     <Compile Include="Windows\PatientWindow.xaml.cs">
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RegexValidationRules.cs" />
     <Compile Include="Windows\Secretary.xaml.cs">
       <DependentUpon>Secretary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ShowAppointmentDialogPatient.xaml.cs">
+      <DependentUpon>ShowAppointmentDialogPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StaffRegistrationWindow.xaml.cs">
+      <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +159,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\ChangeAppointmentDialogPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CreateRoomDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DateChangerPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\DatePickerPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\DoctorsAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,9 +187,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Manager.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Windows\ManagerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\NoteWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +211,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\ShowAppointmentDialogPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\StaffRegistrationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -191,6 +238,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -198,6 +246,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\hospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\secretary.txt" />
+    <Resource Include="bin\Debug\managers.txt" />
+    <Resource Include="bin\Debug\appoitments.txt" />
+    <Resource Include="bin\Debug\doctors.txt" />
+    <Resource Include="bin\Debug\ids.txt" />
+    <Resource Include="bin\Debug\medicalRecords.txt" />
+    <Resource Include="bin\Debug\notes.txt" />
+    <Resource Include="bin\Debug\patients.txt" />
+    <Content Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe" />
+    <Content Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

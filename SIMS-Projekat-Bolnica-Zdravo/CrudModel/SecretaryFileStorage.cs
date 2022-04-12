@@ -3,16 +3,31 @@
 // Created: Sunday, April 3, 2022 4:42:32 PM
 // Purpose: Definition of Class SecretaryFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class SecretaryFileStorage
    {
+        
+        static public ObservableCollection<Secretary> secretaryList
+        {
+            set;
+            get;
+        }
 
-        static public List<Secretary> secretaryList = new List<Secretary>();
-      public bool CreateSecretary(Secretary newSecretary)
+        public SecretaryFileStorage()
+        {
+            if (secretaryList == null)
+            {
+                Serializer<Secretary> secretarySerializer = new Serializer<Secretary>();
+                secretaryList = secretarySerializer.fromCSV("secretary.txt"); 
+            }
+        }
+        public bool CreateSecretary(Secretary newSecretary)
       {
          throw new NotImplementedException();
       }

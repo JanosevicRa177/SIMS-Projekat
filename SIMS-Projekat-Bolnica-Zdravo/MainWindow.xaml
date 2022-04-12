@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1250" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="700" Width="1250" Background="AntiqueWhite" WindowStartupLocation="CenterScreen" Icon="/icons/hospital.png">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -31,7 +31,7 @@
         <TextBlock FontSize="80" Width="500" Grid.Column="1" Grid.Row="1" Margin="5">Dobrodošli!</TextBlock>
         <TextBlock FontSize="30" Grid.Column="1" Grid.Row="2" Margin="5">Logovanje</TextBlock>
         <ComboBox Loaded="cb_Loaded" Name="cb"  FontSize="30" Grid.Column="1" Grid.Row="3" Margin="5">
-            <ComboBoxItem GotFocus="SU_GotFocus" Name="SU" Content="Selektuj ulogu!" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="SU" Content="Selektuj ulogu!" Tag="x"></ComboBoxItem>
             <ComboBoxItem Name="Lekar" Content="Lekar" Tag="x"></ComboBoxItem>
             <ComboBoxItem Name="Sekretar" Content="Sekretar" Tag="y"></ComboBoxItem>
             <ComboBoxItem Name="Pacijent" Content="Pacijent" Tag="z"></ComboBoxItem>

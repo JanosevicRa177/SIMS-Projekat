@@ -9,7 +9,26 @@ namespace CrudModel
 {
    public class Warehouse
    {
-      public bool AddEquipment(int equipmentID)
+
+       
+
+        private static int ids = -1;
+
+        public static int getids()
+        {
+            return ids;
+        }
+
+        public static void setids(int set)
+        {
+            ids = set;
+        }
+
+        public Warehouse()
+        {
+            warehouseID = ids++;
+        }
+        public bool AddEquipment(int equipmentID)
       {
          throw new NotImplementedException();
       }

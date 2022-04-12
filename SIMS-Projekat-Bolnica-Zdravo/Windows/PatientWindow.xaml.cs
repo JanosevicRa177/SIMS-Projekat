@@ -1,4 +1,5 @@
-﻿using CrudModel;
+﻿using ConsoleApp.serialization;
+using CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,17 +18,8 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class PatientWindow : Window, INotifyPropertyChanged
+    public partial class PatientWindow : Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
         static public Patient loggedPatient
         {
             get;
@@ -36,24 +28,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public PatientWindow()
         {
             InitializeComponent();
-            this.DataContext =  new DoctorFileStorage();
             if (loggedPatient == null) 
             {
-                Patient p = new Patient(Gender.male,"Mika", "Mikic",new Address("Srbija","Novi Sad","Ive Andrica", "23"),
-                "asdasd","06111111","mailinator@gmail.com");
-                PatientFileStorage.patientList.Add(p);
-                loggedPatient = p;
-                loggedPatient.AddNote(new Note("Beleska1", "Neki kontent 1"));
-                loggedPatient.AddNote(new Note("Beleska2", "Neki kontent 2"));
-                loggedPatient.AddNote(new Note("Beleska3", "Neki kontent 3"));
-                loggedPatient.AddNote(new Note("Beleska4", "Neki kontent 4"));
+                loggedPatient = PatientFileStorage.GetPatientByID(5);
             }
-           
+            this.DataContext = loggedPatient;
         }
 
         private void Show_Notes(object sender, RoutedEventArgs e)
         {
-            PatientNotes pn = new PatientNotes(loggedPatient);
+            PatientNotes pn = new PatientNotes();
             pn.Show();
             this.Close();
         }
@@ -67,6 +51,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             AddAppointmentDialogPatient Add = new AddAppointmentDialogPatient();
             Add.Show();
+            this.Close();
+        }
+
+        private void Show_Appointment(object sender, RoutedEventArgs e)
+        {
+            ShowAppointmentDialogPatient Show = new ShowAppointmentDialogPatient((Appointment)Appointments.SelectedItem);
+            Show.Show();
+            this.Close();
+        }
+
+        private void signout_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new MainWindow();
+            dia.Show();
             this.Close();
         }
     }

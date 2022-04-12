@@ -1,7 +1,9 @@
-﻿using CrudModel;
+﻿using ConsoleApp.serialization;
+using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,19 +27,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo
     {
         public MainWindow()
         {
-            new AppointmentFileStorage();
             new SpecializationFileStorage();
             new DoctorFileStorage();
             new PatientFileStorage();
+            new ManagerFileStorage();
+            new SecretaryFileStorage();
+            new NoteFileStorage();
+            new MedicalRecordFileStorage();
+            new SecretaryFileStorage();
             new RoomFileStorage();
-            Console.WriteLine("shadiosad");
+            new AppointmentFileStorage();
+            loadIDS();
             InitializeComponent();
             //new EquipmentFileStorage();
-            //new MedicalRecordFileStorage();
             //new MeetingFileStorage();
-            //new NoteFileStorage();
-            //new SecretaryFileStorage();
             //new WarehouseFileStorage();
+        }
+
+        public void loadIDS()
+        {
+            ObservableCollection<IdsStorage> ids = new ObservableCollection<IdsStorage>();
+            Serializer <IdsStorage> doctorserialzer = new Serializer<IdsStorage>();
+            ids = doctorserialzer.fromCSV("ids.txt");
+            ids[0].setALLIDS();
+
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -68,7 +81,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
             else if (xd.Equals("Upravnik"))
             {
-                Windows.Manager m = new Windows.Manager();
+                ManagerWindow m = new ManagerWindow();
                 m.Show();
             }
 
@@ -79,11 +92,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo
         private void cb_Loaded(object sender, RoutedEventArgs e)
         {
             cb.Text = "Selektuj ulogu!";
-        }
-
-        private void SU_GotFocus(object sender, RoutedEventArgs e)
-        {
-            cb.Items.Remove("Slektuj ulogu!");
         }
     }
 }
