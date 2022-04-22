@@ -3,6 +3,7 @@ using SIMS_Projekat_Bolnica_Zdravo.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return docdto;
         }
 
-        public ObservableCollection<Time> getDoctorTimes(DoctorCrAppDTO doc,DateTime dt)
+        public BindingList<Time> getDoctorTimes(DoctorCrAppDTO doc,DateTime dt)
         {
             if (doc == null) return DS.getDoctorTimes(0, dt);
             return DS.getDoctorTimes(doc.id,dt);

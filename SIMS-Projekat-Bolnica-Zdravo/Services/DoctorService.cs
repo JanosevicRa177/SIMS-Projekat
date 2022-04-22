@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +25,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return DFS.GetAllDoctors();
         }
 
-        public ObservableCollection<Time> getDoctorTimes(int doctorID,DateTime forDate)
+        public BindingList<Time> getDoctorTimes(int doctorID,DateTime forDate)
         {
-            ObservableCollection<Time> times = new ObservableCollection<Time>();
+            BindingList<Time> times = new BindingList<Time>();
 
             for (int i = 0, h = 7; h < 16 || i < 16;)
             {

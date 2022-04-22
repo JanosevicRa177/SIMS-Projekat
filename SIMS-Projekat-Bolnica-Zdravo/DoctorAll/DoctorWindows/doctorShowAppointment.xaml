@@ -37,13 +37,13 @@
         <TextBlock Text="Date:" Grid.Row="7" Grid.Column="2" FontSize="35" Margin="5" />
         <TextBlock Text="Time:" Grid.Row="8" Grid.Column="2" FontSize="35" Margin="5" />
         <TextBlock Text="Description:" Grid.Row="9" Grid.Column="2" FontSize="35" Margin="5"/>
-        <TextBox Text="{Binding medicalRecord.patient.name}" IsEnabled="False" x:Name="name" Grid.Row="3" Grid.Column="3" Width="450" FontSize="35"/>
-        <TextBox Text="{Binding medicalRecord.patient.surname}" IsEnabled="False" x:Name="surname" Grid.Row="4" Grid.Column="3" Width="450" FontSize="35"/>
-        <TextBox Text="{Binding medicalRecord.patient.userID}" IsEnabled="False" x:Name="id" Grid.Row="5" Grid.Column="3" Width="450" FontSize="35"/>
-        <TextBox Text="{Binding room.name}" IsEnabled="False" x:Name="room" Grid.Row="6" Grid.Column="3" Width="450" FontSize="35"/>
-        <TextBox Text="{Binding date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="date" Grid.Row="7" Grid.Column="3" Width="450" FontSize="35"/>
-        <TextBox Text="{Binding time, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="time" Grid.Row="8" Grid.Column="3" Width="450" FontSize="35"/>
-        <TextBox Text="{Binding description}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" IsEnabled="False" x:Name="description" Height="171" Grid.Row="9" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding patientName}" IsEnabled="False" x:Name="name" Grid.Row="3" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding patientSurname}" IsEnabled="False" x:Name="surname" Grid.Row="4" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding patientID}" IsEnabled="False" x:Name="id" Grid.Row="5" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding roomName}" IsEnabled="False" x:Name="room" Grid.Row="6" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding Date,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="date" Grid.Row="7" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding Time, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="time" Grid.Row="8" Grid.Column="3" Width="450" FontSize="35"/>
+        <TextBox Text="{Binding desc}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" IsEnabled="False" x:Name="description" Height="171" Grid.Row="9" Grid.Column="3" Width="450" FontSize="35"/>
         <Button BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Width="280" FontSize="35" Grid.Row="11"  Grid.Column="3" Content="Medical Record" HorizontalAlignment="Right"/>
         <Button BorderBrush="Black" BorderThickness="3" Foreground="White" Background="#4C1130" Width="140" FontSize="35" Grid.Row="11"  Grid.Column="2" Content="Close" Click="Button_Click"  HorizontalAlignment="Left"/>
 

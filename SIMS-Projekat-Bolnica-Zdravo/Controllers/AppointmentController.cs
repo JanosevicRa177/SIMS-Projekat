@@ -40,7 +40,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             ObservableCollection<Appointment> apl =  AS.getAllDoctorsAppointments(docID);
             foreach(Appointment a in apl)
             {
-                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.time, a.description));
+                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.time, a.description,a.appointmentID));
             }
             return adtolist;
         }
@@ -48,7 +48,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public ShowAppointmentDTO getShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
-            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(),RC.getRoomById(a.roomID).name,a.date,a.time,a.description);
+            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(),RC.getRoomById(a.roomID).name,a.date,a.time,a.description,appoID);
         }
     
 
@@ -63,7 +63,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             public string Time { set; get; }
             public string desc { set; get; }
 
-            public ShowAppointmentDTO(string pName,string pSurname,string pID, string rName, string date,string time,string desc)
+            public int id { set; get; }
+
+            public ShowAppointmentDTO(string pName,string pSurname,string pID, string rName, string date,string time,string desc,int id)
             {
                 patientName = pName;
                 patientSurname = pSurname;
@@ -72,6 +74,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
                 Date = date;
                 Time = time;
                 this.desc = desc;
+                this.id = id;
             }
 
         }

@@ -105,7 +105,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
             var dia = new DialogWindow("Are you sure you wanna cancel?", "No", "Yes", this);
-            if (nextW != null) nextW.Close();
             dia.Show();
         }
     }

@@ -4,6 +4,7 @@ using SIMS_Projekat_Bolnica_Zdravo.DoctorWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private DoctorController DC;
         private SpecializationController SC;
         private AppointmentController AC;
+
         public PatientCrAppDTO pat
         {
             set;
@@ -35,16 +37,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
 
         public int dur
-        {
-            set;
-            get;
-        }
-
-
-        /// <summary>
-        /// TREBA OBRISATI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        /// </summary>
-        public Patient pati
         {
             set;
             get;
@@ -63,11 +55,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
 
         public string desc
-        {
-            set;
-            get;
-        }
-        public Appointment appo
         {
             set;
             get;
@@ -109,11 +96,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         //}
         //oajsdolakjsdlaskd
 
-        public ObservableCollection<Time> tims
+        private BindingList<Time> tims
         {
-            set;
-            get;
+            set;get;
         }
+        
+
 
         public addAppointmentDialogDoctor(PatientCrAppDTO pat,string desc,_1addAppointmentDialogDoctor prevW,int dur =30)
         {
@@ -129,13 +117,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             InitializeComponent();
             doctorsCB.SelectedIndex = 0;
             dt = DateTime.Today.AddDays(1);
-            tims = DC.getDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, dt);
+            tims = new BindingList<Time>();
             this.DataContext = new
             {
                 This = this,
                 Rooms = RC.getAllRoomsDTO(),
                 Docs = DC.getAllDoctorsDTO(),
-                Specs = SC.getAllSpecializations()
+                Specs = SC.getAllSpecializations(),
+                Tims1 = tims
             };
 
         }
@@ -185,21 +174,26 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             appointmentDate.SelectedDate = dt;
         }
 
-        private void cancel_Click (object sender, RoutedEventArgs e)
+        private void cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
             prevW.Show();
         }
 
-        private void appointmentDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-                tims = DC.getDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, (DateTime)appointmentDate.SelectedDate);
-                TimeselectDG.Items.Refresh();
-        }
-
         private void Window_Closed(object sender, EventArgs e)
         {
             prevW.Close();
+        }
+
+        private void appointmentDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tims != null) tims.Clear();
+            foreach ( Time t in DC.getDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, (DateTime)appointmentDate.SelectedDate))
+            {
+                tims.Add(t);
+            }
+            TimeselectDG.SelectedIndex = 0;
+            TimeselectDG.Items.Refresh();
         }
     }
 }

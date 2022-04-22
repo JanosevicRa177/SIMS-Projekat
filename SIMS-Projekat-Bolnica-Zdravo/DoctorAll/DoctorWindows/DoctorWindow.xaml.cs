@@ -51,11 +51,5 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             dia.Show();
             this.Close();
         }
-
-        /* private void deleteAppointment_Click(object sender, RoutedEventArgs e)
-         {
-             if (Appointments.SelectedIndex == -1 ) { MessageBox.Show("no row selected!"); return; }
-             loggedDoc.Appointment.Remove((Appointment)Appointments.SelectedItem);
-         }*/
     }
 }
