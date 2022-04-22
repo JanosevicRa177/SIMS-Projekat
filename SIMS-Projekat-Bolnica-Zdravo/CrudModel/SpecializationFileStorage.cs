@@ -3,6 +3,7 @@
 // Created: Monday, April 4, 2022 5:59:50 PM
 // Purpose: Definition of Class SpecializationFileStorage
 
+using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,6 +46,13 @@ namespace CrudModel
             }
             return null;
       }
-   
+
+      public ObservableCollection<Specialization> getAllSpecializations()
+        {
+            Serializer<Specialization> patientSerializer = new Serializer<Specialization>();
+            return patientSerializer.fromCSV("specializations.txt");
+        }
+
+
    }
 }

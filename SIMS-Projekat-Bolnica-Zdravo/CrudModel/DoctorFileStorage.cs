@@ -42,9 +42,10 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public static Doctor GetDoctorByID(int doctorID)
+      public Doctor GetDoctorByID(int doctorID)
       {
-         foreach(Doctor doc in doctorList)
+            Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
+            foreach (Doctor doc in doctorserialzer.fromCSV("doctors.txt"))
             {
                 if (doc.userID == doctorID)
                 {

@@ -1,4 +1,6 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.DoctorWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,45 +19,50 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    /// <summary>
-    /// Interaction logic for _1addAppointmentDialogDoctor.xaml
-    /// </summary>
     public partial class _1addAppointmentDialogDoctor : Window
     {
-        public IEnumerable<Patient> filteredList {
-            get;
-            set;
+        public addAppointmentDialogDoctor nextW
+        {
+            set;get;
         }
+
+        private PatientController PC;
 
         public _1addAppointmentDialogDoctor()
         {
             InitializeComponent();
-            this.DataContext = new PatientFileStorage();
-            this.filteredList = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(""));
+            PC = new PatientController();
+            this.nextW = null;
+            this.DataContext = PC.getAllPatientsChooseDTO();
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             if (PatientsG.SelectedIndex == -1)
             {
-                MessageBox.Show("No row selected!");
+                var dial = new DialogWindow("No row selected!", "Cancel", "Ok", null);
+                dial.Show();
                 return;
             }
-            this.Close();
-            var dia = new addAppointmentDialogDoctor((Patient)PatientsG.SelectedItem, desc.Text);
-            dia.Show();
+            this.Hide();
+            if (nextW == null)
+            {
+                var dia = new addAppointmentDialogDoctor((PatientCrAppDTO)PatientsG.SelectedItem, desc.Text, this);
+                dia.Show();
+            }
+            else nextW.Show();
         }
 
         private void searchP_KeyUp(object sender, KeyEventArgs e)
         {
+            IEnumerable<PatientCrAppDTO> filteredList;
             string name,id,surname;
             name = (searchPN.Text.Equals("name")) ? "" : searchPN.Text;
             surname = (searchPS.Text.Equals("surname")) ? "" : searchPS.Text;
             id = (searchPI.Text.Equals("id")) ? "" : searchPI.Text;
-
-            filteredList = PatientFileStorage.patientList.Where(patient => patient.name.StartsWith(name));
+            filteredList = PC.getAllPatientsChooseDTO().Where(patient => patient.name.StartsWith(name));
             filteredList = filteredList.Where(patient => patient.surname.StartsWith(surname));
-            filteredList = filteredList.Where(patient => patient.userID.ToString().StartsWith(id));
+            filteredList = filteredList.Where(patient => patient.id.ToString().StartsWith(id));
             PatientsG.ItemsSource = filteredList;
         }
 
@@ -95,6 +102,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 searchPI.Text = "id";
         }
 
-
+        private void cancel_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new DialogWindow("Are you sure you wanna cancel?", "No", "Yes", this);
+            if (nextW != null) nextW.Close();
+            dia.Show();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +21,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class DoctorsAppointments : Window
     {
+        private AppointmentController AC;
         public DoctorsAppointments()
         {
+            AC = new AppointmentController();
             InitializeComponent();
-            this.DataContext = DoctorWindow.loggedDoc;
+            this.DataContext = AC.getAllDoctorsAppointments(DoctorWindow.loggedDoc);
         }
 
         private void showButt_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new doctorShowAppointment((Appointment)Appointments.SelectedItem,this);
+            Appointment a = (Appointment)Appointments.SelectedItem;
+            var dia = new doctorShowAppointment(a.appointmentID);
             dia.Show();
         }
     }

@@ -60,8 +60,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Cancel_Appointment(object sender, RoutedEventArgs e)
         {
             AppointmentFileStorage.appointmentList.Remove(appointment);
-            PatientWindow.loggedPatient.medicalRecord.appointment.Remove(appointment);
-            appointment.doctor.appointment.Remove(appointment);
             PatientWindow pt = new PatientWindow();
             pt.Show();
             this.Close();

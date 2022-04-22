@@ -17,12 +17,6 @@ namespace CrudModel
 
         public PatientFileStorage()
         {
-            if (patientList == null)
-            {
-                patientList = new ObservableCollection<Patient>();
-                Serializer<Patient> patientSerializer = new Serializer<Patient>();
-                patientList = patientSerializer.fromCSV("patients.txt");
-            }
         }
      
       public bool CreatePatient(Patient newPatient)
@@ -41,17 +35,19 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public static Patient GetPatientByID(int id)
+      public Patient GetPatientByID(int id)
       {
-         foreach (Patient p in patientList) {
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("patients.txt")) {
                 if (p.userID == id) return p;
-         }
+            }
             return null;
       }
       
-      public ObservableCollection<Patient> GetAllPatients()
+      public ObservableCollection<Patient> getAllPatientsFS()
       {
-            return patientList;
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            return patientSerializer.fromCSV("patients.txt");
       }
    
    }

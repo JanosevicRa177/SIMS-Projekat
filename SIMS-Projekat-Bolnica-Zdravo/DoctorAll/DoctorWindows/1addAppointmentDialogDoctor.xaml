@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
-        Title="New appointment" Height="700" Width="1400" Background="AntiqueWhite" WindowStartupLocation="CenterScreen" Icon="../icons/hospital.png">
+        Title="New appointment" Height="770" Width="1400" Background="AntiqueWhite" WindowStartupLocation="CenterScreen">
     <Grid Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -40,19 +40,21 @@
                    id
             </TextBox>
             </Grid>
-        <DataGrid IsReadOnly="True" Name="PatientsG" ItemsSource="{Binding patientList}"  FontSize="60" Height="350" Width="600" AutoGenerateColumns="False">
+        <DataGrid IsReadOnly="True" Name="PatientsG" ItemsSource="{Binding}"  FontSize="60" Height="378" Width="600" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Width="auto" x:Name="Patname" Binding="{Binding name}"/>
                     <DataGridTextColumn Header="Surname" Width="auto" x:Name="Patsurname" Binding="{Binding surname}"/>
-                    <DataGridTextColumn Header="ID" Width="*" x:Name="PatID" Binding="{Binding userID}"/>
+                    <DataGridTextColumn Header="ID" Width="*" x:Name="PatID" Binding="{Binding JMBG}"/>
             </DataGrid.Columns>
         </DataGrid>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="4" Height="auto">
             <TextBlock  FontSize="50" Text="Description of appointment:"/>
-            <TextBox MaxLength="42" Width="620" TextWrapping="Wrap" FontSize="50" Name="desc" Height="423"></TextBox>
+            <TextBox MaxLength="42" Width="620" TextWrapping="Wrap" FontSize="50" Name="desc" Height="451"></TextBox>
         </StackPanel>
-        <Button BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" HorizontalAlignment="Right" x:Name="nextButton" Content="Next" Grid.Column="4" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="nextButton_Click"></Button>
+        <Button BorderBrush="Black" BorderThickness="3" VerticalAlignment="Bottom" Foreground="White"  Background="#4C1130" HorizontalAlignment="Right" x:Name="nextButton" Content="Next" Grid.Column="4" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="nextButton_Click"></Button>
+        <Button BorderBrush="Black" BorderThickness="3" VerticalAlignment="Bottom" Foreground="White"  Background="#4C1130" HorizontalAlignment="Left" x:Name="cancel" Content="Cancel" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="cancel_Click"/>
+        <Button BorderBrush="Black" BorderThickness="3" Foreground="White" Width="400" Background="#E06666" Grid.Row="8" Grid.ColumnSpan="5" Grid.Column="0" Height="140" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Emergency!" FontSize="60"/>
 
     </Grid>
 </Window>

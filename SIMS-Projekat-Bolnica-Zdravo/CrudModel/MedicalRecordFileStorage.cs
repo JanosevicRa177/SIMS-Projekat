@@ -17,6 +17,19 @@ namespace CrudModel
             set;
             get;
         }
+
+        public MedicalRecord getMedialRecordByPatientID(int patientID)
+        {
+            Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
+            foreach (MedicalRecord mr in medicalRecordSerializer.fromCSV("medicalRecords.txt"))
+            {
+                if (mr.patientID == patientID)
+                {
+                    return mr;
+                }
+            }
+            return null;
+        }
         public MedicalRecordFileStorage()
         {
             if (medicalRecordList == null)

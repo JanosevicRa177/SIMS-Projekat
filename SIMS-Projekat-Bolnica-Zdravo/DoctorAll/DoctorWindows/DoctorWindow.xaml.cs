@@ -20,7 +20,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class DoctorWindow : Window
     {
-        public static Doctor loggedDoc
+        public static int loggedDoc
         {
             set;
             get;
@@ -28,7 +28,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public DoctorWindow()
         {
             InitializeComponent();
-            loggedDoc = DoctorFileStorage.GetDoctorByID(0);
+            loggedDoc = 0;
             
             this.DataContext = loggedDoc;
         }
