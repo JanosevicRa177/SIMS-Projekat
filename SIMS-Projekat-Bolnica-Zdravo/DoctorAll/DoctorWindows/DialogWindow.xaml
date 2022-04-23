@@ -24,7 +24,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="30" x:Name="desc" Grid.Row="0" Grid.RowSpan="6" VerticalAlignment="Center"  Grid.Column="0" HorizontalAlignment="Center" Text="" Grid.ColumnSpan="10">skd;alksdlkas;dlksaldk</TextBlock>
+        <TextBlock FontSize="30" TextWrapping="Wrap" x:Name="desc" Grid.Row="0" Grid.RowSpan="6" VerticalAlignment="Center"  Grid.Column="0" HorizontalAlignment="Center" Text="" Grid.ColumnSpan="10"></TextBlock>
         <Button Click="firstOption_Click" FontSize="20" x:Name="firstOption" Grid.Column="1" Grid.Row="6" Style="{StaticResource doctorButtons}" HorizontalAlignment="Right" Width="100" Height="40" VerticalAlignment="Bottom" Content=""/>
         <Button Click="secondOption_Click" FontSize="20" x:Name="secondOption" Grid.Column="4" Grid.Row="6" Style="{StaticResource doctorButtons}" HorizontalAlignment="Left" Width="100" Height="40" VerticalAlignment="Bottom" Content=""/>
     </Grid>

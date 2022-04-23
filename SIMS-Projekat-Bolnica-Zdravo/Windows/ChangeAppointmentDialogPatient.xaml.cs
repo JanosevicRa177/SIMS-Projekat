@@ -38,8 +38,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             InitializeComponent();
             date = appointment1.timeBegin;
-            hour = appointment1.hour;
-            minute = appointment1.minute;
+            hour = appointment1.time.hour;
+            minute = appointment1.time.minute;
             this.DataContext = this;
         }
         public ChangeAppointmentDialogPatient()
@@ -83,8 +83,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Confirm_Change_appointment(object sender, RoutedEventArgs e)
         {
             ShowAppointmentDialogPatient.appointment.timeBegin = date;
-            ShowAppointmentDialogPatient.appointment.hour = (int)hour;
-            ShowAppointmentDialogPatient.appointment.minute = (int)minute;
+            ShowAppointmentDialogPatient.appointment.time.hour = (int)hour;
+            ShowAppointmentDialogPatient.appointment.time.minute = (int)minute;
             ShowAppointmentDialogPatient.appointment.setTime();
             ShowAppointmentDialogPatient.appointment.setDate();
             ShowAppointmentDialogPatient pt = new ShowAppointmentDialogPatient();

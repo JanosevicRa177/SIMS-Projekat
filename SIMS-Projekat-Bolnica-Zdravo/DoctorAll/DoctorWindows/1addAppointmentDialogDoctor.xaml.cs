@@ -57,7 +57,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             IEnumerable<PatientCrAppDTO> filteredList;
             string name,id,surname;
-            name = (searchPN.Text.Equals("name")) ? "" : searchPN.Text;
+            name = searchPN.Text.Equals("name") ? "" : searchPN.Text;
             surname = (searchPS.Text.Equals("surname")) ? "" : searchPS.Text;
             id = (searchPI.Text.Equals("id")) ? "" : searchPI.Text;
             filteredList = PC.getAllPatientsChooseDTO().Where(patient => patient.name.StartsWith(name));
@@ -104,7 +104,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new DialogWindow("Are you sure you wanna cancel?", "No", "Yes", this);
+            var dia = new DialogWindow("Are you sure you wanna cancel?", "No", "Yes", this, nextW);
             dia.Show();
         }
     }

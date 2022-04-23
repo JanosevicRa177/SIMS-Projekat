@@ -37,21 +37,45 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public ObservableCollection<ShowAppointmentDTO> getAllDoctorsAppointments(int docID)
         {
             ObservableCollection<ShowAppointmentDTO> adtolist = new ObservableCollection<ShowAppointmentDTO>();
-            ObservableCollection<Appointment> apl =  AS.getAllDoctorsAppointments(docID);
-            foreach(Appointment a in apl)
+            ObservableCollection<Appointment> apl = AS.getAllDoctorsAppointments(docID);
+            foreach (Appointment a in apl)
             {
-                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.time, a.description,a.appointmentID));
+                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
             }
             return adtolist;
+        }
+
+        public EditAppointmentDTO getEditAppointmentDTOById(int appID)
+        {
+            Appointment a = AS.getAppointmentById(appID);
+            return new EditAppointmentDTO(a.patientID, a.roomID, a.doctorID, a.duration,a.timeBegin,a.time);
         }
 
         public ShowAppointmentDTO getShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
-            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(),RC.getRoomById(a.roomID).name,a.date,a.time,a.description,appoID);
+            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(),RC.getRoomById(a.roomID).name,a.date,a.timeString,a.description,appoID);
         }
-    
 
+        public class EditAppointmentDTO
+        {
+            public int patientID { set; get; }
+            public int roomID { set; get; }
+            public int docID { set; get; }
+            public int dur { set; get; }
+
+            public Time time { set; get; }
+            public DateTime dt { set; get; }
+            public EditAppointmentDTO(int pID, int rID, int dID, int dur,DateTime dt,Time t)
+            {
+                patientID = pID;
+                roomID = rID;
+                docID = dID;
+                this.dur = dur;
+                this.dt = dt;
+            }
+
+        }
         public class ShowAppointmentDTO
         {
             public string patientName { set; get; }
