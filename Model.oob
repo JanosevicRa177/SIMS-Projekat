@@ -981,7 +981,7 @@ IndxThreshold=
 ColnFKName=%.3:PARENT%_%COLUMN%
 ColnFKNameUse=No</a:ModelOptionsText>
 <a:GlobalObjectID/>
-<a:RepositoryFilename>C:\Users\Jelena\Desktop\SIMS projekat\SIMS-Projekat\Model.oom</a:RepositoryFilename>
+<a:RepositoryFilename>C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\Model.oom</a:RepositoryFilename>
 <c:ObjectLanguage>
 <o:Shortcut Id="o3">
 <a:ObjectID>8B9C1CA3-EF18-4174-B4D4-500A90CD32F2</a:ObjectID>
@@ -2760,7 +2760,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o66">
 <a:CreationDate>1648908191</a:CreationDate>
 <a:ModificationDate>1649600754</a:ModificationDate>
-<a:Rect>((-22896,16977), (-13713,24846))</a:Rect>
+<a:Rect>((-22896,16977), (-13713,24871))</a:Rect>
 <a:ListOfPoints>((-14113,23842),(-20376,23842),(-20376,17377))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -2780,7 +2780,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o68">
 <a:CreationDate>1648908191</a:CreationDate>
 <a:ModificationDate>1649600760</a:ModificationDate>
-<a:Rect>((-20776,16223), (-3500,17927))</a:Rect>
+<a:Rect>((-20776,16223), (-3500,17952))</a:Rect>
 <a:ListOfPoints>((-3900,16923),(-20376,16923))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -2960,8 +2960,8 @@ Shadow=0</a:DisplayPreferences>
 <o:UseCaseAssociationSymbol Id="o94">
 <a:CreationDate>1648908191</a:CreationDate>
 <a:ModificationDate>1649600452</a:ModificationDate>
-<a:Rect>((-29355,-3944), (-8284,-486))</a:Rect>
-<a:ListOfPoints>((-8684,-3544),(-19781,-3544),(-19781,-886),(-28955,-886))</a:ListOfPoints>
+<a:Rect>((-31829,-3944), (-8284,-485))</a:Rect>
+<a:ListOfPoints>((-8684,-3544),(-19781,-3544),(-19781,-885),(-31429,-885))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -4766,7 +4766,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o149">
 <a:CreationDate>1648942615</a:CreationDate>
 <a:ModificationDate>1648984763</a:ModificationDate>
-<a:Rect>((-9198,22373), (4414,24042))</a:Rect>
+<a:Rect>((-9198,22373), (4414,24099))</a:Rect>
 <a:ListOfPoints>((4014,23073),(-8798,23073))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -4826,7 +4826,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o159">
 <a:CreationDate>1648984162</a:CreationDate>
 <a:ModificationDate>1648984769</a:ModificationDate>
-<a:Rect>((-21199,24447), (-7699,26119))</a:Rect>
+<a:Rect>((-21199,24447), (-7699,26173))</a:Rect>
 <a:ListOfPoints>((-8099,25147),(-20799,25147))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -4846,7 +4846,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o162">
 <a:CreationDate>1648984163</a:CreationDate>
 <a:ModificationDate>1648984769</a:ModificationDate>
-<a:Rect>((-23318,24747), (-11103,33798))</a:Rect>
+<a:Rect>((-23318,24747), (-11103,33850))</a:Rect>
 <a:ListOfPoints>((-11503,32824),(-20798,32824),(-20798,25147))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -4866,7 +4866,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o165">
 <a:CreationDate>1648984726</a:CreationDate>
 <a:ModificationDate>1648984769</a:ModificationDate>
-<a:Rect>((-23042,19840), (-12284,23820))</a:Rect>
+<a:Rect>((-23042,19900), (-12284,23820))</a:Rect>
 <a:ListOfPoints>((-12684,20937),(-20522,20937),(-20522,23420))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -6487,7 +6487,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o209">
 <a:CreationDate>1647695003</a:CreationDate>
 <a:ModificationDate>1648990300</a:ModificationDate>
-<a:Rect>((-20928,23322), (-1953,24997))</a:Rect>
+<a:Rect>((-20928,23322), (-1953,25039))</a:Rect>
 <a:ListOfPoints>((-20528,24022),(-2353,24022))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
