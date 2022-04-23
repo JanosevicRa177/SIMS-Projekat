@@ -27,6 +27,25 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
+        private int test1;
+        public int Test1
+        {
+            get
+            {
+                return test1;
+            }
+            set
+            {
+                if (value != test1)
+                {
+
+                    test1 = value;
+                    OnPropertyChanged("Test1");
+
+                }
+            }
+        }
         public static Manager loggedManager
         {
             get;
@@ -98,12 +117,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 inputPurpose.Text = r.purpose;
                 inputFloor.Text = Convert.ToString(r.floor);
             }
-        }
-
-        private void inputFloor_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

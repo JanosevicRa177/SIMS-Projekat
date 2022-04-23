@@ -73,5 +73,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             this.Close();
         }
+
+        private void createRoom_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
     }
 }

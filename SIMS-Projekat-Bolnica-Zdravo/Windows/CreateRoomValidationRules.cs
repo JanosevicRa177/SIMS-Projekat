@@ -40,11 +40,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
+
             if (value is int)
             {
                 int d = (int)value;
                 if (d < Min) return new ValidationResult(false, "Floors start at 0");
+              
                 if (d > Max) return new ValidationResult(false, "Last floor is 3");
+                    
+        
                 return new ValidationResult(true, null);
             }
             else

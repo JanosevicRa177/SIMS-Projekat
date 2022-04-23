@@ -23,8 +23,8 @@ namespace CrudModel
             if (roomList == null)
             {
                 roomList = new ObservableCollection<Room>();
-                Serializer<Room> patientSerializer = new Serializer<Room>();
-                roomList = patientSerializer.fromCSV("room.txt");
+                Serializer<Room> roomSerializer = new Serializer<Room>();
+                roomList = roomSerializer.fromCSV("room.txt");
             }
         }
       public bool CreateRoom(Room newRoom)
