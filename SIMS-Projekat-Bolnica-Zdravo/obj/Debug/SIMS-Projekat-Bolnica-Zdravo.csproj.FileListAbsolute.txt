@@ -1,4 +1,6 @@
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csprojAssemblyReference.cache
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\MainWindow.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.g.cs
@@ -19,13 +21,9 @@ C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zd
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ShowAppointmentDialogPatient.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_Content.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.cache
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.lref
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.baml
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.baml
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\MainWindow.baml

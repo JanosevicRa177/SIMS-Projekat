@@ -50,7 +50,7 @@ namespace CrudModel
       public ObservableCollection<Specialization> getAllSpecializations()
         {
             Serializer<Specialization> patientSerializer = new Serializer<Specialization>();
-            return patientSerializer.fromCSV("specializations.txt");
+            return patientSerializer.fromCSV("../../TxtFajlovi/specializations.txt");
         }
 
 
