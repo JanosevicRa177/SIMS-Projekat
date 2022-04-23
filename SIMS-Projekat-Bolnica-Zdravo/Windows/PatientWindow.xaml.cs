@@ -1,5 +1,6 @@
 ﻿using ConsoleApp.serialization;
 using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,7 +21,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
     public partial class PatientWindow : Window
     {
-        static public Patient loggedPatient
+        PatientController PC = new PatientController();
+        static public int loggedPatient
         {
             get;
             set;
@@ -28,10 +30,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public PatientWindow()
         {
             InitializeComponent();
-            if (loggedPatient == null) 
-            {
-                loggedPatient = PatientFileStorage.GetPatientByID(5);
-            }
+            loggedPatient = 5;
             this.DataContext = loggedPatient;
         }
 

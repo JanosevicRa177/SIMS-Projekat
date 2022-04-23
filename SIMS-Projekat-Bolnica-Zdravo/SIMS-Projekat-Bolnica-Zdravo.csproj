@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hospital.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,16 +58,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\MedicalRecordController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="CrudModel\Gender.cs" />
     <Compile Include="CrudModel\IdsStorage.cs" />
+    <Compile Include="DoctorAll\DoctorWindows\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Serialization\Serializable.cs" />
     <Compile Include="Serialization\Serializer.cs" />
-    <Compile Include="Windows\1addAppointmentDialogDoctor.xaml.cs">
+    <Compile Include="DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>1addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\addAppointmentDialogDoctor.xaml.cs">
+    <Compile Include="DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml.cs">
       <DependentUpon>addAppointmentDialogDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\SpecializationService.cs" />
     <Compile Include="Windows\ChangeAppointmentDialogPatient.xaml.cs">
       <DependentUpon>ChangeAppointmentDialogPatient.xaml</DependentUpon>
     </Compile>
@@ -78,13 +95,13 @@
     <Compile Include="Windows\DatePickerPatient.xaml.cs">
       <DependentUpon>DatePickerPatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\DoctorsAppointments.xaml.cs">
+    <Compile Include="DoctorAll\DoctorWindows\DoctorsAppointments.xaml.cs">
       <DependentUpon>DoctorsAppointments.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\doctorShowAppointment.xaml.cs">
+    <Compile Include="DoctorAll\DoctorWindows\doctorShowAppointment.xaml.cs">
       <DependentUpon>doctorShowAppointment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\DoctorWindow.xaml.cs">
+    <Compile Include="DoctorAll\DoctorWindows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ManagerWindow.xaml.cs">
@@ -112,6 +129,10 @@
     <Compile Include="Windows\StaffRegistrationWindow.xaml.cs">
       <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="DoctorAll\DoctorWindows\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,11 +172,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\1addAppointmentDialogDoctor.xaml">
+    <Page Include="DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\addAppointmentDialogDoctor.xaml">
+    <Page Include="DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,15 +196,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\DoctorsAppointments.xaml">
+    <Page Include="DoctorAll\DoctorWindows\DoctorsAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\doctorShowAppointment.xaml">
+    <Page Include="DoctorAll\DoctorWindows\doctorShowAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\DoctorWindow.xaml">
+    <Page Include="DoctorAll\DoctorWindows\DoctorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,7 +259,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -251,19 +271,19 @@
     <Resource Include="icons\hospital.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\secretary.txt" />
-    <Resource Include="bin\Debug\managers.txt" />
-    <Resource Include="bin\Debug\appoitments.txt" />
-    <Resource Include="bin\Debug\doctors.txt" />
-    <Resource Include="bin\Debug\ids.txt" />
-    <Resource Include="bin\Debug\medicalRecords.txt" />
-    <Resource Include="bin\Debug\notes.txt" />
-    <Resource Include="bin\Debug\patients.txt" />
-    <Content Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe" />
-    <Content Include="bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb" />
+    <Resource Include="hospital.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Release\" />
+    <Resource Include="TxtFajlovi\appointments.txt" />
+    <Resource Include="TxtFajlovi\doctors.txt" />
+    <Resource Include="TxtFajlovi\ids.txt" />
+    <Resource Include="TxtFajlovi\managers.txt" />
+    <Resource Include="TxtFajlovi\medicalRecords.txt" />
+    <Resource Include="TxtFajlovi\notes.txt" />
+    <Resource Include="TxtFajlovi\patients.txt" />
+    <Resource Include="TxtFajlovi\room.txt" />
+    <Resource Include="TxtFajlovi\secretary.txt" />
+    <Resource Include="TxtFajlovi\specializations.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

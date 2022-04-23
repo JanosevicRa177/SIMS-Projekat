@@ -1,4 +1,5 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
+        private AppointmentController AC = new AppointmentController();
 
         public static DateTime date
         {
@@ -99,11 +101,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 if (r.name.Equals("No Room"))
                 {
                     room = r;
-                    Appointment a = new Appointment(date, int.Parse(Hours.Text), int.Parse(Minutes.Text), 30, room, (Doctor)doctorsCB.SelectedItem, desc.Text, PatientWindow.loggedPatient);
-                    AppointmentFileStorage.appointmentList.Add(a);
-                    Doctor d = (Doctor)doctorsCB.SelectedItem;
-                    d.AddAppointment(a);
-                    PatientWindow.loggedPatient.medicalRecord.AddAppointment(a);
+                    //Appointment a = new Appointment(date, int.Parse(Hours.Text), int.Parse(Minutes.Text), 30, room, (Doctor)doctorsCB.SelectedItem, desc.Text, PatientWindow.loggedPatient);
+                    //AC.CreateAppointment(date,new Time(int.Parse(Hours.Text), int.Parse(Minutes.Text),100),30,);
+                    /////////////////////POPRAVITI PUNO TOGA XD; ILI NAPRAVI SVOJ KONSTRUKTOR U KONTROLERU I SERVISU ZA APOINTMENT mozes koristiti moju funckiju za nudjenje vremena xd
                     PatientWindow pt = new PatientWindow();
                     pt.Show();
                     this.Close();

@@ -1,8 +1,0 @@
-Beleska1|POPITI LEK ZA REUMU|0|5
-Beleska1|Neki kontent 1|0|5
-Beleska2|Neki kontent 2|1|5
-Beleska3|Neki kontent 3|2|5
-Beleska4|Neki kontent 4|3|5
-Prazno|Neke beleske 1|4|5
-Prazno|Neke beleske 2|5|5
-Prazno|Neka beleska poslednji test|6|5

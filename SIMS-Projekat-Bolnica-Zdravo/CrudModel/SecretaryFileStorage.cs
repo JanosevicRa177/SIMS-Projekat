@@ -24,7 +24,7 @@ namespace CrudModel
             if (secretaryList == null)
             {
                 Serializer<Secretary> secretarySerializer = new Serializer<Secretary>();
-                secretaryList = secretarySerializer.fromCSV("secretary.txt"); 
+                secretaryList = secretarySerializer.fromCSV("../../TxtFajlovi/secretary.txt"); 
             }
         }
         public bool CreateSecretary(Secretary newSecretary)

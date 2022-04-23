@@ -30,7 +30,7 @@ namespace CrudModel
 {               noteName,
                 noteContent,
                 noteID.ToString(),
-                patient.userID.ToString()
+                patientID.ToString()
                 };
             return csvValues;
         }
@@ -40,9 +40,7 @@ namespace CrudModel
             noteName = values[0];
             noteContent = values[1];
             noteID = int.Parse(values[2]);
-            Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[3]));
-            patient = p;
-            p.notes.Add(this);
+            patientID = int.Parse(values[3]);
             NoteFileStorage.noteList.Add(this);
         }
 
@@ -62,7 +60,7 @@ namespace CrudModel
             set;
             get;
         }
-        public Patient patient
+        public int patientID
         {
             get;
             set;
