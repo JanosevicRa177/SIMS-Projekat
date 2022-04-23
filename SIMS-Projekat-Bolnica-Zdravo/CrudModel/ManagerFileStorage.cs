@@ -19,7 +19,7 @@ namespace CrudModel
             if (managerList == null)
             {
                 Serializer<Manager> managerSerializer = new Serializer<Manager>();
-                managerList = managerSerializer.fromCSV("managers.txt");
+                managerList = managerSerializer.fromCSV("../../TxtFajlovi/managers.txt");
             }
         }
         public bool CreateManager(Manager newManager)

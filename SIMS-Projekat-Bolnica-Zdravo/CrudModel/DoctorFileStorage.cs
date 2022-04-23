@@ -23,7 +23,7 @@ namespace CrudModel
             if(doctorList == null)
             {
                 Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
-                doctorList = doctorserialzer.fromCSV("doctors.txt");
+                doctorList = doctorserialzer.fromCSV("../../TxtFajlovi/doctors.txt");
             }
            
         }
@@ -45,7 +45,7 @@ namespace CrudModel
       public Doctor GetDoctorByID(int doctorID)
       {
             Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
-            foreach (Doctor doc in doctorserialzer.fromCSV("doctors.txt"))
+            foreach (Doctor doc in doctorserialzer.fromCSV("../../TxtFajlovi/doctors.txt"))
             {
                 if (doc.userID == doctorID)
                 {

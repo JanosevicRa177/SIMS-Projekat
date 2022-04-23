@@ -272,7 +272,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 
                 int tmp = 0;
-                if ((nameTextBox.Text != "") && (numberTextBox.Text != "") && (surnameTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != "") && (specializationTextBox.Text != "") && (licenceComboBox.Text != ""))
+                if ((nameTextBox.Text != "") && (numberTextBox.Text != "") && (surnameTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != "") && (licenceComboBox.Text != ""))
                 {
                     if (SecretaryFileStorage.secretaryList.Count == 0)
                     {

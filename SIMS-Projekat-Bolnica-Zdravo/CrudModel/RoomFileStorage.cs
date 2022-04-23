@@ -35,7 +35,7 @@ namespace CrudModel
       public Room GetRoomByID(int ID)
       {
             Serializer<Room> patientSerializer = new Serializer<Room>();
-            foreach (Room r in patientSerializer.fromCSV("room.txt"))
+            foreach (Room r in patientSerializer.fromCSV("../../TxtFajlovi/room.txt"))
             {
                 if (r.roomID == ID)
                     return r;
@@ -46,7 +46,7 @@ namespace CrudModel
       public ObservableCollection<Room> GetAllRooms()
       {      
             Serializer<Room> patientSerializer = new Serializer<Room>();
-            return patientSerializer.fromCSV("room.txt");
+            return patientSerializer.fromCSV("../../TxtFajlovi/room.txt");
       }
    
    }

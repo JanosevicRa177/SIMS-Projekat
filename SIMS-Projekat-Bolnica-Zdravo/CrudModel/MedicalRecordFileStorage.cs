@@ -21,7 +21,7 @@ namespace CrudModel
         public MedicalRecord getMedialRecordByPatientID(int patientID)
         {
             Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
-            foreach (MedicalRecord mr in medicalRecordSerializer.fromCSV("medicalRecords.txt"))
+            foreach (MedicalRecord mr in medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt"))
             {
                 if (mr.patientID == patientID)
                 {
@@ -36,7 +36,7 @@ namespace CrudModel
             {
                 medicalRecordList = new ObservableCollection<MedicalRecord>();
                 Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
-                medicalRecordList = medicalRecordSerializer.fromCSV("medicalRecords.txt");
+                medicalRecordList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt");
             }
         }
             public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)

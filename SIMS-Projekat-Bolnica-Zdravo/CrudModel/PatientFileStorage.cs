@@ -38,7 +38,7 @@ namespace CrudModel
       public Patient GetPatientByID(int id)
       {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
-            foreach (Patient p in patientSerializer.fromCSV("patients.txt")) {
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt")) {
                 if (p.userID == id) return p;
             }
             return null;
@@ -47,7 +47,7 @@ namespace CrudModel
       public ObservableCollection<Patient> getAllPatientsFS()
       {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
-            return patientSerializer.fromCSV("patients.txt");
+            return patientSerializer.fromCSV("../../TxtFajlovi/patients.txt");
       }
    
    }
