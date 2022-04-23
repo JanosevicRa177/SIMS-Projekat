@@ -11,21 +11,11 @@ using System.Collections.ObjectModel;
 namespace CrudModel
 {
    public class RoomFileStorage
-   {
-        public static ObservableCollection<Room> roomList
-        {
-            set;
-            get;
-        }
-
+    {
+        public static ObservableCollection<Room> roomList { set; get; }
         public RoomFileStorage()
         {
-            if (roomList == null)
-            {
-                roomList = new ObservableCollection<Room>();
-                Serializer<Room> patientSerializer = new Serializer<Room>();
-                roomList = patientSerializer.fromCSV("room.txt");
-            }
+            roomList = new ObservableCollection<Room>();
         }
       public bool CreateRoom(Room newRoom)
       {
@@ -42,9 +32,10 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public static Room GetRoomByID(int ID)
+      public Room GetRoomByID(int ID)
       {
-         foreach(Room r in roomList)
+            Serializer<Room> patientSerializer = new Serializer<Room>();
+            foreach (Room r in patientSerializer.fromCSV("../../TxtFajlovi/room.txt"))
             {
                 if (r.roomID == ID)
                     return r;
@@ -52,9 +43,10 @@ namespace CrudModel
             return null;
       }
       
-      public List<Room> GetAllRooms()
-      {
-         throw new NotImplementedException();
+      public ObservableCollection<Room> GetAllRooms()
+      {      
+            Serializer<Room> patientSerializer = new Serializer<Room>();
+            return patientSerializer.fromCSV("../../TxtFajlovi/room.txt");
       }
    
    }

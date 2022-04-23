@@ -1,4 +1,0 @@
-Milica|Milutinovic|Sirija|Beograd|Bulevar|21|123|0124454|milica@gmail.com|0|No specialization
-Dragan|Petrovic|Serbia|Novi Sad|Slobodana Bajica|5a|321|+06987654321|Dragan@gmail.com|1|No specialization
-Mirko123|Jovic123|Serbia|Novi Sad|Milesevska|32|456|+3816918273645|Mirko@gmail.com|2|No specialization
-Fata|Nikolic|Serbia|Novi Sad|Sarajevska|19a|654|06192837465|Fata@gmail.com|3|No specialization

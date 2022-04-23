@@ -5,19 +5,20 @@
 
 using ConsoleApp.serialization;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
-   public class Doctor : User , Serializable
+    public class Doctor : User, Serializable
     {
 
         public Doctor()
         {
             address = new Address();
         }
-        
-        public Doctor(int id,String name,String surname,String email,String password,Address address, String phone, Specialization spec,String pos)
+
+        public Doctor(int id, String name, String surname, String email, String password, Address address, String phone, Specialization spec, String pos)
         {
             this.userID = id;
             this.name = name;
@@ -42,7 +43,7 @@ namespace CrudModel
             this.position = "Doctor";
         }
 
-        public Specialization specialization
+         public Specialization specialization
         {
             set;
             get;
@@ -68,78 +69,78 @@ namespace CrudModel
         /// Property for collection of Appointment
         /// </summary>
         /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public ObservableCollection<Appointment> Appointment
-      {
-         get
-         {
-            if (appointment == null)
-               appointment = new ObservableCollection<Appointment>();
-            return appointment;
-         }
-         set
-         {
-            RemoveAllAppointment();
-            if (value != null)
-            {
-               foreach (Appointment oAppointment in value)
-                  AddAppointment(oAppointment);
-            }
-         }
-      }
+        //public ObservableCollection<Appointment> Appointment
+        //{
+        //    get
+        //    {
+        //        if (appointment == null)
+        //            appointment = new ObservableCollection<Appointment>();
+        //        return appointment;
+        //    }
+        //    set
+        //    {
+        //        RemoveAllAppointment();
+        //        if (value != null)
+        //        {
+        //            foreach (Appointment oAppointment in value)
+        //                AddAppointment(oAppointment);
+        //        }
+        //    }
+        //}
         public String getDoctorNameAndSurname()
         {
             return name + surname;
         }
-      /// <summary>
-      /// Add a new Appointment in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
-      public void AddAppointment(Appointment newAppointment)
-      {
-         if (newAppointment == null)
-            return;
-         if (this.appointment == null)
-            this.appointment = new ObservableCollection<Appointment>();
-         if (!this.appointment.Contains(newAppointment))
-         {
-            this.appointment.Add(newAppointment);
-            newAppointment.doctor = this;
-         }
-      }
-      
-      /// <summary>
-      /// Remove an existing Appointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
-      public void RemoveAppointment(Appointment oldAppointment)
-      {
-         if (oldAppointment == null)
-            return;
-         if (this.appointment != null)
-            if (this.appointment.Contains(oldAppointment))
+        /// <summary>
+        /// Add a new Appointment in the collection
+        /// </summary>
+        /// <pdGenerated>Default Add</pdGenerated>
+        public void AddAppointment(Appointment newAppointment)
+        {
+            if (newAppointment == null)
+                return;
+            if (this.appointment == null)
+                this.appointment = new ObservableCollection<Appointment>();
+            if (!this.appointment.Contains(newAppointment))
             {
-               this.appointment.Remove(oldAppointment);
-               oldAppointment.doctor = null;
+                this.appointment.Add(newAppointment);
+                newAppointment.doctorID = this.userID;
             }
-      }
-      
-      /// <summary>
-      /// Remove all instances of Appointment from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
-      public void RemoveAllAppointment()
-      {
-         if (appointment != null)
-         {
-            System.Collections.ArrayList tmpAppointment = new System.Collections.ArrayList();
-            foreach (Appointment oldAppointment in appointment)
-               tmpAppointment.Add(oldAppointment);
-            appointment.Clear();
-            foreach (Appointment oldAppointment in tmpAppointment)
-               oldAppointment.doctor = null;
-            tmpAppointment.Clear();
-         }
-      }
+        }
+
+        /// <summary>
+        /// Remove an existing Appointment from the collection
+        /// </summary>
+        /// <pdGenerated>Default Remove</pdGenerated>
+        //public void RemoveAppointment(Appointment oldAppointment)
+        //{
+        //    if (oldAppointment == null)
+        //        return;
+        //    if (this.appointment != null)
+        //        if (this.appointment.Contains(oldAppointment))
+        //        {
+        //            this.appointment.Remove(oldAppointment);
+        //            oldAppointment.doctorID = -1;
+        //        }
+        //}
+
+        ///// <summary>
+        ///// Remove all instances of Appointment from the collection
+        ///// </summary>
+        ///// <pdGenerated>Default removeAll</pdGenerated>
+        //public void RemoveAllAppointment()
+        //{
+        //    if (appointment != null)
+        //    {
+        //        System.Collections.ArrayList tmpAppointment = new System.Collections.ArrayList();
+        //        foreach (Appointment oldAppointment in appointment)
+        //            tmpAppointment.Add(oldAppointment);
+        //        appointment.Clear();
+        //        foreach (Appointment oldAppointment in tmpAppointment)
+        //            oldAppointment.doctor = null;
+        //        tmpAppointment.Clear();
+        //    }
+        //}
 
         public string[] toCSV()
         {
@@ -175,4 +176,43 @@ namespace CrudModel
             specialization = SpecializationFileStorage.GetSpecialization(values[10]);
         }
     }
+
+    public class Time
+    {
+        public int hour {
+            set;
+            get;
+        }
+        public int minute
+        {
+            set;
+            get;
+
+        }
+        public string time
+        {
+            set;
+            get;
+        }
+
+        public int ID
+        {
+            get;set;
+        }
+
+        public Time(int hour,int minute,int ID)
+        {
+            this.time = "";
+            this.hour = hour;
+            this.minute = minute;
+            if (hour < 10 && minute < 10) this.time += "0" + hour + ":" + "0" + minute;
+            else if (hour >= 10 && minute < 10) this.time += hour + ":" + "00";
+            else if (hour < 10 && minute > 10) this.time += "0" + hour + ":" + minute;
+            else this.time += hour + ":" + minute;
+            this.ID = ID;
+        }
+
+
+    }
+
 }

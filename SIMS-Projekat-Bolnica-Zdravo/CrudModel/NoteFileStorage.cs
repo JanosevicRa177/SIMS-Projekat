@@ -24,7 +24,7 @@ namespace CrudModel
             {
                 noteList = new ObservableCollection<Note>();
                 Serializer<Note> noteSerializer = new Serializer<Note>();
-                noteList = noteSerializer.fromCSV("notes.txt");
+                noteList = noteSerializer.fromCSV("../../TxtFajlovi/notes.txt");
             }
         }
         public bool CreateNote(Note newNote)

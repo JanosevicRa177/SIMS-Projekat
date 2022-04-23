@@ -39,69 +39,69 @@ namespace CrudModel
         public MedicalRecord()
         { 
         }
-        public System.Collections.Generic.List<Appointment> appointment
-        {
-            set;
-            get;
-        }
+        //public System.Collections.Generic.List<Appointment> appointment
+        //{
+        //    set;
+        //    get;
+        //}
 
-        public System.Collections.Generic.List<Appointment> Appointment
-        {
-            get
-            {
-                if (appointment == null)
-                    appointment = new System.Collections.Generic.List<Appointment>();
-                return appointment;
-            }
-            set
-            {
-                RemoveAllAppointment();
-                if (value != null)
-                {
-                    foreach (Appointment oAppointment in value)
-                        AddAppointment(oAppointment);
-                }
-            }
-        }
+        //public System.Collections.Generic.List<Appointment> Appointment
+        //{
+        //    get
+        //    {
+        //        if (appointment == null)
+        //            appointment = new System.Collections.Generic.List<Appointment>();
+        //        return appointment;
+        //    }
+        //    set
+        //    {
+        //        RemoveAllAppointment();
+        //        if (value != null)
+        //        {
+        //            foreach (Appointment oAppointment in value)
+        //                AddAppointment(oAppointment);
+        //        }
+        //    }
+        //}
 
-        public void AddAppointment(Appointment newAppointment)
-        {
-            if (newAppointment == null)
-                return;
-            if (this.appointment == null)
-                this.appointment = new System.Collections.Generic.List<Appointment>();
-            if (!this.appointment.Contains(newAppointment))
-            {
-                this.appointment.Add(newAppointment);
-                newAppointment.medicalRecord = this;
-            }
-        }
+        //public void AddAppointment(Appointment newAppointment)
+        //{
+        //    if (newAppointment == null)
+        //        return;
+        //    if (this.appointment == null)
+        //        this.appointment = new System.Collections.Generic.List<Appointment>();
+        //    if (!this.appointment.Contains(newAppointment))
+        //    {
+        //        this.appointment.Add(newAppointment);
+        //        newAppointment.medicalRecord = this;
+        //    }
+        //}
 
-        public void RemoveAppointment(Appointment oldAppointment)
-        {
-            if (oldAppointment == null)
-                return;
-            if (this.appointment != null)
-                if (this.appointment.Contains(oldAppointment))
-                {
-                    this.appointment.Remove(oldAppointment);
-                    oldAppointment.medicalRecord = null;
-                }
-        }
+        //public void RemoveAppointment(Appointment oldAppointment)
+        //{
+        //    if (oldAppointment == null)
+        //        return;
+        //    if (this.appointment != null)
+        //        if (this.appointment.Contains(oldAppointment))
+        //        {
+        //            this.appointment.Remove(oldAppointment);
+        //            oldAppointment.medicalRecord = null;
+        //        }
+        //}
 
-        public void RemoveAllAppointment()
-        {
-            if (appointment != null)
-            {
-                System.Collections.ArrayList tmpAppointment = new System.Collections.ArrayList();
-                foreach (Appointment oldAppointment in appointment)
-                    tmpAppointment.Add(oldAppointment);
-                appointment.Clear();
-                foreach (Appointment oldAppointment in tmpAppointment)
-                    oldAppointment.medicalRecord = null;
-                tmpAppointment.Clear();
-            }
-        }
+        //public void RemoveAllAppointment()
+        //{
+        //    if (appointment != null)
+        //    {
+        //        System.Collections.ArrayList tmpAppointment = new System.Collections.ArrayList();
+        //        foreach (Appointment oldAppointment in appointment)
+        //            tmpAppointment.Add(oldAppointment);
+        //        appointment.Clear();
+        //        foreach (Appointment oldAppointment in tmpAppointment)
+        //            oldAppointment.medicalRecord = null;
+        //        tmpAppointment.Clear();
+        //    }
+        //}
 
         public string[] toCSV()
         {
@@ -110,7 +110,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "a-"
                 };
                 return csvValues;
@@ -120,7 +120,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "a+"
                 };
                 return csvValues;
@@ -130,7 +130,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "b-"
                 };
                 return csvValues;
@@ -140,7 +140,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "b+"
                 };
                 return csvValues;
@@ -150,7 +150,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "ab-"
                 };
                 return csvValues;
@@ -160,7 +160,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "ab+"
                 };
                 return csvValues;
@@ -170,7 +170,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "o-"
                 };
                 return csvValues;
@@ -180,7 +180,7 @@ namespace CrudModel
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
-                    patient.userID.ToString(),
+                    patientID.ToString(),
                     "o+"
                 };
                 return csvValues;
@@ -192,81 +192,45 @@ namespace CrudModel
         public void fromCSV(string[] values)
         {
 
+            
+                medicalRecordID = int.Parse(values[0]);
+                this.patientID = int.Parse(values[1]);
+                MedicalRecordFileStorage.medicalRecordList.Add(this);
             if (values[2].Equals("a-"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.a;
             }
             else if (values[2].Equals("a+"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.a1;
             }
             else if (values[2].Equals("b-"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.b;
             }
             else if (values[2].Equals("b+"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.b1;
             }
             else if (values[2].Equals("ab-"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.ab;
             }
             else if (values[2].Equals("ab+"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.ab1;
             }
             else if (values[2].Equals("o-"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.o;
             }
             else if (values[2].Equals("o+"))
             {
-                medicalRecordID = int.Parse(values[0]);
-                Patient p = PatientFileStorage.GetPatientByID(int.Parse(values[1]));
-                patient = p;
-                p.medicalRecord = this;
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
                 bloodType = BloodType.o1;
             }
         }
 
-        public Patient patient
+        public int patientID
         {
             set;
             get;
