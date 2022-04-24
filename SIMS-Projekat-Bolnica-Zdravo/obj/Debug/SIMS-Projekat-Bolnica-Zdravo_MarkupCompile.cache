@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\
 SIMS_Projekat_Bolnica_Zdravo
 none
 false
 DEBUG;TRACE
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\App.xaml
-191762914420
-21523588882
-67-1783407186
-13-1505183044
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\App.xaml
+19622639256
+21038301068
+71-747955094
+13-1310406943
 DoctorAll\DoctorWindows\DialogWindow.xaml;MainWindow.xaml;DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml;DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml;Windows\ChangeAppointmentDialogPatient.xaml;Windows\CreateRoomDialog.xaml;Windows\DateChangerPatient.xaml;Windows\DatePickerPatient.xaml;DoctorAll\DoctorWindows\DoctorsAppointments.xaml;DoctorAll\DoctorWindows\doctorShowAppointment.xaml;DoctorAll\DoctorWindows\DoctorWindow.xaml;Windows\ManagerWindow.xaml;Windows\NoteWindow.xaml;Windows\PatientNotes.xaml;Windows\AddAppointmentDialogPatient.xaml;Windows\PatientWindow.xaml;Windows\Secretary.xaml;Windows\ShowAppointmentDialogPatient.xaml;Windows\StaffRegistrationWindow.xaml;
 
 False

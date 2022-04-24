@@ -1,4 +1,5 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,6 +24,33 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         public ObservableCollection<Doctor> getAllDoctors()
         {
             return DFS.GetAllDoctors();
+        }
+        public void DeleteDoct(DoctorSecDTO d)
+        {
+            DoctorFileStorage dfs = new DoctorFileStorage();
+            dfs.DeleteDoctor(d);
+        }
+        public void AddDoctor(Doctor d)
+        {
+            DoctorFileStorage dfs = new DoctorFileStorage();
+            dfs.CreateDoctor(d);
+        }
+        public void UpdateDoctor(Doctor d)
+        {
+            DFS.UpdateDoctor(d);
+        }
+        public Doctor getDocByMail(string email)
+        {
+            Doctor ret = null;
+            foreach(Doctor d in getAllDoctors())
+            {
+                if (email.Equals(d.mail))
+                {
+                    ret = d;
+                    break;
+                }
+            }
+            return ret;
         }
 
         public BindingList<Time> getDoctorTimes(int doctorID,DateTime forDate)
