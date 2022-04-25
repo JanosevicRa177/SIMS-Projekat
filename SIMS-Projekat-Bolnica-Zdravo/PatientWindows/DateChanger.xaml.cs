@@ -1,7 +1,9 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Services;
+using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,32 +14,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SIMS_Projekat_Bolnica_Zdravo.Windows
+namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
-    public partial class DatePickerPatient : Window
+    public partial class DateChanger : Page
     {
-        public DatePickerPatient()
+        public DateChanger()
         {
-            this.DataContext = AddAppointmentDialogPatient.date;
+            this.DataContext = this;
             InitializeComponent();
         }
-
-        private void Show_Notes(object sender, RoutedEventArgs e)
-        {
-            PatientNotes pn = new PatientNotes();
-            pn.Show();
-            this.Close();
-        }
-
-        private void Show_Home(object sender, RoutedEventArgs e)
-        {
-            PatientWindow pt = new PatientWindow();
-            pt.Show();
-            this.Close();
-        }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -45,26 +33,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Cancel_Date(object sender, RoutedEventArgs e)
         {
-            AddAppointmentDialogPatient pt = new AddAppointmentDialogPatient();
-            pt.Show();
-            this.Close();
+            PatientWindow.NavigatePatient.Navigate(new ChangeAppointment());
         }
         private void Confirm_Date(object sender, RoutedEventArgs e)
         {
-            if (DatePicker.SelectedDate == null) 
+            if (DatePicker_Date.SelectedDate == null)
             {
                 MessageBox.Show("Niste izabrali datum");
                 return;
             }
-            if (DatePicker.SelectedDate.Value <= DateTime.Today) 
+            if (DatePicker_Date.SelectedDate.Value <= DateTime.Today)
             {
                 MessageBox.Show("Ne možete zakazati pregled u prošlosti ili za danas");
                 return;
             }
-            AddAppointmentDialogPatient.date = DatePicker.SelectedDate.Value;
-            AddAppointmentDialogPatient pt = new AddAppointmentDialogPatient();
-            pt.Show();
-            this.Close();
+            ChangeAppointment.date = DatePicker_Date.SelectedDate.Value;
+            PatientWindow.NavigatePatient.Navigate(new ChangeAppointment());
         }
         private void Calendar_SourceUpdated(object sender, DataTransferEventArgs e)
         {

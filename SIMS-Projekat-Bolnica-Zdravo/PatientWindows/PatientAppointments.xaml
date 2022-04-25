@@ -1,0 +1,45 @@
+﻿<Page x:Class="SIMS_Projekat_Bolnica_Zdravo.PatientWindows.PatientAppointments"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.PatientWindows"
+      mc:Ignorable="d" 
+      d:DesignHeight="530" d:DesignWidth="430"
+      Title="PatientAppointments">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="530" Width="430">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" IsReadOnly="True" FontSize="12" SelectionMode="Single" Name="Appointments"  Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.ColumnSpan="10" SelectionChanged="Appointments_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="Doctor" FontSize="15" Header="Doktor" Width="auto">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="doctorName"/>
+                            <Binding Path="doctorSurname"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Soba" Width="auto" FontSize="15" Binding="{Binding roomName}"/>
+                <DataGridTextColumn x:Name="date" Width="auto" FontSize="15" Header="Datum" Binding="{Binding Date}"/>
+                <DataGridTextColumn x:Name="time" Width="auto" FontSize="15" Header="Vreme" Binding="{Binding Time}"/>
+                <DataGridTemplateColumn Header="Prikaži" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button FontSize="15" Width="50" Margin="5" Click="Show_Appointment">Prikaži</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Zakaži pregled" FontSize="20" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231" Height="60" Grid.ColumnSpan="3" Click="AddAppointment"/>
+    </Grid>
+</Page>
