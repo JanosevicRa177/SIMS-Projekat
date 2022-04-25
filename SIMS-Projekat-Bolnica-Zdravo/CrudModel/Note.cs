@@ -8,11 +8,11 @@ using System;
 
 namespace CrudModel
 {
-   public class Note : Serializable
+    public class Note : Serializable
     {
         private static int ids = -1;
 
-        public static int getids ()
+        public static int getids()
         {
             return ids;
         }
@@ -41,14 +41,14 @@ namespace CrudModel
             noteContent = values[1];
             noteID = int.Parse(values[2]);
             patientID = int.Parse(values[3]);
-            NoteFileStorage.noteList.Add(this);
         }
 
-        public Note(String noteName,String noteContent) 
+        public Note(String noteName,String noteContent,int patientID) 
         {
             this.noteContent = noteContent;
             this.noteName = noteName;
             this.noteID = ++ids;
+            this.patientID = patientID;
         }
       public String noteContent
         {

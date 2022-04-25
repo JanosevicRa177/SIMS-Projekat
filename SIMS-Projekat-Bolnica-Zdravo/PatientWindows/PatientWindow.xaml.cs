@@ -1,10 +1,12 @@
 ﻿using ConsoleApp.serialization;
 using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.PatientWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
@@ -22,7 +25,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     public partial class PatientWindow : Window
     {
         PatientController PC = new PatientController();
-        static public int loggedPatient
+        public static NavigationService NavigatePatient;
+        static public PatientCrAppDTO loggedPatient
         {
             get;
             set;
@@ -30,34 +34,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public PatientWindow()
         {
             InitializeComponent();
-            loggedPatient = 5;
+            NavigatePatient = PatientFrame.NavigationService;
+            loggedPatient = PC.GetPatientDTOByID(5);
+            PatientFrame.Content = new PatientAppointments();
             this.DataContext = loggedPatient;
         }
 
         private void Show_Notes(object sender, RoutedEventArgs e)
         {
-            PatientNotes pn = new PatientNotes();
-            pn.Show();
-            this.Close();
+            AddAppointment.selectedDoctor = -1;
+            PatientFrame.NavigationService.Navigate(new PatientNotes());
         }
-
-        private void Appointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Show_Home(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void AddAppointment(object sender, RoutedEventArgs e)
-        {
-            AddAppointmentDialogPatient Add = new AddAppointmentDialogPatient();
-            Add.Show();
-            this.Close();
-        }
-
-        private void Show_Appointment(object sender, RoutedEventArgs e)
-        {
-            ShowAppointmentDialogPatient Show = new ShowAppointmentDialogPatient((Appointment)Appointments.SelectedItem);
-            Show.Show();
-            this.Close();
+            AddAppointment.selectedDoctor = -1;
+            PatientFrame.NavigationService.Navigate(new PatientAppointments());
         }
 
         private void signout_Click(object sender, RoutedEventArgs e)

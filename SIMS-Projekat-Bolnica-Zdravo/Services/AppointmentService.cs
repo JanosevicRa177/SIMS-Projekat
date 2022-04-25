@@ -29,6 +29,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.DeleteAppointment(appid);
         }
+        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID)
+        {
+            return AFS.ChangeAppointment(t, dt, appointmentID);
+        }
         public Appointment getAppointmentById(int AppID)
         {
             return AFS.GetAppointmentByID(AppID);
@@ -38,11 +42,33 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return AFS.getAllDoctorsAppointments(docID);
         }
+        public ObservableCollection<Appointment> getAllPatientsAppointments(int patientID)
+        {
+            MedicalRecord m = MRFS.getMedialRecordByPatientID(patientID);
+            return AFS.getAllPatientsAppointments(m.medicalRecordID);
+        }
         public int CreateAppointment(DateTime dt, Time t, int dur, int roomID, int DoctorID, string desc, int patientID)
         {
             Appointment newApp = new Appointment(dt, t, dur, roomID, DoctorID, desc, patientID, MRFS.getMedialRecordByPatientID(patientID).medicalRecordID);
             AFS.addAppointment(newApp);
             return newApp.appointmentID;
+        }
+        public ObservableCollection<Doctor> getDoctorsPatient()
+        {
+            ObservableCollection<Doctor> doctors = DFS.GetAllDoctors();
+            return filterDoctorsForPatient(doctors);
+        }
+        public ObservableCollection<Doctor> filterDoctorsForPatient(ObservableCollection<Doctor> doctors)
+        {
+            ObservableCollection<Doctor> filteredDoctors = new ObservableCollection<Doctor>();
+            foreach (Doctor d in doctors)
+            {
+                if (d.specialization.specialization.Equals("No specialization"))
+                {
+                    filteredDoctors.Add(d);
+                }
+            }
+            return filteredDoctors;
         }
     }
 }

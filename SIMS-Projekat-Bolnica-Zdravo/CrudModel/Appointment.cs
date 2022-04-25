@@ -20,7 +20,8 @@ namespace CrudModel
 
         public int patientID
         {
-            set;get;
+            set;
+            get;
         }
         public static int getids()
         {
@@ -91,7 +92,6 @@ namespace CrudModel
         {
             this.medicalRecordID = MRid;
             this.patientID = patID;
-            //this.medicalRecord.patientID = pat.userID;
             this.doctorID = docID;
             this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
             this.setDate();
@@ -186,22 +186,12 @@ namespace CrudModel
             setDate();
         }
 
-
-        /// <summary>
-        /// Property for MedicalRecord
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
         public int medicalRecordID
         {
             set;
             get;
         }
 
-        /// <summary>
-        /// Property for Doctor
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
-        /// 
         public int doctorID
         {
             set;
