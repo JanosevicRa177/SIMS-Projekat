@@ -32,8 +32,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             //new PatientFileStorage();
             new ManagerFileStorage();
             new SecretaryFileStorage();
-            new NoteFileStorage();
-            new MedicalRecordFileStorage();
+            //new NoteFileStorage();
+            //new MedicalRecordFileStorage();
             new SecretaryFileStorage();
             new RoomFileStorage();
             new AppointmentFileStorage();
@@ -46,10 +46,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
         public void loadIDS()
         {
-            ObservableCollection<IdsStorage> ids = new ObservableCollection<IdsStorage>();
-            Serializer <IdsStorage> doctorserialzer = new Serializer<IdsStorage>();
-            ids = doctorserialzer.fromCSV("../../TxtFajlovi/ids.txt");
-            ids[0].setALLIDS();
+            new IdsStorage();
+            Serializer <Ids> doctorserialzer = new Serializer<Ids>();
+            IdsStorage.IDS = doctorserialzer.fromCSV("../../TxtFajlovi/ids.txt");
+            IdsStorage.IDS[0].setALLIDS();
 
         }
 

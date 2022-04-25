@@ -2251,7 +2251,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:MessageSymbol Id="o97">
 <a:CreationDate>1650706710</a:CreationDate>
 <a:ModificationDate>1650707327</a:ModificationDate>
-<a:Rect>((-13360,-21375), (-1600,-19719))</a:Rect>
+<a:Rect>((-13019,-21375), (-1870,-19719))</a:Rect>
 <a:ListOfPoints>((-12619,-20750),(-2270,-20750))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -2381,7 +2381,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:MessageSymbol Id="o112">
 <a:CreationDate>1650466826</a:CreationDate>
 <a:ModificationDate>1650466957</a:ModificationDate>
-<a:Rect>((8548,1809), (20580,3405))</a:Rect>
+<a:Rect>((8548,1809), (20580,3335))</a:Rect>
 <a:ListOfPoints>((20180,2509),(8948,2509))</a:ListOfPoints>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -2403,7 +2403,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:MessageSymbol Id="o115">
 <a:CreationDate>1650466785</a:CreationDate>
 <a:ModificationDate>1650466957</a:ModificationDate>
-<a:Rect>((8746,7015), (20857,8552))</a:Rect>
+<a:Rect>((8746,7015), (20857,8480))</a:Rect>
 <a:ListOfPoints>((9146,7640),(20457,7640))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -2424,7 +2424,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:MessageSymbol Id="o117">
 <a:CreationDate>1650466739</a:CreationDate>
 <a:ModificationDate>1650466956</a:ModificationDate>
-<a:Rect>((-2661,9706), (9549,11257))</a:Rect>
+<a:Rect>((-2661,9706), (9549,11187))</a:Rect>
 <a:ListOfPoints>((-2261,10331),(9149,10331))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -2445,7 +2445,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <o:MessageSymbol Id="o119">
 <a:CreationDate>1650466698</a:CreationDate>
 <a:ModificationDate>1650466953</a:ModificationDate>
-<a:Rect>((-12885,12648), (-1870,14205))</a:Rect>
+<a:Rect>((-12885,12648), (-1870,14147))</a:Rect>
 <a:ListOfPoints>((-12485,13273),(-2270,13273))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -2467,7 +2467,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 <a:CreationDate>1650464849</a:CreationDate>
 <a:ModificationDate>1650712293</a:ModificationDate>
 <a:CenterTextOffset>(-660, 714)</a:CenterTextOffset>
-<a:Rect>((-21826,15283), (-12291,17568))</a:Rect>
+<a:Rect>((-21826,15283), (-12291,17510))</a:Rect>
 <a:ListOfPoints>((-21391,15908),(-12691,15908))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -3142,11 +3142,11 @@ DISPNAME 0 Arial,8,U</a:FontList>
 </o:Operation>
 <o:Operation Id="o152">
 <a:ObjectID>573D0178-28A7-4A4F-94F8-B781D1B828E3</a:ObjectID>
-<a:Name>getDoctorsFreeTermsForDate</a:Name>
-<a:Code>GetDoctorsFreeTermsForDate</a:Code>
+<a:Name>getDoctorTimes</a:Name>
+<a:Code>GetDoctorTimes</a:Code>
 <a:CreationDate>1650706727</a:CreationDate>
 <a:Creator>Dusan</a:Creator>
-<a:ModificationDate>1650711000</a:ModificationDate>
+<a:ModificationDate>1650889355</a:ModificationDate>
 <a:Modifier>Dusan</a:Modifier>
 <a:GlobalObjectID/>
 <a:ReturnType>List&lt;Term&gt;</a:ReturnType>
@@ -3417,11 +3417,11 @@ DISPNAME 0 Arial,8,U</a:FontList>
 </o:Operation>
 <o:Operation Id="o174">
 <a:ObjectID>76D0FEC1-452A-4A46-8350-635E22381814</a:ObjectID>
-<a:Name>getDoctorsFreeTermsForDate</a:Name>
-<a:Code>GetDoctorsFreeTermsForDate</a:Code>
+<a:Name>getDoctorTimes</a:Name>
+<a:Code>GetDoctorTimes</a:Code>
 <a:CreationDate>1650706875</a:CreationDate>
 <a:Creator>Dusan</a:Creator>
-<a:ModificationDate>1650711406</a:ModificationDate>
+<a:ModificationDate>1650889442</a:ModificationDate>
 <a:Modifier>Dusan</a:Modifier>
 <a:GlobalObjectID/>
 <a:ReturnType>List&lt;Term&gt;</a:ReturnType>
@@ -3787,11 +3787,11 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <c:Operations>
 <o:Operation Id="o203">
 <a:ObjectID>C0DFB930-AD67-4C4A-BC68-6751FDF1B8BE</a:ObjectID>
-<a:Name>getAppointmentByDoctorID</a:Name>
-<a:Code>GetAppointmentByDoctorID</a:Code>
+<a:Name>getAllDoctorsAppointments</a:Name>
+<a:Code>GetAllDoctorsAppointments</a:Code>
 <a:CreationDate>1650706984</a:CreationDate>
 <a:Creator>Dusan</a:Creator>
-<a:ModificationDate>1650710780</a:ModificationDate>
+<a:ModificationDate>1650889554</a:ModificationDate>
 <a:Modifier>Dusan</a:Modifier>
 <a:GlobalObjectID/>
 <a:ReturnType>List&lt;Appointment&gt;</a:ReturnType>

@@ -7,6 +7,7 @@ using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace CrudModel
 {
@@ -15,7 +16,8 @@ namespace CrudModel
    public class AppointmentFileStorage
    {
 
-        public static ObservableCollection<Appointment> appointmentList { 
+        public static ObservableCollection<Appointment> appointmentList
+        { 
             get; 
             set; 
         }
@@ -24,8 +26,8 @@ namespace CrudModel
         {
             if(appointmentList == null)
             {
-                Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
-                appointmentList = doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt");
+                Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+                appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             }
         }
         public bool addAppointment(Appointment newAppointment)
@@ -33,7 +35,7 @@ namespace CrudModel
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
             ObservableCollection<Appointment> appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             appointmentList.Add(newAppointment);
-
+            Appointment.setids(Appointment.getids() + 1);
             appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
             return true;
         }
@@ -41,8 +43,8 @@ namespace CrudModel
         public ObservableCollection<Appointment> getAllDoctorsAppointments(int doctorID)
         {
             ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();
-            Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
-            foreach (Appointment a in doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            foreach (Appointment a in appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt"))
             {
                 if(a.doctorID == doctorID)
                 {
@@ -51,31 +53,77 @@ namespace CrudModel
             }
             return doctorApps;
         }
-
-      public bool DeleteAppointment(int appointmentID)
+        public ObservableCollection<Appointment> getAllPatientsAppointments(int medicalRecordID)
+        {
+            ObservableCollection<Appointment> patientsApps = new ObservableCollection<Appointment>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            foreach (Appointment a in appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            {
+                if (a.medicalRecordID == medicalRecordID)
+                {
+                    patientsApps.Add(a);
+                }
+            }
+            return patientsApps;
+        }
+        public bool DeleteAppointment(int appointmentID)
       {
             ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
-            Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
-            appointmentList = doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt");
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             foreach(Appointment a in appointmentList)
             {
-                if (a.appointmentID == appointmentID) appointmentList.Remove(a);
+                if (a.appointmentID == appointmentID)
+                {
+                    appointmentList.Remove(a);
+                    break;
+                }
             }
-
-            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
-            appoitmentSerializer.toCSV("../../TxtFajlovi/appoitments.txt", appointmentList);
+            appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
             return true;
         }
       
       public bool UpdateAppointment(Appointment appointment)
       {
-         throw new NotImplementedException();
-      }
-      
-      public Appointment GetAppointmentByID(int appointmentID)
+            ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
+            foreach (Appointment a in appointmentList)
+            {
+                if (a.appointmentID == appointment.appointmentID)
+                {
+                    appointmentList.Remove(a);
+                    appointmentList.Add(appointment);
+                    break;
+                }
+            }
+            appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
+            return true;
+        }
+        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID)
+        {
+            ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
+            foreach (Appointment a in appointmentList)
+            {
+                if (a.appointmentID == appointmentID)
+                {
+                    a.timeBegin = dt;
+                    a.hour = t.hour;
+                    a.minute = t.minute;
+                    a.setTime();
+                    a.setDate();
+                    break;
+                }
+            }
+            appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
+            return true;
+        }
+        public Appointment GetAppointmentByID(int appointmentID)
       {
-            Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
-            foreach (Appointment a in doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            Serializer<Appointment> appointmentList = new Serializer<Appointment>();
+            foreach (Appointment a in appointmentList.fromCSV("../../TxtFajlovi/appointments.txt"))
             {
                 if (a.appointmentID == appointmentID) return a;
             }
