@@ -113,14 +113,35 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 Specs = specsDTO
             };
             //this.desc = appo.description;
-            roomID.SelectedItem = RC.getRoomCrAppDTOById(AC.getEditAppointmentDTOById(appoID).roomID);
+            foreach (RoomCrAppDTO r in roomsDTO)
+            {
+                if (r.id == AC.getEditAppointmentDTOById(appoID).roomID)
+                {
+                    Console.WriteLine(r.id + "xdxd");
+                    roomID.SelectedItem = r;
+                }
+            }
+            foreach (DoctorCrAppDTO d in doctorsDTO)
+            {
+                if (d.id == AC.getEditAppointmentDTOById(appoID).docID)
+                {
+                    doctorsCB.SelectedItem = d;
+                }
+            }
+            foreach (Specialization s in specsDTO)
+            {
+                if (s.specialization.Equals(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization))
+                {
+                    doctorsCB.SelectedItem = s;
+                }
+            }
             name.Text = PC.getPatientsChooseDTOById(AC.getEditAppointmentDTOById(appoID).patientID).name;
             surname.Text = PC.getPatientsChooseDTOById(AC.getEditAppointmentDTOById(appoID).patientID).surname;
             id.Text = PC.getPatientsChooseDTOById(AC.getEditAppointmentDTOById(appoID).patientID).id.ToString();
             //Spec.SelectedItem = appo.doctor;
+            cancel.IsEnabled = false;
             Spec.IsEnabled = false;
-            doctorsCB.SelectedItem = DC.getDoctorDTOById(AC.getEditAppointmentDTOById(appoID).docID);
-            //doctorsCB.IsEnabled = false;
+            doctorsCB.IsEnabled = false;
             this.dur = AC.getEditAppointmentDTOById(appoID).docID;
             createAppointmentDoctor.Content = "Confirm";
         } 

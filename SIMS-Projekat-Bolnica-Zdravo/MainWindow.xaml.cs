@@ -71,7 +71,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
             else if (xd.Equals("Lekar"))
             {
-                DoctorWindow dr = new DoctorWindow();
+                DoctorWindow dr = new DoctorWindow(this);
                 dr.Show();
             }
             else if (xd.Equals("Pacijent"))
@@ -86,7 +86,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
 
 
-            this.Close();
+            this.Hide();
         }
 
         private void cb_Loaded(object sender, RoutedEventArgs e)

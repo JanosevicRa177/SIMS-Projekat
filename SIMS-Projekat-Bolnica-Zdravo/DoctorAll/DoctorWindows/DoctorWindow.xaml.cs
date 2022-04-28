@@ -25,11 +25,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             set;
             get;
         }
-        public DoctorWindow()
+        public static Window MW
+        {
+            set;
+            get;
+        }
+        public DoctorWindow(Window MW2)
         {
             InitializeComponent();
             loggedDoc = 0;
-            
+            MW = MW2;
             this.DataContext = loggedDoc;
         }
 
@@ -46,9 +51,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
 
         private void Signout_Click(object sender, RoutedEventArgs e)
-        {
-            var dia = new MainWindow();
-            dia.Show();
+        { 
+            MW.Show();
             this.Close();
         }
     }

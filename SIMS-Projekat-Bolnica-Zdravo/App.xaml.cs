@@ -38,9 +38,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
             //Serializer<Note> noteSerializer = new Serializer<Note>();
             //noteSerializer.toCSV("notes.txt", NoteFileStorage.noteList);
-            //Serializer<IdsStorage> idsSerializer = new Serializer<IdsStorage>();
-            //new IdsStorage();
-            //idsSerializer.toCSV("ids.txt", IdsStorage.IDS);
+            Serializer<IdsStorage> idsSerializer = new Serializer<IdsStorage>();
+            new IdsStorage();
+            idsSerializer.toCSV("../../TxtFajlovi/ids.txt", IdsStorage.IDS);
         }
     }
 }
