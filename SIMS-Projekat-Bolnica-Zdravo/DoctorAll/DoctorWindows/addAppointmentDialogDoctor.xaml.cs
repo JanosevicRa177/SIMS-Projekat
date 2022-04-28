@@ -137,7 +137,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             foreach (Specialization s in specsDTO)
             {
                 MessageBox.Show(s.specialization);
-                MessageBox.Show(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization);
+                MessageBox.Show(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization.specialization);
                 if (s.specialization.Equals(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization))
                 {
                     doctorsCB.SelectedItem = s;

@@ -27,7 +27,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             AC = new AppointmentController();
             InitializeComponent();
-            this.DataContext = AC.getAllDoctorsAppointments(DoctorWindow.loggedDoc);
+            this.DataContext = AC.GetAllDoctorsAppointments(DoctorWindow.loggedDoc);
         }
 
         private void showButt_Click(object sender, RoutedEventArgs e)

@@ -5,9 +5,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// <summary>
     /// Interaction logic for Secretary.xaml
     /// </summary>
-    public partial class Secretary : Window
+    public partial class SecretaryWindow : Window
     {
-        public Secretary()
+        public SecretaryWindow()
         {
            
             InitializeComponent();

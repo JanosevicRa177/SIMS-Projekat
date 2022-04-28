@@ -43,7 +43,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         }
         private static BindingList<Time> doctorTerms
         {
-            set; get;
+            set;
+            get;
         }
 
         public static DoctorCrAppDTO doctor;
@@ -55,20 +56,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC = new AppointmentController();
             DC = new DoctorController();
             RC = new RoomController();
-            appointmentID = appointmentID1;
             InitializeComponent();
-            this.DataContext = new
-            {
-                This = this,
-                DoctorTerms = doctorTerms
-            };
+            appointmentID = appointmentID1;
+            doctor = DC.getDoctorDTO(doctorID);
             if (initialize)
             {
                 initialize = false;
                 doctorTerms = new BindingList<Time>();
                 date = date_t;
+                Date_TextChanged();
             }
-            doctor = DC.getDoctorDTO(doctorID);
+            this.DataContext = new
+            {
+                This = this,
+                DoctorTerms = doctorTerms
+            };
         }
         public ChangeAppointment()
         {
@@ -103,7 +105,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC.ChangeAppointment(t, date, appointmentID);
             date = DateTime.MinValue;
             initialize = true;
-            PatientWindow.NavigatePatient.Navigate(new ShowAppointment());
+            ShowAppointmentPatientDTO selectedAppointment = AC.getShowAppointmentPatientDTO(appointmentID);
+            PatientWindow.NavigatePatient.Navigate(new ShowAppointment(selectedAppointment));
         }
 
         private void Date_TextChanged(object sender, TextChangedEventArgs e)
