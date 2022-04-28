@@ -13,54 +13,67 @@ namespace CrudModel
    public class NoteFileStorage
    {
 
-        static public ObservableCollection<Note> noteList
-        {
-            set;
-            get;
-        }
         public NoteFileStorage() 
         {
-            if (noteList == null) 
-            {
-                noteList = new ObservableCollection<Note>();
-                Serializer<Note> noteSerializer = new Serializer<Note>();
-                noteList = noteSerializer.fromCSV("../../TxtFajlovi/notes.txt");
-            }
         }
         public bool CreateNote(Note newNote)
       {
-         throw new NotImplementedException();
-      }
-      
-      public static bool DeleteNote(Note oldNote)
-      {
-            if (oldNote == null)
-                return false;
-            if (noteList != null)
-                if (noteList.Contains(oldNote))
-                    noteList.Remove(oldNote);
+            Serializer<Note> noteSerializer = new Serializer<Note>();
+            ObservableCollection<Note> noteList = noteSerializer.fromCSV("../../TxtFajlovi/notes.txt");
+            noteList.Add(newNote);
+
+            noteSerializer.toCSV("../../TxtFajlovi/notes.txt", noteList);
             return true;
-      }
+        }
+      
+      public bool DeleteNote(int noteID)
+      {
+            ObservableCollection<Note> noteList = new ObservableCollection<Note>();
+            Serializer<Note> noteSerializer = new Serializer<Note>();
+            noteList = noteSerializer.fromCSV("../../TxtFajlovi/notes.txt");
+            foreach (Note n in noteList)
+            {
+                if (n.noteID == noteID)
+                {
+                    noteList.Remove(n);
+                    break;
+                }
+            }
+            noteSerializer.toCSV("../../TxtFajlovi/notes.txt", noteList);
+            return true;
+        }
       
       public bool UpdateNote(Note note)
       {
-         throw new NotImplementedException();
-      }
-      
-      public Note GetNoteByID(int noteID)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Note> GetAllNotes()
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<Note> GetAllNotesByPatient(int patientID)
-      {
-         throw new NotImplementedException();
-      }
-   
+            ObservableCollection<Note> noteList = new ObservableCollection<Note>();
+            Serializer<Note> noteSerializer = new Serializer<Note>();
+            noteList = noteSerializer.fromCSV("../../TxtFajlovi/notes.txt");
+            foreach (Note n in noteList)
+            {
+                if (n.noteID == note.noteID)
+                {
+                    noteList.Remove(n);
+                    noteList.Add(note);
+                    break;
+                }
+            }
+            noteSerializer.toCSV("../../TxtFajlovi/notes.txt", noteList);
+            return true;
+        }
+
+
+        public ObservableCollection<Note> GetAllNotesByPatient(int patientID)
+        {
+            ObservableCollection<Note> patientNotes = new ObservableCollection<Note>();
+            Serializer<Note> NotesSerializer = new Serializer<Note>();
+            foreach (Note n in NotesSerializer.fromCSV("../../TxtFajlovi/notes.txt"))
+            {
+                if (n.patientID == patientID)
+                {
+                    patientNotes.Add(n);
+                }
+            }
+            return patientNotes;
+        }
    }
 }

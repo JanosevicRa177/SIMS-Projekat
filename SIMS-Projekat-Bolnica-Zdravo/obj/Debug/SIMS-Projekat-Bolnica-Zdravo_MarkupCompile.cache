@@ -1,0 +1,20 @@
+﻿SIMS-Projekat-Bolnica-Zdravo
+
+
+winexe
+C#
+.cs
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\
+SIMS_Projekat_Bolnica_Zdravo
+none
+false
+DEBUG;TRACE
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\App.xaml
+201206566592
+
+702004482564
+13-1505183044
+DoctorAll\DoctorWindows\DialogWindow.xaml;MainWindow.xaml;DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml;DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml;PatientWindows\ChangeAppointment.xaml;PatientWindows\DateChanger.xaml;PatientWindows\NotePage.xaml;PatientWindows\AddAppointment.xaml;PatientWindows\DatePicker.xaml;PatientWindows\ShowAppointment.xaml;PatientWindows\PatientNotes.xaml;PatientWindows\PatientAppointments.xaml;Windows\CreateRoomDialog.xaml;DoctorAll\DoctorWindows\DoctorsAppointments.xaml;DoctorAll\DoctorWindows\doctorShowAppointment.xaml;DoctorAll\DoctorWindows\DoctorWindow.xaml;Windows\ManagerWindow.xaml;PatientWindows\PatientWindow.xaml;Windows\Secretary.xaml;Windows\StaffRegistrationWindow.xaml;
+
+False
+

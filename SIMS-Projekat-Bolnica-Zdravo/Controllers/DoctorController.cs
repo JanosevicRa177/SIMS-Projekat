@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 {
@@ -39,7 +40,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return docdto;
         }
-
+        public DoctorCrAppDTO getDoctorDTO(int doctorID)
+        {
+            Doctor d = DS.GetDoctorByID(doctorID);
+            DoctorCrAppDTO docDTO = new DoctorCrAppDTO(d.name, d.surname, d.userID);
+            return docDTO;
+        }
         public BindingList<Time> getDoctorTimes(DoctorCrAppDTO doc,DateTime dt)
         {
             if (doc == null) return DS.getDoctorTimes(0, dt);

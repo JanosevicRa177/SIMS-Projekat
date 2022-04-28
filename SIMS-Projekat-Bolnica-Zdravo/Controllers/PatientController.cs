@@ -32,6 +32,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return PS.GetPatientByID(patientID);
         }
+        public PatientCrAppDTO GetPatientDTOByID(int patientID)
+        {
+            Patient p =  PS.GetPatientByID(patientID);
+            PatientCrAppDTO pDTO = new PatientCrAppDTO(p.name, p.surname, p.userID.ToString(), p.userID);
+            return pDTO;
+        }
 
         public PatientCrAppDTO getPatientsChooseDTOById(int pID)
         {
