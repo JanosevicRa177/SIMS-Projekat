@@ -67,6 +67,7 @@
     <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="CrudModel\Gender.cs" />
     <Compile Include="CrudModel\IdsStorage.cs" />
+    <Compile Include="CrudModel\TimePatient.cs" />
     <Compile Include="DoctorAll\DoctorWindows\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
     </Compile>
@@ -128,8 +129,8 @@
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RegexValidationRules.cs" />
-    <Compile Include="Windows\Secretary.xaml.cs">
-      <DependentUpon>Secretary.xaml</DependentUpon>
+    <Compile Include="Windows\SecretaryWindow.xaml.cs">
+      <DependentUpon>SecretaryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\StaffRegistrationWindow.xaml.cs">
       <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
@@ -241,7 +242,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Secretary.xaml">
+    <Page Include="Windows\SecretaryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

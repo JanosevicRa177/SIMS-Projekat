@@ -103,7 +103,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC.ChangeAppointment(t, date, appointmentID);
             date = DateTime.MinValue;
             initialize = true;
-            PatientWindow.NavigatePatient.Navigate(new ShowAppointment());
+            ShowAppointmentPatientDTO selectedAppointment = AC.getShowAppointmentPatientDTO(appointmentID);
+            PatientWindow.NavigatePatient.Navigate(new ShowAppointment(selectedAppointment));
         }
 
         private void Date_TextChanged(object sender, TextChangedEventArgs e)

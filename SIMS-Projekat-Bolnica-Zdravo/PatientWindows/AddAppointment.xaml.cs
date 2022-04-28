@@ -63,7 +63,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             this.DataContext = new
             {
 
-                docs = AC.getDoctorsPatient(),
+                docs = AC.GetDoctorsPatient(),
                 This = this,
                 DoctorTerms = doctorTerms
             };
@@ -74,7 +74,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void doctor_Date_Changed(object sender, SelectionChangedEventArgs e)
         {
             if (doctorTerms != null) doctorTerms.Clear();
-            foreach (Time t in DC.getDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+            foreach (Time t in AC.GetDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
             {
                 doctorTerms.Add(t);
             }

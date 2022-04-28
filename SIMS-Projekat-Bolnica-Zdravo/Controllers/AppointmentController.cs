@@ -3,6 +3,7 @@ using SIMS_Projekat_Bolnica_Zdravo.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             AS = new AppointmentService();
         }
 
-        public void removeAppointment(int appid)
+        public void RemoveAppointment(int appid)
         {
             AS.removeAppointment(appid);
         }
@@ -40,7 +41,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return AS.CreateAppointment(dt, t, dur, rcadto.id, dcadto.id, desc, pcdto.id);
         }
 
-        public ObservableCollection<ShowAppointmentDTO> getAllDoctorsAppointments(int docID)
+        public ObservableCollection<ShowAppointmentDTO> GetAllDoctorsAppointments(int docID)
         {
             ObservableCollection<ShowAppointmentDTO> adtolist = new ObservableCollection<ShowAppointmentDTO>();
             ObservableCollection<Appointment> apl =  AS.getAllDoctorsAppointments(docID);
@@ -50,7 +51,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return adtolist;
         }
-        public ObservableCollection<DoctorCrAppDTO> getDoctorsPatient()
+        public ObservableCollection<DoctorCrAppDTO> GetDoctorsPatient()
         {
             ObservableCollection<Doctor> doctors = AS.getDoctorsPatient();
             ObservableCollection<DoctorCrAppDTO> docdto = new ObservableCollection<DoctorCrAppDTO>();
@@ -59,6 +60,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
                 docdto.Add(new DoctorCrAppDTO(d.name, d.surname, d.userID));
             }
             return docdto;
+        }
+        public BindingList<Time> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt)
+        {
+            if (doc == null) return AS.getDoctorTimes(0, dt);
+            return AS.getDoctorTimes(doc.id, dt);
         }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {
@@ -72,7 +78,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return patientAppointmentsListDTO;
         }
 
-        public ShowAppointmentDTO getShowAppointmentDTO(int appoID)
+        public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
             return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(),RC.getRoomById(a.roomID).name,a.date,a.time,a.description,appoID);
