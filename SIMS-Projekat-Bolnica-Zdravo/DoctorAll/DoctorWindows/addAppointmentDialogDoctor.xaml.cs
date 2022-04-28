@@ -29,6 +29,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private DoctorController DC;
         private SpecializationController SC;
         private AppointmentController AC;
+        private PatientController PC;
 
         public PatientCrAppDTO pat
         {
@@ -48,12 +49,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
         }
 
-        public doctorShowAppointment x
-        {
-            set;
-            get;
-        }
-
         public string desc
         {
             set;
@@ -66,42 +61,93 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
         }
 
-        //sajdksadkasd
-        //public addAppointmentDialogDoctor(Appointment appo, doctorShowAppointment x) {
-        //    InitializeComponent();
-        //    this.x = x;
-        //    this.doc = DoctorWindow.loggedDoc;
-        //    this.doc.changedDay(DateTime.Today);
-        //    dt = appo.timeBegin;
-        //    this.appo = appo;
-        //    this.DataContext = new
-        //    {
-        //        Rooms = new RoomFileStorage(),
-        //        This = this,
-        //        Docs = new DoctorFileStorage(),
-        //        Specs = new SpecializationFileStorage()
-        //    };
-        //    this.pati = appo.medicalRecord.patient;
-        //    this.desc = appo.description;
-        //    roomID.SelectedItem = appo.room;
-        //    name.Text = appo.medicalRecord.patient.name;
-        //    surname.Text = appo.medicalRecord.patient.surname;
-        //    id.Text = appo.medicalRecord.patient.userID.ToString();
-        //    Spec.SelectedItem = appo.doctor;
-        //    Spec.IsEnabled = false;
-        //    doctorsCB.SelectedItem = appo.doctor;
-        //    doctorsCB.IsEnabled = false;
-        //    this.dur = appo.duration;
-        //    createAppointmentDoctor.Content = "Confirm";
-        //}
-        //oajsdolakjsdlaskd
+        public doctorShowAppointment x
+        {
+            set;
+            get;
+        }
 
         private BindingList<Time> tims
         {
-            set;get;
+            set; get;
         }
-        
+        //doctorShowAppointment x
+        private ObservableCollection<RoomCrAppDTO> roomsDTO
+        {
+            set;
+            get;
+        }
+        private ObservableCollection<DoctorCrAppDTO> doctorsDTO
+        {
+            set;
+            get;
+        }
 
+        private ObservableCollection<Specialization> specsDTO
+        {
+            set;
+            get;
+        }
+
+
+        public addAppointmentDialogDoctor(int appoID)
+        {
+            RC = new RoomController();
+            DC = new DoctorController();
+            SC = new SpecializationController();
+            AC = new AppointmentController();
+            PC = new PatientController();
+            tims = new BindingList<Time>();
+            roomsDTO = RC.getAllRoomsDTO();
+            doctorsDTO = DC.getAllDoctorsDTO();
+            specsDTO = SC.getAllSpecializations();
+            InitializeComponent();
+            this.x = x;
+            //this.doc.changedDay(DateTime.Today);
+            dt = AC.getEditAppointmentDTOById(appoID).dt;
+            this.DataContext = new
+            {
+                Rooms = roomsDTO,
+                This = this,
+                Docs = doctorsDTO,
+                Specs = specsDTO
+            };
+            //this.desc = appo.description;
+            foreach (RoomCrAppDTO r in roomsDTO)
+            {
+                if (r.id == AC.getEditAppointmentDTOById(appoID).roomID)
+                {
+                    Console.WriteLine(r.id + "xdxd");
+                    roomID.SelectedItem = r;
+                }
+            }
+            foreach (DoctorCrAppDTO d in doctorsDTO)
+            {
+                if (d.id == AC.getEditAppointmentDTOById(appoID).docID)
+                {
+                    doctorsCB.SelectedItem = d;
+                }
+            }
+            foreach (Specialization s in specsDTO)
+            {
+                if (s.specialization.Equals(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization))
+                {
+                    doctorsCB.SelectedItem = s;
+                }
+            }
+            name.Text = PC.getPatientsChooseDTOById(AC.getEditAppointmentDTOById(appoID).patientID).name;
+            surname.Text = PC.getPatientsChooseDTOById(AC.getEditAppointmentDTOById(appoID).patientID).surname;
+            id.Text = PC.getPatientsChooseDTOById(AC.getEditAppointmentDTOById(appoID).patientID).id.ToString();
+            //Spec.SelectedItem = appo.doctor;
+            cancel.IsEnabled = false;
+            Spec.IsEnabled = false;
+            doctorsCB.IsEnabled = false;
+            this.dur = AC.getEditAppointmentDTOById(appoID).docID;
+            createAppointmentDoctor.Content = "Confirm";
+        } 
+
+
+        
 
         public addAppointmentDialogDoctor(PatientCrAppDTO pat,string desc,_1addAppointmentDialogDoctor prevW,int dur =30)
         {
@@ -109,6 +155,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             DC = new DoctorController();
             SC = new SpecializationController();
             AC = new AppointmentController();
+            tims = new BindingList<Time>();
             this.dur = dur;
             this.prevW = prevW;
             this.prevW.nextW = this;
@@ -117,7 +164,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             InitializeComponent();
             doctorsCB.SelectedIndex = 0;
             dt = DateTime.Today.AddDays(1);
-            tims = new BindingList<Time>();
             this.DataContext = new
             {
                 This = this,
@@ -143,9 +189,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             //    this.Close();
             //    return;
             //}
-            if(appointmentDate.SelectedDate.Value < DateTime.Today)
+            if (appointmentDate.SelectedDate.Value < DateTime.Today)
             {
-                var dial = new DialogWindow("Cannot appoint for before", "Cancel", "Ok", null);
+                var dial = new DialogWindow("Cannot appoint for before or today!", "Cancel", "Ok", null);
+                dial.Show();
+                return;
+            }
+            else if(TimeselectDG.SelectedItem == null)
+            {
+                var dial = new DialogWindow("No selected time!", "Cancel", "Ok", null);
                 dial.Show();
                 return;
             }
@@ -153,11 +205,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.Close();
             prevW.Close();
         } 
-        
-        private void doctorsCB_Loaded(object sender, RoutedEventArgs e)
-        {
-            doctorsCB.SelectedIndex = 0 ;
-        }
 
         private void Spec_Loaded(object sender, RoutedEventArgs e)
         {
@@ -182,6 +229,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            if (prevW != null)
             prevW.Close();
         }
 
@@ -192,8 +240,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 tims.Add(t);
             }
-            TimeselectDG.SelectedIndex = 0;
-            TimeselectDG.Items.Refresh();
+        }
+
+        private void TimeselectDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //slider1.Maximum = DC.calculateMaxDur(dur, (Time)TimeselectDG.SelectedItem, tims);
         }
     }
 }

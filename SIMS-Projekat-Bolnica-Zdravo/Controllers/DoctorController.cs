@@ -25,6 +25,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         //    DS.addAppointmentToDoctor(newAppID, dcadto.id);
         //}
 
+        public int calculateMaxDur(int dur, Time time, BindingList<Time> tims)
+        {
+            return DS.calculateMaxDur(dur, time.ID ,tims);
+        }
+
         public ObservableCollection<DoctorCrAppDTO> getAllDoctorsDTO()
         {
             ObservableCollection<Doctor> doctors = DS.getAllDoctors();
@@ -45,6 +50,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             if (doc == null) return DS.getDoctorTimes(0, dt);
             return DS.getDoctorTimes(doc.id,dt);
+        }
+
+        public Doctor getDoctorById(int docID)
+        {
+            foreach (Doctor d in DS.getAllDoctors())
+            {
+                if (d.userID == docID) return d;
+            }
+            return null;
+        }
+
+        public DoctorCrAppDTO getDoctorDTOById(int docID)
+        {
+            Doctor d = getDoctorById(docID);
+            return new DoctorCrAppDTO(d.name, d.surname, d.userID);
         }
     }
 

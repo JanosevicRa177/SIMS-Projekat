@@ -39,7 +39,12 @@ namespace CrudModel
             get;
         }
 
-        public string time
+        public string timeString
+        {
+            set;
+            get;
+        }
+        public Time time
         {
             set;
             get;
@@ -70,19 +75,25 @@ namespace CrudModel
             get;
         }
 
-        public int hour
-        {
-            set;
-            get;
-        }
-
-        public int minute
-        {
-            set;
-            get;
-        }
-
         public int roomID
+        {
+            set;
+            get;
+        }
+
+        public int medicalRecordID
+        {
+            set;
+            get;
+        }
+
+        public int doctorID
+        {
+            set;
+            get;
+        }
+
+        public string description
         {
             set;
             get;
@@ -96,9 +107,7 @@ namespace CrudModel
             this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
             this.setDate();
             this.duration = duration;
-            this.hour = time.hour;
-            this.minute = time.minute;
-            setTime();
+            this.time = time;
             this.roomID = roomID;
             this.appointmentID = ++ids;
             this.description = description;
@@ -112,8 +121,8 @@ namespace CrudModel
             this.timeBegin = date;
             this.setDate();
             this.duration = duration;
-            this.hour = hour;
-            this.minute = minute;
+            //this.hour = hour;
+            //this.minute = minute;
             setTime();
             this.roomID = room.roomID;
             this.appointmentID = ++ids;
@@ -125,29 +134,23 @@ namespace CrudModel
             this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();
         }
 
-        public string description
-        {
-            set;
-            get;
-        }
-
         public void setTime()
         {
             string var1 = "";
             string vars = "";
             string var5 = "";
             string var6 = "";
-            int var = (this.minute + this.duration) % 60;
-            int var2 = (this.minute + this.duration) / 60;
-            int var3 = this.hour + var2;
+            int var = (this.time.minute + this.duration) % 60;
+            int var2 = (this.time.minute + this.duration) / 60;
+            int var3 = this.time.hour + var2;
             if (var3 >= 24) var3 -= 24;
             if (var3 <= 9) var1 = "0";
             if (var <= 9) vars = "0";
-            if (this.hour <= 9) var5 = "0";
-            if (this.minute <= 9) var6 = "0";
-            this.time = var5 + this.hour.ToString() + ":" + var6 + this.minute.ToString();
-            this.time += " - " + var1 + var3;
-            this.time += ":" + vars + var;
+            if (this.time.hour <= 9) var5 = "0";
+            if (this.time.minute <= 9) var6 = "0";
+            this.timeString = var5 + this.time.hour.ToString() + ":" + var6 + this.time.minute.ToString();
+            this.timeString += " - " + var1 + var3;
+            this.timeString += ":" + vars + var;
         }
 
         public string[] toCSV()
@@ -160,8 +163,9 @@ namespace CrudModel
                 timeBegin.Month.ToString(),
                 timeBegin.Year.ToString(),
                 duration.ToString(),
-                hour.ToString(),
-                minute.ToString(),
+                time.hour.ToString(),
+                time.minute.ToString(),
+                time.ID.ToString(),
                 roomID.ToString(),
                 patientID.ToString(),
                 description,
@@ -176,52 +180,13 @@ namespace CrudModel
             this.doctorID = int.Parse(values[1]);
             this.timeBegin = new DateTime(int.Parse(values[4]), int.Parse(values[3]), int.Parse(values[2]));
             this.duration = int.Parse(values[5]);
-            this.hour = int.Parse(values[6]);
-            this.minute = int.Parse(values[7]);
-            this.roomID = int.Parse(values[8]);
-            this.patientID = int.Parse(values[9]);
-            this.description = values[10];
-            this.appointmentID = int.Parse(values[11]);
+            this.time = new Time(int.Parse(values[6]), int.Parse(values[7]), int.Parse(values[8]));
+            this.roomID = int.Parse(values[9]);
+            this.patientID = int.Parse(values[10]);
+            this.description = values[11];
+            this.appointmentID = int.Parse(values[12]);
             setTime();
             setDate();
         }
-
-        public int medicalRecordID
-        {
-            set;
-            get;
-        }
-
-        public int doctorID
-        {
-            set;
-            get;
-        }
     }
 }
-//        public Doctor Doctor { 
-//         get
-//         {
-//            return doctor;
-//         }
-//         set
-//         {
-//            if (this.doctor == null || !this.doctor.Equals(value))
-//            {
-//               if (this.doctor != null)
-//               {
-//                  Doctor oldDoctor = this.doctor;
-//                  this.doctor = null;
-//                  oldDoctor.RemoveAppointment(this);
-//               }
-//               if (value != null)
-//               {
-//                  this.doctor = value;
-//                  this.doctor.AddAppointment(this);
-//               }
-//            }
-//         }
-//      }
-   
-//   }
-//}

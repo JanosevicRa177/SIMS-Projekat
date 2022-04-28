@@ -44,14 +44,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             //new WarehouseFileStorage();
         }
 
+
         public void loadIDS()
         {
-            new IdsStorage();
-            Serializer <Ids> doctorserialzer = new Serializer<Ids>();
-            IdsStorage.IDS = doctorserialzer.fromCSV("../../TxtFajlovi/ids.txt");
-            IdsStorage.IDS[0].setALLIDS();
+            ObservableCollection<IdsStorage> ids = new ObservableCollection<IdsStorage>();
+            Serializer<IdsStorage> doctorserialzer = new Serializer<IdsStorage>();
+            ids = doctorserialzer.fromCSV("../../TxtFajlovi/ids.txt");
+            ids[0].setALLIDS();
 
         }
+
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -71,12 +73,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
             else if (xd.Equals("Lekar"))
             {
-                DoctorWindow dr = new DoctorWindow();
+                DoctorWindow dr = new DoctorWindow(this);
                 dr.Show();
             }
             else if (xd.Equals("Pacijent"))
             {
-                PatientWindow pt = new PatientWindow();
+                PatientWindow pt = new PatientWindow(this);
                 pt.Show();
             }
             else if (xd.Equals("Upravnik"))
@@ -86,7 +88,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
 
 
-            this.Close();
+            this.Hide();
         }
 
         private void cb_Loaded(object sender, RoutedEventArgs e)

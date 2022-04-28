@@ -9,38 +9,18 @@ using System.Threading.Tasks;
 
 namespace CrudModel
 {
-    class IdsStorage
+    class IdsStorage : Serializable
     {
-        public static ObservableCollection<Ids> IDS
-        {
-            get;
-            set;
-        }
+        private int appointmentsids;
+        private int userids;
+        private int medicalRecordids;
+        private int Meetingsids;
+        private int noteids;
+        private int roomids;
+        private int warehousids;
+
+        public static ObservableCollection<IdsStorage> IDS;
         public IdsStorage()
-        {
-            if (IDS == null)
-            {
-                Serializer<Ids> appoitmentSerializer = new Serializer<Ids>();
-                IDS = appoitmentSerializer.fromCSV("../../TxtFajlovi/ids.txt");
-            }
-            else 
-            {
-                IDS.Clear();
-                Ids i = new Ids("Temp");
-                IDS.Add(i);
-            }
-        }
-    }
-    class Ids : Serializable
-    {
-        private int appointmentsids { get; set; }
-        private int userids { get; set; }
-        private int medicalRecordids { get; set; }
-        private int Meetingsids { get; set; }
-        private int noteids { get; set; }
-        private int roomids { get; set; }
-        private int warehousids { get; set; }
-        public Ids(String temp)
         {
             appointmentsids = Appointment.getids();
             userids = User.getids();
@@ -49,10 +29,10 @@ namespace CrudModel
             noteids = Note.getids();
             roomids = Room.getids();
             warehousids = Warehouse.getids();
+            IDS = new ObservableCollection<IdsStorage>();
+            IDS.Add(this);
         }
-        public Ids() 
-        {
-        }
+
         public void fromCSV(string[] values)
         {
             appointmentsids = int.Parse(values[0]);
@@ -78,6 +58,7 @@ namespace CrudModel
             };
             return csvValues;
         }
+
         public void setALLIDS()
         {
             Appointment.setids(appointmentsids);
@@ -90,4 +71,3 @@ namespace CrudModel
         }
     }
 }
-

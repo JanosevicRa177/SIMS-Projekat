@@ -35,7 +35,6 @@ namespace CrudModel
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
             ObservableCollection<Appointment> appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             appointmentList.Add(newAppointment);
-            Appointment.setids(Appointment.getids() + 1);
             appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
             return true;
         }
@@ -110,8 +109,8 @@ namespace CrudModel
                 if (a.appointmentID == appointmentID)
                 {
                     a.timeBegin = dt;
-                    a.hour = t.hour;
-                    a.minute = t.minute;
+                    a.time.hour = t.hour;
+                    a.time.minute = t.minute;
                     a.setTime();
                     a.setDate();
                     break;
