@@ -31,8 +31,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
             set;
         }
-        public PatientWindow()
+        public static Window MW
         {
+            set;
+            get;
+        }
+        public PatientWindow(MainWindow MW2)
+        {
+            MW = MW2;
             InitializeComponent();
             NavigatePatient = PatientFrame.NavigationService;
             loggedPatient = PC.GetPatientDTOByID(5);
@@ -53,8 +59,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void signout_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new MainWindow();
-            dia.Show();
+            MW.Show();
             this.Close();
         }
     }

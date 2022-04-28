@@ -20,7 +20,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             DFS = new DoctorFileStorage();
             APFS = new AppointmentFileStorage();
         }
-
+        public int calculateMaxDur(int dur, int timeID, BindingList<Time> tims)
+        {
+            if (timeID > 11) { if (dur > 30 * (17 - timeID)) dur = 30 * (17 - timeID); return 30 * (17 - timeID); }
+            return 120;
+        }
         public Doctor GetDoctorByID(int doctorID)
         {
             return DFS.GetDoctorByID(doctorID);
@@ -52,7 +56,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                 {
                     foreach (Time t in times)
                     {
-                        if (t.hour == a.hour && t.minute == a.minute)
+                        if (t.hour == a.time.hour && t.minute == a.time.minute)
                         {
                             int remid = t.ID;
                             for (int j = 0; j < (a.duration / 30); j++)

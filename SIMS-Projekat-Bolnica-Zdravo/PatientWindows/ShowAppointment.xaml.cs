@@ -56,7 +56,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 MessageBox.Show("Ne Možete menjati odradjene preglede");
                 return;
             }
-            AC.removeAppointment(appointment.id);
+            AC.RemoveAppointment(appointment.id);
             PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
         }
         private void Change_Date(object sender, RoutedEventArgs e)

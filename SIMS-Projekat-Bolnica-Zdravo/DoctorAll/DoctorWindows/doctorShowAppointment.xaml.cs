@@ -39,7 +39,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             AC = new AppointmentController();
             InitializeComponent();
             appointmentID = appoID;
-            this.DataContext = AC.getShowAppointmentDTO(appoID);
+            this.DataContext = AC.GetShowAppointmentDTO(appoID);
         }
         //public doctorShowAppointment(Appointment appo,DoctorsAppointments dax)
         //{
@@ -51,13 +51,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         
         private void DeleteA_Click(object sender, RoutedEventArgs e)
         {
-            AC.removeAppointment(appointmentID);
+            AC.RemoveAppointment(appointmentID);
             this.Close();
         }
         private void EtitA_Click(object sender, RoutedEventArgs e)
         {
-            //var dia = new addAppointmentDialogDoctor(appointment,this);
-            //dia.Show();
+            var dia = new addAppointmentDialogDoctor(appointmentID);
+            //var dia = new addAppointmentDialogDoctor(appointmentID,this);
+            dia.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -1,8 +1,10 @@
 ﻿using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Services;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -27,7 +29,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             AS = new AppointmentService();
         }
 
-        public void removeAppointment(int appid)
+        public void RemoveAppointment(int appid)
         {
             AS.removeAppointment(appid);
         }
@@ -40,17 +42,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return AS.CreateAppointment(dt, t, dur, rcadto.id, dcadto.id, desc, pcdto.id);
         }
 
-        public ObservableCollection<ShowAppointmentDTO> getAllDoctorsAppointments(int docID)
+        public ObservableCollection<ShowAppointmentDTO> GetAllDoctorsAppointments(int docID)
         {
             ObservableCollection<ShowAppointmentDTO> adtolist = new ObservableCollection<ShowAppointmentDTO>();
-            ObservableCollection<Appointment> apl =  AS.getAllDoctorsAppointments(docID);
-            foreach(Appointment a in apl)
+            ObservableCollection<Appointment> apl = AS.getAllDoctorsAppointments(docID);
+            foreach (Appointment a in apl)
             {
-                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.time, a.description,a.appointmentID));
+                Console.WriteLine(a.roomID);
+                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
             }
             return adtolist;
         }
-        public ObservableCollection<DoctorCrAppDTO> getDoctorsPatient()
+        public ObservableCollection<DoctorCrAppDTO> GetDoctorsPatient()
         {
             ObservableCollection<Doctor> doctors = AS.getDoctorsPatient();
             ObservableCollection<DoctorCrAppDTO> docdto = new ObservableCollection<DoctorCrAppDTO>();
@@ -60,6 +63,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return docdto;
         }
+        public BindingList<Time> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt)
+        {
+            if (doc == null) return AS.getDoctorTimes(0, dt);
+            return AS.getDoctorTimes(doc.id, dt);
+        }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {
             ObservableCollection<ShowAppointmentPatientDTO> patientAppointmentsListDTO = new ObservableCollection<ShowAppointmentPatientDTO>();
@@ -67,26 +75,55 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in appointmentsPatent)
             {
                 Doctor d = DS.GetDoctorByID(a.doctorID);
-                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.time, a.description, a.appointmentID, a.timeBegin));
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID, a.timeBegin));
             }
             return patientAppointmentsListDTO;
         }
 
-        public ShowAppointmentDTO getShowAppointmentDTO(int appoID)
+        public EditAppointmentDTO getEditAppointmentDTOById(int appID)
+        {
+            Appointment a = AS.getAppointmentById(appID);
+            return new EditAppointmentDTO(a.patientID, a.roomID, a.doctorID, a.duration,a.timeBegin,a.time);
+        }
+
+        public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
-            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(),RC.getRoomById(a.roomID).name,a.date,a.time,a.description,appoID);
+            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date,a.timeString,a.description,appoID);
         }
         public ShowAppointmentPatientDTO getShowAppointmentPatientDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.time, a.description, appoID, a.timeBegin);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, appoID, a.timeBegin);
         }
 
+        public class EditAppointmentDTO
+        {
+            private RoomController RC;
+            public int patientID { set; get; }
+            public int roomID { set; get; }
+            public int docID { set; get; }
+            public int dur { set; get; }
+            public string roomName { set; get; }
 
+            public Time time { set; get; }
+            public DateTime dt { set; get; }
+            public EditAppointmentDTO(int pID, int rID, int dID, int dur,DateTime dt,Time t)
+            {
+                RC = new RoomController();
+                patientID = pID;
+                roomID = rID;
+                docID = dID;
+                this.dur = dur;
+                this.dt = dt;
+                this.roomName = RC.getRoomCrAppDTOById(roomID).name;
+            }
+
+        }
         public class ShowAppointmentDTO
         {
+
             public string patientName { set; get; }
             public string patientSurname { set; get; }
             public string patientID { set; get; }

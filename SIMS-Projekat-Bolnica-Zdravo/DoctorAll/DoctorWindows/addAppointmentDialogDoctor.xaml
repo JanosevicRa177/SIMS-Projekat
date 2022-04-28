@@ -68,7 +68,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-            <ComboBox Loaded="doctorsCB_Loaded" ItemsSource="{Binding Docs}" x:Name="doctorsCB" Grid.Column="3"  Grid.Row="3" FontSize="34" Margin="5">
+            <ComboBox ItemsSource="{Binding Docs}" x:Name="doctorsCB" Grid.Column="3"  Grid.Row="3" FontSize="34" Margin="5">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Grid.Column="0">
@@ -113,7 +113,7 @@
         </Grid>
         <Button Name="cancel" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Row = "8" Content="Back" FontSize="33" Grid.ColumnSpan="2"
             HorizontalAlignment="Left" Click="cancel_Click" Grid.Column="1" Width="250" Height="80" VerticalAlignment="Bottom"/>
-        <DataGrid x:Name="TimeselectDG" AutoGenerateColumns="False" Margin="10" Width="500" Height="380" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" FontSize="30" ItemsSource="{Binding Path = Tims1,  Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+        <DataGrid x:Name="TimeselectDG" SelectionChanged="TimeselectDG_SelectionChanged" AutoGenerateColumns="False" Margin="10" Width="500" Height="380" VerticalAlignment="Top" Grid.Column="3" Grid.Row="2" FontSize="30" ItemsSource="{Binding Path = Tims1,  Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Pick the time:" FontSize="60" x:Name="Time" Binding="{Binding time}"/>
             </DataGrid.Columns>

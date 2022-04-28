@@ -24,9 +24,24 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorWindows
         {
             set;get;
         }
+
+        public static Window win2
+        {
+            set; get;
+        }
         public DialogWindow(string description,string firstOption,string secondOption,Window wi)
         {
             win = wi;
+            InitializeComponent();
+            desc.Text = description;
+            this.firstOption.Content = firstOption;
+            this.secondOption.Content = secondOption;
+        }
+
+        public DialogWindow(string description, string firstOption, string secondOption, Window wi,Window wi2)
+        {
+            win = wi;
+            win2 = wi2;
             InitializeComponent();
             desc.Text = description;
             this.firstOption.Content = firstOption;
@@ -42,6 +57,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorWindows
         {
             if(win != null)
             win.Close();
+            if (win2 != null)
+            win2.Close();
             this.Close();
         }
     }

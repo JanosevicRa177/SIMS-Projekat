@@ -276,7 +276,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 {
                     if (SecretaryFileStorage.secretaryList.Count == 0)
                     {
-                        SecretaryFileStorage.secretaryList.Add(new CrudModel.Secretary(nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
+                        SecretaryFileStorage.secretaryList.Add(new Secretary(nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
                         MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                         nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = numberTextBox.Text = specializationTextBox.Text = licenceComboBox.Text = "";
@@ -284,7 +284,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     }
                     else if (SecretaryFileStorage.secretaryList.Count != 0)
                     {
-                        foreach (CrudModel.Secretary d in SecretaryFileStorage.secretaryList)
+                        foreach (Secretary d in SecretaryFileStorage.secretaryList)
                         {
                             if (d.mail.Equals(emailTextBox.Text))
                             {
@@ -296,7 +296,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                         }
                         if (tmp == 0)
                         {
-                            SecretaryFileStorage.secretaryList.Add(new CrudModel.Secretary(nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
+                            SecretaryFileStorage.secretaryList.Add(new Secretary(nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
                             MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                             nameTextBox.Text = surnameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = numberTextBox.Text = licenceComboBox.Text = "";
@@ -318,8 +318,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 DoctorFileStorage.doctorList.Remove((Doctor)UserGrid.SelectedItem);
             if ((Manager)managerGrid.SelectedItem != null)
                 ManagerFileStorage.managerList.Remove((Manager)managerGrid.SelectedItem);
-            if ((CrudModel.Secretary)secretaryGrid.SelectedItem != null)
-                SecretaryFileStorage.secretaryList.Remove((CrudModel.Secretary)secretaryGrid.SelectedItem);
+            if ((Secretary)secretaryGrid.SelectedItem != null)
+                SecretaryFileStorage.secretaryList.Remove((Secretary)secretaryGrid.SelectedItem);
             licenceComboBox.IsEnabled = true;
             nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = licenceComboBox.Text = "";
         }
@@ -427,13 +427,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 else
                     MessageBox.Show("You must fill all inputs!");
             }
-            else if ((CrudModel.Secretary)secretaryGrid.SelectedItem != null)
+            else if ((Secretary)secretaryGrid.SelectedItem != null)
             {
                 int tmp = 0;
-                CrudModel.Secretary doct = (CrudModel.Secretary)secretaryGrid.SelectedItem;
+                Secretary doct = (Secretary)secretaryGrid.SelectedItem;
                 if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (numberTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != ""))
                 {
-                    foreach (CrudModel.Secretary d2 in SecretaryFileStorage.secretaryList)
+                    foreach (Secretary d2 in SecretaryFileStorage.secretaryList)
                     {
                         if ((d2.mail.Equals(emailTextBox.Text)) && (doct.userID != d2.userID))
                         {
@@ -444,7 +444,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     }
                     if (tmp == 0)
                     {
-                        foreach (CrudModel.Secretary d in SecretaryFileStorage.secretaryList)
+                        foreach (Secretary d in SecretaryFileStorage.secretaryList)
                         {
 
 
@@ -549,7 +549,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void secretaryGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CrudModel.Secretary doct = (CrudModel.Secretary)secretaryGrid.SelectedItem;
+            Secretary doct = (Secretary)secretaryGrid.SelectedItem;
             if (doct != null)
             {
                 nameTextBox.Text = doct.name;
