@@ -31,6 +31,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private AppointmentController AC;
         private PatientController PC;
 
+        public int editAppId
+        {
+            set;
+            get;
+        }
         public PatientCrAppDTO pat
         {
             set;
@@ -101,6 +106,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             roomsDTO = RC.getAllRoomsDTO();
             doctorsDTO = DC.getAllDoctorsDTO();
             specsDTO = SC.getAllSpecializations();
+            editAppId = appoID;
             InitializeComponent();
             this.x = x;
             //this.doc.changedDay(DateTime.Today);
@@ -130,6 +136,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             }
             foreach (Specialization s in specsDTO)
             {
+                MessageBox.Show(s.specialization);
+                MessageBox.Show(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization);
                 if (s.specialization.Equals(DC.getDoctorById(AC.getEditAppointmentDTOById(appoID).docID).specialization))
                 {
                     doctorsCB.SelectedItem = s;
@@ -149,7 +157,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         
 
-        public addAppointmentDialogDoctor(PatientCrAppDTO pat,string desc,_1addAppointmentDialogDoctor prevW,int dur =30)
+        public addAppointmentDialogDoctor(PatientCrAppDTO pat,string desc,_1addAppointmentDialogDoctor prevW,int dur=30)
         {
             RC = new RoomController();
             DC = new DoctorController();
@@ -161,6 +169,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.prevW.nextW = this;
             this.pat = pat;
             this.desc = desc;
+            editAppId = -1;
             InitializeComponent();
             doctorsCB.SelectedIndex = 0;
             dt = DateTime.Today.AddDays(1);
@@ -208,17 +217,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Spec_Loaded(object sender, RoutedEventArgs e)
         {
-            Spec.SelectedIndex = 0 ;
+            if(editAppId == -1)
+                Spec.SelectedIndex = 0 ;
         }
 
         private void roomID_Loaded(object sender, RoutedEventArgs e)
         {
-            roomID.SelectedIndex = 0;
+            if (editAppId == -1)
+                roomID.SelectedIndex = 0;
         }
 
         private void appointmentDate_Loaded(object sender, RoutedEventArgs e)
         {
-            appointmentDate.SelectedDate = dt;
+            if (editAppId == -1)
+                appointmentDate.SelectedDate = dt;
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
