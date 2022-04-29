@@ -49,11 +49,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Show_Notes(object sender, RoutedEventArgs e)
         {
             AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             PatientFrame.NavigationService.Navigate(new PatientNotes());
         }
         private void Show_Home(object sender, RoutedEventArgs e)
         {
             AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             PatientFrame.NavigationService.Navigate(new PatientAppointments());
         }
 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 {
@@ -63,10 +64,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return docdto;
         }
-        public BindingList<Time> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt)
+        public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt)
         {
             if (doc == null) return AS.getDoctorTimes(0, dt);
             return AS.getDoctorTimes(doc.id, dt);
+        }
+        public BindingList<TimePatient> GetDoctorTermsByDoctor(DoctorCrAppDTO doc, DateTime dt)
+        {
+            return AS.GetDoctorTermsByDoctor(doc.id, dt);
+        }
+        public BindingList<TimePatient> GetDoctorTermsByDate( DateTime dt)
+        {
+            return AS.GetDoctorTermsByDate(dt);
         }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {

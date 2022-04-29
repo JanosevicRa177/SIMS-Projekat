@@ -1,5 +1,6 @@
 ﻿using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             get;
             set;
         }
-        private static BindingList<Time> doctorTerms
+        private static BindingList<TimePatient> doctorTerms
         {
             set;
             get;
@@ -62,7 +63,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             if (initialize)
             {
                 initialize = false;
-                doctorTerms = new BindingList<Time>();
+                doctorTerms = new BindingList<TimePatient>();
                 date = date_t;
                 Date_TextChanged();
             }
@@ -112,7 +113,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void Date_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (doctorTerms != null) doctorTerms.Clear();
-            foreach (Time t in DC.getDoctorTimes(doctor, date))
+            foreach (TimePatient t in AC.GetDoctorTimes(doctor, date))
             {
                 doctorTerms.Add(t);
             }
@@ -122,7 +123,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void Date_TextChanged()
         {
             if (doctorTerms != null) doctorTerms.Clear();
-            foreach (Time t in DC.getDoctorTimes(doctor, date))
+            foreach (TimePatient t in AC.GetDoctorTimes(doctor, date))
             {
                 doctorTerms.Add(t);
             }

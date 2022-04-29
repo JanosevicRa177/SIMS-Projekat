@@ -1,5 +1,6 @@
 ﻿using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             get;
             set;
         }
-        private static BindingList<Time> doctorTerms
+        private static BindingList<TimePatient> doctorTerms
         {
             set; get;
         }
@@ -49,6 +50,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         public static int selectedDoctor = -1;
 
         public static Boolean initialize = true;
+        public static Boolean empty;
         public AddAppointment()
         {
             AC = new AppointmentController();
@@ -59,7 +61,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 initialize = false;
                 date = DateTime.Today.AddDays(1);
             }
-            doctorTerms = new BindingList<Time>();
+            doctorTerms = new BindingList<TimePatient>();
+            InitializeComponent();
             this.DataContext = new
             {
 
@@ -67,16 +70,37 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 This = this,
                 DoctorTerms = doctorTerms
             };
-            InitializeComponent();
             doctorsCB.SelectedIndex = selectedDoctor;
         }
 
         private void doctor_Date_Changed(object sender, SelectionChangedEventArgs e)
         {
             if (doctorTerms != null) doctorTerms.Clear();
-            foreach (Time t in AC.GetDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+            foreach (TimePatient t in AC.GetDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
             {
                 doctorTerms.Add(t);
+            }
+            if (doctorTerms.Count == 0)
+            {
+                empty = true;
+                if ((bool)DoctorPriority.IsChecked)
+                {
+                    foreach (TimePatient tp in AC.GetDoctorTermsByDoctor((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+                    {
+                        doctorTerms.Add(tp);
+                    }
+                }
+                else
+                {
+                    foreach (TimePatient tp in AC.GetDoctorTermsByDate(date))
+                    {
+                        doctorTerms.Add(tp);
+                    }
+                }
+            }
+            else
+            {
+                empty = false;
             }
             TimeselectDG.SelectedIndex = 0;
             TimeselectDG.Items.Refresh();
@@ -91,6 +115,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             selectedDoctor = -1;
             initialize = true;
+            empty = false;
             PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
         }
 
@@ -106,9 +131,37 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             {
                 if (r.name.Equals("No Room"))
                 {
-                    AC.CreateAppointment(date, (Time)TimeselectDG.SelectedItem, 30, r, (DoctorCrAppDTO)doctorsCB.SelectedItem, desc.Text, PatientWindow.loggedPatient);
+                    TimePatient TimePat = (TimePatient)TimeselectDG.SelectedItem;
+                    Time t = new Time(TimePat.hour,TimePat.minute, TimePat.ID);
+                    AC.CreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, desc.Text, PatientWindow.loggedPatient);
                     selectedDoctor = -1;
+                    initialize = true;
+                    empty = false;
                     PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
+                }
+            }
+        }
+
+        private void RadioButton_Checked_Doctor(object sender, RoutedEventArgs e)
+        {
+            if (empty)
+            {
+                doctorTerms.Clear();
+                foreach (TimePatient tp in AC.GetDoctorTermsByDoctor((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+                {
+                    doctorTerms.Add(tp);
+                }
+            }
+        }
+
+        private void RadioButton_Checked_Date(object sender, RoutedEventArgs e)
+        {
+            if (empty)
+            {
+                doctorTerms.Clear();
+                foreach(TimePatient tp in AC.GetDoctorTermsByDate(date))
+                {
+                    doctorTerms.Add(tp);
                 }
             }
         }
