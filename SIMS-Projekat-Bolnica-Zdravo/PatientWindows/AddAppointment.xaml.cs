@@ -1,4 +1,5 @@
 ﻿using CrudModel;
+using Notification.Wpf;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
@@ -27,6 +28,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private AppointmentController AC;
         private DoctorController DC;
         private RoomController RC;
+        private AppointmentNotificationController ANC;
         public int hours
         {
             set;
@@ -56,6 +58,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC = new AppointmentController();
             DC = new DoctorController();
             RC = new RoomController();
+            ANC = new AppointmentNotificationController();
             if (initialize)
             {
                 initialize = false;
@@ -137,6 +140,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                     selectedDoctor = -1;
                     initialize = true;
                     empty = false;
+                    var notificationManager = new NotificationManager();
+                    String title = "Zakazan pregled";
+                    String notContent = " Dotkor: " + TimePat.doctor.name + " " + TimePat.doctor.surname + " Datum " + TimePat.dateString + " Vreme: " + TimePat.time;
+                    notificationManager.Show(title,notContent);
+                    ANC.CreateAppointmentNotification(new AppointmentNotification(title, notContent, DateTime.Today.AddDays(14),false, TimePat.doctor.id));
                     PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
                 }
             }

@@ -1,8 +1,10 @@
 ﻿using CrudModel;
+using Notification.Wpf;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +24,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
     public partial class PatientAppointments : Page
     {
         private AppointmentController AC;
+        private AppointmentNotificationController ANC;
         public PatientAppointments()
         {
             AC = new AppointmentController();
-            InitializeComponent();
+            ANC = new AppointmentNotificationController();
             this.DataContext = AC.getAllPatientsAppointments(PatientWindow.loggedPatient.id);
+            InitializeComponent();
         }
         private void Show_Appointment(object sender, RoutedEventArgs e)
         {

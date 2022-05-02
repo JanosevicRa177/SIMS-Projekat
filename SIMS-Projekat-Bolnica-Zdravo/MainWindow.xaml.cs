@@ -1,5 +1,6 @@
 ﻿using ConsoleApp.serialization;
 using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.PatientWindows;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             }
             else if (xd.Equals("Pacijent"))
             {
-                PatientWindow pt = new PatientWindow(this);
+                LoginPatient pt = new LoginPatient(this);
                 pt.Show();
             }
             else if (xd.Equals("Upravnik"))

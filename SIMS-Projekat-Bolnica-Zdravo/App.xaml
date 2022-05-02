@@ -13,5 +13,6 @@
             <Setter Property="Width" Value="250"/>
             <Setter Property="Height" Value="80"/>
         </Style>
+        <Image x:Key="Notes" Source="icons/icons8-note-64.ico"/>
     </Application.Resources>
 </Application>

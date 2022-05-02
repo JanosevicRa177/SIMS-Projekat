@@ -24,34 +24,49 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         public DatePicker()
         {
             this.DataContext = this;
+            changed = false;
             InitializeComponent();
+            DatePicker_Date.SelectedDate = DateTime.Today.AddDays(1);
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        public DateTime date
         {
-
+            get;
+            set;
         }
-
+        public Boolean changed
+        {
+            get;
+            set;
+        }
         private void Cancel_Date(object sender, RoutedEventArgs e)
         {
             PatientWindow.NavigatePatient.Navigate(new AddAppointment());
         }
         private void Confirm_Date(object sender, RoutedEventArgs e)
         {
-            if (DatePicker_Date.SelectedDate == null)
-            {
-                MessageBox.Show("Niste izabrali datum");
-                return;
-            }
-            if (DatePicker_Date.SelectedDate.Value <= DateTime.Today)
-            {
-                MessageBox.Show("Ne možete zakazati pregled u prošlosti ili za danas");
-                return;
-            }
             AddAppointment.date = DatePicker_Date.SelectedDate.Value;
             PatientWindow.NavigatePatient.Navigate(new AddAppointment());
         }
         private void Calendar_SourceUpdated(object sender, DataTransferEventArgs e)
         {
+        }
+
+        private void DatePicker_Date_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (changed) 
+            {
+                changed = false;
+                return;
+            }
+            if (DatePicker_Date.SelectedDate.Value <= DateTime.Today)
+            {
+                MessageBox.Show("Ne možete zakazati pregled u prošlosti ili za danas");
+                changed = true;
+                DatePicker_Date.SelectedDate = date;
+                return;
+            }
+            changed = false;
+            date = DatePicker_Date.SelectedDate.Value;
         }
     }
 }

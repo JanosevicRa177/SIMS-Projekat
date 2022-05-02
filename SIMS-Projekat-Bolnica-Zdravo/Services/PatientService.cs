@@ -25,5 +25,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return PFS.GetPatientByID(patientID);
         }
+        public int LoginPatient(String mail, String password)
+        {
+            return PFS.LoginPatient(mail, password);
+        }
     }
 }
