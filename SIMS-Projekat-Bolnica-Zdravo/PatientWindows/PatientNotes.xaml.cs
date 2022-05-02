@@ -1,4 +1,5 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.Services;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
@@ -21,12 +22,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
     public partial class PatientNotes : Page
     {
-        private NoteService NS;
+        private NoteController NC;
         private ObservableCollection<Note> patientNotes;
         public PatientNotes()
         {
-            NS = new NoteService();
-            patientNotes = NS.getAllPatientNotes(PatientWindow.loggedPatient.id);
+            NC = new NoteController();
+            patientNotes = NC.getAllPatientNotes(PatientWindow.loggedPatient.id);
             this.DataContext = patientNotes;
             InitializeComponent();
         }
@@ -35,14 +36,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             Note n = new Note("Prazno", "",PatientWindow.loggedPatient.id);
             patientNotes.Add(n);
-            NS.CreateNote(n);
+            NC.CreateNote(n);
         }
         private void DeleteNote(object sender, RoutedEventArgs e)
         {
             Note n = new Note();
             n = (Note)NotesListGrid.SelectedItem;
             patientNotes.Remove((Note)NotesListGrid.SelectedItem);
-            NS.DeleteNote(n.noteID);
+            NC.DeleteNote(n.noteID);
         }
         private void NotesListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Appointment
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
@@ -49,7 +50,6 @@ namespace CrudModel
             set;
             get;
         }
-
         public DateTime timeBegin
         {
             set;

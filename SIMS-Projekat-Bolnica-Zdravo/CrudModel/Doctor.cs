@@ -65,10 +65,47 @@ namespace CrudModel
             get;
         }
 
-        /// <summary>
-        /// Property for collection of Appointment
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
+        public ObservableCollection<AppointmentNotification> appointmentNotification;
+        public ObservableCollection<AppointmentNotification> AppointmentNotification
+        {
+            get
+            {
+                if (appointmentNotification == null)
+                    appointmentNotification = new ObservableCollection<AppointmentNotification>();
+                return appointmentNotification;
+            }
+            set
+            {
+                RemoveAllAppointmentNotification();
+                if (value != null)
+                {
+                    foreach (AppointmentNotification oAppointmentNotification in value)
+                        AddAppointmentNotification(oAppointmentNotification);
+                }
+            }
+        }
+        public void AddAppointmentNotification(AppointmentNotification newAppointmentNotification)
+        {
+            if (newAppointmentNotification == null)
+                return;
+            if (this.appointmentNotification == null)
+                this.appointmentNotification = new ObservableCollection<AppointmentNotification>();
+            if (!this.appointmentNotification.Contains(newAppointmentNotification))
+                this.appointmentNotification.Add(newAppointmentNotification);
+        }
+        public void RemoveAppointmentNotification(AppointmentNotification oldAppointmentNotification)
+        {
+            if (oldAppointmentNotification == null)
+                return;
+            if (this.appointmentNotification != null)
+                if (this.appointmentNotification.Contains(oldAppointmentNotification))
+                    this.appointmentNotification.Remove(oldAppointmentNotification);
+        }
+        public void RemoveAllAppointmentNotification()
+        {
+            if (appointmentNotification != null)
+                appointmentNotification.Clear();
+        }
         //public ObservableCollection<Appointment> Appointment
         //{
         //    get
