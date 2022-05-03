@@ -89,7 +89,6 @@ C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zd
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.pdb
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.xml
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.xml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csprojAssemblyReference.cache
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.g.cs
