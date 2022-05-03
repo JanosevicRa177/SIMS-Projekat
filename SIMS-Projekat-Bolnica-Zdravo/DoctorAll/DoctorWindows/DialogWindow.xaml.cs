@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.DoctorWindows
 {
-    /// <summary>
-    /// Interaction logic for DialogWindow.xaml
-    /// </summary>
     public partial class DialogWindow : Window
     {
 
@@ -38,7 +35,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorWindows
             this.secondOption.Content = secondOption;
         }
 
-        public DialogWindow(string description, string firstOption, string secondOption, Window wi,Window wi2)
+        public DialogWindow(string description, string firstOption, string secondOption, Window wi = null,Window wi2 = null)
         {
             win = wi;
             win2 = wi2;

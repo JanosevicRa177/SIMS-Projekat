@@ -136,18 +136,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             if (t.time.Split(':')[1].ToString().Equals("30"))
             {
                 if(Convert.ToInt32(t.time.Split(':')[1]) < 10)
-                sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - "  + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
+                sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - "  + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
                 else
-                    sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
+                    sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
 
             }
             else
             {
                 if (Convert.ToInt32(t.time.Split(':')[1]) < 10)
-                    sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - "  + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
+                    sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - "  + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
 
                 else
-                    sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
+                    sadtt.Add(new ShowAppointmentDTO(sad.name, sad.surname, sad.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(sad.id).medicalRecordID));
 
             }
             MessageBox.Show("Uspesno ste dodali pregled");

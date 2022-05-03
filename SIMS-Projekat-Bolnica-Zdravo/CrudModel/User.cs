@@ -22,9 +22,14 @@ namespace CrudModel
             this.password = password;
             this.mobilePhone = mobilePhone;
             this.mail = mail;
+            Console.WriteLine("XXXXXXXDDDD");
+            this.fullaAddress = address.country + " " + address.city + " " + address.street + " " + address.number;
         }
 
-
+        public string fullaAddress
+        {
+            set;get;
+        }
         private static int userIDS = -1;
 
         public static int getids()
@@ -41,6 +46,7 @@ namespace CrudModel
         {
             return ++userIDS;
         }
+
 
         public bool ChangePassword(String newPassword)
       {

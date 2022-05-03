@@ -68,7 +68,6 @@
                     <DataGridTextColumn Header="Date" Binding="{Binding Date }"></DataGridTextColumn>
                     <DataGridTextColumn Header="Time" Binding="{Binding Time }"></DataGridTextColumn>
                     <DataGridTextColumn Header="Desc" Binding="{Binding desc }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="id" Binding="{Binding id }"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid Grid.Row="5" AutoGenerateColumns="False" Margin="5" SelectionMode="Single" Height="150" ItemsSource="{Binding time}" x:Name="TimeGrid"  Grid.Column="6"  IsReadOnly="True" ScrollViewer.CanContentScroll="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" >

@@ -29,7 +29,7 @@ namespace CrudModel
             dcs = GetAllManagers();
             dcs.Add(newManager);
             Serializer<Manager> doctorSerializer = new Serializer<Manager>();
-            doctorSerializer.toCSV("managers.txt", dcs);
+            doctorSerializer.toCSV("../../TxtFajlovi/managers.txt", dcs);
 
             return true;
         }
@@ -47,7 +47,7 @@ namespace CrudModel
                     break;
                 }
             }
-            doctorserialzer.toCSV("managers.txt", dcs);
+            doctorserialzer.toCSV("../../TxtFajlovi/managers.txt", dcs);
             return true;
         }
       
@@ -72,7 +72,7 @@ namespace CrudModel
                 }
 
             }
-            doctorserialzer.toCSV("managers.txt", dcs);
+            doctorserialzer.toCSV("../../TxtFajlovi/managers.txt", dcs);
             return true;
         }
       
@@ -90,7 +90,7 @@ namespace CrudModel
            
                 ObservableCollection<Manager> doctors = new ObservableCollection<Manager>();
                 Serializer<Manager> doctorserialzer = new Serializer<Manager>();
-                foreach (Manager doc in doctorserialzer.fromCSV("managers.txt"))
+                foreach (Manager doc in doctorserialzer.fromCSV("../../TxtFajlovi/managers.txt"))
                 {
                     doctors.Add(doc);
                 }

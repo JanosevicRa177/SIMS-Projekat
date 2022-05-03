@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
+using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Services
 {
@@ -33,11 +34,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         }
         public void DeleteAppointment(ShowAppointmentDTO app)
         {
-            AFS.RemoveAppointment(app.patientID,app.Time,app.Date); 
+            AFS.RemoveAppointment(app.patientID.ToString(),app.Time,app.Date); 
         }
         public void DeleteOperationAppointment(ShowAppointmentDTO app)
         {
-            AFS.RemoveOperationAppointment(app.patientID, app.Time, app.Date);
+            AFS.RemoveOperationAppointment(app.patientID.ToString(), app.Time, app.Date);
         }
         public void UpdateAppointment(Appointment a,Appointment app)
         {
@@ -51,19 +52,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.DeleteAppointment(appid);
         }
-        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID)
+        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID,RoomCrAppDTO rcdto,int dur)
         {
-            return AFS.ChangeAppointment(t, dt, appointmentID);
+            return AFS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
         }
         public Appointment getAppointmentById(int AppID)
         {
             return AFS.GetAppointmentByID(AppID);
         }
-
         public ObservableCollection<Appointment> getAllAppointmentDTO()
         {
-            
+
             return AFS.getAllAppointmentDTO();
+        }
+        public void ExecutedAppointment(string cond, string ther, int id, ObservableCollection<Medicine> ocMed, string desc)
+        {
+            AFS.ExecutedAppointment(cond, ther, id, ocMed, desc);
         }
 
         public ObservableCollection<Appointment> getAllDoctorsAppointments(int docID)
