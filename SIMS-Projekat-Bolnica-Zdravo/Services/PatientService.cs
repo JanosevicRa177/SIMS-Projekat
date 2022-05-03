@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Services
 {
-    class PatientService
+    public class PatientService
     {
         private PatientFileStorage PFS;
 
@@ -28,6 +28,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         public int LoginPatient(String mail, String password)
         {
             return PFS.LoginPatient(mail, password);
+        }
+        public bool CreatePatient(Patient pat)
+        {
+            PFS.CreatePatient(pat);
+            return true;
         }
     }
 }

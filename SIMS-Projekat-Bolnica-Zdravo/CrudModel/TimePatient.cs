@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.CrudModel
 {
-    class TimePatient
+    public class TimePatient
     {
             public int hour
             {

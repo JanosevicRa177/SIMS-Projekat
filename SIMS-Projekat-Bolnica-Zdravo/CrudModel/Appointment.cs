@@ -92,6 +92,11 @@ namespace CrudModel
             set;
             get;
         }
+        public bool operation
+        {
+            get;
+            set;
+        }
 
         public string description
         {
@@ -99,6 +104,22 @@ namespace CrudModel
             get;
         }
 
+        public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid,bool operation)
+        {
+            this.medicalRecordID = MRid;
+            this.patientID = patID;
+            //this.medicalRecord.patientID = pat.userID;
+            this.doctorID = docID;
+            this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
+            this.setDate();
+            this.operation = operation;
+            this.duration = duration;
+            this.time = new Time(time.hour, time.minute, 1);
+            setTime();
+            this.roomID = roomID;
+            this.appointmentID = ++ids;
+            this.description = description;
+        }
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid)
         {
             this.medicalRecordID = MRid;
@@ -107,31 +128,54 @@ namespace CrudModel
             this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
             this.setDate();
             this.duration = duration;
-            this.time = time;
+            this.time = new Time(time.hour,time.minute,1);
+            setTime();
+            this.roomID = roomID;
+            this.appointmentID = ++ids;
+            
+            this.description = description;
+            this.operation = false;
+        }
+        public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID)
+        {
+            //this.medicalRecord.patientID = pat.userID;
+            this.doctorID = docID;
+            this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
+            this.setDate();
+            this.duration = duration;
+            this.time.hour = time.hour;
+            this.time.minute = time.minute;
+            this.patientID = patID;
+            setTime();
             this.roomID = roomID;
             this.appointmentID = ++ids;
             this.description = description;
+            this.operation = false;
         }
 
-        public Appointment(DateTime date, int hour, int minute, int duration, Room room, Doctor doc, string description, Patient pat)
+
+        public Appointment(DateTime date, int hour, int minute, int duration, Room room, Doctor doc, string description, Patient pat,int appointmentID)
         {
             //this.medicalRecord = pat.medicalRecord;
             //this.medicalRecord.patientID = pat.userID;
             this.doctorID = doc.userID;
+            this.patientID = pat.userID;
+            this.appointmentID = appointmentID;
             this.timeBegin = date;
             this.setDate();
             this.duration = duration;
-            //this.hour = hour;
-            //this.minute = minute;
+            this.time = new Time(hour, minute, 1);
             setTime();
             this.roomID = room.roomID;
             this.appointmentID = ++ids;
             this.description = description;
+            this.operation = false;
         }
+
 
         public void setDate()
         {
-            this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();
+            this.date = timeBegin.Month.ToString() + "/" + timeBegin.Day.ToString() + "/" + timeBegin.Year.ToString();
         }
 
         public void setTime()
@@ -169,7 +213,8 @@ namespace CrudModel
                 roomID.ToString(),
                 patientID.ToString(),
                 description,
-                appointmentID.ToString()
+                appointmentID.ToString(),
+                operation.ToString()
             };
             return csvValues;
         }
@@ -185,8 +230,9 @@ namespace CrudModel
             this.patientID = int.Parse(values[10]);
             this.description = values[11];
             this.appointmentID = int.Parse(values[12]);
+            this.operation = Convert.ToBoolean(values[13]);
             setTime();
-            setDate();
+            setDate(); 
         }
     }
 }

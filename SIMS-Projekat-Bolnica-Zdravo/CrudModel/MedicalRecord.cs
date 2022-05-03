@@ -5,6 +5,8 @@
 
 using ConsoleApp.serialization;
 using System;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace CrudModel
 {
@@ -12,6 +14,11 @@ namespace CrudModel
     {
         private static int ids = -1;
 
+        public ObservableCollection<string> alergenList
+        {
+            get;
+            set;
+        }
         public static int getids()
         {
             return ids;
@@ -35,6 +42,22 @@ namespace CrudModel
         {
             medicalRecordID = ++ids;
             this.bloodType = bloodType;
+        }
+        public MedicalRecord(int patiendID,int medicalRecordid,ObservableCollection<string> mr)
+        {
+            medicalRecordID = medicalRecordid;
+            this.patientID = patiendID;
+            this.alergenList = mr;
+            
+            this.bloodType = BloodType.ab1;
+        }
+
+        public MedicalRecord(int patiendID, int medicalRecordid)
+        {
+            medicalRecordID = medicalRecordid;
+            this.patientID = patiendID;
+
+            this.bloodType = BloodType.ab1;
         }
         public MedicalRecord()
         { 
@@ -105,13 +128,38 @@ namespace CrudModel
 
         public string[] toCSV()
         {
+            string temp = null;
+          
+          
+            int tmp = 0;
+            if(alergenList == null)
+            {
+                alergenList = new ObservableCollection<string>();
+                alergenList.Add("empty");
+            }
+            
+            foreach(string s in alergenList)
+            {
+                if (!s.Equals(" "))
+                {
+                    if (tmp != alergenList.Count - 1)
+                        temp += s + "-";
+                    else
+                        temp += s;
+                    tmp++;
+                }
+            }
+            temp += "-kraj";
+
             if (bloodType.Equals(BloodType.a))
             {
                 string[] csvValues =
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "a-"
+                    "a-",
+                    temp
+                    
                 };
                 return csvValues;
             }
@@ -121,7 +169,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "a+"
+                    "a+",
+                    temp
                 };
                 return csvValues;
             }
@@ -131,7 +180,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "b-"
+                    "b-",
+                    temp
                 };
                 return csvValues;
             }
@@ -141,7 +191,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "b+"
+                    "b+",
+                    temp
                 };
                 return csvValues;
             }
@@ -151,7 +202,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "ab-"
+                    "ab-",
+                    temp
                 };
                 return csvValues;
             }
@@ -161,7 +213,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "ab+"
+                    "ab+",
+                    temp
                 };
                 return csvValues;
             }
@@ -171,7 +224,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "o-"
+                    "o-",
+                    temp
                 };
                 return csvValues;
             }
@@ -181,7 +235,8 @@ namespace CrudModel
                 {
                     medicalRecordID.ToString(),
                     patientID.ToString(),
-                    "o+"
+                    "o+",
+                    temp
                 };
                 return csvValues;
             }
@@ -192,10 +247,11 @@ namespace CrudModel
         public void fromCSV(string[] values)
         {
 
-            
-                medicalRecordID = int.Parse(values[0]);
-                this.patientID = int.Parse(values[1]);
-                MedicalRecordFileStorage.medicalRecordList.Add(this);
+            alergenList = new ObservableCollection<string>();
+            medicalRecordID = int.Parse(values[0]);
+            this.patientID = int.Parse(values[1]);
+            MedicalRecordFileStorage.medicalRecordList.Add(this);
+
             if (values[2].Equals("a-"))
             {
                 bloodType = BloodType.a;
@@ -228,6 +284,14 @@ namespace CrudModel
             {
                 bloodType = BloodType.o1;
             }
+            int i = 0;
+            while (!values[3].ToString().Split('-')[i].Equals("kraj"))
+            {
+                
+                    this.alergenList.Add(values[3].ToString().Split('-')[i]);
+              
+                i++;
+                }
         }
 
         public int patientID

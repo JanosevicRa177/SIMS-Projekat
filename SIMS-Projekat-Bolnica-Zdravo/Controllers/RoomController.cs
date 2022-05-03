@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 {
-    class RoomController
+    public class RoomController
     {
         private RoomService RS;
 
@@ -32,6 +32,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public Room getRoomById(int roomID)
         {
             return RS.getRoomById(roomID);
+        }
+        public Room getRoomByName(string name)
+        {
+            return RS.getRoomByName(name);
         }
 
         public RoomCrAppDTO getRoomCrAppDTOById(int roomID)

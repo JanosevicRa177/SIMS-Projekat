@@ -48,6 +48,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return PS.LoginPatient(mail, password);
         }
+        public bool CreatePatient(Patient pat)
+        {
+            PS.CreatePatient(pat);
+            return true;
+        }
     }
 
     public class PatientCrAppDTO

@@ -1,5 +1,6 @@
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,19 +25,56 @@ namespace CrudModel
         }
         public bool CreateManager(Manager newManager)
       {
-            managerList.Add(newManager);
+            ObservableCollection<Manager> dcs = new ObservableCollection<Manager>();
+            dcs = GetAllManagers();
+            dcs.Add(newManager);
+            Serializer<Manager> doctorSerializer = new Serializer<Manager>();
+            doctorSerializer.toCSV("managers.txt", dcs);
+
             return true;
         }
       
-      public bool DeleteManager(int userID)
+      public bool DeleteManager(ManagerDTO m)
       {
-         throw new NotImplementedException();
-      }
+            ObservableCollection<Manager> dcs = new ObservableCollection<Manager>();
+            dcs = GetAllManagers();
+            Serializer<Manager> doctorserialzer = new Serializer<Manager>();
+            foreach (Manager doc in dcs)
+            {
+                if (doc.mail.Equals(m.email))
+                {
+                    dcs.Remove(doc);
+                    break;
+                }
+            }
+            doctorserialzer.toCSV("managers.txt", dcs);
+            return true;
+        }
       
       public bool UpdateManager(Manager manager)
       {
-         throw new NotImplementedException();
-      }
+            ObservableCollection<Manager> dcs = new ObservableCollection<Manager>();
+            dcs = GetAllManagers();
+            Serializer<Manager> doctorserialzer = new Serializer<Manager>();
+            foreach (Manager doc in dcs)
+            {
+                if (doc.userID == manager.userID)
+                {
+                    doc.name = manager.name;
+                    doc.surname = manager.surname;
+                    doc.mail = manager.mail;
+                    doc.password = manager.password;
+                    doc.mobilePhone = manager.mobilePhone;
+                    doc.address = manager.address;
+                    doc.position = manager.position;
+                    break;
+
+                }
+
+            }
+            doctorserialzer.toCSV("managers.txt", dcs);
+            return true;
+        }
       
       public static Manager GetManagerByID(int userID)
       {
@@ -49,8 +87,16 @@ namespace CrudModel
       
       public ObservableCollection<Manager> GetAllManagers()
       {
-            return managerList;
-      }
+           
+                ObservableCollection<Manager> doctors = new ObservableCollection<Manager>();
+                Serializer<Manager> doctorserialzer = new Serializer<Manager>();
+                foreach (Manager doc in doctorserialzer.fromCSV("managers.txt"))
+                {
+                    doctors.Add(doc);
+                }
+                return doctors;
+            
+        }
    
    }
 }
