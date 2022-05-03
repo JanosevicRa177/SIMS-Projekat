@@ -41,5 +41,8 @@
                 <DataGridTextColumn Width="1.75*" Header="Datum" FontSize="15" Binding="{Binding dateString}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,299,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Prioritet:" VerticalAlignment="Top" Height="42" Width="101"/>
+        <RadioButton x:Name="DoctorPriority" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="Doktor" IsChecked="True" FontSize="25" Grid.Column="1" HorizontalAlignment="Center" Margin="10,301,10.2,75.6" Grid.Row="1" Width="123" Checked="RadioButton_Checked_Doctor"/>
+        <RadioButton x:Name="DatePriority" Content="Datum" IsChecked="False" VerticalContentAlignment="Center" FontSize="25" Grid.Column="2" HorizontalAlignment="Center" Margin="9.8,301,15.4,0" Grid.Row="1" VerticalAlignment="Top" Width="118" Checked="RadioButton_Checked_Date"/>
     </Grid>
 </Page>

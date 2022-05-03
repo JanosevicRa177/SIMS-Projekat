@@ -64,18 +64,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return docdto;
         }
-        public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt)
+        public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt,int duration, int appoID)
         {
-            if (doc == null) return AS.getDoctorTimes(0, dt);
-            return AS.getDoctorTimes(doc.id, dt);
+            if (doc == null) return AS.GetDoctorTimes(0, dt, duration, appoID);
+            return AS.GetDoctorTimes(doc.id, dt, duration, appoID);
         }
-        public BindingList<TimePatient> GetDoctorTermsByDoctor(DoctorCrAppDTO doc, DateTime dt)
+        public BindingList<TimePatient> GetDoctorTermsByDoctor(DoctorCrAppDTO doc, DateTime dt,int duration, int appoID)
         {
-            return AS.GetDoctorTermsByDoctor(doc.id, dt);
+            return AS.GetDoctorTermsByDoctor(doc.id, dt, duration, appoID);
         }
-        public BindingList<TimePatient> GetDoctorTermsByDate( DateTime dt)
+        public BindingList<TimePatient> GetDoctorTermsByDate( DateTime dt,int duration,int appoID)
         {
-            return AS.GetDoctorTermsByDate(dt);
+            return AS.GetDoctorTermsByDate(dt, duration, appoID);
         }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {
@@ -84,7 +84,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in appointmentsPatent)
             {
                 Doctor d = DS.GetDoctorByID(a.doctorID);
-                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID, a.timeBegin));
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID, a.timeBegin,a.duration));
             }
             return patientAppointmentsListDTO;
         }
@@ -104,7 +104,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, appoID, a.timeBegin);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, appoID, a.timeBegin, a.duration);
         }
 
         public class EditAppointmentDTO
@@ -167,8 +167,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public string Time { set; get; }
         public string desc { set; get; }
         public int id { set; get; }
+        public int duration { set; get; }
 
-        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string date, string time, string desc, int id, DateTime Date_T)
+        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string date, string time, string desc, int id, DateTime Date_T,int duration)
         {
             doctorName = dName;
             doctorSurname = dSurname;
@@ -179,6 +180,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Time = time;
             this.desc = desc;
             this.id = id;
+            this.duration = duration;
         }
     }
 }

@@ -52,7 +52,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             Serializer<IdsStorage> doctorserialzer = new Serializer<IdsStorage>();
             ids = doctorserialzer.fromCSV("../../TxtFajlovi/ids.txt");
             ids[0].setALLIDS();
-
         }
 
 

@@ -1,7 +1,3 @@
-// File:    AppointmentNotification.cs
-// Author:  Dusan
-// Created: Saturday, April 30, 2022 12:24:31 PM
-// Purpose: Definition of Class AppointmentNotification
 
 using ConsoleApp.serialization;
 using System;

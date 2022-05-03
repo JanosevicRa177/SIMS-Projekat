@@ -40,11 +40,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 MessageBox.Show("Pogresan mail ili sifra");
                 return;
             }
-            PatientWindow pt = new PatientWindow(this, patientID);
-            pt.Show();
             Mail.Text = "";
             Password.Clear();
             PassText.Visibility = Visibility.Visible;
+            PatientWindow pt = new PatientWindow(this, patientID);
+            pt.Show();
             this.Hide();
         }
         private void Back_Click(object sender, RoutedEventArgs e)

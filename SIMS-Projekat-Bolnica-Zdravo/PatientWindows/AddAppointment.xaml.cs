@@ -50,8 +50,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         }
 
         public static int selectedDoctor = -1;
-
-        public static Boolean initialize = true;
+        private static Boolean init1 = true;
+        public static Boolean initialize;
         public static Boolean empty;
         public AddAppointment()
         {
@@ -59,6 +59,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             DC = new DoctorController();
             RC = new RoomController();
             ANC = new AppointmentNotificationController();
+            if (init1)
+            {
+                init1 = false;
+                initialize = true;
+            }
             if (initialize)
             {
                 initialize = false;
@@ -68,7 +73,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             InitializeComponent();
             this.DataContext = new
             {
-
                 docs = AC.GetDoctorsPatient(),
                 This = this,
                 DoctorTerms = doctorTerms
@@ -79,7 +83,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void doctor_Date_Changed(object sender, SelectionChangedEventArgs e)
         {
             if (doctorTerms != null) doctorTerms.Clear();
-            foreach (TimePatient t in AC.GetDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+            foreach (TimePatient t in AC.GetDoctorTimes((DoctorCrAppDTO)doctorsCB.SelectedItem, date, 30, -1))
             {
                 doctorTerms.Add(t);
             }
@@ -88,14 +92,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 empty = true;
                 if ((bool)DoctorPriority.IsChecked)
                 {
-                    foreach (TimePatient tp in AC.GetDoctorTermsByDoctor((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+                    foreach (TimePatient tp in AC.GetDoctorTermsByDoctor((DoctorCrAppDTO)doctorsCB.SelectedItem, date, 30, -1))
                     {
                         doctorTerms.Add(tp);
                     }
                 }
                 else
                 {
-                    foreach (TimePatient tp in AC.GetDoctorTermsByDate(date))
+                    foreach (TimePatient tp in AC.GetDoctorTermsByDate(date, 30, -1))
                     {
                         doctorTerms.Add(tp);
                     }
@@ -155,7 +159,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             if (empty)
             {
                 doctorTerms.Clear();
-                foreach (TimePatient tp in AC.GetDoctorTermsByDoctor((DoctorCrAppDTO)doctorsCB.SelectedItem, date))
+                foreach (TimePatient tp in AC.GetDoctorTermsByDoctor((DoctorCrAppDTO)doctorsCB.SelectedItem, date, 30, -1))
                 {
                     doctorTerms.Add(tp);
                 }
@@ -167,7 +171,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             if (empty)
             {
                 doctorTerms.Clear();
-                foreach(TimePatient tp in AC.GetDoctorTermsByDate(date))
+                foreach(TimePatient tp in AC.GetDoctorTermsByDate(date, 30, -1))
                 {
                     doctorTerms.Add(tp);
                 }
