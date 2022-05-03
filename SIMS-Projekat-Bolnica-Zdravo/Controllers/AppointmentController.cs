@@ -64,6 +64,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return AS.GetDoctorTermsByDate(dt, duration, appoID);
         }
+
+        public BindingList<Time> GetDoctorTimesforDoctor(int docID, DateTime dt, int duration, int appoID)
+        {
+            return AS.GetDoctorTimesforDoctor(docID , dt, duration, appoID);
+        }
+        
         public bool ChangeAppointment(Time t, DateTime dt, int appointmentID, RoomCrAppDTO rcdto = null, int dur = -1) 
         {
             return AS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
@@ -231,6 +237,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             patientID = pID;
             roomID = rID;
             docID = dID;
+            this.time = t;
             this.dur = dur;
             this.dt = dt;
             this.roomName = RC.getRoomCrAppDTOById(roomID).name;

@@ -95,6 +95,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return filterDoctorsDayByHisAppointments(times, doctorID, forDate, duration, appoID);
         }
+
+        public BindingList<Time> GetDoctorTimesforDoctor(int doctorID, DateTime forDate, int duration, int appoID)
+        {
+            BindingList<Time> times = new BindingList<Time>();
+            for (int i = 0, h = 7; h < 16 || i < 16;)
+            {
+                times.Add(new Time(h, 0, i++));
+                times.Add(new Time(h++, 30, i++));
+            }
+            return filterDoctorsDayByHisAppointmentsforDoctor(times, doctorID, forDate, duration, appoID);
+        }
         public BindingList<TimePatient> GetDoctorTermsByDoctor(int doctorID, DateTime forDate,int duration, int appoID)
         {
             Doctor d = DFS.GetDoctorByID(doctorID);
@@ -261,6 +272,61 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return times;
         }
+
+        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID)
+        {
+            List<int> array = new List<int>();
+            int duration = duration1 / 30;
+            foreach (Appointment a in AFS.getAllDoctorsAppointments(doctorID))
+            {
+                if (a.appointmentID == appoID)
+                {
+                    continue;
+                }
+                if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
+                {
+                    foreach (Time t in times)
+                    {
+                        if (t.hour == a.time.hour && t.minute == a.time.minute)
+                        {
+                            int remid = t.ID;
+                            for (int j = 0; j < (a.duration / 30); j++)
+                            {
+                                if (!array.Contains(remid + j))
+                                {
+                                    array.Add(remid + j);
+                                }
+                                for (int i = 1; i < duration; i++)
+                                {
+                                    if (!array.Contains(remid + j - i))
+                                    {
+                                        array.Add(remid + j - i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 1; i < duration; i++)
+            {
+                array.Add(18 - i);
+            }
+            foreach (int id in array)
+            {
+                foreach (var t in times)
+                {
+                    if (t.ID == id)
+                    {
+                        times.Remove(t);
+                        break;
+                    }
+
+                }
+            }
+            return times;
+        }
+
 
         public int CreateAppointment(DateTime dt, Time t, int dur, int roomID, int DoctorID, string desc, int patientID)
         {
