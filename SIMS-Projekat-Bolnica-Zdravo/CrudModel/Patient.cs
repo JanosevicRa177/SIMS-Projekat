@@ -25,6 +25,15 @@ namespace CrudModel
             this.gender = gender;
             this.fullaAddress = address.country + " " + address.city + " " + address.street + " " + address.number;
         }
+        public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail,int id) : base(name, surname, address, password, mobilePhone, mail)
+        {
+            if (notes == null)
+            {
+                notes = new ObservableCollection<Note>();
+            }
+            this.userID = id;
+            this.gender = gender;
+        }
         public Patient()
         {
             if (notes == null)
@@ -69,7 +78,11 @@ namespace CrudModel
             set;
             get;
         }
-
+        public ObservableCollection<AppointmentNotification> appointmentNotification
+        {
+            get;
+            set;
+        }
         public ObservableCollection<Note> Notes
         {
             get
@@ -88,7 +101,24 @@ namespace CrudModel
                 }
             }
         }
-
+        public ObservableCollection<AppointmentNotification> AppointmentNotification
+        {
+            get
+            {
+                if (appointmentNotification == null)
+                    appointmentNotification = new ObservableCollection<AppointmentNotification>();
+                return appointmentNotification;
+            }
+            set
+            {
+                RemoveAllAppointmentNotification();
+                if (value != null)
+                {
+                    foreach (AppointmentNotification oAppointmentNotification in value)
+                        AddAppointmentNotification(oAppointmentNotification);
+                }
+            }
+        }
         public void AddNote(Note newNote)
         {
             if (newNote == null)
@@ -98,7 +128,15 @@ namespace CrudModel
             if (!this.notes.Contains(newNote))
                 this.notes.Add(newNote);
         }
-
+        public void AddAppointmentNotification(AppointmentNotification newAppointmentNotification)
+        {
+            if (newAppointmentNotification == null)
+                return;
+            if (this.appointmentNotification == null)
+                this.appointmentNotification = new ObservableCollection<AppointmentNotification>();
+            if (!this.appointmentNotification.Contains(newAppointmentNotification))
+                this.appointmentNotification.Add(newAppointmentNotification);
+        }
         public void RemoveNote(Note oldNote)
         {
             if (oldNote == null)
@@ -106,6 +144,11 @@ namespace CrudModel
             if (this.notes != null)
                 if (this.notes.Contains(oldNote))
                     this.notes.Remove(oldNote);
+        }
+        public void RemoveAllAppointmentNotification()
+        {
+            if (appointmentNotification != null)
+                appointmentNotification.Clear();
         }
         public void RemoveAllNote()
         {

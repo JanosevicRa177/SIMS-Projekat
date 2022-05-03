@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CrudModel
 {
@@ -18,6 +19,7 @@ namespace CrudModel
         private int noteids;
         private int roomids;
         private int warehousids;
+        private int appointmentNotificationids;
 
         public static ObservableCollection<IdsStorage> IDS;
         public IdsStorage()
@@ -29,6 +31,7 @@ namespace CrudModel
             noteids = Note.getids();
             roomids = Room.getids();
             warehousids = Warehouse.getids();
+            appointmentNotificationids = AppointmentNotification.getids();
             IDS = new ObservableCollection<IdsStorage>();
             IDS.Add(this);
         }
@@ -42,6 +45,7 @@ namespace CrudModel
             noteids = int.Parse(values[4]);
             roomids = int.Parse(values[5]);
             warehousids = int.Parse(values[6]);
+            appointmentNotificationids = int.Parse(values[7]);
         }
 
         public string[] toCSV()
@@ -55,6 +59,7 @@ namespace CrudModel
                 noteids.ToString(),
                 roomids.ToString(),
                 warehousids.ToString(),
+                appointmentNotificationids.ToString()
             };
             return csvValues;
         }
@@ -68,6 +73,7 @@ namespace CrudModel
             Note.setids(noteids);
             Room.setids(roomids);
             Warehouse.setids(warehousids);
+            AppointmentNotification.setids(appointmentNotificationids);
         }
     }
 }

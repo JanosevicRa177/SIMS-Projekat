@@ -21,7 +21,14 @@ namespace CrudModel
      
       public bool CreatePatient(Patient newPatient)
       {
-            patientList.Add(newPatient);
+            ObservableCollection<Patient> patients = new ObservableCollection<Patient>();
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt"))
+            {
+                patients.Add(p);
+            }
+            patients.Add(newPatient);
+            patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
             return true;
       }
       
@@ -34,12 +41,27 @@ namespace CrudModel
       {
          throw new NotImplementedException();
       }
-      
-      public Patient GetPatientByID(int id)
-      {
+        public int LoginPatient(String mail, String password)
+        {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
-            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt")) {
-
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt"))
+            {
+                if (mail.Equals(p.mail))
+                {
+                    if (password.Equals(p.password))
+                    {
+                        return p.userID;
+                    }
+                    return -1;
+                }
+            }
+            return -1;
+        }
+        public Patient GetPatientByID(int id)
+        {
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt")) 
+            {
                 if (p.userID == id)
                 {
                     p.fullaAddress = p.address.country + " " + p.address.city + " " + p.address.street + " " + p.address.number;
@@ -47,7 +69,7 @@ namespace CrudModel
                 }
             }
             return null;
-      }
+        }
       
       public ObservableCollection<Patient> getAllPatientsFS()
       {

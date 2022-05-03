@@ -74,7 +74,6 @@ namespace CrudModel
             set;
             get;
         }
-
         public DateTime timeBegin
         {
             set;
@@ -117,6 +116,11 @@ namespace CrudModel
             set;
             get;
         }
+        public bool operation
+        {
+            get;
+            set;
+        }
 
         public string description
         {
@@ -124,6 +128,25 @@ namespace CrudModel
             get;
         }
 
+        public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid,bool operation)
+        {
+            this.medicalRecordID = MRid;
+            this.patientID = patID;
+            //this.medicalRecord.patientID = pat.userID;
+            this.doctorID = docID;
+            this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
+            this.setDate();
+            this.operation = operation;
+            this.duration = duration;
+            this.time = new Time(time.hour, time.minute, 1);
+            setTime();
+            this.roomID = roomID;
+            this.appointmentID = ++ids;
+            this.description = description;
+            this.therapy = "";
+            this.condition = "";
+            this.serMedList = "";
+        }
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid)
         {
             this.medicalRecordID = MRid;
@@ -132,34 +155,59 @@ namespace CrudModel
             this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
             this.setDate();
             this.duration = duration;
-            this.time = time;
+            this.time = new Time(time.hour,time.minute,1);
+            setTime();
             this.roomID = roomID;
             this.appointmentID = ++ids;
             this.description = description;
+            this.operation = false;
+            this.therapy = "";
+            this.condition = "";
+            this.serMedList = "";
+        }
+        public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID)
+        {
+            //this.medicalRecord.patientID = pat.userID;
+            this.doctorID = docID;
+            this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
+            this.setDate();
+            this.duration = duration;
+            this.time.hour = time.hour;
+            this.time.minute = time.minute;
+            this.patientID = patID;
+            setTime();
+            this.roomID = roomID;
+            this.appointmentID = ++ids;
+            this.description = description;
+            this.operation = false;
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
         }
 
-        public Appointment(DateTime date, int hour, int minute, int duration, Room room, Doctor doc, string description, Patient pat)
+
+        public Appointment(DateTime date, int hour, int minute, int duration, Room room, Doctor doc, string description, Patient pat,int appointmentID)
         {
             //this.medicalRecord = pat.medicalRecord;
             //this.medicalRecord.patientID = pat.userID;
             this.doctorID = doc.userID;
+            this.patientID = pat.userID;
+            this.appointmentID = appointmentID;
             this.timeBegin = date;
             this.setDate();
             this.duration = duration;
-            //this.hour = hour;
-            //this.minute = minute;
+            this.time = new Time(hour, minute, 1);
             setTime();
             this.roomID = room.roomID;
             this.appointmentID = ++ids;
             this.description = description;
+            this.operation = false;
         }
+
 
         public void setDate()
         {
-            this.date = timeBegin.Day.ToString() + "-" + timeBegin.Month.ToString() + "-" + timeBegin.Year.ToString();
+            this.date = timeBegin.Month.ToString() + "/" + timeBegin.Day.ToString() + "/" + timeBegin.Year.ToString();
         }
 
         public void setTime()
@@ -181,15 +229,18 @@ namespace CrudModel
             this.timeString += ":" + vars + var;
             serMedList = "";
             int i = 0;
-            foreach (Medicine s in medicineList)
+            if(medicineList != null) 
             {
-                if (medicineList.Count > i + 1)
-                    this.serMedList += s.name + "," + s.amount + "," + s.frequency + ";";
-                else
+                foreach (Medicine s in medicineList)
                 {
-                    this.serMedList += s.name + "," + s.amount + "," + s.frequency;
+                    if (medicineList.Count > i + 1)
+                        this.serMedList += s.name + "," + s.amount + "," + s.frequency + ";";
+                    else
+                    {
+                        this.serMedList += s.name + "," + s.amount + "," + s.frequency;
+                    }
+                    i++;
                 }
-                i++;
             }
         }
 
@@ -209,10 +260,11 @@ namespace CrudModel
                 roomID.ToString(),
                 patientID.ToString(),
                 description,
+                appointmentID.ToString(),
+                operation.ToString(),
                 therapy,
                 condition,
-                serMedList,
-                appointmentID.ToString()
+                serMedList
             };
             return csvValues;
         }
@@ -238,12 +290,13 @@ namespace CrudModel
             this.roomID = int.Parse(values[9]);
             this.patientID = int.Parse(values[10]);
             this.description = values[11];
-            this.therapy = values[12];
-            this.condition = values[13];
-            setMeds(values[14]);
-            this.appointmentID = int.Parse(values[15]);
+            this.appointmentID = int.Parse(values[12]);
+            this.operation = Convert.ToBoolean(values[13]);
+            this.therapy = values[14];
+            this.condition = values[15];
+            setMeds(values[16]);
             setTime();
-            setDate();
+            setDate(); 
         }
     }
 }

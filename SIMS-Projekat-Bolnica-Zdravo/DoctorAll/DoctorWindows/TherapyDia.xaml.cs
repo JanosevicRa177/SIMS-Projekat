@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
+using static SIMS_Projekat_Bolnica_Zdravo.Controllers.EditAppointmentDTO;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
 {

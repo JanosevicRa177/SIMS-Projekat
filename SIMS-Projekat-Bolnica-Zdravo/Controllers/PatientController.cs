@@ -44,6 +44,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Patient p = GetPatientByID(pID);
             return new PatientCrAppDTO(p.name, p.surname, "02", p.userID);
         }
+        public int LoginPatient(String mail,String password)
+        {
+            return PS.LoginPatient(mail, password);
+        }
+        public bool CreatePatient(Patient pat)
+        {
+            PS.CreatePatient(pat);
+            return true;
+        }
     }
 
     public class PatientCrAppDTO

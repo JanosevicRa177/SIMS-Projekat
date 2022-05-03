@@ -19,8 +19,9 @@ namespace CrudModel
             get;
             set;
         }
-      public Secretary(String name,String surname,String email,String password,Address address,String phone,String position)
+      public Secretary(int id,String name,String surname,String email,String password,Address address,String phone,String position)
         {
+            this.userID = id;
             this.name = name;
             this.surname = surname;
             this.mail = email;

@@ -42,8 +42,18 @@ namespace CrudModel
             }
             return null;
       }
-      
-      public ObservableCollection<Room> GetAllRooms()
+        public Room GetRoomByName(string name)
+        {
+            Serializer<Room> patientSerializer = new Serializer<Room>();
+            foreach (Room r in patientSerializer.fromCSV("room.txt"))
+            {
+                if (r.name.Equals(name))
+                    return r;
+            }
+            return null;
+        }
+
+        public ObservableCollection<Room> GetAllRooms()
       {      
             Serializer<Room> patientSerializer = new Serializer<Room>();
             return patientSerializer.fromCSV("../../TxtFajlovi/room.txt");

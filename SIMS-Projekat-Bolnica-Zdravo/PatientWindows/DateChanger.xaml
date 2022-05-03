@@ -23,7 +23,7 @@
         <Button Content="Poništi" HorizontalAlignment="Left" Margin="10,9.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Click="Cancel_Date"/>
         <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131.4,9.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Grid.Column="1" Click="Confirm_Date"/>
         <Viewbox Grid.Row="1" Grid.ColumnSpan="3">
-            <Calendar x:Name="DatePicker_Date" Binding.SourceUpdated="Calendar_SourceUpdated"/>
+            <Calendar x:Name="DatePicker_Date" Binding.SourceUpdated="Calendar_SourceUpdated" SelectedDatesChanged="DatePicker_Date_SelectedDatesChanged"/>
         </Viewbox>
     </Grid>
 </Page>
