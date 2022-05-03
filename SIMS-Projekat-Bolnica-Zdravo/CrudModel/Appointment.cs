@@ -4,7 +4,10 @@
 // Purpose: Definition of Class Appointment
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
 namespace CrudModel
@@ -16,6 +19,28 @@ namespace CrudModel
         public Appointment()
         {
 
+        }
+
+        public string serMedList
+        {
+            set;
+            get;
+        }
+        public ObservableCollection<Medicine> medicineList
+        {
+            set;
+            get;
+        }
+        public string condition
+        {
+            set;
+            get;
+        }
+
+        public string therapy
+        {
+            set;
+            get;
         }
 
         public int patientID
@@ -111,6 +136,9 @@ namespace CrudModel
             this.roomID = roomID;
             this.appointmentID = ++ids;
             this.description = description;
+            this.therapy = "";
+            this.condition = "";
+            this.serMedList = "";
         }
 
         public Appointment(DateTime date, int hour, int minute, int duration, Room room, Doctor doc, string description, Patient pat)
@@ -151,6 +179,18 @@ namespace CrudModel
             this.timeString = var5 + this.time.hour.ToString() + ":" + var6 + this.time.minute.ToString();
             this.timeString += " - " + var1 + var3;
             this.timeString += ":" + vars + var;
+            serMedList = "";
+            int i = 0;
+            foreach (Medicine s in medicineList)
+            {
+                if (medicineList.Count > i + 1)
+                    this.serMedList += s.name + "," + s.amount + "," + s.frequency + ";";
+                else
+                {
+                    this.serMedList += s.name + "," + s.amount + "," + s.frequency;
+                }
+                i++;
+            }
         }
 
         public string[] toCSV()
@@ -169,9 +209,23 @@ namespace CrudModel
                 roomID.ToString(),
                 patientID.ToString(),
                 description,
+                therapy,
+                condition,
+                serMedList,
                 appointmentID.ToString()
             };
             return csvValues;
+        }
+
+        public void setMeds(string lon)
+        {
+            medicineList = new ObservableCollection<Medicine>();
+            string[] sts = lon.Split(';');
+            for (int i = 0; i < sts.Length;i++) {
+                string[] splited = sts[i].Split(',');
+                if (splited.Length < 3) continue;
+                this.medicineList.Add(new Medicine(splited[0],splited[1],splited[2]));
+            } 
         }
 
         public void fromCSV(string[] values)
@@ -184,7 +238,10 @@ namespace CrudModel
             this.roomID = int.Parse(values[9]);
             this.patientID = int.Parse(values[10]);
             this.description = values[11];
-            this.appointmentID = int.Parse(values[12]);
+            this.therapy = values[12];
+            this.condition = values[13];
+            setMeds(values[14]);
+            this.appointmentID = int.Parse(values[15]);
             setTime();
             setDate();
         }

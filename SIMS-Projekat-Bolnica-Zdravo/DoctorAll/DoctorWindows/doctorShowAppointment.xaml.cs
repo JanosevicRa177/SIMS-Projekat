@@ -1,5 +1,6 @@
 ﻿using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,36 +29,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
         }
 
-        //public static DoctorsAppointments da
-        //{
-        //    set;
-        //    get;
-        //}
-
-        public doctorShowAppointment(int appoID)
+        public static DoctorsAppointments da
         {
+            set;
+            get;
+        }
+
+        public doctorShowAppointment(int appoID, DoctorsAppointments dax=null)
+        {
+            da = dax;
             AC = new AppointmentController();
             InitializeComponent();
             appointmentID = appoID;
             this.DataContext = AC.GetShowAppointmentDTO(appoID);
         }
-        //public doctorShowAppointment(Appointment appo,DoctorsAppointments dax)
-        //{
-        //    da = dax;
-        //    InitializeComponent();
-        //    appointment = appo;
-        //    this.DataContext = appointment;
-        //}
         
         private void DeleteA_Click(object sender, RoutedEventArgs e)
         {
             AC.RemoveAppointment(appointmentID);
+            da.deleteApp(appointmentID);
             this.Close();
         }
         private void EtitA_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new addAppointmentDialogDoctor(appointmentID);
-            //var dia = new addAppointmentDialogDoctor(appointmentID,this);
+            var dia = new addAppointmentDialogDoctor(appointmentID,this);
             dia.Show();
         }
 
@@ -65,6 +60,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             //da.Appointments.Items.Refresh();
             this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (da != null)
+            {
+                da.Close();
+                var dia = new DoctorsAppointments();
+                dia.Show();
+            }
+        }
+
+        private void Medrec_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new MedicalRecordDoc(AC.GetShowAppointmentDTO(appointmentID).patientID);
+            dia.ShowDialog();
         }
     }
 }

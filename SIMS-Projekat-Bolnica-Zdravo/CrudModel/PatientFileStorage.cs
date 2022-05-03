@@ -39,7 +39,12 @@ namespace CrudModel
       {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
             foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt")) {
-                if (p.userID == id) return p;
+
+                if (p.userID == id)
+                {
+                    p.fullaAddress = p.address.country + " " + p.address.city + " " + p.address.street + " " + p.address.number;
+                    return p;
+                }
             }
             return null;
       }

@@ -1,4 +1,6 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Services
 {
@@ -30,13 +33,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.DeleteAppointment(appid);
         }
-        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID)
+        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID,RoomCrAppDTO rcdto,int dur)
         {
-            return AFS.ChangeAppointment(t, dt, appointmentID);
+            return AFS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
         }
         public Appointment getAppointmentById(int AppID)
         {
             return AFS.GetAppointmentByID(AppID);
+        }
+
+        public void ExecutedAppointment(string cond, string ther, int id, ObservableCollection<Medicine> ocMed, string desc)
+        {
+            AFS.ExecutedAppointment(cond, ther, id, ocMed, desc);
         }
 
         public ObservableCollection<Appointment> getAllDoctorsAppointments(int docID)

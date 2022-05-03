@@ -52,3 +52,10 @@ C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zd
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CoreCompileInputs.cache
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csprojAssemblyReference.cache
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.g.cs
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.baml
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\TherapyDia.g.cs
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\TherapyDia.baml
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.baml

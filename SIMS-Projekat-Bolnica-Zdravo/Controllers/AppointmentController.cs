@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 {
@@ -33,13 +34,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             AS.removeAppointment(appid);
         }
-        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID) 
+        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID, RoomCrAppDTO rcdto = null, int dur = -1) 
         {
-            return AS.ChangeAppointment(t, dt, appointmentID);
+            return AS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
         }
         public int CreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, string desc, PatientCrAppDTO pcdto)
         {
             return AS.CreateAppointment(dt, t, dur, rcadto.id, dcadto.id, desc, pcdto.id);
+        }
+
+        public void ExecutedAppointment(StartAppointmentDTO sadto)
+        {
+            AS.ExecutedAppointment(sadto.condition, sadto.therapy, sadto.id, sadto.medicineList, sadto.desc);
         }
 
         public ObservableCollection<ShowAppointmentDTO> GetAllDoctorsAppointments(int docID)
@@ -48,8 +54,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             ObservableCollection<Appointment> apl = AS.getAllDoctorsAppointments(docID);
             foreach (Appointment a in apl)
             {
-                Console.WriteLine(a.roomID);
-                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
+                adtolist.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
             }
             return adtolist;
         }
@@ -86,10 +91,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return new EditAppointmentDTO(a.patientID, a.roomID, a.doctorID, a.duration,a.timeBegin,a.time);
         }
 
+        public StartAppointmentDTO getStartAppointmentDTOById(int appID)
+        {
+            Appointment a = AS.getAppointmentById(appID);
+            return new StartAppointmentDTO(a.description, a.therapy, a.condition, a.medicineList, a.appointmentID);
+        }
+
         public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
-            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID.ToString(), RC.getRoomById(a.roomID).name, a.date,a.timeString,a.description,appoID);
+            return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID, RC.getRoomById(a.roomID).name, a.date,a.timeString,a.description,appoID);
         }
         public ShowAppointmentPatientDTO getShowAppointmentPatientDTO(int appoID)
         {
@@ -98,6 +109,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, appoID, a.timeBegin);
         }
 
+        public class StartAppointmentDTO
+        {
+            public string desc { set; get; }
+            public string therapy { set; get; }
+            public string condition { set; get; }
+            public ObservableCollection<Medicine> medicineList { set; get; }
+            public int id { set; get; }
+            public StartAppointmentDTO(string desc,string therapy,string condition, ObservableCollection<Medicine> medList,int id)
+            {
+                this.desc = desc;
+                this.therapy = therapy;
+                this.condition = condition;
+                this.medicineList = medList;
+                this.id = id;
+            }
+        }
         public class EditAppointmentDTO
         {
             private RoomController RC;
@@ -117,35 +144,38 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
                 docID = dID;
                 this.dur = dur;
                 this.dt = dt;
+                this.time = t;
                 this.roomName = RC.getRoomCrAppDTOById(roomID).name;
             }
 
         }
-        public class ShowAppointmentDTO
+        
+    }
+
+    public class ShowAppointmentDTO
+    {
+
+        public string patientName { set; get; }
+        public string patientSurname { set; get; }
+        public int patientID { set; get; }
+        public string roomName { set; get; }
+        public string Date { set; get; }
+        public string Time { set; get; }
+        public string desc { set; get; }
+        public int id { set; get; }
+
+        public ShowAppointmentDTO(string pName, string pSurname, int pID, string rName, string date, string time, string desc, int id)
         {
-
-            public string patientName { set; get; }
-            public string patientSurname { set; get; }
-            public string patientID { set; get; }
-            public string roomName { set; get; }
-            public string Date { set; get; }
-            public string Time { set; get; }
-            public string desc { set; get; }
-            public int id { set; get; }
-
-            public ShowAppointmentDTO(string pName,string pSurname,string pID, string rName, string date,string time,string desc,int id)
-            {
-                patientName = pName;
-                patientSurname = pSurname;
-                patientID = pID;
-                roomName = rName;
-                Date = date;
-                Time = time;
-                this.desc = desc;
-                this.id = id;
-            }
-
+            patientName = pName;
+            patientSurname = pSurname;
+            patientID = pID;
+            roomName = rName;
+            Date = date;
+            Time = time;
+            this.desc = desc;
+            this.id = id;
         }
+
     }
     public class ShowAppointmentPatientDTO
     {

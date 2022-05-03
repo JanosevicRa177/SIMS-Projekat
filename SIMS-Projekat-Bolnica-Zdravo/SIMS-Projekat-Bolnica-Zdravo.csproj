@@ -65,11 +65,21 @@
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="CrudModel\Medicine.cs" />
     <Compile Include="CrudModel\Gender.cs" />
     <Compile Include="CrudModel\IdsStorage.cs" />
     <Compile Include="CrudModel\TimePatient.cs" />
+    <Compile Include="DoctorAll\DoctorWindows\AddMedicine.xaml.cs">
+      <DependentUpon>AddMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorAll\DoctorWindows\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorAll\DoctorWindows\MedicalRecordDoc.xaml.cs">
+      <DependentUpon>MedicalRecordDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorAll\DoctorWindows\TherapyDia.xaml.cs">
+      <DependentUpon>TherapyDia.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientWindows\ChangeAppointment.xaml.cs">
       <DependentUpon>ChangeAppointment.xaml</DependentUpon>
@@ -135,7 +145,19 @@
     <Compile Include="Windows\StaffRegistrationWindow.xaml.cs">
       <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="DoctorAll\DoctorWindows\AddMedicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorAll\DoctorWindows\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorAll\DoctorWindows\MedicalRecordDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorAll\DoctorWindows\TherapyDia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +305,8 @@
   <ItemGroup>
     <Resource Include="hospital.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DoctorAll\Pges\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

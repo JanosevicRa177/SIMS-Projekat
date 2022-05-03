@@ -4,10 +4,13 @@
 // Purpose: Definition of Class AppointmentFileStorage
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
 namespace CrudModel
 {
@@ -29,6 +32,26 @@ namespace CrudModel
                 Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
                 appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             }
+        }
+
+        public void ExecutedAppointment(string cond,string ther,int id,ObservableCollection<Medicine> ocMed,string desc)
+        {
+            ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
+            foreach (Appointment a in appointmentList)
+            {
+                if (a.appointmentID == id)
+                {
+                    a.condition = cond;
+                    a.therapy = ther;
+                    a.description = desc;
+                    a.medicineList = ocMed;
+                    a.setTime();
+                    break;
+                }
+            }
+            appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
         }
         public bool addAppointment(Appointment newAppointment)
         {
@@ -99,7 +122,7 @@ namespace CrudModel
             appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
             return true;
         }
-        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID)
+        public bool ChangeAppointment(Time t, DateTime dt, int appointmentID,RoomCrAppDTO rcdto,int dur)
         {
             ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
@@ -111,6 +134,8 @@ namespace CrudModel
                     a.timeBegin = dt;
                     a.time.hour = t.hour;
                     a.time.minute = t.minute;
+                    if (rcdto != null) a.roomID = rcdto.id;
+                    if (dur != -1) a.duration = dur;
                     a.setTime();
                     a.setDate();
                     break;
