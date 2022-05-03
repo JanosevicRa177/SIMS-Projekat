@@ -21,7 +21,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         private AppointmentService AS;
         private PatientController PC;
         private DoctorService DS;
+        private PatientService PS;
         private RoomController RC;
+        private RoomService RS;
 
 
         public AppointmentController()
@@ -29,7 +31,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             DS = new DoctorService();
             PC = new PatientController();
             RC = new RoomController();
+            PS = new PatientService();
             AS = new AppointmentService();
+            RS = new RoomService();
         }
 
         public void RemoveAppointment(int appid)
@@ -66,6 +70,31 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public void DeleteAppointment(ShowAppointmentDTO app)
         {
             AS.DeleteAppointment(app);
+        }
+        public ObservableCollection<Doctor> getAllDocs()
+        {
+            return AS.getAllDoctors();
+        }
+        public ObservableCollection<RoomCrAppDTO> getAllRoomsDTO()
+        {
+            ObservableCollection<RoomCrAppDTO> ocp = new ObservableCollection<RoomCrAppDTO>();
+            ObservableCollection<Room> rooms = RS.getAllRooms();
+            foreach (Room r in rooms)
+            {
+                ocp.Add(new RoomCrAppDTO(r.name, r.roomID));
+            }
+            return ocp;
+        }
+
+        public ObservableCollection<PatientCrAppDTO> getAllPatientsChooseDTO()
+        {
+            ObservableCollection<PatientCrAppDTO> ocp = new ObservableCollection<PatientCrAppDTO>();
+            ObservableCollection<Patient> patients = PS.getAllPatients();
+            foreach (Patient p in patients)
+            {
+                ocp.Add(new PatientCrAppDTO(p.name, p.surname, p.userID.ToString(), p.userID));
+            }
+            return ocp;
         }
         public void DeleteOperationAppointment(ShowAppointmentDTO app)
         {
