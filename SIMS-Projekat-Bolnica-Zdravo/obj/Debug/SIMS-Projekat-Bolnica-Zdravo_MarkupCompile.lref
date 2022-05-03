@@ -4,6 +4,7 @@ FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\MainWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\AddAlergenWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\ChangeAppointmentDialogPatient.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\CreateRoomDialog.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\DateChangerPatient.xaml;;
@@ -12,11 +13,14 @@ FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\doctorShowAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\DoctorWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\ManagerWindow.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\NoAccountAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\NoteWindow.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\OperationWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientNotes.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\AddAppointmentDialogPatient.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindow.xaml;;
-FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\Secretary.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\SecretaryWindow.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\SecretaryPacientAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\ShowAppointmentDialogPatient.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\StaffRegistrationWindow.xaml;;
 

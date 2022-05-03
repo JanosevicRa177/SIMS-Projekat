@@ -25,5 +25,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return PFS.GetPatientByID(patientID);
         }
+        public bool CreatePatient(Patient pat)
+        {
+            PFS.CreatePatient(pat);
+            return true;
+        }
     }
 }

@@ -66,7 +66,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
             if (xd.Equals("Sekretar"))
             {
-                Windows.Secretary sc = new Windows.Secretary();
+                SecretaryWindow sc = new SecretaryWindow();
                 sc.Show();
             }
             else if (xd.Equals("Lekar"))

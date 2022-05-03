@@ -22,6 +22,15 @@ namespace CrudModel
             this.userID = User.generateID();
             this.gender = gender;
         }
+        public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail,int id) : base(name, surname, address, password, mobilePhone, mail)
+        {
+            if (notes == null)
+            {
+                notes = new ObservableCollection<Note>();
+            }
+            this.userID = id;
+            this.gender = gender;
+        }
         public Patient()
         {
             if (notes == null)

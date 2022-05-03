@@ -12,7 +12,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -28,9 +28,10 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition/>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
+        
         <Label Content="Name:"  Grid.Row="0" Margin="5" Height="28"  Grid.Column="2"/>
         <TextBox x:Name="nameTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="51,0,0,0" Width="170" Grid.Column="3">
             <TextBox.Text>
@@ -269,7 +270,7 @@
             </StackPanel>
         </StackPanel>
 
-        <DataGrid GotFocus="UserGrid_LostFocus" Grid.Row="4" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding dcs}" x:Name="UserGrid" Margin="5" Grid.RowSpan="4" SelectionChanged="UserGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="1" IsReadOnly="True">
+        <DataGrid GotFocus="UserGrid_LostFocus" Grid.Row="9" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding dcs}" x:Name="UserGrid" Margin="5" Grid.RowSpan="4" SelectionChanged="UserGrid_SelectionChanged" Grid.Column="2"  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"></DataGridTextColumn>
@@ -277,14 +278,14 @@
             </DataGrid.Columns>
         </DataGrid>
        
-        <DataGrid GotFocus="managerGrid_LostFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding mdt}" x:Name="managerGrid" Margin="5" Grid.RowSpan="4" SelectionChanged="managerGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="1" IsReadOnly="True">
+        <DataGrid GotFocus="managerGrid_LostFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding mdt}" x:Name="managerGrid" Margin="5" Grid.RowSpan="4" SelectionChanged="managerGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="9" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding email}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid GotFocus="secretaryGrid_GotFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding sdt}" x:Name="secretaryGrid" Margin="5" Grid.RowSpan="4" SelectionChanged="secretaryGrid_SelectionChanged" Grid.Column="4" Grid.ColumnSpan="1" IsReadOnly="True">
+        <DataGrid GotFocus="secretaryGrid_GotFocus" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding sdt}" x:Name="secretaryGrid" Margin="5" Grid.RowSpan="4" SelectionChanged="secretaryGrid_SelectionChanged" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="9" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>

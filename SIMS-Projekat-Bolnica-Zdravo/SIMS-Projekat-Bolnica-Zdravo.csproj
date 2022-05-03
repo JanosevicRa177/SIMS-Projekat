@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="CrudModel\Class1.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MedicalRecordController.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="CrudModel\DateAndTimeForAppointments.cs" />
     <Compile Include="CrudModel\Gender.cs" />
     <Compile Include="CrudModel\IdsStorage.cs" />
     <Compile Include="DoctorAll\DoctorWindows\DialogWindow.xaml.cs">
@@ -82,10 +84,14 @@
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\ManagerService.cs" />
+    <Compile Include="Services\MedicalRecordService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\SecretaryService.cs" />
     <Compile Include="Services\SpecializationService.cs" />
+    <Compile Include="Windows\AddAlergenWindow.xaml.cs">
+      <DependentUpon>AddAlergenWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ChangeAppointmentDialogPatient.xaml.cs">
       <DependentUpon>ChangeAppointmentDialogPatient.xaml</DependentUpon>
     </Compile>
@@ -111,8 +117,14 @@
     <Compile Include="Windows\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\NoAccountAppointment.xaml.cs">
+      <DependentUpon>NoAccountAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OperationWindow.xaml.cs">
+      <DependentUpon>OperationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PatientNotes.xaml.cs">
       <DependentUpon>PatientNotes.xaml</DependentUpon>
@@ -124,8 +136,11 @@
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RegexValidationRules.cs" />
-    <Compile Include="Windows\Secretary.xaml.cs">
-      <DependentUpon>Secretary.xaml</DependentUpon>
+    <Compile Include="Windows\SecretaryWindow.xaml.cs">
+      <DependentUpon>SecretaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SecretaryPacientAppointment.xaml.cs">
+      <DependentUpon>SecretaryPacientAppointment.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ShowAppointmentDialogPatient.xaml.cs">
       <DependentUpon>ShowAppointmentDialogPatient.xaml</DependentUpon>
@@ -184,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AddAlergenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ChangeAppointmentDialogPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -216,9 +235,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Windows\NoAccountAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\NoteWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\OperationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\PatientNotes.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -232,7 +259,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Secretary.xaml">
+    <Page Include="Windows\SecretaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SecretaryPacientAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

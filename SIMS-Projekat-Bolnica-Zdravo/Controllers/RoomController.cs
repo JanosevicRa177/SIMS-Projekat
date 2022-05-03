@@ -33,6 +33,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return RS.getRoomById(roomID);
         }
+        public Room getRoomByName(string name)
+        {
+            return RS.getRoomByName(name);
+        }
 
         public class RoomCrAppDTO {
 

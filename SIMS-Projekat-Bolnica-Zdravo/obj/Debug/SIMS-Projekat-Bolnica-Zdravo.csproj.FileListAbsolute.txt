@@ -73,7 +73,6 @@ D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoteWin
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientNotes.g.cs
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAppointmentDialogPatient.g.cs
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\Secretary.g.cs
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ShowAppointmentDialogPatient.g.cs
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.g.cs
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.g.cs
@@ -98,7 +97,6 @@ D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoteWin
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientNotes.baml
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAppointmentDialogPatient.baml
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\Secretary.baml
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ShowAppointmentDialogPatient.baml
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.baml
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.g.resources
@@ -107,3 +105,13 @@ D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-B
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CoreCompileInputs.cache
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryPacientAppointment.g.cs
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryPacientAppointment.baml
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryWindow.g.cs
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryWindow.baml
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoAccountAppointment.g.cs
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoAccountAppointment.baml
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\OperationWindow.g.cs
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\OperationWindow.baml
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAlergenWindow.g.cs
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAlergenWindow.baml

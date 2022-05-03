@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 {
@@ -56,12 +57,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Doctor d = DS.getDocByMail(email);
             return d;
         }
-     
+        public Doctor getDocById(int id)
+        {
+            ObservableCollection<Doctor> doctors = DS.getAllDoctors();
+            Doctor d = DS.getDocById(id);
+            return d;
+        }
+        public DoctorCrAppDTO getDocByIdDTO(int id)
+        {
+            return DS.getDocByIdDTO(id);
+        }
+
         public BindingList<Time> getDoctorTimes(DoctorCrAppDTO doc,DateTime dt)
         {
             if (doc == null) return DS.getDoctorTimes(0, dt);
             return DS.getDoctorTimes(doc.id,dt);
         }
+       
+
+        public BindingList<Time> getDoctorOperationTimes(DoctorCrAppDTO doc, DateTime dt)
+        {
+            if (doc == null) return DS.getDoctorOperationsTimes(0, dt);
+            return DS.getDoctorOperationsTimes(doc.id, dt);
+        }
+        
 
         public ObservableCollection<DoctorSecDTO> getAllDocsDTO()
         {

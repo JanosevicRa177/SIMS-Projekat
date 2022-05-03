@@ -35,7 +35,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private String _test6;
         private String _test7;
         private String _test8;
-        int br = 0;
+  
 
         public String Test7
         {
@@ -314,7 +314,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 {
                     if (SC.getAllSecsDTO().Count == 0)
                     {
-                        CrudModel.Secretary tm = new CrudModel.Secretary(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                        Secretary tm = new Secretary(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
                         SC.AddSec(tm);
                         sdtt.Add(new SecretaryDTO(tm.name, tm.surname, tm.mail));
                         MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
@@ -324,7 +324,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     }
                     else if (SC.getAllSecsDTO().Count != 0)
                     {
-                        foreach (CrudModel.Secretary d in SC.getAllSecs())
+                        foreach (Secretary d in SC.getAllSecs())
                         {
                             if (d.mail.Equals(emailTextBox.Text))
                             {
@@ -336,7 +336,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                         }
                         if (tmp == 0)
                         {
-                            CrudModel.Secretary tm = new CrudModel.Secretary(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                            Secretary tm = new Secretary(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
                             SC.AddSec(tm);
                             sdtt.Add(new SecretaryDTO(tm.name, tm.surname, tm.mail));
 
@@ -405,7 +405,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new MainWindow();
+            var dia = new SecretaryWindow();
             dia.Show();
             this.Close();
         }
@@ -502,7 +502,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                             if (dc.userID == d.userID)
                             {
 
-                                Manager doctor = new CrudModel.Manager(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                                Manager doctor = new Manager(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
                                 ManagerDTO dsd = new ManagerDTO(doctor.name, doctor.surname, dc.mail);
 
                                 foreach (ManagerDTO doc in mdtt)
@@ -546,10 +546,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 int tmp = 0;
                 SecretaryDTO doct = (SecretaryDTO)secretaryGrid.SelectedItem;
-                CrudModel.Secretary dc = SC.getSecByEmail(doct.email);
+                Secretary dc = SC.getSecByEmail(doct.email);
                 if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (numberTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != ""))
                 {
-                    foreach (CrudModel.Secretary d2 in SC.getAllSecs())
+                    foreach (Secretary d2 in SC.getAllSecs())
                     {
                         if ((d2.mail.Equals(emailTextBox.Text)) && (dc.userID != d2.userID))
                         {
@@ -560,13 +560,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     }
                     if (tmp == 0)
                     {
-                        foreach (CrudModel.Secretary d in SC.getAllSecs())
+                        foreach (Secretary d in SC.getAllSecs())
                         {
 
 
                             if (dc.userID == d.userID)
                             {
-                                CrudModel.Secretary doctor = new CrudModel.Secretary(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                                Secretary doctor = new Secretary(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
                                 SecretaryDTO dsd = new SecretaryDTO(doctor.name, doctor.surname, dc.mail);
 
                                 foreach (SecretaryDTO doc in sdtt)
@@ -692,7 +692,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             SecretaryDTO sd = (SecretaryDTO)secretaryGrid.SelectedItem;
             if (sd != null)
             {
-                CrudModel.Secretary doct = SC.getSecByEmail(sd.email);
+                Secretary doct = SC.getSecByEmail(sd.email);
                 nameTextBox.Text = doct.name;
                 surnameTextBox.Text = doct.surname;
                 emailTextBox.Text = doct.mail;

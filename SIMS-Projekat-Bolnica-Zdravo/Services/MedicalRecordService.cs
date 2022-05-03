@@ -1,5 +1,4 @@
 ﻿using CrudModel;
-using SIMS_Projekat_Bolnica_Zdravo.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,34 +6,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
+namespace SIMS_Projekat_Bolnica_Zdravo.Services
 {
-    class MedicalRecordController
+    class MedicalRecordService
     {
-        //private MedicalRecordSrvice MRS;
-        private MedicalRecordService MRS;
-        public MedicalRecordController()
+        MedicalRecordFileStorage MRFS;
+
+        public MedicalRecordService()
         {
-            MRS = new MedicalRecordService();
+            MRFS = new MedicalRecordFileStorage();
         }
+
 
         public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
         {
-            MRS.CreateMedicalRecord(newMedicalRecord);
+            MRFS.CreateMedicalRecord(newMedicalRecord);
             return true;
         }
         public ObservableCollection<MedicalRecord> GetAllMedicalRecord()
         {
-            return MRS.GetAllMedicalRecord();
+            return MRFS.GetAllMedicalRecord();
         }
         public ObservableCollection<string> getAlergensByPatientId(int patientID)
         {
-            return MRS.getAlergensByPatientId(patientID);
+            return MRFS.getAlergensByPatientId(patientID);
         }
         public bool insertAlergen(ObservableCollection<string> alergens, int patientID)
         {
-            return MRS.insertAlergen(alergens, patientID);
+            return MRFS.insertAlergen(alergens, patientID);
         }
-
     }
 }

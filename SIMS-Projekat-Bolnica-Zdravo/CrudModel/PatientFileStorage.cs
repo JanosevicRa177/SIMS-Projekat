@@ -21,7 +21,14 @@ namespace CrudModel
      
       public bool CreatePatient(Patient newPatient)
       {
-            patientList.Add(newPatient);
+            ObservableCollection<Patient> patients = new ObservableCollection<Patient>();
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("patients.txt"))
+            {
+                patients.Add(p);
+            }
+            patients.Add(newPatient);
+            patientSerializer.toCSV("patients.txt",patients);
             return true;
       }
       

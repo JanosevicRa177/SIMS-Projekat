@@ -23,7 +23,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return SS.getAllSecretaries();
         }
 
-        public void AddSec(CrudModel.Secretary s)
+        public void AddSec(Secretary s)
         {
             SS.AddSecretary(s);
         }
@@ -36,7 +36,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             SS.UpdateSecretary(s);
         }
-        public CrudModel.Secretary getSecByEmail(string email)
+        public Secretary getSecByEmail(string email)
         {
             ObservableCollection<Secretary> secs = SS.getAllSecretaries();
             Secretary d = SS.getSecByMail(email);
