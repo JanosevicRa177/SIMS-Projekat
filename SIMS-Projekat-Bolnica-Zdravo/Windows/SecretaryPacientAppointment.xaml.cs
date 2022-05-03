@@ -115,11 +115,19 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             Time t = (Time)TimeGrid.SelectedItem;
             if (t.time.Split(':')[1].ToString().Equals("30"))
             {
-                sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0],t.time, "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
+                if(Convert.ToInt32(t.time.Split(':')[0]) < 10)
+                sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0],t.time + " - " + "0" + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
+                else
+                    sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
+
             }
+
             else
             {
-                sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time , "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
+                if (Convert.ToInt32(t.time.Split(':')[0]) < 10)
+                    sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + "0" + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
+                else
+                    sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id.ToString(), emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
 
             }
             MessageBox.Show("Uspesno ste dodali pregled");
@@ -211,9 +219,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     if (x.time.Split(':')[1].ToString().Equals("30"))
                     {
                         if (Convert.ToInt32(x.time.Split(':')[0]) < 10)
-                            s.Time = "0" + (Convert.ToInt32(x.time.Split(':')[0]) + 1).ToString() + ":00" + " - " + x.time.Split(':')[0] + ":" + "00";
+                            s.Time = "0" + (Convert.ToInt32(x.time.Split(':')[0])).ToString() + ":30" + " - " + ((Convert.ToInt32(x.time.Split(':')[0]))+1) + ":" + "00";
                         else
-                            s.Time = (Convert.ToInt32(x.time.Split(':')[0]) + 1).ToString() + ":00" + " - " + x.time.Split(':')[0] + ":" + "00";
+                            s.Time = (Convert.ToInt32(x.time.Split(':')[0])).ToString() + ":30" + " - " + ((Convert.ToInt32(x.time.Split(':')[0])) + 1) + ":" + "00";
 
                     }
                     else
@@ -227,7 +235,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     AppointmentGrid.Items.Refresh();
                     MessageBox.Show(x.hour + ":" + x.minute);
                     Appointment a = AC.findAppById(OldId, s.Date);
-                        AC.UpdateAppointment(a, new Appointment((DateTime)appointmentDate.SelectedDate, x.hour, x.minute, 30, RC.getRoomById(Convert.ToInt32(emailTextBox.Text.Split(' ')[0])), DC.getDocById(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0])), "blabla", PC.GetPatientByID(Convert.ToInt32(tn.patientID)), a.appointmentID));
+                    int appid = 0;
+                    int proba = 0;
+                    ObservableCollection<ShowAppointmentDTO> ap = AC.getAllAppointmentDTO();
+                    foreach(ShowAppointmentDTO sss in ap)
+                    {
+                        if (proba == ap.Count)
+                            appid = sss.id;
+                        proba++;
+                    }
+                    appid = appid + 1;
+                        AC.UpdateAppointment(a, new Appointment((DateTime)appointmentDate.SelectedDate, x.hour, x.minute, 30, RC.getRoomById(Convert.ToInt32(emailTextBox.Text.Split(' ')[0])), DC.getDocById(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0])), "blabla", PC.GetPatientByID(Convert.ToInt32(tn.patientID)), appid));
                     
                 }
             }
