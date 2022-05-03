@@ -282,7 +282,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void TimeselectDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //slider1.Maximum = DC.calculateMaxDur(dur, (Time)TimeselectDG.SelectedItem, tims);
+        }
+
+        private void slider1_GotFocus(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
