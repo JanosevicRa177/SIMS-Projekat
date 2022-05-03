@@ -52,6 +52,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.DeleteAppointment(appid);
         }
+        public ObservableCollection<Doctor> getAllDoctors()
+        {
+            return DFS.GetAllDoctors();
+        }
         public bool ChangeAppointment(Time t, DateTime dt, int appointmentID,RoomCrAppDTO rcdto,int dur)
         {
             return AFS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
