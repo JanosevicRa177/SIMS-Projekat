@@ -1,7 +1,3 @@
-// File:    AppointmentNotificationFileStorage.cs
-// Author:  Dusan
-// Created: Saturday, April 30, 2022 12:28:47 PM
-// Purpose: Definition of Class AppointmentNotificationFileStorage
 
 using ConsoleApp.serialization;
 using System;
