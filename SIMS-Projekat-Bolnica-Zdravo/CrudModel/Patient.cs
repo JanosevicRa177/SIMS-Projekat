@@ -4,7 +4,9 @@
 // Purpose: Definition of Class Patient
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace CrudModel
@@ -21,6 +23,16 @@ namespace CrudModel
             }
             this.userID = User.generateID();
             this.gender = gender;
+            this.fullaAddress = address.country + " " + address.city + " " + address.street + " " + address.number;
+        }
+        public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail,int id) : base(name, surname, address, password, mobilePhone, mail)
+        {
+            if (notes == null)
+            {
+                notes = new ObservableCollection<Note>();
+            }
+            this.userID = id;
+            this.gender = gender;
         }
         public Patient()
         {
@@ -29,6 +41,25 @@ namespace CrudModel
                 notes = new ObservableCollection<Note>();
             }
             address = new Address();
+
+        }
+
+        public string condition
+        {
+            set;
+            get;
+        }
+
+        public string therapy
+        {
+            set;
+            get;
+        }
+
+        public List<Medicine> therapyList
+        {
+            set;
+            get;
         }
         public Gender gender
         {
@@ -141,6 +172,9 @@ namespace CrudModel
                     mobilePhone,
                     mail,
                     userID.ToString(),
+                    condition,
+                    therapy,
+
                     "M"
                 };
                 return csvValues;

@@ -4,6 +4,7 @@
 // Purpose: Definition of Class DoctorFileStorage
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,18 +30,57 @@ namespace CrudModel
         }
       public bool CreateDoctor(Doctor newDoctor)
       {
-         throw new NotImplementedException();
+            ObservableCollection<Doctor> dcs = new ObservableCollection<Doctor>();
+            dcs = GetAllDoctors();
+            dcs.Add(newDoctor);
+            Serializer<Doctor> doctorSerializer = new Serializer<Doctor>();
+            doctorSerializer.toCSV("../../TxtFajlovi/doctors.txt", dcs);
+
+            return true;
       }
       
-      public bool DeleteDoctor(int userID)
+      public bool DeleteDoctor(DoctorSecDTO d)
       {
-         throw new NotImplementedException();
+            ObservableCollection<Doctor> dcs = new ObservableCollection<Doctor>();
+            dcs = GetAllDoctors();
+            Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
+            foreach (Doctor doc in dcs)
+            {
+                if (doc.mail.Equals(d.email))
+                {
+                    dcs.Remove(doc);
+                    break;
+                }
+            }
+            doctorserialzer.toCSV("../../TxtFajlovi/doctors.txt", dcs);
+            return true;
       }
       
       public bool UpdateDoctor(Doctor doctor)
       {
-         throw new NotImplementedException();
-      }
+            ObservableCollection<Doctor> dcs = new ObservableCollection<Doctor>();
+            dcs = GetAllDoctors();
+            Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
+            foreach (Doctor doc in dcs)
+            {
+                if (doc.userID == doctor.userID)
+                {
+                    doc.name = doctor.name;
+                    doc.surname = doctor.surname;
+                    doc.mail = doctor.mail;
+                    doc.password = doctor.password;
+                    doc.mobilePhone = doctor.mobilePhone;
+                    doc.address = doctor.address;
+                    doc.specialization = doctor.specialization;
+                    doc.position = doctor.position;
+                    break;
+       
+                }
+           
+            }
+            doctorserialzer.toCSV("../../TxtFajlovi/doctors.txt", dcs);
+            return true;
+        }
       
       public Doctor GetDoctorByID(int doctorID)
       {
@@ -57,8 +97,13 @@ namespace CrudModel
       
       public ObservableCollection<Doctor> GetAllDoctors()
       {
-            return doctorList;
-         throw new NotImplementedException();
+            ObservableCollection<Doctor> doctors = new ObservableCollection<Doctor>();
+            Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
+            foreach (Doctor doc in doctorserialzer.fromCSV("../../TxtFajlovi/doctors.txt"))
+            {
+                doctors.Add(doc);
+            }
+            return doctors;
       }
    
    }

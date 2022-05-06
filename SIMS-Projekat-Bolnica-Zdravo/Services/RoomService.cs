@@ -26,5 +26,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return RFS.GetRoomByID(roomID);
         }
+        public Room getRoomByName(string name)
+        {
+            return RFS.GetRoomByName(name);
+        }
     }
 }

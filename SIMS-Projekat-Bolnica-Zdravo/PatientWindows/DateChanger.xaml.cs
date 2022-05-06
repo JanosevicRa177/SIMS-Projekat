@@ -65,7 +65,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 DatePicker_Date.SelectedDate = date;
                 return;
             }
-            if (!(ShowAppointment.appointment.Date_T.AddDays(-2) < DatePicker_Date.SelectedDate.Value) || !(DatePicker_Date.SelectedDate.Value  < ShowAppointment.appointment.Date_T.AddDays(2)))
+            if (!(ShowAppointment.appointment.Date.AddDays(-2) < DatePicker_Date.SelectedDate.Value) || !(DatePicker_Date.SelectedDate.Value  < ShowAppointment.appointment.Date.AddDays(2)))
             {
                 MessageBox.Show("Ne možete izmeniti termin u vecem rasponu od 2 dana");
                 changed = true;

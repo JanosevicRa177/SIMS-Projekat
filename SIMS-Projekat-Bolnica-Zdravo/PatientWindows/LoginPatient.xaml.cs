@@ -34,16 +34,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            int patientID = PC.LoginPatient(Mail.Text, Password.Password.ToString());
+            /*int patientID = PC.LoginPatient(Mail.Text, Password.Password.ToString());
             if (patientID == -1)
             {
                 MessageBox.Show("Pogresan mail ili sifra");
                 return;
-            }
+            }*/
             Mail.Text = "";
             Password.Clear();
             PassText.Visibility = Visibility.Visible;
-            PatientWindow pt = new PatientWindow(this, patientID);
+            PatientWindow pt = new PatientWindow(this, 5);
             pt.Show();
             this.Hide();
         }

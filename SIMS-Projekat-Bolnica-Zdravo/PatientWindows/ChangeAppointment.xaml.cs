@@ -106,8 +106,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             TimePatient TimePat = (TimePatient)TimeselectDG.SelectedItem;
             Time t = new Time(TimePat.hour, TimePat.minute, TimePat.ID);
-            ShowAppointment.appointment.Date_T = TimePat.date;
+            ShowAppointment.appointment.Date = TimePat.date;
             ShowAppointment.appointment.Time = t.time;
+            Room r = RC.getRoomByName(ShowAppointment.appointment.roomName);
+            if (!AC.CheckCreateAppointment(TimePat.date, t, 30, new RoomCrAppDTO(r.name,r.roomID), TimePat.doctor, PatientWindow.loggedPatient))
+            {
+                MessageBox.Show("U medjuvremenu neko je zakazao pregled, molim izaberite drugi termin");
+                return;
+            }
             AC.ChangeAppointment(t, TimePat.date, appointmentID);
             date = DateTime.MinValue;
             initialize = true;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 {
-    class RoomController
+    public class RoomController
     {
         private RoomService RS;
 
@@ -24,7 +24,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             ObservableCollection<Room> rooms = RS.getAllRooms();
             foreach (Room r in rooms)
             {
-                ocp.Add(new RoomCrAppDTO(r.name,r.roomID));
+                ocp.Add(new RoomCrAppDTO(r.name, r.roomID));
             }
             return ocp;
         }
@@ -33,24 +33,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return RS.getRoomById(roomID);
         }
+        public Room getRoomByName(string name)
+        {
+            return RS.getRoomByName(name);
+        }
 
         public RoomCrAppDTO getRoomCrAppDTOById(int roomID)
         {
-            Room r =  RS.getRoomById(roomID);
+            Room r = RS.getRoomById(roomID);
             return new RoomCrAppDTO(r.name, r.roomID);
         }
 
-        public class RoomCrAppDTO {
 
-            public string name { set; get; }
+    }
+    public class RoomCrAppDTO
+    {
 
-            public int id { set; get; }
+        public string name { set; get; }
 
-            public RoomCrAppDTO(string name,int id)
-            {
-                this.name = name;
-                this.id = id;
-            }
+        public int id { set; get; }
+
+        public RoomCrAppDTO(string name, int id)
+        {
+            this.name = name;
+            this.id = id;
         }
     }
 }

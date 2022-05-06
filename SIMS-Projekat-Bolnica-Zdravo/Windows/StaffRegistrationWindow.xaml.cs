@@ -1,4 +1,5 @@
 using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -34,7 +35,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private String _test6;
         private String _test7;
         private String _test8;
-        int br = 0;
+  
 
         public String Test7
         {
@@ -166,17 +167,41 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public static int staffID = 0;
 
 
-        
-
+        public ObservableCollection<DoctorSecDTO> dcss
+        {
+            get;
+            set;
+        }
+        public ObservableCollection<SecretaryDTO> sdtt
+        {
+            get;
+            set;
+        }
+        public ObservableCollection<ManagerDTO> mdtt
+        {
+            get;
+            set;
+        }
+        private DoctorController DC;
+        private SecretaryController SC;
+        private ManagerController MC;
         public StaffRegistrationWindow()
         {
-
+            DC = new DoctorController();
+            SC = new SecretaryController();
+            MC = new ManagerController();
             InitializeComponent();
+            dcss = DC.getAllDocsDTO();
+            sdtt = SC.getAllSecsDTO();
+            mdtt = MC.getAllManagersDTO();
+            
+          
             this.DataContext = new
             {
-                docs = new DoctorFileStorage(),
-                man = new ManagerFileStorage(),
-                sec = new SecretaryFileStorage(),
+                
+                dcs = dcss,
+                sdt = sdtt,
+                mdt = mdtt,
                 This = this
             };
         }
@@ -189,18 +214,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != "") && (numberTextBox.Text != "") && (specializationTextBox.Text != "") && (licenceComboBox.Text != ""))
                 {
 
-                    if (DoctorFileStorage.doctorList.Count == 0)
+                    if (DC.getAllDocsDTO().Count == 0)
                     {
-                        DoctorFileStorage.doctorList.Add(new Doctor(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, new Specialization(specializationTextBox.Text), licenceComboBox.Text));
-                        MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
+                        Doctor tm = new Doctor(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, new Specialization(specializationTextBox.Text), licenceComboBox.Text);
+                        DC.AddDoct(tm);
+                        dcss.Add(new DoctorSecDTO(tm.name, tm.surname, tm.mail));
+                        MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added! xd");
 
                         nameTextBox.Text = surnameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = licenceComboBox.Text = numberTextBox.Text = "";
-      
+
                         staffID++;
                     }
-                    else if (DoctorFileStorage.doctorList.Count != 0)
+                    else if (DC.getAllDocsDTO().Count != 0)
                     {
-                        foreach (Doctor d in DoctorFileStorage.doctorList)
+                        foreach (Doctor d in DC.getAllDocs())
                         {
                             if (d.mail.Equals(emailTextBox.Text))
                             {
@@ -211,7 +238,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                         }
                         if (tmp == 0)
                         {
-                            DoctorFileStorage.doctorList.Add(new Doctor(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, new Specialization(specializationTextBox.Text), licenceComboBox.Text));
+                            Doctor tm = new Doctor(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, new Specialization(specializationTextBox.Text), licenceComboBox.Text);
+                            DC.AddDoct(tm);
+                            dcss.Add(new DoctorSecDTO(tm.name, tm.surname, tm.mail));
                             MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                             nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = licenceComboBox.Text = "";
@@ -220,6 +249,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
 
                     }
+
+                    UserGrid.Items.Refresh();
+
+
+
 
                 }
                 else
@@ -231,17 +265,19 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 int tmp = 0;
                 if ((nameTextBox.Text != "") && (numberTextBox.Text != "") && (surnameTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != ""))
                 {
-                    if (ManagerFileStorage.managerList.Count == 0)
+                    if (MC.getAllManagersDTO().Count == 0)
                     {
-                        ManagerFileStorage.managerList.Add(new Manager(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text,licenceComboBox.Text));
+                        Manager tm = new Manager(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text,licenceComboBox.Text);
+                        MC.AddMan(tm);
+                        mdtt.Add(new ManagerDTO(tm.name, tm.surname, tm.mail));
                         MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                         nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = numberTextBox.Text = specializationTextBox.Text = licenceComboBox.Text = "";
                         staffID++;
                     }
-                    else if (ManagerFileStorage.managerList.Count != 0)
+                    else if (MC.getAllManagersDTO().Count != 0)
                     {
-                        foreach (Manager d in ManagerFileStorage.managerList)
+                        foreach (Manager d in MC.getAllMans())
                         {
                             if (d.mail.Equals(emailTextBox.Text))
                             {
@@ -253,7 +289,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                         }
                         if (tmp == 0)
                         {
-                            ManagerFileStorage.managerList.Add(new Manager(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
+                            Manager tm = new Manager(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                            MC.AddMan(tm);
+                            mdtt.Add(new ManagerDTO(tm.name, tm.surname, tm.mail));
                             MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                             nameTextBox.Text = surnameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = numberTextBox.Text = licenceComboBox.Text = "";
@@ -274,17 +312,19 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 int tmp = 0;
                 if ((nameTextBox.Text != "") && (numberTextBox.Text != "") && (surnameTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != "") && (licenceComboBox.Text != ""))
                 {
-                    if (SecretaryFileStorage.secretaryList.Count == 0)
+                    if (SC.getAllSecsDTO().Count == 0)
                     {
-                        SecretaryFileStorage.secretaryList.Add(new Secretary(nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
+                        Secretary tm = new Secretary(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                        SC.AddSec(tm);
+                        sdtt.Add(new SecretaryDTO(tm.name, tm.surname, tm.mail));
                         MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                         nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = numberTextBox.Text = specializationTextBox.Text = licenceComboBox.Text = "";
                         staffID++;
                     }
-                    else if (SecretaryFileStorage.secretaryList.Count != 0)
+                    else if (SC.getAllSecsDTO().Count != 0)
                     {
-                        foreach (Secretary d in SecretaryFileStorage.secretaryList)
+                        foreach (Secretary d in SC.getAllSecs())
                         {
                             if (d.mail.Equals(emailTextBox.Text))
                             {
@@ -296,7 +336,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                         }
                         if (tmp == 0)
                         {
-                            SecretaryFileStorage.secretaryList.Add(new Secretary(nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text));
+                            Secretary tm = new Secretary(staffID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                            SC.AddSec(tm);
+                            sdtt.Add(new SecretaryDTO(tm.name, tm.surname, tm.mail));
                             MessageBox.Show("User " + nameTextBox.Text + " " + surnameTextBox.Text + " has been added!");
 
                             nameTextBox.Text = surnameTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = numberTextBox.Text = licenceComboBox.Text = "";
@@ -314,33 +356,71 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((Doctor)UserGrid.SelectedItem != null)
-                DoctorFileStorage.doctorList.Remove((Doctor)UserGrid.SelectedItem);
-            if ((Manager)managerGrid.SelectedItem != null)
-                ManagerFileStorage.managerList.Remove((Manager)managerGrid.SelectedItem);
-            if ((Secretary)secretaryGrid.SelectedItem != null)
-                SecretaryFileStorage.secretaryList.Remove((Secretary)secretaryGrid.SelectedItem);
+            if ((DoctorSecDTO)UserGrid.SelectedItem != null)
+            {
+                DC.DeleteDoct((DoctorSecDTO)UserGrid.SelectedItem);
+                DoctorSecDTO d = (DoctorSecDTO)UserGrid.SelectedItem;
+                foreach(DoctorSecDTO dr in dcss)
+                {
+                    if(d.email.Equals(dr.email))
+                    {
+                        dcss.Remove(dr);
+                        break;
+                    }
+                }
+
+            }
+            if ((ManagerDTO)managerGrid.SelectedItem != null)
+            {
+                MC.DeleteMan((ManagerDTO)managerGrid.SelectedItem);
+                ManagerDTO s = (ManagerDTO)managerGrid.SelectedItem;
+                foreach (ManagerDTO sd in mdtt)
+                {
+                    if (s.email.Equals(sd.email))
+                    {
+                        mdtt.Remove(sd);
+                        break;
+                    }
+                }
+
+            }
+            if ((SecretaryDTO)secretaryGrid.SelectedItem != null)
+            {
+                SC.DeleteSec((SecretaryDTO)secretaryGrid.SelectedItem);
+                SecretaryDTO s = (SecretaryDTO)secretaryGrid.SelectedItem;
+                foreach(SecretaryDTO sd in sdtt)
+                {
+                    if(s.email.Equals(sd.email))
+                    {
+                        sdtt.Remove(sd);
+                        break;
+                    }
+                }
+            }
             licenceComboBox.IsEnabled = true;
             nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = licenceComboBox.Text = "";
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
+            var dia = new SecretaryWindow();
+            dia.Show();
             this.Close();
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             licenceComboBox.IsEnabled = true;
-            if ((Doctor)UserGrid.SelectedItem != null)
+            if ((DoctorSecDTO)UserGrid.SelectedItem != null)
             {
                 int tmp = 0;
-                Doctor doct = (Doctor)UserGrid.SelectedItem;
+                DoctorSecDTO doct = (DoctorSecDTO)UserGrid.SelectedItem;
+                Doctor dc = DC.getDocByEmail(doct.email);
                 if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (numberTextBox.Text != "") && (phoneTextBox1.Text != "") && (specializationTextBox.Text != "") && (licenceComboBox.Text != ""))
                 {
-                    foreach (Doctor d2 in DoctorFileStorage.doctorList)
+                    foreach (Doctor d2 in DC.getAllDocs())
                     {
-                        if ((d2.mail.Equals(emailTextBox.Text)) && (doct.userID != d2.userID))
+                        if ((d2.mail.Equals(emailTextBox.Text)) && (dc.userID != d2.userID))
                         {
                             MessageBox.Show("There is user with this email!");
                             tmp = 1;
@@ -349,14 +429,29 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     }
                     if (tmp == 0)
                     {
-                        foreach (Doctor d in DoctorFileStorage.doctorList)
+                        foreach (Doctor d in DC.getAllDocs())
                         {
 
 
-                            if (doct.userID == d.userID)
+                            if (dc.userID == d.userID)
                             {
+                                Doctor doctor = new Doctor(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, new Specialization(specializationTextBox.Text), licenceComboBox.Text);
+                                DoctorSecDTO dsd = new DoctorSecDTO(doctor.name,doctor.surname,dc.mail);
+                                
+                                foreach (DoctorSecDTO doc in dcss)
+                                {
+                                    if (doc.email.Equals(dsd.email))
+                                    {
+                                        doc.name = dsd.name;
+                                        doc.surname = dsd.surname;
+                                        doc.email = doctor.mail;
+                                        break;
 
-                                d.name = nameTextBox.Text;
+                                    }
+
+                                }
+                                DC.UpdateDoctor(doctor);
+                                /*d.name = nameTextBox.Text;
                                 d.surname = surnameTextBox.Text;
                                 d.mail = emailTextBox.Text;
                                 d.password = passwordTextBox.Text;
@@ -367,7 +462,72 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                                 d.specialization.specialization = specializationTextBox.Text;
                           
                                 d.position = licenceComboBox.Text;
+                                d.address.number = numberTextBox.Text;*/
+
+                            }
+                        }
+                        nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = licenceComboBox.Text = "";
+
+                    }
+
+                    UserGrid.Items.Refresh();
+                }
+                else
+                    MessageBox.Show("You must fill all inputs!");
+            }
+            else if ((ManagerDTO)managerGrid.SelectedItem != null)
+            {
+                int tmp = 0;
+                ManagerDTO doct = (ManagerDTO)managerGrid.SelectedItem;
+                Manager dc = MC.getManByEmail(doct.email);
+                if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (numberTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != ""))
+                {
+                    foreach (Manager d2 in MC.getAllMans())
+                    {
+                        if ((d2.mail.Equals(emailTextBox.Text)) && (dc.userID != d2.userID))
+                        {
+                            MessageBox.Show("There is user with this email!");
+                            tmp = 1;
+                            break;
+                        }
+                    }
+                    if (tmp == 0)
+                    {
+                        foreach (Manager d in MC.getAllMans())
+                        {
+
+
+                            if (dc.userID == d.userID)
+                            {
+
+                                Manager doctor = new Manager(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                                ManagerDTO dsd = new ManagerDTO(doctor.name, doctor.surname, dc.mail);
+
+                                foreach (ManagerDTO doc in mdtt)
+                                {
+                                    if (doc.email.Equals(dsd.email))
+                                    {
+                                        doc.name = dsd.name;
+                                        doc.surname = dsd.surname;
+                                        doc.email = doctor.mail;
+                                        break;
+
+                                    }
+
+                                }
+                                MC.UpdateManager(doctor);
+
+                                /*d.name = nameTextBox.Text;
+                                d.surname = surnameTextBox.Text;
+                                d.mail = emailTextBox.Text;
+                                d.password = passwordTextBox.Text;
+                                d.address.country = countryComboBox.Text;
+                                d.address.city = cityTextBox.Text;
+                                d.address.street = addressTextBox.Text;
+                                d.mobilePhone = phoneTextBox1.Text;
                                 d.address.number = numberTextBox.Text;
+                                */
+
 
                             }
                         }
@@ -380,15 +540,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 else
                     MessageBox.Show("You must fill all inputs!");
             }
-            else if ((Manager)managerGrid.SelectedItem != null)
+            else if ((SecretaryDTO)secretaryGrid.SelectedItem != null)
             {
                 int tmp = 0;
-                Manager doct = (Manager)managerGrid.SelectedItem;
+                SecretaryDTO doct = (SecretaryDTO)secretaryGrid.SelectedItem;
+                Secretary dc = SC.getSecByEmail(doct.email);
                 if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (numberTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != ""))
                 {
-                    foreach (Manager d2 in ManagerFileStorage.managerList)
+                    foreach (Secretary d2 in SC.getAllSecs())
                     {
-                        if ((d2.mail.Equals(emailTextBox.Text)) && (doct.userID != d2.userID))
+                        if ((d2.mail.Equals(emailTextBox.Text)) && (dc.userID != d2.userID))
                         {
                             MessageBox.Show("There is user with this email!");
                             tmp = 1;
@@ -397,13 +558,29 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     }
                     if (tmp == 0)
                     {
-                        foreach (Manager d in ManagerFileStorage.managerList)
+                        foreach (Secretary d in SC.getAllSecs())
                         {
 
 
-                            if (doct.userID == d.userID)
+                            if (dc.userID == d.userID)
                             {
+                                Secretary doctor = new Secretary(dc.userID, nameTextBox.Text, surnameTextBox.Text, emailTextBox.Text, passwordTextBox.Text, new Address(countryComboBox.Text, cityTextBox.Text, addressTextBox.Text, numberTextBox.Text), phoneTextBox1.Text, licenceComboBox.Text);
+                                SecretaryDTO dsd = new SecretaryDTO(doctor.name, doctor.surname, dc.mail);
 
+                                foreach (SecretaryDTO doc in sdtt)
+                                {
+                                    if (doc.email.Equals(dsd.email))
+                                    {
+                                        doc.name = dsd.name;
+                                        doc.surname = dsd.surname;
+                                        doc.email = doctor.mail;
+                                        break;
+
+                                    }
+
+                                }
+                                SC.UpdateSec(doctor);
+                                /*
                                 d.name = nameTextBox.Text;
                                 d.surname = surnameTextBox.Text;
                                 d.mail = emailTextBox.Text;
@@ -413,54 +590,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                                 d.address.street = addressTextBox.Text;
                                 d.mobilePhone = phoneTextBox1.Text;
                                 d.address.number = numberTextBox.Text;
-
-
-
-                            }
-                        }
-                        nameTextBox.Text = surnameTextBox.Text = numberTextBox.Text = emailTextBox.Text = passwordTextBox.Text = countryComboBox.Text = cityTextBox.Text = addressTextBox.Text = phoneTextBox1.Text = specializationTextBox.Text = licenceComboBox.Text = "";
-
-                    }
-
-
-                }
-                else
-                    MessageBox.Show("You must fill all inputs!");
-            }
-            else if ((Secretary)secretaryGrid.SelectedItem != null)
-            {
-                int tmp = 0;
-                Secretary doct = (Secretary)secretaryGrid.SelectedItem;
-                if ((nameTextBox.Text != "") && (surnameTextBox.Text != "") && (numberTextBox.Text != "") && (emailTextBox.Text != "") && (passwordTextBox.Text != "") && (countryComboBox.Text != "") && (cityTextBox.Text != "") && (addressTextBox.Text != "") && (phoneTextBox1.Text != ""))
-                {
-                    foreach (Secretary d2 in SecretaryFileStorage.secretaryList)
-                    {
-                        if ((d2.mail.Equals(emailTextBox.Text)) && (doct.userID != d2.userID))
-                        {
-                            MessageBox.Show("There is user with this email!");
-                            tmp = 1;
-                            break;
-                        }
-                    }
-                    if (tmp == 0)
-                    {
-                        foreach (Secretary d in SecretaryFileStorage.secretaryList)
-                        {
-
-
-                            if (doct.userID == d.userID)
-                            {
-
-                                d.name = nameTextBox.Text;
-                                d.surname = surnameTextBox.Text;
-                                d.mail = emailTextBox.Text;
-                                d.password = passwordTextBox.Text;
-                                d.address.country = countryComboBox.Text;
-                                d.address.city = cityTextBox.Text;
-                                d.address.street = addressTextBox.Text;
-                                d.mobilePhone = phoneTextBox1.Text;
-                                d.address.number = numberTextBox.Text;
-
+                                */
 
 
                             }
@@ -483,9 +613,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void UserGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Doctor doct = (Doctor)UserGrid.SelectedItem;
-            if (doct != null)
+            DoctorSecDTO doc = (DoctorSecDTO)UserGrid.SelectedItem;
+            
+            if (doc != null)
             {
+                Doctor doct = DC.getDocByEmail(doc.email);
                 nameTextBox.Text = doct.name;
                 surnameTextBox.Text = doct.surname;
                 emailTextBox.Text = doct.mail;
@@ -498,6 +630,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 licenceComboBox.Text = doct.position;
                 numberTextBox.Text = doct.address.number;
             }
+            licenceComboBox.Text = "Doctor";
             licenceComboBox.IsEnabled = false;
         }
 
@@ -518,9 +651,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void managerGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Manager doct = (Manager)managerGrid.SelectedItem;
-            if (doct != null)
+      
+            ManagerDTO md = (ManagerDTO)managerGrid.SelectedItem;
+            if (md != null)
             {
+                Manager doct = MC.getManByEmail(md.email);
                 nameTextBox.Text = doct.name;
                 surnameTextBox.Text = doct.surname;
                 emailTextBox.Text = doct.mail;
@@ -532,6 +667,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 licenceComboBox.Text = doct.position;
                 numberTextBox.Text = doct.address.number;
             }
+            licenceComboBox.Text = "Manager";
             licenceComboBox.IsEnabled = false;
         }
 
@@ -549,9 +685,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void secretaryGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Secretary doct = (Secretary)secretaryGrid.SelectedItem;
-            if (doct != null)
+            SecretaryDTO sd = (SecretaryDTO)secretaryGrid.SelectedItem;
+            if (sd != null)
             {
+                Secretary doct = SC.getSecByEmail(sd.email);
                 nameTextBox.Text = doct.name;
                 surnameTextBox.Text = doct.surname;
                 emailTextBox.Text = doct.mail;
@@ -563,6 +700,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 licenceComboBox.Text = doct.position;
                 numberTextBox.Text = doct.address.number;
             }
+            licenceComboBox.Text = "Secretary";
             licenceComboBox.IsEnabled = false;
         }
 

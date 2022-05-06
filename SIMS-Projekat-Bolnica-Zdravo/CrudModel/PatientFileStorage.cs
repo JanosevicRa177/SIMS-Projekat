@@ -21,7 +21,14 @@ namespace CrudModel
      
       public bool CreatePatient(Patient newPatient)
       {
-            patientList.Add(newPatient);
+            ObservableCollection<Patient> patients = new ObservableCollection<Patient>();
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt"))
+            {
+                patients.Add(p);
+            }
+            patients.Add(newPatient);
+            patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
             return true;
       }
       
@@ -55,7 +62,11 @@ namespace CrudModel
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
             foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt")) 
             {
-                if (p.userID == id) return p;
+                if (p.userID == id)
+                {
+                    p.fullaAddress = p.address.country + " " + p.address.city + " " + p.address.street + " " + p.address.number;
+                    return p;
+                }
             }
             return null;
         }

@@ -7,6 +7,7 @@ using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace CrudModel
 {
@@ -25,6 +26,7 @@ namespace CrudModel
             {
                 if (mr.patientID == patientID)
                 {
+            
                     return mr;
                 }
             }
@@ -39,10 +41,47 @@ namespace CrudModel
                 medicalRecordList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt");
             }
         }
-            public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
+        public ObservableCollection<string> getAlergensByPatientId(int patientID)
+        {
+            MedicalRecord mr = getMedialRecordByPatientID(patientID);
+            return mr.alergenList;
+        }
+        public bool insertAlergen(ObservableCollection<string> alergens,int patientID)
+        {
+            ObservableCollection<MedicalRecord> mrList;
+            MedicalRecord medRec = null;
+            medRec = (MedicalRecord)getMedialRecordByPatientID(patientID);
+            Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
+            mrList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt");
+            foreach(MedicalRecord mr in mrList)
+            {
+                
+                if(mr.patientID == patientID)
+                {
+                    
+                    mr.patientID = patientID;
+                    mr.medicalRecordID = medRec.medicalRecordID;
+                    mr.alergenList = alergens;
+                    break;
+                }
+
+            }
+          
+            medicalRecordSerializer.toCSV("../../TxtFajlovi/medicalRecords.txt", mrList);
+            return true;
+
+        }
+        public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
       {
-         throw new NotImplementedException();
-      }
+            ObservableCollection<MedicalRecord> mrList;
+            Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
+            mrList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt");
+            mrList.Add(newMedicalRecord);
+            MessageBox.Show(newMedicalRecord.patientID + "!" + newMedicalRecord.medicalRecordID);
+            medicalRecordSerializer.toCSV("../../TxtFajlovi/medicalRecords.txt", mrList);
+            return true;
+
+        }
       
       public bool DeleteMedicalRecord(int medicalRecordID)
       {
@@ -63,10 +102,13 @@ namespace CrudModel
             return null;
       }
       
-      public List<MedicalRecord> GetAllMedicalRecord()
+      public ObservableCollection<MedicalRecord> GetAllMedicalRecord()
       {
-         throw new NotImplementedException();
-      }
+            ObservableCollection<MedicalRecord> mrList;
+            Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
+            mrList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt");
+            return mrList;
+        }
       
       public List<MedicalRecord> GetMedicalRecordByDoctor(int doctorID)
       {
