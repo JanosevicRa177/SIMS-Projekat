@@ -26,7 +26,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         private RoomController RC;
         private RoomService RS;
 
-
         public AppointmentController()
         {
             DS = new DoctorService();
@@ -50,6 +49,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
                 docdto.Add(new DoctorCrAppDTO(d.name, d.surname, d.userID));
             }
             return docdto;
+        }
+
+        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto)
+        {
+            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id);
         }
         public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID)
         {

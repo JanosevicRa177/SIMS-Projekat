@@ -26,16 +26,25 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
     public partial class TherapyDia : Window
     {
         private AppointmentController AC;
+        private PatientController PC;
         public ObservableCollection<Medicine> obcMed
         {
             set;
             get;
         }
+
+        public int win
+        {
+            set;
+            get;
+        }
         private int appoID;
-        public TherapyDia(int appoID)
+        public TherapyDia(int appoID,int win)
         {
             this.appoID = appoID;
+            this.win = win;
             AC = new AppointmentController();
+            PC = new PatientController();
             obcMed = AC.getStartAppointmentDTOById(appoID).medicineList;
             InitializeComponent();
             this.DataContext = new
@@ -49,6 +58,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
         {
             StartAppointmentDTO sadto = new StartAppointmentDTO(descBox.Text, TherapyT.Text,ConditionT.Text, obcMed, appoID);
             AC.ExecutedAppointment(sadto);
+            if (win == -1)
+            {
+                this.Owner.DataContext = AC.GetShowAppointmentDTO(appoID);
+            }
+            else
+            {
+                this.Owner.DataContext = new
+                {
+                    This = PC.GetPatientByID(win),
+                    Pat = AC.getAllPatientsAppointments(win)
+                };
+            }
             var dia = new DialogWindow("Changes saved","Cancel","Ok");
             dia.ShowDialog();
         }

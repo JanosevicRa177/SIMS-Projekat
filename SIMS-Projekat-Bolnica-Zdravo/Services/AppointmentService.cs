@@ -36,6 +36,40 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.RemoveAppointment(app.patientID.ToString(),app.Time,app.Date); 
         }
+
+        //DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
+        public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid) 
+        {
+            List<Time> array = new List<Time>();
+            List<Time> arrayofa = new List<Time>();
+            bool half = t.minute == 30;
+            for (int TermChecker = 0,ini = 0; TermChecker < dur / 30; TermChecker++,ini++)
+            {
+                array.Add(new Time(t.minute == 0 ? t.hour + TermChecker / 2 : t.hour + ini / 2, ((t.minute + ((TermChecker % 2)*30) % 60 ) == 0) ? 0 : 30));
+                if (half == true) { half = false; ini++; }
+            }
+            foreach (Appointment a in AFS.getAllAppointmentDTO())
+            {
+                arrayofa.Clear();
+                bool halfa = a.time.minute == 30;
+                for (int i = 0,j=0; i < a.duration/30; i++,j++)
+                {
+                    arrayofa.Add(new Time(a.time.minute == 0 ? a.time.hour + i / 2 : a.time.hour + j / 2, ((a.time.minute + ((i % 2)*30) % 60) == 0) ? 0 : 30));
+                    if (halfa == true) { halfa = false; j++; }
+                }
+                foreach (Time tim in array)
+                {
+                    foreach (Time tim1 in arrayofa)
+                    {
+                        if (a.timeBegin == dt && tim1.hour == tim.hour && tim1.minute == tim.minute)
+                        {
+                            if (a.roomID == roomid || a.doctorID == docid || a.patientID == patid) return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
         public void DeleteOperationAppointment(ShowAppointmentDTO app)
         {
             AFS.RemoveOperationAppointment(app.patientID.ToString(), app.Time, app.Date);

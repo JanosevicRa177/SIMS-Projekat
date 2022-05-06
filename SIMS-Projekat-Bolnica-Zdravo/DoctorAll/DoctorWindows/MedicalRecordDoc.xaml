@@ -42,12 +42,12 @@
                     <TextBlock Text="Phone:" Grid.Row="6" Grid.Column="2" FontSize="35" Margin="5" />
                     <TextBlock Text="Email:" Grid.Row="7" Grid.Column="2" FontSize="35" Margin="5" />
                     <TextBlock Text="ID:" Grid.Row="8" Grid.Column="2" FontSize="35" Margin="5" />
-                    <TextBox Text="{Binding name}" IsEnabled="False" x:Name="name" Grid.Row="3" Grid.Column="3" Width="auto" FontSize="35"/>
-                    <TextBox Text="{Binding surname}" IsEnabled="False" x:Name="surname" Grid.Row="4" Grid.Column="3" Width="auto" FontSize="35"/>
-                    <TextBox Text="{Binding fullaAddress}" IsEnabled="False" x:Name="id" Grid.Row="5" Grid.Column="3" Width="auto" FontSize="35"/>
-                    <TextBox Text="{Binding mobilePhone}" IsEnabled="False" x:Name="room" Grid.Row="6" Grid.Column="3" Width="auto" FontSize="35"/>
-                    <TextBox Text="{Binding mail,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="date" Grid.Row="7" Grid.Column="3" Width="auto" FontSize="35"/>
-                    <TextBox Text="{Binding userID, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="time" Grid.Row="8" Grid.Column="3" Width="auto" FontSize="35"/>
+                    <TextBox Text="{Binding This.name}" IsEnabled="False" x:Name="name" Grid.Row="3" Grid.Column="3" Width="auto" FontSize="35"/>
+                    <TextBox Text="{Binding This.surname}" IsEnabled="False" x:Name="surname" Grid.Row="4" Grid.Column="3" Width="auto" FontSize="35"/>
+                    <TextBox Text="{Binding This.fullaAddress}" IsEnabled="False" x:Name="id" Grid.Row="5" Grid.Column="3" Width="auto" FontSize="35"/>
+                    <TextBox Text="{Binding This.mobilePhone}" IsEnabled="False" x:Name="room" Grid.Row="6" Grid.Column="3" Width="auto" FontSize="35"/>
+                    <TextBox Text="{Binding This.mail,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="date" Grid.Row="7" Grid.Column="3" Width="auto" FontSize="35"/>
+                    <TextBox Text="{Binding This.userID, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" x:Name="time" Grid.Row="8" Grid.Column="3" Width="auto" FontSize="35"/>
                 </Grid>
                 </TabItem>
             <TabItem Header="Record" >
@@ -58,7 +58,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
-                            <DataGrid IsReadOnly="True" Name="PatientsApps"  AutoGenerateColumns="False" Margin="5" ItemsSource="{Binding}"  FontSize="35" >
+                            <DataGrid IsReadOnly="True" Name="PatientsApps"  AutoGenerateColumns="False" Margin="5" ItemsSource="{Binding Pat}"  FontSize="35" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Description" Width="*" x:Name="Patname" Binding="{Binding desc}"/>
                                     <DataGridTextColumn Header="Date" Width="170" x:Name="Patsurname" Binding="{Binding Date}"/>

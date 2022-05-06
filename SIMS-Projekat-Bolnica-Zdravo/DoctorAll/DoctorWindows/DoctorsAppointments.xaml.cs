@@ -52,6 +52,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             ShowAppointmentDTO a = (ShowAppointmentDTO)Appointments.SelectedItem;
             var dia = new doctorShowAppointment(a.id,this);
+            dia.Owner = Window.GetWindow(this);
             dia.ShowDialog();
         }
     }
