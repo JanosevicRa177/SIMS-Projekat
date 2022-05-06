@@ -160,3 +160,5 @@ C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zd
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csprojAssemblyReference.cache
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.dll
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.dll
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
