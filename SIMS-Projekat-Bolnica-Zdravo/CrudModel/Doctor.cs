@@ -237,7 +237,7 @@ namespace CrudModel
             get;set;
         }
 
-        public Time(int hour,int minute,int ID)
+        public Time(int hour,int minute,int ID=-1)
         {
             this.time = "";
             this.hour = hour;

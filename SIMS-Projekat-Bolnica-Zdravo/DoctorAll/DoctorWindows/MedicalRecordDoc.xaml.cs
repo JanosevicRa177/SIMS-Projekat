@@ -1,4 +1,5 @@
 ﻿using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.DoctorWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +23,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
     {
         AppointmentController AC;
         PatientController PC;
+
+        public int patID
+        {
+            set;
+            get;
+        }
         public MedicalRecordDoc(int patientID)
         {
             PC = new PatientController();
             AC = new AppointmentController();
+            this.patID = patientID;
             InitializeComponent();
-            DataContext = PC.GetPatientByID(patientID);
-            PatientsApps.DataContext = AC.getAllPatientsAppointments(patientID);
-
-
+            DataContext = new {
+                This = PC.GetPatientByID(patientID),
+                Pat = AC.getAllPatientsAppointments(patientID)
+            };
         }
 
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
@@ -39,9 +47,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
 
         private void openA_Click(object sender, RoutedEventArgs e)
         {
-            if (PatientsApps.SelectedItem == null) return;
             ShowAppointmentPatientDTO sadto = (ShowAppointmentPatientDTO)PatientsApps.SelectedItem;
-            var dia = new TherapyDia(sadto.id);
+            EditAppointmentDTO edto = AC.getEditAppointmentDTOById(sadto.id);
+            if (edto.dt > DateTime.Today || (edto.dt == DateTime.Today && edto.time.hour > DateTime.Today.Hour) ||
+                (edto.dt == DateTime.Today && edto.time.hour == DateTime.Today.Hour && edto.time.minute > DateTime.Today.Minute))
+            {
+                var s = new DialogWindow("Appointment cant start yet!", "Cancel", "Ok");
+                s.ShowDialog();
+                return;
+            }
+            if (PatientsApps.SelectedItem == null) return;
+            var dia = new TherapyDia(sadto.id,patID);
+            dia.Owner = Window.GetWindow(this);
             dia.ShowDialog();
         }
     }

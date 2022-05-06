@@ -189,32 +189,32 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void createAppointmentDoctor_Click(object sender, RoutedEventArgs e)
         {
-            if (createAppointmentDoctor.Content.Equals("Confirm"))
-            {
-                if (TimeselectDG.SelectedItem == null)
-                {
-                    var dial = new DialogWindow("No selected time!", "Cancel", "Ok", null);
-                    dial.Show();
-                    return;
-                }
-                Time time = TimeselectDG.SelectedItem != null ? (Time)TimeselectDG.SelectedItem : AC.getEditAppointmentDTOById(editAppId).time;
-                AC.ChangeAppointment(time, (DateTime)appointmentDate.SelectedDate, editAppId, (RoomCrAppDTO)roomID.SelectedItem,dur);
-                edAP.Close();
-                var dia = new doctorShowAppointment(editAppId);
-                dia.Show();
-                this.Close();
-                return;
-            }
             if (appointmentDate.SelectedDate.Value <= DateTime.Today)
             {
                 var dial = new DialogWindow("Cannot appoint for before or today!", "Cancel", "Ok", null);
                 dial.Show();
                 return;
             }
-            else if(TimeselectDG.SelectedItem == null)
+            if (TimeselectDG.SelectedItem == null)
             {
                 var dial = new DialogWindow("No selected time!", "Cancel", "Ok", null);
                 dial.Show();
+                return;
+            }
+            if (!AC.CheckCreateAppointment(appointmentDate.SelectedDate.Value, (Time)TimeselectDG.SelectedItem, this.dur, (RoomCrAppDTO)roomID.SelectedItem, (DoctorCrAppDTO)doctorsCB.SelectedItem, pat))
+            {
+                var dial = new DialogWindow("Someone created appointment before you, restart window!", "Cancel", "Ok", null);
+                dial.Show();
+                return;
+            }
+            if (createAppointmentDoctor.Content.Equals("Confirm"))
+            {
+                Time time = (Time)TimeselectDG.SelectedItem ;
+                AC.ChangeAppointment(time, (DateTime)appointmentDate.SelectedDate, editAppId, (RoomCrAppDTO)roomID.SelectedItem,dur);
+                edAP.Close();
+                var dia = new doctorShowAppointment(editAppId);
+                dia.Show();
+                this.Close();
                 return;
             }
             String title = "Zakazan pregled";
@@ -265,6 +265,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 tims.Clear();
             }
             DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
+            if (doc == null) return;
             foreach ( Time t in AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId))
             {
                 tims.Add(t);
