@@ -1,4 +1,3 @@
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csprojAssemblyReference.cache
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
 C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.g.cs
