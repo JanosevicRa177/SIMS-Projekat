@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Appointment
 
 using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,22 @@ namespace CrudModel
             set;
             get;
         }
+        public int getAppID()
+        {
+            int i = 0;
+            int tmp = 0;
+            AppointmentController AC = new AppointmentController();
+            foreach(ShowAppointmentDTO s in AC.getAllAppointmentDTO())
+            {
+                if(i == AC.getAllAppointmentDTO().Count - 1)
+                {
+                    tmp = s.id;
+                }
+                i++;
+            }
+            ids = tmp;
+            return tmp;
+        }
         public int duration
         {
             set;
@@ -149,6 +166,7 @@ namespace CrudModel
         }
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid)
         {
+            getAppID();
             this.medicalRecordID = MRid;
             this.patientID = patID;
             this.doctorID = docID;
@@ -158,13 +176,14 @@ namespace CrudModel
             this.time = new Time(time.hour,time.minute,1);
             setTime();
             this.roomID = roomID;
-            this.appointmentID = ++ids;
+            this.appointmentID =  ++ids;
             this.description = description;
             this.operation = false;
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
         }
+
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID)
         {
             //this.medicalRecord.patientID = pat.userID;

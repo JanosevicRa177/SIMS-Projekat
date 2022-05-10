@@ -118,7 +118,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in list)
             {
                 if (a.operation != true)
-                    tmp.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, a.patientID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.medicalRecordID));
+                    tmp.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, a.patientID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
 
             }
             return tmp;

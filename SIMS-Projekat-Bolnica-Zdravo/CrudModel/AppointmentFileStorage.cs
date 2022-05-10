@@ -242,7 +242,7 @@ namespace CrudModel
             foreach (Appointment a in appointmentList)
             {
 
-                if ((a.patientID == patid) && (a.date.Split(' ')[0].Equals(date)))
+                if (a.appointmentID == patid)
                 {
 
                

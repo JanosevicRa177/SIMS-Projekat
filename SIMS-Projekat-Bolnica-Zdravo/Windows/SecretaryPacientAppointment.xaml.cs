@@ -45,11 +45,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
             set;
         }
+        public int dur
+        {
+            get;
+            set;
+        }
         public SecretaryPacientAppointment()
         {
             MRFS = new MedicalRecordFileStorage();
             timess = new ObservableCollection<Time>();
-
+            this.dur = 30;
 
             AC = new AppointmentController();
             RC = new RoomController();
@@ -111,26 +116,24 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     roomTemp = r;
                 }
             }
-            AC.CreateAppointment((DateTime)appointmentDate.SelectedDate, (Time)TimeGrid.SelectedItem, 30, roomTemp,  doctorTemp, "blabla", tempPat);
-            Time t = (Time)TimeGrid.SelectedItem;
-            if (t.time.Split(':')[1].ToString().Equals("30"))
+            AC.CreateAppointment((DateTime)appointmentDate.SelectedDate, (Time)TimeGrid.SelectedItem, Convert.ToInt32(duration.Text), roomTemp,  doctorTemp, "blabla", tempPat);
+           
+            sadtt = AC.getAllAppointmentDTO();
+            this.DataContext = new
             {
-                if(Convert.ToInt32(t.time.Split(':')[0]) < 10)
-                sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0],t.time + " - " + "0" + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
-                else
-                    sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + (Convert.ToInt32(t.time.Split(':')[0]) + 1) + ":00", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
-
-            }
-
-            else
-            {
-                if (Convert.ToInt32(t.time.Split(':')[0]) < 10)
-                    sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + "0" + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
-                else
-                    sadtt.Add(new ShowAppointmentDTO(tempPat.name, tempPat.surname, tempPat.id, emailTextBox.Text.Split(' ')[1], appointmentDate.SelectedDate.ToString().Split(' ')[0], t.time + " - " + t.time.Split(':')[0] + ":30", "blabla", MRFS.getMedialRecordByPatientID(tempPat.id).medicalRecordID));
-
-            }
+                sad = sadtt,
+                time = timess,
+                pcad = pcadd,
+                This = this
+            };
             MessageBox.Show("Uspesno ste dodali pregled");
+            if (timess != null) timess.Clear();
+            foreach (Time t in AC.GetDoctorTimesforDoctor(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]), (DateTime)appointmentDate.SelectedDate, Convert.ToInt32(duration.Text), -1))
+            {
+                timess.Add(t);
+            }
+            TimeGrid.SelectedIndex = 0;
+            TimeGrid.Items.Refresh();
 
 
         }
@@ -164,21 +167,41 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 }
 
             }
+            if (timess != null) timess.Clear();
+            foreach (Time t in AC.GetDoctorTimesforDoctor(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]), (DateTime)appointmentDate.SelectedDate, Convert.ToInt32(duration.Text), -1))
+            {
+                timess.Add(t);
+            }
+            TimeGrid.SelectedIndex = 0;
+            TimeGrid.Items.Refresh();
 
 
         }
 
         private void appointmentDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (timess != null) timess.Clear();
-            foreach (Time t in AC.getDoctorRoomTimes((DoctorCrAppDTO)DC.getDocByIdDTO(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0])), (DateTime)appointmentDate.SelectedDate ,Convert.ToInt32(emailTextBox.Text.Split(' ')[0])))
+            ShowAppointmentDTO s = (ShowAppointmentDTO)AppointmentGrid.SelectedItem;
+            if (s == null)
             {
-                timess.Add(t);
+                if (timess != null) timess.Clear();
+
+                foreach (Time t in AC.GetDoctorTimesforDoctor(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]), (DateTime)appointmentDate.SelectedDate, Convert.ToInt32(duration.Text), -1))
+                {
+                    timess.Add(t);
+                }
+            }
+            else
+            {
+
+                if (timess != null) timess.Clear();
+                foreach (Time t in AC.GetDoctorTimesforDoctor(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]), (DateTime)appointmentDate.SelectedDate, Convert.ToInt32(duration.Text), s.id))
+                {
+                    timess.Add(t);
+                }
             }
             TimeGrid.SelectedIndex = 0;
             TimeGrid.Items.Refresh();
         }
-
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<DoctorCrAppDTO> docList = DC.getAllDoctorsDTO();
@@ -203,37 +226,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             ObservableCollection<ShowAppointmentDTO> lista;
             lista = AC.getAllAppointmentDTO();
             int OldId = 0;
-            
-            foreach(ShowAppointmentDTO s in sadtt)
+            ShowAppointmentDTO appgridsel = (ShowAppointmentDTO)AppointmentGrid.SelectedItem;
+            Time x = (Time)TimeGrid.SelectedItem;
+            PatientCrAppDTO p = (PatientCrAppDTO)PatientGrid.SelectedItem;
+            foreach (ShowAppointmentDTO s in sadtt)
             {
-                ShowAppointmentDTO tn = (ShowAppointmentDTO)AppointmentGrid.SelectedItem;
-                Time x = (Time)TimeGrid.SelectedItem;
-                PatientCrAppDTO p = (PatientCrAppDTO)PatientGrid.SelectedItem;
+              
                
-                if ((tn.id == s.id) && (tn.Time.Equals(s.Time)) && tn.Date.Equals(s.Date))
+                if (appgridsel.id == s.id)
                 {
-                    OldId = Convert.ToInt32(tn.patientID);
-                    s.patientName = tn.patientName;
-                    s.patientSurname = tn.patientSurname;
-                    s.Date = appointmentDate.SelectedDate.ToString().Split(' ')[0];
-                    if (x.time.Split(':')[1].ToString().Equals("30"))
-                    {
-                        if (Convert.ToInt32(x.time.Split(':')[0]) < 10)
-                            s.Time = "0" + (Convert.ToInt32(x.time.Split(':')[0])).ToString() + ":30" + " - " + ((Convert.ToInt32(x.time.Split(':')[0]))+1) + ":" + "00";
-                        else
-                            s.Time = (Convert.ToInt32(x.time.Split(':')[0])).ToString() + ":30" + " - " + ((Convert.ToInt32(x.time.Split(':')[0])) + 1) + ":" + "00";
-
-                    }
-                    else
-                    {
-
-                        s.Time = x.time + " - " + x.time.Split(':')[0] + ":" + "30";
-                    }
-
-                    s.roomName = emailTextBox.Text;
-                    s.id = MRFS.getMedialRecordByPatientID(Convert.ToInt32(tn.patientID)).medicalRecordID;
-                    AppointmentGrid.Items.Refresh();
-                    MessageBox.Show(x.hour + ":" + x.minute);
+                    OldId = Convert.ToInt32(appgridsel.id);
+                 
+                   
                     Appointment a = AC.findAppById(OldId, s.Date);
                     int appid = 0;
                     int proba = 0;
@@ -245,10 +249,26 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                         proba++;
                     }
                     appid = appid + 1;
-                        AC.UpdateAppointment(a, new Appointment((DateTime)appointmentDate.SelectedDate, x.hour, x.minute, 30, RC.getRoomById(Convert.ToInt32(emailTextBox.Text.Split(' ')[0])), DC.getDocById(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0])), "blabla", PC.GetPatientByID(Convert.ToInt32(tn.patientID)), appid));
-                    
+                        AC.UpdateAppointment(a, new Appointment((DateTime)appointmentDate.SelectedDate, x.hour, x.minute, Convert.ToInt32(duration.Text), RC.getRoomById(Convert.ToInt32(emailTextBox.Text.Split(' ')[0])), DC.getDocById(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0])), "blabla", PC.GetPatientByID(Convert.ToInt32(appgridsel.patientID)), appid));
+                    sadtt = AC.getAllAppointmentDTO();
+                    this.DataContext = new
+                    {
+                        sad = sadtt,
+                        time = timess,
+                        pcad = pcadd,
+                        This = this
+                    };
+
                 }
+               
             }
+            if (timess != null) timess.Clear();
+            foreach (Time t in AC.GetDoctorTimesforDoctor(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]), (DateTime)appointmentDate.SelectedDate, Convert.ToInt32(duration.Text), -1))
+            {
+                timess.Add(t);
+            }
+
+            AppointmentGrid.SelectedItem = null;
           
 
         }
@@ -259,10 +279,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             naa.Show();
             this.Close();
         }
-
+      
         private void AppGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             
         }
 
@@ -281,6 +300,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
             
         }
+        private void slider1_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (appointmentDate.SelectedDate != null)
+            {
+                if (timess != null)
+                {
+                    timess.Clear();
+                }
+                DoctorCrAppDTO doc = (DoctorCrAppDTO)DC.getDoctorDTOById(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]));
 
+                
+                if (timess != null) timess.Clear();
+                foreach (Time t in AC.GetDoctorTimesforDoctor(Convert.ToInt32(passwordTextBox.Text.Split(' ')[0]), (DateTime)appointmentDate.SelectedDate, Convert.ToInt32(duration.Text), -1))
+                {
+                    timess.Add(t);
+                }
+                TimeGrid.SelectedIndex = 0;
+                TimeGrid.Items.Refresh();
+            }
+        }
+
+        private void AppointmentGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+   
+        }
     }
 }
