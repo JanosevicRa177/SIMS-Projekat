@@ -80,7 +80,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Medrec_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new MedicalRecordDoc(AC.GetShowAppointmentDTO(appointmentID).patientID);
+            var dia = new MedicalRecordDoc(AC.GetShowAppointmentDTO(appointmentID).patientID,appointmentID);
+            dia.Owner = Window.GetWindow(this);
             dia.ShowDialog();
         }
     }

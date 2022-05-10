@@ -1,4 +1,5 @@
 ﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         { 
             MW.Show();
             this.Close();
+        }
+
+        private void empt1_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new VacationWindow();
+            dia.ShowDialog();
         }
     }
 }

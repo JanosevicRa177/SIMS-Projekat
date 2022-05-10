@@ -46,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             for (int TermChecker = 0,ini = 0; TermChecker < dur / 30; TermChecker++,ini++)
             {
                 array.Add(new Time(t.minute == 0 ? t.hour + TermChecker / 2 : t.hour + ini / 2, ((t.minute + ((TermChecker % 2)*30) % 60 ) == 0) ? 0 : 30));
-                if (half == true && t.minute == 30) { half = false; ini++; }
+                if (half && t.minute == 30) { half = false; ini++; }
             }
             foreach (Appointment a in AFS.getAllAppointmentDTO())
             {
@@ -55,7 +55,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                 for (int i = 0,j=0; i < a.duration/30; i++,j++)
                 {
                     arrayofa.Add(new Time(a.time.minute == 0 ? a.time.hour + i / 2 : a.time.hour + j / 2, ((a.time.minute + ((i % 2)*30) % 60) == 0) ? 0 : 30));
-                    if (halfa == true && a.time.minute == 30) { halfa = false; j++; }
+                    if (halfa && a.time.minute == 30) { halfa = false; j++; }
                 }
                 foreach (Time tim in array)
                 {

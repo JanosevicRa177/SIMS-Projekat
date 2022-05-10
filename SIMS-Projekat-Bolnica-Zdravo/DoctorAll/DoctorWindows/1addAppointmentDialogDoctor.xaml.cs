@@ -36,6 +36,29 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.DataContext = PC.getAllPatientsChooseDTO();
         }
 
+        public _1addAppointmentDialogDoctor(int patID)
+        {
+            InitializeComponent();
+            PC = new PatientController();
+            this.nextW = null;
+            ObservableCollection<PatientCrAppDTO> pcp = PC.getAllPatientsChooseDTO();
+            this.DataContext = pcp;
+            PatientsG.IsEnabled = false;
+            IEnumerable<PatientCrAppDTO> filteredList;
+            string name, id, surname;
+            name = PC.GetPatientDTOByID(patID).name;
+            surname = PC.GetPatientDTOByID(patID).surname;
+            id = patID.ToString();
+            filteredList = PC.getAllPatientsChooseDTO().Where(patient => patient.name.StartsWith(name));
+            filteredList = filteredList.Where(patient => patient.surname.StartsWith(surname));
+            filteredList = filteredList.Where(patient => patient.id.ToString().StartsWith(id));
+            PatientsG.ItemsSource = filteredList;
+            foreach (PatientCrAppDTO p in filteredList)
+            {
+                if (p.id == patID) PatientsG.SelectedItem = p;
+            }
+        }
+
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             if (PatientsG.SelectedIndex == -1)

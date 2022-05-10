@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         Closed="Window_Closed"
-        Title="Show Appointment" Height="700" Width="800" Background="AntiqueWhite" WindowStartupLocation="CenterScreen" >
+        Title="Show Appointment" Height="750" Width="800" Background="AntiqueWhite" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

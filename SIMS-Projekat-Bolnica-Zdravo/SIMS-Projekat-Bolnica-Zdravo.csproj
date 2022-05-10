@@ -79,11 +79,20 @@
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="CrudModel\AppointmentGrade.cs" />
+    <Compile Include="Controllers\AppointmentGradeController.cs" />
+    <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
+    <Compile Include="Services\AppointmentGradeService.cs" />
     <Compile Include="CrudModel\AppointmentNotification.cs" />
     <Compile Include="Controllers\AppointmentNotificationController.cs" />
     <Compile Include="CrudModel\AppointmentNotificationFileStorage.cs" />
     <Compile Include="CrudModel\DateAndTimeForAppointments.cs" />
     <Compile Include="CrudModel\Medicine.cs" />
+    <Compile Include="CrudModel\StateEnum.cs" />
+    <Compile Include="CrudModel\VacationRequesFileStorage.cs" />
+    <Compile Include="CrudModel\VacationRequest.cs" />
+    <Compile Include="Controllers\VacationRequestController.cs" />
+    <Compile Include="Services\VacationRequestService.cs" />
     <Compile Include="DoctorAll\DoctorWindows\AddMedicine.xaml.cs">
       <DependentUpon>AddMedicine.xaml</DependentUpon>
     </Compile>
@@ -92,6 +101,9 @@
     </Compile>
     <Compile Include="DoctorAll\DoctorWindows\TherapyDia.xaml.cs">
       <DependentUpon>TherapyDia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorAll\DoctorWindows\VacationWindow.xaml.cs">
+      <DependentUpon>VacationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientWindows\LoginPatient.xaml.cs">
       <DependentUpon>LoginPatient.xaml</DependentUpon>
@@ -197,6 +209,10 @@
     <Page Include="DoctorAll\DoctorWindows\TherapyDia.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DoctorAll\DoctorWindows\VacationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
