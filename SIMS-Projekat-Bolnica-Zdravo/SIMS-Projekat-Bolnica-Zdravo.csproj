@@ -93,6 +93,9 @@
     <Compile Include="DoctorAll\DoctorWindows\TherapyDia.xaml.cs">
       <DependentUpon>TherapyDia.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorAll\DoctorWindows\VacationWindow.xaml.cs">
+      <DependentUpon>VacationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientWindows\LoginPatient.xaml.cs">
       <DependentUpon>LoginPatient.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
     <Page Include="DoctorAll\DoctorWindows\TherapyDia.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DoctorAll\DoctorWindows\VacationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

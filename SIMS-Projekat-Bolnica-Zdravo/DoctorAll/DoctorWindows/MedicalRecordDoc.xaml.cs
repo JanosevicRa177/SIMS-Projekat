@@ -24,15 +24,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
         AppointmentController AC;
         PatientController PC;
 
+        public int appoID
+        {
+            set;
+            get;
+        }
+
         public int patID
         {
             set;
             get;
         }
-        public MedicalRecordDoc(int patientID)
+        public MedicalRecordDoc(int patientID, int appoID)
         {
             PC = new PatientController();
             AC = new AppointmentController();
+            this.appoID = appoID;
             this.patID = patientID;
             InitializeComponent();
             DataContext = new {
@@ -60,6 +67,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
             var dia = new TherapyDia(sadto.id,patID);
             dia.Owner = Window.GetWindow(this);
             dia.ShowDialog();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.DataContext = AC.GetShowAppointmentDTO(appoID);
         }
     }
 }

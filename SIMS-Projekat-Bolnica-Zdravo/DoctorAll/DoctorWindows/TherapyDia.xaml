@@ -62,9 +62,17 @@
                     </Grid>
                 </Grid>
             </TabItem>
+            <TabItem Header="Recipe">
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1"  FontSize="35" Grid.RowSpan="5" ItemsSource="{Binding Meds}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Medicine" Width="*" x:Name="ak3" Binding="{Binding name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
         </TabControl>
-        <StackPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal">
+        <StackPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" Grid.ColumnSpan="5" Width="593">
             <Button FontSize="35" Content="Back" Margin="5" Style="{StaticResource doctorButtons}"></Button>
+            <Button Click="adda_Click" FontSize="35" Name="adda" Content="Add Appointment" Grid.Row="1" Height="auto" Margin="5" Style="{StaticResource doctorButtons}" Width="322" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="6" HorizontalAlignment="right" Orientation="Horizontal">
             <Button FontSize="35" Content="Save"  Margin="5" Style="{StaticResource doctorButtons}" Name="SaveButton" Click="SaveButton_Click"></Button>

@@ -30,3 +30,5 @@ Zakazan pregled| Doktor: Milica Milutinovic Datum 7/5/2022 Vreme: 07:30|20|5|202
 Zakazan pregled| Doktor: Milica Milutinovic Datum 7/5/2022 Vreme: 08:00|20|5|2022|0|20|5
 Zakazan pregled| Doktor: Dragan Petrovic Datum 7/5/2022 Vreme: 09:30|20|5|2022|0|21|6
 Zakazan pregled| Doktor: Milica Milutinovic Datum 7/5/2022 Vreme: 09:30|20|5|2022|0|21|5
+Zakazan pregled| Doktor: Milica Milutinovic Datum 10/5/2022 Vreme: 07:00|23|5|2022|0|22|5
+Zakazan pregled| Doktor: Milica Milutinovic Datum 11/5/2022 Vreme: 07:30|24|5|2022|0|23|9

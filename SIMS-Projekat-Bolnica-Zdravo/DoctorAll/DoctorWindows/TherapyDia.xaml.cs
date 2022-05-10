@@ -1,6 +1,7 @@
 ﻿using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.DoctorWindows;
+using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -77,6 +78,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
         private void AddMed_Click(object sender, RoutedEventArgs e)
         {
             var dia = new AddMedicine(this);
+            dia.ShowDialog();
+        }
+
+        private void adda_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new _1addAppointmentDialogDoctor(AC.getEditAppointmentDTOById(appoID).patientID);
             dia.ShowDialog();
         }
     }
