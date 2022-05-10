@@ -177,7 +177,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, appoID, a.timeBegin, a.duration);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration);
         }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {
@@ -186,7 +186,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in appointmentsPatent)
             {
                 Doctor d = DS.GetDoctorByID(a.doctorID);
-                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration));
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration));
             }
             return patientAppointmentsListDTO;
         }
@@ -218,7 +218,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, appoID, a.timeBegin, a.duration);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration);
         }
     }
     public class EditAppointmentDTO
@@ -342,21 +342,19 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public string doctorSurname { set; get; }
         public string doctorID { set; get; }
         public string roomName { set; get; }
-        public string Date { set; get; }
-        public DateTime Date_T { set; get; }
+        public DateTime Date { set; get; }
         public string Time { set; get; }
         public string desc { set; get; }
         public int id { set; get; }
         public int duration { set; get; }
 
-        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string date, string time, string desc, int id, DateTime Date_T,int duration)
+        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string time, string desc, int id, DateTime Date,int duration)
         {
             doctorName = dName;
             doctorSurname = dSurname;
             doctorID = dID;
             roomName = rName;
-            Date = date;
-            this.Date_T = Date_T;
+            this.Date = Date;
             Time = time;
             this.desc = desc;
             this.id = id;

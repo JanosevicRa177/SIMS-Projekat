@@ -22,7 +22,7 @@
         <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Height="40" Width="101"/>
         <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,125,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" Height="42" Width="101"/>
 
-        <TextBox x:Name="Date" TextChanged="Date_TextChanged" IsEnabled="False"  TextAlignment="Center" Text="{Binding This.date, Mode=OneWay,  StringFormat='yyyy/MM/dd'}" HorizontalAlignment="Left" FontSize="25" Height="39" Margin="106,60,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Date" TextChanged="Date_TextChanged" IsEnabled="False"  TextAlignment="Center" Text="{Binding This.date, Mode=OneWay,  StringFormat='dd/MM/yyyy'}" HorizontalAlignment="Left" FontSize="25" Height="39" Margin="106,60,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2"/>
         <Button Content="Izaberi datum" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,60,15.4,0" Grid.Row="1" VerticalAlignment="Top" Width="138" Height="39" Click="Pick_Date" Grid.ColumnSpan="2"/>
 
         <Button Grid.Row="2" Margin="15,10,0,10" Content="Odustani od izmene" Click="Cancel_Change_Appointment"/>
