@@ -51,7 +51,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         }
         private void Cancel_Appointment(object sender, RoutedEventArgs e)
         {
-            if (appointment.Date_T.Date < DateTime.Today)
+            if (appointment.Date.Date < DateTime.Today)
             {
                 MessageBox.Show("Ne Možete menjati odradjene preglede");
                 return;
@@ -61,12 +61,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         }
         private void Change_Date(object sender, RoutedEventArgs e)
         {
-            if (appointment.Date_T.Date < DateTime.Today)
+            if (appointment.Date.Date < DateTime.Today)
             {
                 MessageBox.Show("Ne Možete menjati odradjene preglede");
                 return;
             }
-            PatientWindow.NavigatePatient.Navigate(new ChangeAppointment(int.Parse(appointment.doctorID), appointment.Date_T, appointment.id));
+            PatientWindow.NavigatePatient.Navigate(new ChangeAppointment(int.Parse(appointment.doctorID), appointment.Date, appointment.id));
         }
         private void Show_Home(object sender, RoutedEventArgs e)
         {

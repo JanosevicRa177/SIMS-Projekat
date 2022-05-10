@@ -29,7 +29,7 @@
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Soba" Width="auto" FontSize="15" Binding="{Binding roomName}"/>
-                <DataGridTextColumn x:Name="date" Width="auto" FontSize="15" Header="Datum" Binding="{Binding Date}"/>
+                <DataGridTextColumn x:Name="date" Width="auto" FontSize="15" Header="Datum" Binding="{Binding Date, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn x:Name="time" Width="auto" FontSize="15" Header="Vreme" Binding="{Binding Time}"/>
                 <DataGridTemplateColumn Header="Prikaži" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>

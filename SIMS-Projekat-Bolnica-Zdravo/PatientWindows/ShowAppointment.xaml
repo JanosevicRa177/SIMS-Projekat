@@ -32,7 +32,7 @@
         <TextBlock x:Name="RoomName" FontSize="20" Text="{Binding appointment.roomName}"  Grid.Row="1" Grid.Column="1" Margin="21,75,20.4,300" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="DateAndTime" FontSize="20"  Grid.Row="1" Grid.Column="1" Margin="21,128,20.4,247" Grid.ColumnSpan="2">
             <TextBlock.Text>
-                <MultiBinding StringFormat="{}{0} | {1}">
+                <MultiBinding StringFormat="{}{0:dd/MM/yyyy} | {1}">
                     <Binding Path="appointment.Date"/>
                     <Binding Path="appointment.Time"/>
                 </MultiBinding>

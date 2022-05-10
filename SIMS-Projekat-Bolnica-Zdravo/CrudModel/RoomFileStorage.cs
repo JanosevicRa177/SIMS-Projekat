@@ -45,7 +45,7 @@ namespace CrudModel
         public Room GetRoomByName(string name)
         {
             Serializer<Room> patientSerializer = new Serializer<Room>();
-            foreach (Room r in patientSerializer.fromCSV("room.txt"))
+            foreach (Room r in patientSerializer.fromCSV("../../TxtFajlovi/room.txt"))
             {
                 if (r.name.Equals(name))
                     return r;
