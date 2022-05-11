@@ -72,6 +72,7 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\EquipmentStorageController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MedicalRecordController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
@@ -82,6 +83,8 @@
     <Compile Include="CrudModel\AppointmentGrade.cs" />
     <Compile Include="Controllers\AppointmentGradeController.cs" />
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
+    <Compile Include="CrudModel\EquipmentStorage.cs" />
+    <Compile Include="CrudModel\EquipmentStorageFileStorage.cs" />
     <Compile Include="PatientWindows\NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,7 @@
     <Compile Include="CrudModel\VacationRequesFileStorage.cs" />
     <Compile Include="CrudModel\VacationRequest.cs" />
     <Compile Include="Controllers\VacationRequestController.cs" />
+    <Compile Include="Services\EquipmentStorageService.cs" />
     <Compile Include="Services\VacationRequestService.cs" />
     <Compile Include="DoctorAll\DoctorWindows\AddMedicine.xaml.cs">
       <DependentUpon>AddMedicine.xaml</DependentUpon>
@@ -174,6 +178,9 @@
     </Compile>
     <Compile Include="DoctorAll\DoctorWindows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EquipmentWindow.xaml.cs">
+      <DependentUpon>EquipmentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
@@ -321,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorAll\DoctorWindows\DoctorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EquipmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
