@@ -69,9 +69,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return AS.GetDoctorTermsByDate(dt, duration, appoID);
         }
 
-        public BindingList<Time> GetDoctorTimesforDoctor(int docID, DateTime dt, int duration, int appoID,RoomCrAppDTO r)
+        public BindingList<Time> GetDoctorTimesforDoctor(int docID, DateTime dt, int duration, int appoID,RoomCrAppDTO r = null)
         {
-            return AS.GetDoctorTimesforDoctor(docID , dt, duration, appoID, r.id);
+            int xd;
+            if (r == null) xd = -1;
+            else xd = r.id;
+            return AS.GetDoctorTimesforDoctor(docID , dt, duration, appoID, xd);
         }
         
         public bool ChangeAppointment(Time t, DateTime dt, int appointmentID, RoomCrAppDTO rcdto = null, int dur = -1) 
@@ -118,7 +121,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in list)
             {
                 if (a.operation != true)
-                    tmp.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, a.patientID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.medicalRecordID));
+                    tmp.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, a.patientID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
 
             }
             return tmp;
