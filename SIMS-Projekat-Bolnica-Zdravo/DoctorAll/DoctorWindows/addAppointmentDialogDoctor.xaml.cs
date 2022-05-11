@@ -174,6 +174,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             editAppId = -1;
             InitializeComponent();
             doctorsCB.SelectedIndex = 0;
+            roomID.SelectedIndex = 0;
             dt = DateTime.Today.AddDays(1);
             this.dur = dur;
             this.DataContext = new
@@ -266,10 +267,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             }
             DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
             if (doc == null) return;
-            foreach ( Time t in AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId))
-            {
-                tims.Add(t);
-            }
+            if ((RoomCrAppDTO)roomID.SelectedItem == null) roomID.SelectedIndex = 0;
+            tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+            TimeselectDG.ItemsSource = tims;
             if (editAppId != -1 && (DateTime)appointmentDate.SelectedDate == AC.getEditAppointmentDTOById(editAppId).dt )
             {
                 foreach(Time t in tims)
@@ -288,35 +288,60 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void slider1_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (appointmentDate.SelectedDate != null)
+            if (appointmentDate.SelectedDate != null && (DoctorCrAppDTO)doctorsCB.SelectedItem != null)
             {
                 if (tims != null)
                 {
                     tims.Clear();
                 }
                 DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
-
-                foreach (Time t in AC.GetDoctorTimesforDoctor(doc == null ? 0 : doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId))
-                {
-                    tims.Add(t);
-                }
+                if ((RoomCrAppDTO)roomID.SelectedItem == null) roomID.SelectedIndex = 0;
+                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+                TimeselectDG.ItemsSource = tims;
             }
+
         }
 
         private void doctorsCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (appointmentDate.SelectedDate != null)
+            if (appointmentDate.SelectedDate != null && (DoctorCrAppDTO)doctorsCB.SelectedItem != null)
             {
                 if (tims != null)
                 {
                     tims.Clear();
                 }
                 DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
+                if ((RoomCrAppDTO)roomID.SelectedItem == null) roomID.SelectedIndex = 0;
+                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+                TimeselectDG.ItemsSource = tims;
+            }
+        }
 
-                foreach (Time t in AC.GetDoctorTimesforDoctor(doc == null ? 0 : doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId))
+        private void Spec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (doctorsDTO == null) doctorsDTO = new ObservableCollection<DoctorCrAppDTO>();
+            else doctorsDTO.Clear();
+            Specialization spec = (Specialization)Spec.SelectedItem;
+            foreach(DoctorCrAppDTO d in DC.getAllDoctorsDTO())
+            {
+                if (DC.getDoctorById(d.id).specialization.specialization.Equals(spec.specialization))
+                doctorsDTO.Add(d);
+            }
+            doctorsCB.ItemsSource = doctorsDTO;
+            doctorsCB.SelectedIndex = 0;
+        }
+
+        private void roomID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (appointmentDate.SelectedDate != null && (DoctorCrAppDTO)doctorsCB.SelectedItem != null)
+            {
+                if (tims != null)
                 {
-                    tims.Add(t);
+                    tims.Clear();
                 }
+                DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
+                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, dur, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+                TimeselectDG.ItemsSource = tims;
             }
         }
     }
