@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.PatientWindows"
         mc:Ignorable="d"
-        Title="NotificationWindow" Height="100" Width="417.5" WindowStyle="None" ResizeMode="NoResize">
+        Title="NotificationWindow" Height="100" Width="417.5" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True">
     <Grid RenderTransformOrigin="0,1">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -16,32 +16,10 @@
             <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
         <!-- Notification area -->
-        <Border BorderThickness="5" BorderBrush="Silver" Grid.ColumnSpan="2" Grid.RowSpan="2" CornerRadius="1">
+        <Border BorderThickness="5" BorderBrush="Silver" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <TextBlock TextWrapping="Wrap" Text="{Binding notificationContent}" Margin="5.2,41.2,20.8,5.2"/>
         </Border>
-        <Button Content="X" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="5" Width="15" Height="15" RenderTransformOrigin="9.212,0.885" Margin="0,0,0.2,0" />
+        <Button Content="X" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="5" Width="15" Height="15" RenderTransformOrigin="9.212,0.885" Margin="0,0,0.2,0" Click="Button_Click" />
         <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,24,0,0" TextWrapping="Wrap" Text="{Binding notificationTitle}" VerticalAlignment="Top" Width="383" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-
-        <!-- Animation -->
-        <Grid.Triggers>
-            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)">
-                            <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
-                            <SplineDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
-                            <SplineDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
-                            <SplineDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
-                        </DoubleAnimationUsingKeyFrames>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Grid.Triggers>
-
-        <Grid.RenderTransform>
-            <ScaleTransform ScaleY="1" />
-        </Grid.RenderTransform>
     </Grid>
 </Window>

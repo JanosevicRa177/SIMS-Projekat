@@ -82,6 +82,9 @@
     <Compile Include="CrudModel\AppointmentGrade.cs" />
     <Compile Include="Controllers\AppointmentGradeController.cs" />
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
+    <Compile Include="PatientWindows\MainHamburgerMenu.xaml.cs">
+      <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientWindows\NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -276,6 +279,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PatientWindows\MainHamburgerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PatientWindows\NotePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -397,6 +404,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="PatientWindows\18ac159d299eb4c2fac7a63a1eaa511b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PatientWindows\hamburger-menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PatientWindows\black-right-arrow-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PatientWindows\SignOut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
