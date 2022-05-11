@@ -1,86 +1,16 @@
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.dll
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.dll
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.dll
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.dll
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.pdb
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.xml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.xml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\TherapyDia.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\VacationWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\MainWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\addAppointmentDialogDoctor.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ChangeAppointment.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DateChanger.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\LoginPatient.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AddAppointment.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DatePicker.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ShowAppointment.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientNotes.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientAppointments.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAlergenWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\CreateRoomDialog.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorsAppointments.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\doctorShowAppointment.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ManagerWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoAccountAppointment.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\OperationWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryPacientAppointment.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.cache
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.lref
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\TherapyDia.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\VacationWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\MainWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\addAppointmentDialogDoctor.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ChangeAppointment.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DateChanger.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\LoginPatient.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AddAppointment.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DatePicker.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ShowAppointment.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientNotes.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientAppointments.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAlergenWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\CreateRoomDialog.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorsAppointments.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\doctorShowAppointment.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ManagerWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoAccountAppointment.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\OperationWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryPacientAppointment.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.baml
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.g.resources
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS_Projekat_Bolnica_Zdravo.Properties.Resources.resources
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.GenerateResource.cache
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CoreCompileInputs.cache
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CopyComplete
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.dll
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.dll
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.dll
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.pdb
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.xml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.xml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.AssemblyReference.cache
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
@@ -96,6 +26,7 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AddAppointment.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DatePicker.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotificationWindow.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ShowAppointment.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientNotes.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientAppointments.g.cs
@@ -115,21 +46,6 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.cache
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.lref
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.dll
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.dll
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.dll
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.dll
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.pdb
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.xml
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.xml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.baml
@@ -145,6 +61,7 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AddAppointment.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DatePicker.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotificationWindow.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ShowAppointment.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientNotes.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientAppointments.baml
@@ -165,88 +82,5 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.GenerateResource.cache
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CoreCompileInputs.cache
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CopyComplete
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.AssemblyReference.cache
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.SuggestedBindingRedirects.cache
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\TherapyDia.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\VacationWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\MainWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\addAppointmentDialogDoctor.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ChangeAppointment.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DateChanger.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\LoginPatient.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AddAppointment.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DatePicker.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ShowAppointment.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientNotes.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientAppointments.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAlergenWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\CreateRoomDialog.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorsAppointments.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\doctorShowAppointment.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ManagerWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoAccountAppointment.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\OperationWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryPacientAppointment.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.cache
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo_MarkupCompile.lref
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe.config
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.dll
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.dll
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.dll
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.dll
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Microsoft.Xaml.Behaviors.xml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.pdb
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.xml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.xml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\App.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\TherapyDia.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\VacationWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\MainWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\addAppointmentDialogDoctor.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ChangeAppointment.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DateChanger.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\LoginPatient.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AddAppointment.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DatePicker.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ShowAppointment.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientNotes.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientAppointments.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\AddAlergenWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\CreateRoomDialog.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorsAppointments.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\doctorShowAppointment.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ManagerWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\NoAccountAppointment.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\OperationWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryPacientAppointment.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\SecretaryWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\StaffRegistrationWindow.baml
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.g.resources
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS_Projekat_Bolnica_Zdravo.Properties.Resources.resources
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.GenerateResource.cache
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CoreCompileInputs.cache
-D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CopyComplete
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb

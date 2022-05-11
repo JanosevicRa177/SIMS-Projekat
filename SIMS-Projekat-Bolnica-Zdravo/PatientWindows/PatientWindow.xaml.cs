@@ -48,9 +48,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.DataContext = loggedPatient;
             ShowNotes();
         }
-        private void ShowNotes()
+        private async void ShowNotes()
         {
             var notificationManager = new NotificationManager();
+            await Task.Delay(1000);
             ObservableCollection<AppointmentNotification> notifications = ANC.GetAppointmentNotificationrByPatientID(loggedPatient.id);
             foreach (AppointmentNotification an in notifications)
             {
@@ -58,9 +59,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 {
                     continue;
                 }
-                notificationManager.Show(an.title, an.content);
+                NotificationWindow nw = new NotificationWindow(an.title, an.content);
+                nw.Show();
                 an.viewed = true;
-                ANC.UpdateAppointmentNotification(an);
+                await Task.Delay(2500);
+                nw.Close();
+                //ANC.UpdateAppointmentNotification(an);
             }
         }
         private void Show_Notes(object sender, RoutedEventArgs e)
