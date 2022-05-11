@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Patient" Height="750" Width="430" WindowStyle="None">
+        Title="Patient" Height="750" Width="430" WindowStyle="None" Closing="Window_Closing">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -19,8 +19,10 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
+        <Button HorizontalAlignment="Left" BorderThickness="0" Background="Silver" Margin="10,10,0,0" Panel.ZIndex="2" VerticalAlignment="Top" Width="60" Height="60" Click="hamburger_Menu_Click">
+            <Image Source="hamburger-menu.png" Width="50"/>
+        </Button>
         <Frame x:Name="PatientFrame" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
-        <Button Grid.Row="0" Grid.Column="2" Name="signout" Content="Odjava" Height="50" Margin="0,10,15,10" VerticalAlignment="Center" FontSize="25" Panel.ZIndex="1" Click="signout_Click" > </Button>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="Silver" Panel.ZIndex="0" />
         <Rectangle Grid.Row="3" Grid.ColumnSpan="3" Fill="Silver" />
         <Button FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Click="Show_Notes">
@@ -41,5 +43,6 @@
                 <TextBlock Text="Nalog" TextAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
         </Button>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" FontSize="20"  TextAlignment="Center" Text="Bolnica Zdravo" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="131.4,27,0,27" Width="144"/>
     </Grid>
 </Window>
