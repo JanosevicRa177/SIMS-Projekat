@@ -1,5 +1,6 @@
 ﻿using ConsoleApp.serialization;
 using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,7 @@ namespace CrudModel
         private int warehousids;
         private int appointmentNotificationids;
         private int Vacationsids;
+        private int Medicineids;
 
         public static ObservableCollection<IdsStorage> IDS;
         public IdsStorage()
@@ -34,6 +36,7 @@ namespace CrudModel
             warehousids = Warehouse.getids();
             appointmentNotificationids = AppointmentNotification.getids();
             Vacationsids = VacationRequest.getids();
+            Medicineids = Medicine.getids();
             IDS = new ObservableCollection<IdsStorage>();
             IDS.Add(this);
         }
@@ -49,6 +52,7 @@ namespace CrudModel
             warehousids = int.Parse(values[6]);
             appointmentNotificationids = int.Parse(values[7]);
             Vacationsids = int.Parse(values[8]);
+            Medicineids = int.Parse(values[9]);
         }
 
         public string[] toCSV()
@@ -63,7 +67,8 @@ namespace CrudModel
                 roomids.ToString(),
                 warehousids.ToString(),
                 appointmentNotificationids.ToString(),
-                Vacationsids.ToString()
+                Vacationsids.ToString(),
+                Medicineids.ToString()
             };
             return csvValues;
         }
@@ -79,6 +84,7 @@ namespace CrudModel
             Warehouse.setids(warehousids);
             AppointmentNotification.setids(appointmentNotificationids);
             VacationRequest.setids(Vacationsids);
+            Medicine.setids(Medicineids);
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using CrudModel;
-using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,29 +17,35 @@ using System.Windows.Shapes;
 namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
 {
     /// <summary>
-    /// Interaction logic for AddMedicine.xaml
+    /// Interaction logic for ShowMedicine.xaml
     /// </summary>
-    public partial class AddMedicine : Window
+    public partial class ShowMedicine : Window
     {
         private MedicineController MC;
-        public TherapyDia MedW
+        public Medicine med 
         {
             set;
             get;
         }
-        public AddMedicine(TherapyDia xd)
+        public ShowMedicine(Medicine med)
         {
+            this.med = med;
             MC = new MedicineController();
             InitializeComponent();
-            this.DataContext = MC.GetAllApprovedMedicine();
-            medName.SelectedIndex = 0;
-            this.MedW = xd;
+            this.DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void approve_Click(object sender, RoutedEventArgs e)
         {
-            Medicine m = (Medicine)medName.SelectedItem;
-            this.MedW.obcMed.Add(new TakingMedicineDTO(m.id,medAmount.Text,medFreq.Text));
+            MC.ApproveMedicine(med.id);
+            this.Owner.DataContext = MC.GetAllWaitingMedicine();
+            this.Close();
+        }
+
+        private void deny_Click(object sender, RoutedEventArgs e)
+        {
+            MC.DenyMedicine(med.id);
+            this.Owner.DataContext = MC.GetAllWaitingMedicine();
             this.Close();
         }
     }

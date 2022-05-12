@@ -7,11 +7,18 @@ using System;
 
 namespace CrudModel
 {
-   public class VacationRequestController
-   {
-      public bool CreateVacationRequest(VacationRequest crVR)
+    
+    public class VacationRequestController
+    {
+        private VacationRequestService VRS;
+
+        public VacationRequestController()
+        {
+            VRS = new VacationRequestService();
+        }
+      public bool CreateVacationRequest(VacationRequest crVR,bool b)
       {
-         throw new NotImplementedException();
+            return VRS.CreateVacationRequest(crVR,b);
       }
       
       public VacationRequest GetVacationRequestById(int userID)

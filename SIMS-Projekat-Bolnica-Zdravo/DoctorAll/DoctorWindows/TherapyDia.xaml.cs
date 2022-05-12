@@ -28,7 +28,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
     {
         private AppointmentController AC;
         private PatientController PC;
-        public ObservableCollection<Medicine> obcMed
+        public ObservableCollection<TakingMedicineDTO> obcMed
         {
             set;
             get;

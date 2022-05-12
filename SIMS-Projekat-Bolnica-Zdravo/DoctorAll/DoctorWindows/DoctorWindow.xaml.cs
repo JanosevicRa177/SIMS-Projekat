@@ -62,5 +62,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             var dia = new VacationWindow();
             dia.ShowDialog();
         }
+
+        private void medc_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new MedicineWindow();
+            dia.ShowDialog();
+        }
     }
 }

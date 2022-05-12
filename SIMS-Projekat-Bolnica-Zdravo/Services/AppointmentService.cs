@@ -103,7 +103,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
 
             return AFS.getAllAppointmentDTO();
         }
-        public void ExecutedAppointment(string cond, string ther, int id, ObservableCollection<Medicine> ocMed, string desc)
+        public void ExecutedAppointment(string cond, string ther, int id, ObservableCollection<TakingMedicine> ocMed, string desc)
         {
             AFS.ExecutedAppointment(cond, ther, id, ocMed, desc);
         }
@@ -314,7 +314,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
 
             foreach (Appointment a in AFS.getAllRoomAppointments(roomID))
             {
-                if (roomID == -1) break;
+                if (roomID == -1) continue;
                 if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
                 {
                     foreach (Time t in times)

@@ -53,9 +53,9 @@
                         </Grid.RowDefinitions>
                         <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1"  FontSize="35" Grid.RowSpan="5" ItemsSource="{Binding Meds}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Medicine" Width="*" x:Name="ak" Binding="{Binding name}"/>
+                                <DataGridTextColumn Header="Medicine" Width="*" x:Name="ak" Binding="{Binding medsName}"/>
                                 <DataGridTextColumn Header="Amount" Width="*" x:Name="ak1" Binding="{Binding amount}"/>
-                                <DataGridTextColumn Header="Frequency" Width="*" x:Name="ak2" Binding="{Binding frequency}"/>
+                                <DataGridTextColumn Header="Frequency" Width="*" x:Name="ak2" Binding="{Binding freq}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <Button Name="AddMed" Click="AddMed_Click" Grid.Column="0" FontSize="35" HorizontalAlignment="Center" Content="Add Medicine" Grid.Row="0" Margin="5" Style="{StaticResource doctorButtons}"></Button>
@@ -65,7 +65,7 @@
             <TabItem Header="Recipe">
                 <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1"  FontSize="35" Grid.RowSpan="5" ItemsSource="{Binding Meds}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Medicine" Width="*" x:Name="ak3" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="Medicine" Width="*" x:Name="ak3" Binding="{Binding medsName}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>

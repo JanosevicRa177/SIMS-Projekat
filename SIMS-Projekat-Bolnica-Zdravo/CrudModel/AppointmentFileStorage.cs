@@ -36,7 +36,7 @@ namespace CrudModel
             }
         }
 
-        public void ExecutedAppointment(string cond,string ther,int id,ObservableCollection<Medicine> ocMed,string desc)
+        public void ExecutedAppointment(string cond,string ther,int id,ObservableCollection<TakingMedicine> ocMed,string desc)
         {
             ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
