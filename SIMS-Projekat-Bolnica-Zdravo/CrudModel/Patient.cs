@@ -174,7 +174,6 @@ namespace CrudModel
                     userID.ToString(),
                     condition,
                     therapy,
-
                     "M"
                 };
                 return csvValues;

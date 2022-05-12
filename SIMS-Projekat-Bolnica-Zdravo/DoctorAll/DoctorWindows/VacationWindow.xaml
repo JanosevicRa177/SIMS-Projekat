@@ -33,6 +33,6 @@
         <TextBlock Margin="5" FontSize="50"> Emergency Request </TextBlock>
         </StackPanel>
         <Button HorizontalAlignment="Left" Grid.Row="2" FontSize="35" Content="Cancel" Margin="5" Style="{StaticResource doctorButtons}"></Button>
-        <Button HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="35" Content="Send Request" Margin="5" Style="{StaticResource doctorButtons}"></Button>
+        <Button HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="35" Content="Send Request" Margin="5" Style="{StaticResource doctorButtons}" Name="sreq"></Button>
     </Grid>
 </Window>
