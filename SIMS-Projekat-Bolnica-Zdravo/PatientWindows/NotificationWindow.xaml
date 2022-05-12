@@ -20,6 +20,6 @@
             <TextBlock TextWrapping="Wrap" Text="{Binding notificationContent}" Margin="5.2,41.2,20.8,5.2"/>
         </Border>
         <Button Content="X" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="5" Width="15" Height="15" RenderTransformOrigin="9.212,0.885" Margin="0,0,0.2,0" Click="Button_Click" />
-        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,24,0,0" TextWrapping="Wrap" Text="{Binding notificationTitle}" VerticalAlignment="Top" Width="383" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Height="18" Margin="10,24,0,0" TextWrapping="Wrap" Text="{Binding notificationTitle}" VerticalAlignment="Top" Width="383" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

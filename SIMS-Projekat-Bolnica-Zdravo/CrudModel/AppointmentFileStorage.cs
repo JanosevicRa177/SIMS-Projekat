@@ -90,6 +90,19 @@ namespace CrudModel
             }
             return patientsApps;
         }
+        public ObservableCollection<Appointment> GetExecutedPatientsAppointments(int medicalRecordID)
+        {
+            ObservableCollection<Appointment> patientsApps = new ObservableCollection<Appointment>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            foreach (Appointment a in appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            {
+                if ((a.medicalRecordID == medicalRecordID) && (DateTime.Now > a.timeBegin))
+                {
+                    patientsApps.Add(a);
+                }
+            }
+            return patientsApps;
+        }
         public ObservableCollection<Appointment> getAllRoomAppointments(int roomID)
         {
             ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();

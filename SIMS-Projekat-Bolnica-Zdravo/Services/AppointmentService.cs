@@ -117,6 +117,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             MedicalRecord m = MRFS.getMedialRecordByPatientID(patientID);
             return AFS.getAllPatientsAppointments(m.medicalRecordID);
         }
+        public ObservableCollection<Appointment> GetExecutedPatientsAppointments(int patientID)
+        {
+            MedicalRecord m = MRFS.getMedialRecordByPatientID(patientID);
+            return AFS.GetExecutedPatientsAppointments(m.medicalRecordID);
+        }
         public BindingList<TimePatient> GetDoctorTimes(int doctorID, DateTime forDate,int duration, int appoID)
         {
             Doctor d = DFS.GetDoctorByID(doctorID);

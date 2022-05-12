@@ -16,30 +16,20 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
-    public partial class HamburgerMenu2 : Page
+    /// <summary>
+    /// Interaction logic for GradingAppointment.xaml
+    /// </summary>
+    public partial class GradingAppointment : Page
     {
         public static PatientWindow patientWindow;
-        public static MainHamburgerMenu mainMenu;
-        public HamburgerMenu2(PatientWindow patientWindow1, MainHamburgerMenu mainMenu1)
+        public GradingAppointment(PatientWindow patientWindow1)
         {
-            mainMenu = mainMenu1;
             patientWindow = patientWindow1;
             InitializeComponent();
         }
-        private void SignOut_Click(object sender, RoutedEventArgs e)
-        {
-            patientWindow.SignOut();
-        }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            MainHamburgerMenu.NavigateMenu.Navigate(new HamburgerMenu1(patientWindow, mainMenu));
-        }
-
-        private void Show_executed_click(object sender, RoutedEventArgs e)
+        private void Cancel_Grading_Click(object sender, RoutedEventArgs e)
         {
             patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading(patientWindow));
-            mainMenu.Close_menu();
         }
     }
 }

@@ -32,18 +32,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             MenuFrame.Content = new HamburgerMenu1(patientWindow1, this);
             anim = new DoubleAnimation()
             {
-                Duration = TimeSpan.FromSeconds(0.5),
-                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut },
-            };
-            RenderTransform = new ScaleTransform(1, 1, 0, ActualHeight / 2);
-            anim.From = 0;
-            RenderTransform.BeginAnimation(ScaleTransform.ScaleXProperty, anim);
-        }
-        public void Open_menu() 
-        {
-            anim = new DoubleAnimation()
-            {
-                Duration = TimeSpan.FromSeconds(0.5),
+                Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut },
             };
             RenderTransform = new ScaleTransform(1, 1, 0, ActualHeight / 2);
@@ -54,7 +43,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             anim = new DoubleAnimation()
             {
-                Duration = TimeSpan.FromSeconds(0.5),
+                Duration = TimeSpan.FromSeconds(0.3),
                 EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut },
             };
             RenderTransform = new ScaleTransform(1, 1, 0, ActualHeight / 2);

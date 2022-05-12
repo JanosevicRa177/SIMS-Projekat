@@ -192,6 +192,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return patientAppointmentsListDTO;
         }
+        public ObservableCollection<ShowAppointmentPatientDTO> GetExecutedPatientsAppointments(int patientID)
+        {
+            ObservableCollection<ShowAppointmentPatientDTO> patientAppointmentsListDTO = new ObservableCollection<ShowAppointmentPatientDTO>();
+            ObservableCollection<Appointment> appointmentsPatent = AS.GetExecutedPatientsAppointments(patientID);
+            foreach (Appointment a in appointmentsPatent)
+            {
+                Doctor d = DS.GetDoctorByID(a.doctorID);
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration));
+            }
+            return patientAppointmentsListDTO;
+        }
         public EditAppointmentDTO getEditAppointmentDTOById(int appID)
         {
             Appointment a = AS.getAppointmentById(appID);

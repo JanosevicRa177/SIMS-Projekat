@@ -65,7 +65,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 nw.Topmost = true;
                 nw.Show();
                 an.viewed = true;
-                await Task.Delay(3500);
+                await Task.Delay(3000);
                 nw.Close();
                 ANC.UpdateAppointmentNotification(an);
             }

@@ -85,6 +85,12 @@
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorageFileStorage.cs" />
+    <Compile Include="PatientWindows\AppointmentsForGrading.xaml.cs">
+      <DependentUpon>AppointmentsForGrading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientWindows\GradingAppointment.xaml.cs">
+      <DependentUpon>GradingAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientWindows\HamburgerMenu2.xaml.cs">
       <DependentUpon>HamburgerMenu2.xaml</DependentUpon>
     </Compile>
@@ -280,6 +286,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PatientWindows\AppointmentsForGrading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PatientWindows\ChangeAppointment.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -287,6 +297,10 @@
     <Page Include="PatientWindows\DateChanger.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientWindows\GradingAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientWindows\HamburgerMenu2.xaml">
       <Generator>MSBuild:Compile</Generator>
