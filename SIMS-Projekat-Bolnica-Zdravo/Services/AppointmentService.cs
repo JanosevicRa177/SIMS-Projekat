@@ -28,7 +28,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             AFS = new AppointmentFileStorage();
             RFS = new RoomFileStorage();
             DFS = new DoctorFileStorage();
-            PFS = new PatientFileStorage();
             MRFS = new MedicalRecordFileStorage();
             
         }
@@ -38,7 +37,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         }
 
         //DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
-        public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid) 
+        public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid,int appointmentID) 
         {
             List<Time> array = new List<Time>();
             List<Time> arrayofa = new List<Time>();
@@ -50,6 +49,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             foreach (Appointment a in AFS.getAllAppointmentDTO())
             {
+                if (a.appointmentID == appointmentID) continue;
                 arrayofa.Clear();
                 bool halfa = a.time.minute == 30;
                 for (int i = 0,j=0; i < a.duration/30; i++,j++)

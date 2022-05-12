@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,9 +50,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return docdto;
         }
 
-        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto)
+        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto,int appointmentID = -1)
         {
-            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id);
+            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id, appointmentID);
         }
         public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID)
         {
