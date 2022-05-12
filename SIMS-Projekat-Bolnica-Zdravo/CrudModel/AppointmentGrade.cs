@@ -7,15 +7,14 @@ using System;
 
 namespace CrudModel
 {
-   public class AppointmentGrade
-   {
-      public int accuracyGrade;
-      public int professionalismGrade;
-      public int id;
-      public string comment;
-      public int doctorGrade;
-      public int hyigieneGrade;
-      public int overallGrade;
-   
-   }
+    public class AppointmentGrade
+    {
+        public int id;
+        public int kindnessGrade;
+        public int accuracyGrade;
+        public int doctorGrade;
+        public int hyigieneGrade;
+        public string comment;
+    }
+ 
 }

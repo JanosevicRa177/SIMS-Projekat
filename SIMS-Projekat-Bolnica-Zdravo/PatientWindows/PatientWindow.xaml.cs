@@ -26,9 +26,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     public partial class PatientWindow : Window
     {
         private PatientController PC = new PatientController();
-        private MainHamburgerMenu MainHamburger;
         private AppointmentNotificationController ANC = new AppointmentNotificationController();
         public static NavigationService NavigatePatient;
+        MainHamburgerMenu MainHamburger;
+        public Boolean menuClosed = true;
         static public PatientCrAppDTO loggedPatient
         {
             get;
@@ -45,16 +46,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             InitializeComponent();
             NavigatePatient = PatientFrame.NavigationService;
             loggedPatient = PC.GetPatientDTOByID(patientID);
-            PatientFrame.Content = new PatientAppointments();
+            PatientFrame.Content = new PatientAppointments(this);
             this.DataContext = loggedPatient;
             ShowNotes();
-            MainHamburger = new MainHamburgerMenu(this);
         }
         private async void ShowNotes()
         {
             var notificationManager = new NotificationManager();
             await Task.Delay(1000);
-            MainHamburger.Show();
             ObservableCollection<AppointmentNotification> notifications = ANC.GetAppointmentNotificationrByPatientID(loggedPatient.id);
             foreach (AppointmentNotification an in notifications)
             {
@@ -63,9 +62,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     continue;
                 }
                 NotificationWindow nw = new NotificationWindow(an.title, an.content);
+                nw.Topmost = true;
                 nw.Show();
                 an.viewed = true;
-                await Task.Delay(3500);
+                await Task.Delay(3000);
                 nw.Close();
                 ANC.UpdateAppointmentNotification(an);
             }
@@ -85,7 +85,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             PatientFrame.NavigationService.Navigate(new PatientAppointments());
         }
 
-        public void signout()
+        public void SignOut()
         {
             LP.Show();
             loggedPatient = null;
@@ -94,19 +94,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void hamburger_Menu_Click(object sender, RoutedEventArgs e)
         {
-            MainHamburger.Activate();
-            MainHamburger.Topmost = true;
-            if (MainHamburger.closed) 
+            if (menuClosed) 
             {
-                MainHamburger.Open_menu();
+                MainHamburger = new MainHamburgerMenu(this);
+                MainHamburger.Activate();
+                MainHamburger.Topmost = true;
+                MainHamburger.Show();
+                menuClosed = false;
                 return;
             }
+            menuClosed = true;
             MainHamburger.Close_menu();
         }
-
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            MainHamburger.Close();
+            if(MainHamburger != null) MainHamburger.Close();
         }
     }
 }

@@ -1,0 +1,5 @@
+0|CT|1|True
+1|Stetoskop|1|False
+2|Kasika|1|True
+3|Viljuska|1|True
+4|Noz|1|True

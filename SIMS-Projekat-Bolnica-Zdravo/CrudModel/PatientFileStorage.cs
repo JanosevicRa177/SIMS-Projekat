@@ -41,6 +41,18 @@ namespace CrudModel
       {
          throw new NotImplementedException();
       }
+        public bool IsAccountBlocked(int patientID)
+        {
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt"))
+            {
+                if (p.userID == patientID)
+                {
+                    return p.isAccoutBlocked;
+                }
+            }
+            return false;
+        }
         public int LoginPatient(String mail, String password)
         {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();
@@ -56,6 +68,28 @@ namespace CrudModel
                 }
             }
             return -1;
+        }
+
+        public bool CheckForTrolling(int patientID)
+        {
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            ObservableCollection<Patient> patients = patientSerializer.fromCSV("../../TxtFajlovi/patients.txt");
+            foreach (Patient p in patients)
+            {
+                if (p.userID == patientID)
+                {
+                    p.numberOfChangesLast30Days++;
+                    if (p.numberOfChangesLast30Days >= 5)
+                    {
+                        p.isAccoutBlocked = true;
+                        patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
+                        return false;
+                    }
+                    patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
+                    return true;
+                }
+            }
+            return true;
         }
         public Patient GetPatientByID(int id)
         {

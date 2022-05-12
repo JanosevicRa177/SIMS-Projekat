@@ -40,12 +40,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             this.DataContext = this;
             InitializeComponent();
             CloseNotification();
-
         }
         private async void CloseNotification()
         {
-            //await Task.Delay(2000);
-            await Task.Delay(1000);
+            await Task.Delay(2000);
             anim = new DoubleAnimation()
             {
                 Duration = TimeSpan.FromSeconds(0.5),
@@ -54,8 +52,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             RenderTransform = new ScaleTransform(1, 1, ActualWidth / 2, 0);
             anim.To = 0;
             RenderTransform.BeginAnimation(ScaleTransform.ScaleYProperty, anim);
-            await Task.Delay(2000);
-            await Task.Delay(500);
         }
         void scaleUp(object sender, RoutedEventArgs e)
         {

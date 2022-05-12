@@ -25,6 +25,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
     {
         private AppointmentController AC;
         private AppointmentNotificationController ANC;
+        public static PatientWindow patientWindow;
+        public PatientAppointments(PatientWindow patientWindow1)
+        {
+            patientWindow = patientWindow1;
+            AC = new AppointmentController();
+            ANC = new AppointmentNotificationController();
+            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.loggedPatient.id);
+            InitializeComponent();
+        }
         public PatientAppointments()
         {
             AC = new AppointmentController();
@@ -34,7 +43,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         }
         private void Show_Appointment(object sender, RoutedEventArgs e)
         {
-            PatientWindow.NavigatePatient.Navigate(new ShowAppointment((ShowAppointmentPatientDTO)Appointments.SelectedItem));
+            PatientWindow.NavigatePatient.Navigate(new ShowAppointment((ShowAppointmentPatientDTO)Appointments.SelectedItem, patientWindow));
         }
         private void Appointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

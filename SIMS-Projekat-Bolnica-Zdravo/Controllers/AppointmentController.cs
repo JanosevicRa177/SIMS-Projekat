@@ -54,9 +54,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return docdto;
         }
 
-        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto)
+        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto,int appointmentID = -1)
         {
-            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id);
+            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id, appointmentID);
         }
         public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID)
         {
@@ -189,6 +189,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             ObservableCollection<ShowAppointmentPatientDTO> patientAppointmentsListDTO = new ObservableCollection<ShowAppointmentPatientDTO>();
             ObservableCollection<Appointment> appointmentsPatent = AS.getAllPatientsAppointments(patientID);
+            foreach (Appointment a in appointmentsPatent)
+            {
+                Doctor d = DS.GetDoctorByID(a.doctorID);
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration));
+            }
+            return patientAppointmentsListDTO;
+        }
+        public ObservableCollection<ShowAppointmentPatientDTO> GetExecutedPatientsAppointments(int patientID)
+        {
+            ObservableCollection<ShowAppointmentPatientDTO> patientAppointmentsListDTO = new ObservableCollection<ShowAppointmentPatientDTO>();
+            ObservableCollection<Appointment> appointmentsPatent = AS.GetExecutedPatientsAppointments(patientID);
             foreach (Appointment a in appointmentsPatent)
             {
                 Doctor d = DS.GetDoctorByID(a.doctorID);
