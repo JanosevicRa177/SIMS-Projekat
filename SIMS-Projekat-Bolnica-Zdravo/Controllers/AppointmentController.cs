@@ -24,6 +24,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         private PatientService PS;
         private RoomController RC;
         private RoomService RS;
+        private MedicineController MC;
+
 
         public AppointmentController()
         {
@@ -33,6 +35,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             PS = new PatientService();
             AS = new AppointmentService();
             RS = new RoomService();
+            MC = new MedicineController();
+
         }
 
         public void RemoveAppointment(int appid)
@@ -140,7 +144,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 
         public void ExecutedAppointment(StartAppointmentDTO sadto)
         {
-            AS.ExecutedAppointment(sadto.condition, sadto.therapy, sadto.id, sadto.medicineList, sadto.desc);
+            AS.ExecutedAppointment(sadto.condition, sadto.therapy, sadto.id, convertTMDTOtoTM(sadto.medicineList), sadto.desc);
         }
 
         public ObservableCollection<ShowAppointmentDTO> GetAllDoctorsAppointments(int docID)
@@ -215,7 +219,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public StartAppointmentDTO getStartAppointmentDTOById(int appID)
         {
             Appointment a = AS.getAppointmentById(appID);
-            return new StartAppointmentDTO(a.description, a.therapy, a.condition, a.medicineList, a.appointmentID);
+            return new StartAppointmentDTO(a.description, a.therapy, a.condition, convertTMtoTMDTO(a.medicineList), a.appointmentID);
         }
 
         public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
@@ -232,6 +236,26 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
             return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration);
+        }
+        
+        public ObservableCollection<TakingMedicine> convertTMDTOtoTM(ObservableCollection<TakingMedicineDTO> octmdto)
+        {
+            ObservableCollection<TakingMedicine> octm = new ObservableCollection<TakingMedicine>();
+            foreach (TakingMedicineDTO tmdto in octmdto)
+            {
+                octm.Add(new TakingMedicine(tmdto.medid, tmdto.amount, tmdto.freq));
+            }
+            return octm;
+        }
+
+        public ObservableCollection<TakingMedicineDTO> convertTMtoTMDTO(ObservableCollection<TakingMedicine> octm)
+        {
+            ObservableCollection<TakingMedicineDTO> octmdto = new ObservableCollection<TakingMedicineDTO>();
+            foreach (TakingMedicine tm in octm)
+            {
+                octmdto.Add(new TakingMedicineDTO(tm.medid, tm.frequency, tm.amount));
+            }
+            return octmdto;
         }
     }
     public class EditAppointmentDTO
@@ -276,9 +300,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             public string desc { set; get; }
             public string therapy { set; get; }
             public string condition { set; get; }
-            public ObservableCollection<Medicine> medicineList { set; get; }
+            public ObservableCollection<TakingMedicineDTO> medicineList { set; get; }
             public int id { set; get; }
-            public StartAppointmentDTO(string desc,string therapy,string condition, ObservableCollection<Medicine> medList,int id)
+            public StartAppointmentDTO(string desc,string therapy,string condition, ObservableCollection<TakingMedicineDTO> medList,int id)
             {
                 this.desc = desc;
                 this.therapy = therapy;
@@ -313,6 +337,23 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             if (doc == null) return AS.getDoctorRoomOperationTimes(0, dt, 0);
             return AS.getDoctorRoomOperationTimes(doc.id, dt, id);
+        }
+    }
+
+    public class TakingMedicineDTO
+    {
+        private MedicineController MC;
+        public string medsName { set; get; }
+        public int medid { set; get; }
+        public string freq { set; get; }
+        public string amount { set; get; }
+        public TakingMedicineDTO(int medid,string amount, string frq)
+        {
+            MC = new MedicineController();
+            this.medid = medid;
+            this.medsName = MC.getMedicineById(medid).name;
+            this.freq = frq;
+            this.amount = amount;
         }
     }
     public class ShowAppointmentDTO

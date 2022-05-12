@@ -75,6 +75,7 @@
     <Compile Include="Controllers\EquipmentStorageController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MedicalRecordController.cs" />
+    <Compile Include="Controllers\MedicineController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
@@ -85,6 +86,14 @@
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorageFileStorage.cs" />
+    <Compile Include="CrudModel\MedicineFileStorage.cs" />
+    <Compile Include="CrudModel\TakingMedicine.cs" />
+    <Compile Include="DoctorAll\DoctorWindows\MedicineWindow.xaml.cs">
+      <DependentUpon>MedicineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorAll\DoctorWindows\ShowMedicine.xaml.cs">
+      <DependentUpon>ShowMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientWindows\AppointmentsForGrading.xaml.cs">
       <DependentUpon>AppointmentsForGrading.xaml</DependentUpon>
     </Compile>
@@ -114,6 +123,7 @@
     <Compile Include="CrudModel\VacationRequest.cs" />
     <Compile Include="Controllers\VacationRequestController.cs" />
     <Compile Include="Services\EquipmentStorageService.cs" />
+    <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\VacationRequestService.cs" />
     <Compile Include="DoctorAll\DoctorWindows\AddMedicine.xaml.cs">
       <DependentUpon>AddMedicine.xaml</DependentUpon>
@@ -228,6 +238,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorAll\DoctorWindows\MedicalRecordDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DoctorAll\DoctorWindows\MedicineWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DoctorAll\DoctorWindows\ShowMedicine.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

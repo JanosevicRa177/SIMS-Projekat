@@ -29,7 +29,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private AppointmentNotificationController ANC = new AppointmentNotificationController();
         public static NavigationService NavigatePatient;
         MainHamburgerMenu MainHamburger;
-        public Boolean menuClosed = true;
+        public static Boolean menuClosed = true;
         static public PatientCrAppDTO loggedPatient
         {
             get;

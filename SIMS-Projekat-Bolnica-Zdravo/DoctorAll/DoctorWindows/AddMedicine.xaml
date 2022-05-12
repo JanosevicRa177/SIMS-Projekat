@@ -23,7 +23,7 @@
         <TextBlock FontSize="35" Margin="5" HorizontalAlignment="Right" Text="Medicine:" Grid.Row="1" Grid.Column="1"/>
         <TextBlock FontSize="35" Margin="5" HorizontalAlignment="Right" Text="Amount:" Grid.Row="2" Grid.Column="1"/>
         <TextBlock FontSize="35" Margin="5" Text="Taking frequency:" Grid.Row="3" Grid.Column="1"/>
-        <TextBox Name="medName"  FontSize="35" Margin="5" Width="500" Grid.Row="1" Grid.Column="2"/>
+        <ComboBox ItemsSource="{Binding}" DisplayMemberPath="name" Name="medName"  FontSize="35" Margin="5" Width="500" Grid.Row="1" Grid.Column="2"/>
         <TextBox Name="medAmount" FontSize="35" Margin="5" Width="500" Grid.Row="2" Grid.Column="2"/>
         <TextBox Name="medFreq" FontSize="35" Margin="5" Width="500" Grid.Row="3" Grid.Column="2"/>
         <Button HorizontalAlignment="Center" Click="Button_Click" Grid.Column="0" Grid.ColumnSpan="20" Content="Add" FontSize="35" Style="{StaticResource doctorButtons}" Grid.Row="4"/>

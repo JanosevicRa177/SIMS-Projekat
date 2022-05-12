@@ -4,6 +4,8 @@
 // Purpose: Definition of Class VacationRequesFileStorage
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
+using ConsoleApp.serialization;
 
 namespace CrudModel
 {
@@ -11,18 +13,44 @@ namespace CrudModel
    {
       public bool CreateVacationRequest(VacationRequest crVR)
       {
-         throw new NotImplementedException();
+            ObservableCollection<VacationRequest> patients = new ObservableCollection<VacationRequest>();
+            Serializer<VacationRequest> patientSerializer = new Serializer<VacationRequest>();
+            foreach (VacationRequest p in patientSerializer.fromCSV("../../TxtFajlovi/vacationrequests.txt"))
+            {
+                patients.Add(p);
+            }
+            patients.Add(crVR);
+            patientSerializer.toCSV("../../TxtFajlovi/vacationrequests.txt", patients);
+            return true;
       }
-      
-      public VacationRequest GetVacationRequestById(int userID)
+
+        public VacationRequest GetVacationRequestById(int userID)
       {
          throw new NotImplementedException();
       }
       
-      public List<VacationRequest> GetAllVacationRequestsByDoctorId(int doctorID)
+      public ObservableCollection<VacationRequest> GetAllVacationRequestsByDoctorId(int doctorID)
       {
-         throw new NotImplementedException();
-      }
-   
-   }
+            ObservableCollection<VacationRequest> vacreq = new ObservableCollection<VacationRequest>();
+            Serializer<VacationRequest> patientSerializer = new Serializer<VacationRequest>();
+            foreach (VacationRequest p in patientSerializer.fromCSV("../../TxtFajlovi/vacationrequests.txt"))
+            {
+                if(p.doctorID == doctorID)
+                    vacreq.Add(p);
+            }
+            return vacreq;
+       }
+
+        public ObservableCollection<VacationRequest> GetAllVacationRequests()
+        {
+            ObservableCollection<VacationRequest> vacreq = new ObservableCollection<VacationRequest>();
+            Serializer<VacationRequest> patientSerializer = new Serializer<VacationRequest>();
+            foreach (VacationRequest p in patientSerializer.fromCSV("../../TxtFajlovi/vacationrequests.txt"))
+            {
+                vacreq.Add(p);
+            }
+            return vacreq;
+        }
+
+    }
 }

@@ -9,7 +9,7 @@ namespace CrudModel
 {
    public enum StateEnum
    {
-      acceoted,
+      accepted,
       denied,
       waiting
    }

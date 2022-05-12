@@ -17,9 +17,11 @@ namespace CrudModel
     {
         private static int ids = -1;
 
+        private MedicineController MC;
+
         public Appointment()
         {
-
+            MC = new MedicineController();
         }
 
         public string serMedList
@@ -27,7 +29,7 @@ namespace CrudModel
             set;
             get;
         }
-        public ObservableCollection<Medicine> medicineList
+        public ObservableCollection<TakingMedicine> medicineList
         {
             set;
             get;
@@ -147,6 +149,7 @@ namespace CrudModel
 
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid,bool operation)
         {
+            MC = new MedicineController();
             this.medicalRecordID = MRid;
             this.patientID = patID;
             //this.medicalRecord.patientID = pat.userID;
@@ -167,6 +170,7 @@ namespace CrudModel
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid)
         {
             getAppID();
+            MC = new MedicineController();
             this.medicalRecordID = MRid;
             this.patientID = patID;
             this.doctorID = docID;
@@ -186,6 +190,7 @@ namespace CrudModel
 
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID)
         {
+            MC = new MedicineController();
             //this.medicalRecord.patientID = pat.userID;
             this.doctorID = docID;
             this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
@@ -209,6 +214,7 @@ namespace CrudModel
         {
             //this.medicalRecord = pat.medicalRecord;
             //this.medicalRecord.patientID = pat.userID;
+            MC = new MedicineController();
             this.doctorID = doc.userID;
             this.patientID = pat.userID;
             this.appointmentID = appointmentID;
@@ -250,13 +256,13 @@ namespace CrudModel
             int i = 0;
             if(medicineList != null) 
             {
-                foreach (Medicine s in medicineList)
+                foreach (TakingMedicine s in medicineList)
                 {
                     if (medicineList.Count > i + 1)
-                        this.serMedList += s.name + "," + s.amount + "," + s.frequency + ";";
+                        this.serMedList += s.medid + "," + s.amount + "," + s.frequency + ";";
                     else
                     {
-                        this.serMedList += s.name + "," + s.amount + "," + s.frequency;
+                        this.serMedList += s.medid + "," + s.amount + "," + s.frequency;
                     }
                     i++;
                 }
@@ -290,12 +296,12 @@ namespace CrudModel
 
         public void setMeds(string lon)
         {
-            medicineList = new ObservableCollection<Medicine>();
+            medicineList = new ObservableCollection<TakingMedicine>();
             string[] sts = lon.Split(';');
             for (int i = 0; i < sts.Length;i++) {
                 string[] splited = sts[i].Split(',');
                 if (splited.Length < 3) continue;
-                this.medicineList.Add(new Medicine(splited[0],splited[1],splited[2]));
+                this.medicineList.Add(new TakingMedicine(int.Parse(splited[0]),splited[1],splited[2]));
             } 
         }
 
