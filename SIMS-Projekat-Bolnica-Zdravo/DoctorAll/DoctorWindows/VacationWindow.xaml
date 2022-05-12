@@ -22,9 +22,9 @@
         <Viewbox Grid.Column="1" Grid.Row="0" Height="500" Width="500">
             <Calendar x:Name="date2"></Calendar>
         </Viewbox>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,633,0">
             <TextBlock Margin="5" FontSize="50" Text="Days left:" Grid.Row="1"></TextBlock>
-            <TextBox Margin="5" Width="500" FontSize="50"></TextBox>
+            <TextBox Margin="5" Width="505" FontSize="50"></TextBox>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
         <Viewbox  Height="50">
@@ -33,6 +33,6 @@
         <TextBlock Margin="5" FontSize="50"> Emergency Request </TextBlock>
         </StackPanel>
         <Button HorizontalAlignment="Left" Grid.Row="2" FontSize="35" Content="Cancel" Margin="5" Style="{StaticResource doctorButtons}"></Button>
-        <Button HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="35" Content="Send Request" Margin="5" Style="{StaticResource doctorButtons}"></Button>
+        <Button HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="35" Content="Send Request" Margin="5" Style="{StaticResource doctorButtons}" Name="sreq"></Button>
     </Grid>
 </Window>

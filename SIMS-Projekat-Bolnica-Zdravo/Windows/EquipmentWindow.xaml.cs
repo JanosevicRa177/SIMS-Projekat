@@ -20,7 +20,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// <summary>
     /// Interaction logic for Equipment.xaml
     /// </summary>
-    public partial class Equipment : Window
+    public partial class EquipmentWindow : Window
     {
         public ObservableCollection<EquipmentStorage> equipmentList
         {
@@ -32,13 +32,19 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             get;
             set;
         }
+        public int dur
+        {
+            get;
+            set;
+        }
         EquipmentStorageController equipmentController;
-        public Equipment()
+        public EquipmentWindow()
         {
             equipmentController = new EquipmentStorageController();
             equipmentList = equipmentController.getAllUnstoredEquipments();
             storedEquipmentsList = equipmentController.getAllStoredEquipments();
             InitializeComponent();
+            this.dur = 1;
             this.DataContext = new
             {
                 equipments = equipmentList,

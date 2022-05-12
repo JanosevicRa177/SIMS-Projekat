@@ -28,7 +28,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             AFS = new AppointmentFileStorage();
             RFS = new RoomFileStorage();
             DFS = new DoctorFileStorage();
-            PFS = new PatientFileStorage();
             MRFS = new MedicalRecordFileStorage();
             
         }
@@ -38,7 +37,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         }
 
         //DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
-        public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid) 
+        public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid,int appointmentID) 
         {
             List<Time> array = new List<Time>();
             List<Time> arrayofa = new List<Time>();
@@ -50,6 +49,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             foreach (Appointment a in AFS.getAllAppointmentDTO())
             {
+                if (a.appointmentID == appointmentID) continue;
                 arrayofa.Clear();
                 bool halfa = a.time.minute == 30;
                 for (int i = 0,j=0; i < a.duration/30; i++,j++)
@@ -130,7 +130,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return filterDoctorsDayByHisAppointments(times, doctorID, forDate, duration, appoID);
         }
 
-        public BindingList<Time> GetDoctorTimesforDoctor(int doctorID, DateTime forDate, int duration, int appoID)
+        public BindingList<Time> GetDoctorTimesforDoctor(int doctorID, DateTime forDate, int duration, int appoID, int roomID = -1)
         {
             BindingList<Time> times = new BindingList<Time>();
             for (int i = 0, h = 7; h < 16 || i < 16;)
@@ -138,7 +138,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                 times.Add(new Time(h, 0, i++));
                 times.Add(new Time(h++, 30, i++));
             }
-            return filterDoctorsDayByHisAppointmentsforDoctor(times, doctorID, forDate, duration, appoID);
+            return filterDoctorsDayByHisAppointmentsforDoctor(times, doctorID, forDate, duration, appoID,roomID);
         }
         public BindingList<TimePatient> GetDoctorTermsByDoctor(int doctorID, DateTime forDate,int duration, int appoID)
         {
@@ -307,10 +307,42 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return times;
         }
 
-        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID)
+        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID,int roomID = -1)
         {
             List<int> array = new List<int>();
             int duration = duration1 / 30;
+
+            foreach (Appointment a in AFS.getAllRoomAppointments(roomID))
+            {
+                if (roomID == -1) break;
+                if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
+                {
+                    foreach (Time t in times)
+                    {
+                        if (t.hour == a.time.hour && t.minute == a.time.minute)
+                        {
+                            int remid = t.ID;
+                            for (int j = 0; j < (a.duration / 30); j++)
+                            {
+                                array.Add(remid + j);
+                            }
+                        }
+                    }
+                }
+            }
+            foreach (int id in array)
+            {
+                foreach (var t in times)
+                {
+                    if (t.ID == id)
+                    {
+                        times.Remove(t);
+                        break;
+                    }
+
+                }
+            }
+            array.Clear();
             foreach (Appointment a in AFS.getAllDoctorsAppointments(doctorID))
             {
                 if (a.appointmentID == appoID)

@@ -13,7 +13,6 @@ namespace CrudModel
 {
     public class Patient : User, Serializable
     {
-
         
         public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name,surname,address,password,mobilePhone,mail)
         {
@@ -23,6 +22,8 @@ namespace CrudModel
             }
             this.userID = User.generateID();
             this.gender = gender;
+            this.isAccoutBlocked = false;
+            this.numberOfChangesLast30Days = 0;
             this.fullaAddress = address.country + " " + address.city + " " + address.street + " " + address.number;
         }
         public Patient(Gender gender, string name, string surname, Address address, string password, string mobilePhone, string mail,int id) : base(name, surname, address, password, mobilePhone, mail)
@@ -33,6 +34,8 @@ namespace CrudModel
             }
             this.userID = id;
             this.gender = gender;
+            this.isAccoutBlocked = false;
+            this.numberOfChangesLast30Days = 0;
         }
         public Patient()
         {
@@ -67,6 +70,16 @@ namespace CrudModel
             get;
         }
         public MedicalRecord medicalRecord
+        {
+            set;
+            get;
+        }
+        public Boolean isAccoutBlocked
+        {
+            set;
+            get;
+        }
+        public int numberOfChangesLast30Days
         {
             set;
             get;
@@ -160,8 +173,57 @@ namespace CrudModel
         {
             if (gender.Equals(Gender.male))
             {
-                string[] csvValues =
+                if (isAccoutBlocked)
                 {
+                    string[] csvValues =
+                    {
+                        name,
+                        surname,
+                        address.country,
+                        address.city,
+                        address.street,
+                        address.number,
+                        password,
+                        mobilePhone,
+                        mail,
+                        userID.ToString(),
+                        condition,
+                        therapy,
+                        1.ToString(),
+                        numberOfChangesLast30Days.ToString(),
+                        "M"
+                    };
+                    return csvValues;
+                }
+                else
+                {
+                    string[] csvValues =
+                    {
+                        name,
+                        surname,
+                        address.country,
+                        address.city,
+                        address.street,
+                        address.number,
+                        password,
+                        mobilePhone,
+                        mail,
+                        userID.ToString(),
+                        condition,
+                        therapy,
+                        0.ToString(),
+                        numberOfChangesLast30Days.ToString(),
+                        "M"
+                    };
+                    return csvValues;
+                }
+            }
+            else
+            {
+                if (isAccoutBlocked)
+                {
+                    string[] csvValues =
+{
                     name,
                     surname,
                     address.country,
@@ -174,15 +236,16 @@ namespace CrudModel
                     userID.ToString(),
                     condition,
                     therapy,
-
-                    "M"
+                    1.ToString(),
+                    numberOfChangesLast30Days.ToString(),
+                    "Z"
                 };
-                return csvValues;
-            }
-            else
-            {
-                string[] csvValues =
-{
+                    return csvValues;
+                }
+                else
+                {
+                    string[] csvValues =
+                    {
                     name,
                     surname,
                     address.country,
@@ -193,40 +256,46 @@ namespace CrudModel
                     mobilePhone,
                     mail,
                     userID.ToString(),
+                    condition,
+                    therapy,
+                    0.ToString(),
+                    numberOfChangesLast30Days.ToString(),
                     "Z"
                 };
-                return csvValues;
+                    return csvValues;
+                }
             }
         }
 
         public void fromCSV(string[] values)
         {
-            if (values[10].Equals("M"))
+            name = values[0];
+            surname = values[1];
+            address.country = values[2];
+            address.city = values[3];
+            address.street = values[4];
+            address.number = values[5];
+            password = values[6];
+            mobilePhone = values[7];
+            mail = values[8];
+            userID = int.Parse(values[9]);
+            condition = values[10];
+            therapy = values[11];
+            if (int.Parse(values[12]) == 1) 
             {
-                name = values[0];
-                surname = values[1];
-                address.country = values[2];
-                address.city = values[3];
-                address.street = values[4];
-                address.number = values[5];
-                password = values[6];
-                mobilePhone = values[7];
-                mail = values[8];
-                userID = int.Parse(values[9]);
+                isAccoutBlocked = true;
+            }
+            else
+            {
+                isAccoutBlocked = false;
+            }
+            numberOfChangesLast30Days = int.Parse(values[13]);
+            if (values[14].Equals("M"))
+            {
                 gender = Gender.male;
             }
             else
             {
-                name = values[0];
-                surname = values[1];
-                address.country = values[2];
-                address.city = values[3];
-                address.street = values[4];
-                address.number = values[5];
-                password = values[6];
-                mobilePhone = values[7];
-                mail = values[8];
-                userID = int.Parse(values[9]);
                 gender = Gender.female;
             }
         }

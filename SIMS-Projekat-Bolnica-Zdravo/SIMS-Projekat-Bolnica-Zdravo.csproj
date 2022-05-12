@@ -85,6 +85,15 @@
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorageFileStorage.cs" />
+    <Compile Include="PatientWindows\HamburgerMenu2.xaml.cs">
+      <DependentUpon>HamburgerMenu2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientWindows\HamburgerMenu1.xaml.cs">
+      <DependentUpon>HamburgerMenu1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientWindows\MainHamburgerMenu.xaml.cs">
+      <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientWindows\NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -279,7 +288,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="PatientWindows\HamburgerMenu2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientWindows\HamburgerMenu1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PatientWindows\LoginPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientWindows\MainHamburgerMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -332,8 +353,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EquipmentWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\ManagerWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -408,6 +429,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="PatientWindows\18ac159d299eb4c2fac7a63a1eaa511b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PatientWindows\hamburger-menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PatientWindows\black-right-arrow-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PatientWindows\SignOut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

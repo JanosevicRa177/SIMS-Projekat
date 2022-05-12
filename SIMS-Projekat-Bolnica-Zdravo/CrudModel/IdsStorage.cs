@@ -20,6 +20,7 @@ namespace CrudModel
         private int roomids;
         private int warehousids;
         private int appointmentNotificationids;
+        private int Vacationsids;
 
         public static ObservableCollection<IdsStorage> IDS;
         public IdsStorage()
@@ -32,6 +33,7 @@ namespace CrudModel
             roomids = Room.getids();
             warehousids = Warehouse.getids();
             appointmentNotificationids = AppointmentNotification.getids();
+            Vacationsids = VacationRequest.getids();
             IDS = new ObservableCollection<IdsStorage>();
             IDS.Add(this);
         }
@@ -46,6 +48,7 @@ namespace CrudModel
             roomids = int.Parse(values[5]);
             warehousids = int.Parse(values[6]);
             appointmentNotificationids = int.Parse(values[7]);
+            Vacationsids = int.Parse(values[8]);
         }
 
         public string[] toCSV()
@@ -59,7 +62,8 @@ namespace CrudModel
                 noteids.ToString(),
                 roomids.ToString(),
                 warehousids.ToString(),
-                appointmentNotificationids.ToString()
+                appointmentNotificationids.ToString(),
+                Vacationsids.ToString()
             };
             return csvValues;
         }
@@ -74,6 +78,7 @@ namespace CrudModel
             Room.setids(roomids);
             Warehouse.setids(warehousids);
             AppointmentNotification.setids(appointmentNotificationids);
+            VacationRequest.setids(Vacationsids);
         }
     }
 }

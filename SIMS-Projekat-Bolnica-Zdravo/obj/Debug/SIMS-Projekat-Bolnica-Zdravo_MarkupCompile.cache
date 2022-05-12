@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\App.xaml
-31695030858
+34190682252
 
-1062006990922
+109342286916
 1779179662
-DoctorAll\DoctorWindows\AddMedicine.xaml;DoctorAll\DoctorWindows\DialogWindow.xaml;DoctorAll\DoctorWindows\MedicalRecordDoc.xaml;DoctorAll\DoctorWindows\TherapyDia.xaml;DoctorAll\DoctorWindows\VacationWindow.xaml;MainWindow.xaml;DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml;DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml;PatientWindows\ChangeAppointment.xaml;PatientWindows\DateChanger.xaml;PatientWindows\LoginPatient.xaml;PatientWindows\NotePage.xaml;PatientWindows\AddAppointment.xaml;PatientWindows\DatePicker.xaml;PatientWindows\NotificationWindow.xaml;PatientWindows\ShowAppointment.xaml;PatientWindows\PatientNotes.xaml;PatientWindows\PatientAppointments.xaml;Windows\AddAlergenWindow.xaml;Windows\CreateRoomDialog.xaml;DoctorAll\DoctorWindows\DoctorsAppointments.xaml;DoctorAll\DoctorWindows\doctorShowAppointment.xaml;DoctorAll\DoctorWindows\DoctorWindow.xaml;Windows\EquipmentWindow.xaml;Windows\ManagerWindow.xaml;PatientWindows\PatientWindow.xaml;Windows\NoAccountAppointment.xaml;Windows\OperationWindow.xaml;Windows\SecretaryPacientAppointment.xaml;Windows\SecretaryWindow.xaml;Windows\StaffRegistrationWindow.xaml;
+DoctorAll\DoctorWindows\AddMedicine.xaml;DoctorAll\DoctorWindows\DialogWindow.xaml;DoctorAll\DoctorWindows\MedicalRecordDoc.xaml;DoctorAll\DoctorWindows\TherapyDia.xaml;DoctorAll\DoctorWindows\VacationWindow.xaml;MainWindow.xaml;DoctorAll\DoctorWindows\1addAppointmentDialogDoctor.xaml;DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml;PatientWindows\ChangeAppointment.xaml;PatientWindows\DateChanger.xaml;PatientWindows\HamburgerMenu2.xaml;PatientWindows\HamburgerMenu1.xaml;PatientWindows\LoginPatient.xaml;PatientWindows\MainHamburgerMenu.xaml;PatientWindows\NotePage.xaml;PatientWindows\AddAppointment.xaml;PatientWindows\DatePicker.xaml;PatientWindows\NotificationWindow.xaml;PatientWindows\ShowAppointment.xaml;PatientWindows\PatientNotes.xaml;PatientWindows\PatientAppointments.xaml;Windows\AddAlergenWindow.xaml;Windows\CreateRoomDialog.xaml;DoctorAll\DoctorWindows\DoctorsAppointments.xaml;DoctorAll\DoctorWindows\doctorShowAppointment.xaml;DoctorAll\DoctorWindows\DoctorWindow.xaml;Windows\EquipmentWindow.xaml;Windows\ManagerWindow.xaml;PatientWindows\PatientWindow.xaml;Windows\NoAccountAppointment.xaml;Windows\OperationWindow.xaml;Windows\SecretaryPacientAppointment.xaml;Windows\SecretaryWindow.xaml;Windows\StaffRegistrationWindow.xaml;
 
 False
 

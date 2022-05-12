@@ -29,6 +29,7 @@ namespace CrudModel
             this.mobilePhone = phone;
             this.specialization = spec;
             this.position = pos;
+            this.VacationDays = 14;
         }
         public Doctor(Specialization spec, string name, string surname, Address address, string password, string mobilePhone, string mail) : base(name, surname, address, password, mobilePhone, mail)
         {
@@ -41,7 +42,14 @@ namespace CrudModel
             this.mail = mail;
             this.specialization = spec;
             this.position = "Doctor";
+            this.VacationDays = 14;
         }
+
+        public int VacationDays
+        {
+            set;
+            get;
+        } 
 
          public Specialization specialization
         {
@@ -193,7 +201,8 @@ namespace CrudModel
                 mobilePhone,
                 mail,
                 userID.ToString(),
-                specialization.specialization
+                specialization.specialization,
+                VacationDays.ToString()
             };
             return csvValues;
         }
@@ -211,6 +220,7 @@ namespace CrudModel
             mail = values[8];
             userID = int.Parse(values[9]);
             specialization = SpecializationFileStorage.GetSpecialization(values[10]);
+            VacationDays = int.Parse(values[11]);
         }
     }
 

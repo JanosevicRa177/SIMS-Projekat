@@ -23,9 +23,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
     {
         private AppointmentController AC;
         public static ShowAppointmentPatientDTO appointment;
-        public ShowAppointment(ShowAppointmentPatientDTO SAP)
+        public static PatientWindow patientWindow;
+        public ShowAppointment(ShowAppointmentPatientDTO SAP, PatientWindow patientWindow1)
         {
             appointment = SAP;
+            patientWindow = patientWindow1;
             ChangeAppointment.initialize = true;
             AC = new AppointmentController();
             InitializeComponent();
@@ -66,7 +68,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 MessageBox.Show("Ne Možete menjati odradjene preglede");
                 return;
             }
-            PatientWindow.NavigatePatient.Navigate(new ChangeAppointment(int.Parse(appointment.doctorID), appointment.Date, appointment.id));
+            PatientWindow.NavigatePatient.Navigate(new ChangeAppointment(int.Parse(appointment.doctorID), appointment.Date, appointment.id, patientWindow));
         }
         private void Show_Home(object sender, RoutedEventArgs e)
         {

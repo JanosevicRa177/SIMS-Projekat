@@ -46,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Equipment_Click(object sender, RoutedEventArgs e)
         {
-            Equipment eq = new Equipment();
+            EquipmentWindow eq = new EquipmentWindow();
             eq.Show();
             this.Close();
         }

@@ -27,7 +27,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return ocp;
         }
-
+        public bool IsAccountBlocked(int patientID) 
+        {
+            return PS.IsAccountBlocked(patientID);
+        }
+        public bool CheckForTrolling(int patientID)
+        {
+            return PS.CheckForTrolling(patientID);
+        }
         public Patient GetPatientByID(int patientID)
         {
             return PS.GetPatientByID(patientID);

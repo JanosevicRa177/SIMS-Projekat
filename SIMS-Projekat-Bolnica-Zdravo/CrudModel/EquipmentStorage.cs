@@ -9,10 +9,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.CrudModel
 {
     public class EquipmentStorage : Serializable
     {
-        public static int equipmentIDstatic = 0;
+        public static int equipmentIDstatic;
         public EquipmentStorage(string equipmentType,string amount)
         {
-            this.equipmentID = equipmentIDstatic++;
+            getEquipmentID();
+            this.equipmentID = ++equipmentIDstatic;
             this.equipmentType = equipmentType;
             this.amount = amount;
             this.stored = false;
@@ -72,7 +73,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.CrudModel
                 if(i == equipmentFileStorage.getAllEquipments().Count - 1)
                 {
                     lastId = equipment.equipmentID;
+                    
                 }
+                i++;
             }
             equipmentIDstatic = lastId;
         }

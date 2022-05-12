@@ -10,7 +10,10 @@ FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\addAppointmentDialogDoctor.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\ChangeAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\DateChanger.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\HamburgerMenu2.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\HamburgerMenu1.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\LoginPatient.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\MainHamburgerMenu.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\NotePage.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\AddAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\DatePicker.xaml;;
@@ -23,7 +26,6 @@ FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\CreateRoomDialog
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\DoctorsAppointments.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\doctorShowAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\DoctorAll\DoctorWindows\DoctorWindow.xaml;;
-FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\EquipmentWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\ManagerWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\PatientWindows\PatientWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\NoAccountAppointment.xaml;;
@@ -31,4 +33,5 @@ FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\OperationWindow.
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\SecretaryPacientAppointment.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\SecretaryWindow.xaml;;
 FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\StaffRegistrationWindow.xaml;;
+FD:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\EquipmentWindow.xaml;;
 

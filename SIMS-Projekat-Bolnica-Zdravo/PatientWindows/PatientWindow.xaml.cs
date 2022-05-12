@@ -28,6 +28,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private PatientController PC = new PatientController();
         private AppointmentNotificationController ANC = new AppointmentNotificationController();
         public static NavigationService NavigatePatient;
+        MainHamburgerMenu MainHamburger;
+        public Boolean menuClosed = true;
         static public PatientCrAppDTO loggedPatient
         {
             get;
@@ -44,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             InitializeComponent();
             NavigatePatient = PatientFrame.NavigationService;
             loggedPatient = PC.GetPatientDTOByID(patientID);
-            PatientFrame.Content = new PatientAppointments();
+            PatientFrame.Content = new PatientAppointments(this);
             this.DataContext = loggedPatient;
             ShowNotes();
         }
@@ -60,11 +62,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     continue;
                 }
                 NotificationWindow nw = new NotificationWindow(an.title, an.content);
+                nw.Topmost = true;
                 nw.Show();
                 an.viewed = true;
-                await Task.Delay(2500);
+                await Task.Delay(3500);
                 nw.Close();
-                //ANC.UpdateAppointmentNotification(an);
+                ANC.UpdateAppointmentNotification(an);
             }
         }
         private void Show_Notes(object sender, RoutedEventArgs e)
@@ -82,11 +85,30 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             PatientFrame.NavigationService.Navigate(new PatientAppointments());
         }
 
-        private void signout_Click(object sender, RoutedEventArgs e)
+        public void SignOut()
         {
             LP.Show();
             loggedPatient = null;
             this.Close();
+        }
+
+        private void hamburger_Menu_Click(object sender, RoutedEventArgs e)
+        {
+            if (menuClosed) 
+            {
+                MainHamburger = new MainHamburgerMenu(this);
+                MainHamburger.Activate();
+                MainHamburger.Topmost = true;
+                MainHamburger.Show();
+                menuClosed = false;
+                return;
+            }
+            menuClosed = true;
+            MainHamburger.Close_menu();
+        }
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if(MainHamburger != null) MainHamburger.Close();
         }
     }
 }
