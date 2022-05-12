@@ -39,6 +39,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void Show_executed_click(object sender, RoutedEventArgs e)
         {
             patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading(patientWindow));
+            PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
         }
     }

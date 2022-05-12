@@ -9,7 +9,7 @@ using System;
 
 namespace CrudModel
 {
-   public class VacationRequest
+   public class VacationRequest : Serializable
     {
         private static int ids;
         public VacationRequest()
@@ -66,7 +66,6 @@ namespace CrudModel
             get;
         }
 
-<<<<<<< HEAD
         public string[] toCSV()
         {
             string[] csvValues =
@@ -96,8 +95,5 @@ namespace CrudModel
             explanation = values[8];
             id = int.Parse(values[9]);
         }
-
-=======
->>>>>>> b119ad2776524075e16c2abce2d4602d6f1909da
     }
 }
