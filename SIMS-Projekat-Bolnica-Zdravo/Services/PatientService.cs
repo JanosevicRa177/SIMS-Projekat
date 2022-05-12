@@ -16,11 +16,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             PFS = new PatientFileStorage();
         }
+        public bool IsAccountBlocked(int patientID)
+        {
+            return PFS.IsAccountBlocked(patientID);
+        }
         public ObservableCollection<Patient> getAllPatients()
         {
             return PFS.getAllPatientsFS();
         }
-         
+        public bool CheckForTrolling(int patientID)
+        {
+            return PFS.CheckForTrolling(patientID);
+        }
         public Patient GetPatientByID(int patientID)
         {
             return PFS.GetPatientByID(patientID);

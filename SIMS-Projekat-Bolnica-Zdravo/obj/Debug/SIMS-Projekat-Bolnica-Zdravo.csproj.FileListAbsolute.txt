@@ -86,3 +86,7 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\MainHamburgerMenu.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\MainHamburgerMenu.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu1.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu1.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu2.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu2.baml

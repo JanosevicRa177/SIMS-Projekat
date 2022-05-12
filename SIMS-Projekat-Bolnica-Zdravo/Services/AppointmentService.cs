@@ -28,7 +28,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             AFS = new AppointmentFileStorage();
             RFS = new RoomFileStorage();
             DFS = new DoctorFileStorage();
-            PFS = new PatientFileStorage();
             MRFS = new MedicalRecordFileStorage();
             
         }

@@ -26,6 +26,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
     {
         private AppointmentController AC;
         private DoctorController DC;
+        private PatientController PC;
         private RoomController RC;
         public int hours
         {
@@ -53,13 +54,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         public static Boolean initialize = true;
         public static int appointmentID;
-        public ChangeAppointment(int doctorID, DateTime date_t,int appointmentID1)
+        public static PatientWindow patientWindow;
+        public ChangeAppointment(int doctorID, DateTime date_t,int appointmentID1,PatientWindow patientWindow1)
         {
             AC = new AppointmentController();
             DC = new DoctorController();
             RC = new RoomController();
+            PC = new PatientController();
             InitializeComponent();
             appointmentID = appointmentID1;
+            patientWindow = patientWindow1;
             selectedAppointment = AC.getShowAppointmentPatientDTO(appointmentID);
             doctor = DC.getDoctorDTO(doctorID);
             if (initialize)
@@ -114,12 +118,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 MessageBox.Show("U medjuvremenu neko je zakazao pregled, molim izaberite drugi termin");
                 return;
             }
+            if (!PC.CheckForTrolling(PatientWindow.loggedPatient.id)) 
+            {
+                MessageBox.Show("Nalog vam je blokiran zbog zloupotrebe izmene/brisanja termina");
+                patientWindow.SignOut();
+            }
             AC.ChangeAppointment(t, TimePat.date, appointmentID);
             date = DateTime.MinValue;
             initialize = true;
             empty = false;
             selectedAppointment = AC.getShowAppointmentPatientDTO(appointmentID);
-            PatientWindow.NavigatePatient.Navigate(new ShowAppointment(selectedAppointment));
+            PatientWindow.NavigatePatient.Navigate(new ShowAppointment(selectedAppointment, patientWindow));
         }
 
         private void Date_TextChanged(object sender, TextChangedEventArgs e)
