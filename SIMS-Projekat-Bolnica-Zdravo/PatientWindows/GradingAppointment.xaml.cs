@@ -1,6 +1,8 @@
-﻿using SIMS_Projekat_Bolnica_Zdravo.Windows;
+﻿using CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,20 +18,64 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
-    /// <summary>
-    /// Interaction logic for GradingAppointment.xaml
-    /// </summary>
     public partial class GradingAppointment : Page
     {
         public static PatientWindow patientWindow;
-        public GradingAppointment(PatientWindow patientWindow1)
+        private AppointmentGradeController AGC;
+        public int doctorGrade;
+        public int kindnessGrade;
+        public int accuracyGrade;
+        public int hyigieneGrade;
+        public int appointmentGradeID;
+        public GradingAppointment(PatientWindow patientWindow1, int appointmentID)
         {
+            appointmentGradeID = appointmentID;
+            AGC = new AppointmentGradeController();
             patientWindow = patientWindow1;
             InitializeComponent();
         }
         private void Cancel_Grading_Click(object sender, RoutedEventArgs e)
         {
             patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading(patientWindow));
+        }
+
+        private void DoctorGrade_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioButton = sender as RadioButton;
+            if (radioButton == null)
+                return;
+            doctorGrade = Convert.ToInt32(radioButton.Content.ToString());
+        }
+
+        private void DoctorKindnessGrade_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioButton = sender as RadioButton;
+            if (radioButton == null)
+                return;
+            kindnessGrade = Convert.ToInt32(radioButton.Content.ToString());
+        }
+
+        private void DoctorAccuracyGrade_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioButton = sender as RadioButton;
+            if (radioButton == null)
+                return;
+            accuracyGrade = Convert.ToInt32(radioButton.Content.ToString());
+        }
+
+        private void DoctorHyigieneyGrade_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioButton = sender as RadioButton;
+            if (radioButton == null)
+                return;
+            hyigieneGrade = Convert.ToInt32(radioButton.Content.ToString());
+        }
+
+        private void Grade_Click(object sender, RoutedEventArgs e)
+        {
+            AppointmentGrade appointmentGrade = new AppointmentGrade(kindnessGrade,accuracyGrade,doctorGrade,hyigieneGrade, desc.Text,appointmentGradeID);
+            AGC.CreateAppointmentGrade(appointmentGrade);
+            patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading());
         }
     }
 }

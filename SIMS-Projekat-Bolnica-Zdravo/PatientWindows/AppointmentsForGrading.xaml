@@ -46,7 +46,7 @@
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button FontSize="15" Margin="10,10,10,10" Content="Oceni" Click="Grade_Click"/>
+                            <Button FontSize="15" Margin="10,10,10,10" Content="Oceni" IsEnabled="{Binding Path=isNotGraded}" Click="Grade_Click"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

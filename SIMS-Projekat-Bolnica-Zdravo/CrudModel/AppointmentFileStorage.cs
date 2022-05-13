@@ -35,15 +35,28 @@ namespace CrudModel
                 appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             }
         }
-
-        public void ExecutedAppointment(string cond,string ther,int id,ObservableCollection<TakingMedicine> ocMed,string desc)
+        public void UpdateAppointmentGradeStatus(int appointmentID) 
         {
             ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
             appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
             foreach (Appointment a in appointmentList)
             {
-                if (a.appointmentID == id)
+                if (a.appointmentID == appointmentID)
+                {
+                    a.isNotGraded = false;
+                }
+            }
+            appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
+        }
+        public void ExecutedAppointment(string cond,string ther,int appointmentID, ObservableCollection<TakingMedicine> ocMed,string desc)
+        {
+            ObservableCollection<Appointment> appointmentList = new ObservableCollection<Appointment>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
+            foreach (Appointment a in appointmentList)
+            {
+                if (a.appointmentID == appointmentID)
                 {
                     a.condition = cond;
                     a.therapy = ther;

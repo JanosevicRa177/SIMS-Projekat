@@ -2,6 +2,7 @@
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +29,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.loggedPatient.id);
             InitializeComponent();
         }
+        public AppointmentsForGrading() 
+        {
+            AC = new AppointmentController();
+            this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.loggedPatient.id);
+            InitializeComponent();
+        }
 
         private void Grade_Click(object sender, RoutedEventArgs e)
         {
-            patientWindow.PatientFrame.NavigationService.Navigate(new GradingAppointment(patientWindow));
+            ShowAppointmentPatientDTO appointment = (ShowAppointmentPatientDTO)AppointmentsListGrid.SelectedItem;
+            patientWindow.PatientFrame.NavigationService.Navigate(new GradingAppointment(patientWindow, appointment.id));
         }
     }
 }

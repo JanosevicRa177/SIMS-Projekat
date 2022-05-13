@@ -82,6 +82,11 @@ namespace CrudModel
             set;
             get;
         }
+        public Boolean isNotGraded 
+        {
+            get;
+            set;
+        }
         public int getAppID()
         {
             int i = 0;
@@ -166,6 +171,7 @@ namespace CrudModel
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
+            this.isNotGraded = false;
         }
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid)
         {
@@ -186,12 +192,12 @@ namespace CrudModel
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
+            this.isNotGraded = false;
         }
 
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID)
         {
             MC = new MedicineController();
-            //this.medicalRecord.patientID = pat.userID;
             this.doctorID = docID;
             this.timeBegin = new DateTime(date.Year, date.Month, date.Day, time.hour, time.minute, 0);
             this.setDate();
@@ -212,8 +218,6 @@ namespace CrudModel
 
         public Appointment(DateTime date, int hour, int minute, int duration, Room room, Doctor doc, string description, Patient pat,int appointmentID)
         {
-            //this.medicalRecord = pat.medicalRecord;
-            //this.medicalRecord.patientID = pat.userID;
             MC = new MedicineController();
             this.doctorID = doc.userID;
             this.patientID = pat.userID;
@@ -289,7 +293,8 @@ namespace CrudModel
                 operation.ToString(),
                 therapy,
                 condition,
-                serMedList
+                serMedList,
+                isNotGraded.ToString()
             };
             return csvValues;
         }
@@ -321,7 +326,15 @@ namespace CrudModel
             this.condition = values[15];
             setMeds(values[16]);
             setTime();
-            setDate(); 
+            setDate();
+            if (values[17].Equals("True"))
+            {
+                isNotGraded = true;
+            }
+            else 
+            {
+                isNotGraded = false;
+            }
         }
     }
 }

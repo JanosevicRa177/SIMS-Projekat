@@ -4,15 +4,21 @@
 // Purpose: Definition of Class AppointmentGradeFileStorage
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
+using ConsoleApp.serialization;
 
 namespace CrudModel
 {
    public class AppointmentGradeFileStorage
    {
-      public bool CreateAppointmentGrade(AppointmentGrade crAG)
+      public bool CreateAppointmentGrade(AppointmentGrade newAppointmentGrade)
       {
-         throw new NotImplementedException();
-      }
+            Serializer<AppointmentGrade> appoitmentGradesSerializer = new Serializer<AppointmentGrade>();
+            ObservableCollection<AppointmentGrade> appointmentGradesList = appoitmentGradesSerializer.fromCSV("../../TxtFajlovi/appointmentGrades.txt");
+            appointmentGradesList.Add(newAppointmentGrade);
+            appoitmentGradesSerializer.toCSV("../../TxtFajlovi/appointmentGrades.txt", appointmentGradesList);
+            return true;
+        }
       
       public AppointmentGrade GetAppointmentGradeById(int appGID)
       {

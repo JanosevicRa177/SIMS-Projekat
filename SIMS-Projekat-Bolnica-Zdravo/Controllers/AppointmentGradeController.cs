@@ -10,22 +10,24 @@ namespace CrudModel
 {
    public class AppointmentGradeController
    {
-      public bool CreateAppointmentGrade(AppointmentGrade crAG)
-      {
-         throw new NotImplementedException();
-      }
+        private AppointmentGradeService AGS;
+        public AppointmentGradeController() 
+        {
+            AGS = new AppointmentGradeService();
+        }
+        public bool CreateAppointmentGrade(AppointmentGrade appointmentGrade)
+        {
+            return AGS.CreateAppointmentGrade(appointmentGrade);
+        }
       
-      public AppointmentGrade GetAppointmentGradeById(int appGID)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public List<AppointmentGrade> GetAppointmentGradeByAppId(int appoId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public AppointmentGradeService appointmentGradeService;
-   
+        public AppointmentGrade GetAppointmentGradeById(int appGID)
+        {
+           throw new NotImplementedException();
+        }
+
+        public List<AppointmentGrade> GetAppointmentGradeByAppId(int appoId)
+        {
+            throw new NotImplementedException();
+        }
    }
 }
