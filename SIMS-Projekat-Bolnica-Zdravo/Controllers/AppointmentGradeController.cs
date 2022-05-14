@@ -3,6 +3,7 @@
 // Created: Tuesday, May 10, 2022 9:05:35 PM
 // Purpose: Definition of Class AppointmentGradeController
 
+using SIMS_Projekat_Bolnica_Zdravo;
 using System;
 using System.Collections.Generic;
 

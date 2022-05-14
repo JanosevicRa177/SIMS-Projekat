@@ -3,11 +3,12 @@
 // Created: Saturday, April 30, 2022 12:34:56 PM
 // Purpose: Definition of Class AppointmentNotificationService
 
+using CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace CrudModel
+namespace SIMS_Projekat_Bolnica_Zdravo
 {
    public class AppointmentNotificationService
    {

@@ -25,8 +25,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         public MainHamburgerMenu(PatientWindow patientWindow1)
         {
             patientWindow = patientWindow1;
-            this.Top = 141;
-            this.Left = 559;
             InitializeComponent();
             NavigateMenu = MenuFrame.NavigationService;
             MenuFrame.Content = new HamburgerMenu1(patientWindow1, this);

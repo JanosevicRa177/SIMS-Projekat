@@ -171,7 +171,7 @@ namespace CrudModel
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
-            this.isNotGraded = false;
+            this.isNotGraded = true;
         }
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID, int MRid)
         {
@@ -192,7 +192,7 @@ namespace CrudModel
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
-            this.isNotGraded = false;
+            this.isNotGraded = true;
         }
 
         public Appointment(DateTime date, Time time, int duration, int roomID, int docID, string description, int patID)
@@ -213,6 +213,7 @@ namespace CrudModel
             this.therapy = "";
             this.condition = "";
             this.serMedList = "";
+            this.isNotGraded = true;
         }
 
 
@@ -231,6 +232,7 @@ namespace CrudModel
             this.appointmentID = ++ids;
             this.description = description;
             this.operation = false;
+            this.isNotGraded = true;
         }
 
 

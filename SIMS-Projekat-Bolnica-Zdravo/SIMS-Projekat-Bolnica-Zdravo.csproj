@@ -73,6 +73,7 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\EquipmentStorageController.cs" />
+    <Compile Include="Controllers\HospitalGradeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MedicalRecordController.cs" />
     <Compile Include="Controllers\MedicineController.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorageFileStorage.cs" />
+    <Compile Include="CrudModel\HospitalGrade.cs" />
+    <Compile Include="CrudModel\HospitalGradeFileStorage.cs" />
     <Compile Include="CrudModel\MedicineFileStorage.cs" />
     <Compile Include="CrudModel\TakingMedicine.cs" />
     <Compile Include="DoctorAll\DoctorWindows\MedicineWindow.xaml.cs">
@@ -96,6 +99,9 @@
     </Compile>
     <Compile Include="PatientWindows\AppointmentsForGrading.xaml.cs">
       <DependentUpon>AppointmentsForGrading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientWindows\GradingHospital.xaml.cs">
+      <DependentUpon>GradingHospital.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientWindows\GradingAppointment.xaml.cs">
       <DependentUpon>GradingAppointment.xaml</DependentUpon>
@@ -123,6 +129,7 @@
     <Compile Include="CrudModel\VacationRequest.cs" />
     <Compile Include="Controllers\VacationRequestController.cs" />
     <Compile Include="Services\EquipmentStorageService.cs" />
+    <Compile Include="Services\HospitalGradeService.cs" />
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\VacationRequestService.cs" />
     <Compile Include="DoctorAll\DoctorWindows\AddMedicine.xaml.cs">
@@ -313,6 +320,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PatientWindows\DateChanger.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientWindows\GradingHospital.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

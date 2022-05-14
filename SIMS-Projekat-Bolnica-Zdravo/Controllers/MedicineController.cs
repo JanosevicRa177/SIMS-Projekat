@@ -4,6 +4,7 @@
 // Purpose: Definition of Class MedicineController
 
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

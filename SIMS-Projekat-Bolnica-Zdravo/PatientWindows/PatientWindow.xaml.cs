@@ -62,6 +62,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                     continue;
                 }
                 NotificationWindow nw = new NotificationWindow(an.title, an.content);
+                nw.Top = this.Top + 84;
+                nw.Left = this.Left;
                 nw.Topmost = true;
                 nw.Show();
                 an.viewed = true;
@@ -97,6 +99,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             if (menuClosed) 
             {
                 MainHamburger = new MainHamburgerMenu(this);
+                MainHamburger.Top = this.Top + 84;
+                MainHamburger.Left = this.Left;
                 MainHamburger.Activate();
                 MainHamburger.Topmost = true;
                 MainHamburger.Show();
@@ -108,7 +112,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            if(MainHamburger != null) MainHamburger.Close();
+            if (MainHamburger != null)
+            {
+                menuClosed = true;
+                MainHamburger.Close();
+            }
         }
     }
 }

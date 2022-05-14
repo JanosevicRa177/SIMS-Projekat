@@ -53,7 +53,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return docdto;
         }
-
+        public bool IsPatientEligibleToGradeHospital(int patientID) 
+        {
+           return AS.IsPatientEligibleToGradeHospital(patientID);
+        }
         public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto,int appointmentID = -1)
         {
             return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id, appointmentID);

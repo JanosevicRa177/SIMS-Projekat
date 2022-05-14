@@ -4,8 +4,9 @@
 // Purpose: Definition of Class AppointmentGradeService
 using System.Collections.Generic;
 using System;
+using CrudModel;
 
-namespace CrudModel
+namespace SIMS_Projekat_Bolnica_Zdravo
 {
    public class AppointmentGradeService
    {

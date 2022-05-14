@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.PatientWindows"
         mc:Ignorable="d"
-        Title="NotificationWindow" Height="100" Width="417.5" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True">
+        Title="NotificationWindow" Height="100" Width="430" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True">
     <Grid RenderTransformOrigin="0,1">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>

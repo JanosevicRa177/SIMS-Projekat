@@ -1,4 +1,5 @@
-﻿using SIMS_Projekat_Bolnica_Zdravo.Windows;
+﻿using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
     {
         public static PatientWindow patientWindow;
         public static MainHamburgerMenu mainMenu;
+        private AppointmentController AC;
+        private HospitalGradeController HGC;
         public HamburgerMenu1(PatientWindow patientWindow1, MainHamburgerMenu mainMenu1)
         {
+            AC = new AppointmentController();
+            HGC = new HospitalGradeController();
             mainMenu = mainMenu1;
             patientWindow = patientWindow1;
             InitializeComponent();
@@ -37,6 +42,24 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void Medical_Record_Show_Click(object sender, RoutedEventArgs e)
         {
             MainHamburgerMenu.NavigateMenu.Navigate(new HamburgerMenu2(patientWindow, mainMenu));
+        }
+
+        private void HospitalGrading_Click(object sender, RoutedEventArgs e)
+        {
+            if (!AC.IsPatientEligibleToGradeHospital(PatientWindow.loggedPatient.id)) 
+            {
+                MessageBox.Show("Niste kvalifikovani da ocenite bolnicu, morate imati barem 3 odradjena pregleda");
+                return;
+            }
+            if (HGC.DidPatientGradeHospital(PatientWindow.loggedPatient.id))
+            {
+                MessageBox.Show("Već ste ocenili bolnicu");
+                return;
+            }
+            patientWindow.PatientFrame.NavigationService.Navigate(new GradingHospital(patientWindow));
+            PatientWindow.menuClosed = true;
+            mainMenu.Close_menu();
+
         }
     }
 }

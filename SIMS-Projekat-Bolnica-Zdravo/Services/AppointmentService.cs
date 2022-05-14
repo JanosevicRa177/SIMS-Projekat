@@ -78,6 +78,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.UpdateAppointment(a, app);
         }
+        public bool IsPatientEligibleToGradeHospital(int patientID)
+        {
+            MedicalRecord medicalRecord = MRFS.getMedialRecordByPatientID(patientID);
+            if (AFS.GetExecutedPatientsAppointments(medicalRecord.medicalRecordID).Count >=3) return true;
+            return false;
+        }
         public Appointment findAppById(int id,string date)
         {
             return AFS.findAppById(id, date);
