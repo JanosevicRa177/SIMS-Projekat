@@ -60,14 +60,26 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             }
             if (DatePicker_Date.SelectedDate.Value <= DateTime.Today)
             {
-                MessageBox.Show("Ne možete izmeniti termin u prošlosti ili za danas");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Ne možete izmeniti termin u prošlosti ili za danas");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 changed = true;
                 DatePicker_Date.SelectedDate = date;
                 return;
             }
             if (!(ShowAppointment.appointment.Date.AddDays(-2) < DatePicker_Date.SelectedDate.Value) || !(DatePicker_Date.SelectedDate.Value  < ShowAppointment.appointment.Date.AddDays(2)))
             {
-                MessageBox.Show("Ne možete izmeniti termin u vecem rasponu od 2 dana");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Ne možete izmeniti termin u vecem rasponu od 2 dana");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 changed = true;
                 DatePicker_Date.SelectedDate = date;
                 return;

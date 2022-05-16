@@ -29,15 +29,6 @@ namespace CrudModel
                 specializationList.Add(sp);
             }
         }
-      public bool CreateSpecialization(Specialization newSpecialization)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool DeleteSpecialization(Specialization specialization)
-      {
-         throw new NotImplementedException();
-      }
       
       public static Specialization GetSpecialization(string sp)
       {

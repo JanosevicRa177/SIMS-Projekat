@@ -110,11 +110,6 @@ namespace CrudModel
             return mrList;
         }
       
-      public List<MedicalRecord> GetMedicalRecordByDoctor(int doctorID)
-      {
-         throw new NotImplementedException();
-      }
-      
       public List<MedicalRecord> GetMedicalRecordByPatient(int patientID)
       {
          throw new NotImplementedException();

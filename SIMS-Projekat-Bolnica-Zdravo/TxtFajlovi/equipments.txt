@@ -1,5 +1,6 @@
 0|CT|1|True
-1|Stetoskop|1|False
+1|Stetoskop|1|True
 2|Kasika|1|True
 3|Viljuska|1|True
 4|Noz|1|True
+5|Stetoskop|60|True

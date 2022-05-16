@@ -37,12 +37,24 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             /*int patientID = PC.LoginPatient(Mail.Text, Password.Password.ToString());
             if (patientID == -1)
             {
-                MessageBox.Show("Pogresan mail ili sifra");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Pogresan mail ili sifra");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 return;
             }*/
             if (PC.IsAccountBlocked(5)) 
             {
-                MessageBox.Show("Vas nalog je blokiran zbog zloupotrebe");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Vas nalog je blokiran zbog zloupotrebe");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 return;
             }
             Mail.Text = "";

@@ -112,6 +112,9 @@
     <Compile Include="PatientWindows\HamburgerMenu1.xaml.cs">
       <DependentUpon>HamburgerMenu1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PatientWindows\InformationDialog.xaml.cs">
+      <DependentUpon>InformationDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientWindows\MainHamburgerMenu.xaml.cs">
       <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
     </Compile>
@@ -336,6 +339,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PatientWindows\HamburgerMenu1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientWindows\InformationDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

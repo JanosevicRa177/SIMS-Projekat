@@ -60,7 +60,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             }
             if (DatePicker_Date.SelectedDate.Value <= DateTime.Today)
             {
-                MessageBox.Show("Ne možete zakazati pregled u prošlosti ili za danas");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Ne možete zakazati pregled u prošlosti ili za danas");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 changed = true;
                 DatePicker_Date.SelectedDate = date;
                 return;

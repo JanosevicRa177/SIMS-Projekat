@@ -55,7 +55,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             if (appointment.Date.Date < DateTime.Today)
             {
-                MessageBox.Show("Ne Možete menjati odradjene preglede");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Ne Možete menjati odradjene preglede");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 return;
             }
             AC.RemoveAppointment(appointment.id);
@@ -65,7 +71,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             if (appointment.Date.Date < DateTime.Today)
             {
-                MessageBox.Show("Ne Možete menjati odradjene preglede");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Ne Možete menjati odradjene preglede");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 return;
             }
             PatientWindow.NavigatePatient.Navigate(new ChangeAppointment(int.Parse(appointment.doctorID), appointment.Date, appointment.id, patientWindow));

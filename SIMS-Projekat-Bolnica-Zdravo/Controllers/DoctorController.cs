@@ -21,11 +21,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             DS = new DoctorService();
         }
 
-        //public void addAppointmentToDoctor(int newAppID,DoctorCrAppDTO dcadto)
-        //{
-        //    DS.addAppointmentToDoctor(newAppID, dcadto.id);
-        //}
-
         public int calculateMaxDur(int dur, Time time, BindingList<Time> tims)
         {
             return DS.calculateMaxDur(dur, time.ID, tims);

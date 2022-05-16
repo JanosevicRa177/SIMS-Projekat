@@ -130,7 +130,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             if ((DoctorCrAppDTO)doctorsCB.SelectedItem == null)
             {
-                MessageBox.Show("Niste izabrali Doktora");
+                var patientWindow = Window.GetWindow(this);
+                InformationDialog informationDialog = new InformationDialog("Niste izabrali Doktora");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
                 return;
             }
             initialize = true;
@@ -142,7 +148,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                     Time t = new Time(TimePat.hour, TimePat.minute);
                     if (!AC.CheckCreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, PatientWindow.loggedPatient))
                     {
-                        MessageBox.Show("U medjuvremenu neko je zakazao pregled, molim izaberite drugi termin");
+                        var patientWindow = Window.GetWindow(this);
+                        InformationDialog informationDialog = new InformationDialog("U medjuvremenu neko je zakazao pregled, molim izaberite drugi termin");
+                        informationDialog.Top = patientWindow.Top + 270;
+                        informationDialog.Left = patientWindow.Left + 25;
+                        informationDialog.Activate();
+                        informationDialog.Topmost = true;
+                        informationDialog.ShowDialog();
                         return;
                     }
                     AC.CreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, desc.Text, PatientWindow.loggedPatient);
