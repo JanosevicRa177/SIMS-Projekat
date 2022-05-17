@@ -20,12 +20,12 @@ namespace CrudModel
             return true;
         }
       
-      public AppointmentGrade GetAppointmentGradeById(int appGID)
+      public AppointmentGrade GetAppointmentGradeById(int appointmentGradeId)
       {
          throw new NotImplementedException();
       }
       
-      public List<AppointmentGrade> GetAppointmentGradeByAppId(int appoId)
+      public List<AppointmentGrade> GetAppointmentGradeByAppointmentId(int appointmentId)
       {
          throw new NotImplementedException();
       }

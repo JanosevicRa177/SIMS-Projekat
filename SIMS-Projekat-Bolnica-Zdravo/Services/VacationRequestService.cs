@@ -15,7 +15,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         }
       public bool CreateVacationRequest(VacationRequest crVR,bool b)
       {
-            if (!b) { 
+            if (!b) 
+            { 
                 int countreq = 0;
                 foreach(VacationRequest vr in VRFS.GetAllVacationRequests())
                 {
@@ -24,7 +25,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                             countreq++;
                 }   
                 if (countreq > 1) return false;
-                }
+            }
             return VRFS.CreateVacationRequest(crVR);
       }
       

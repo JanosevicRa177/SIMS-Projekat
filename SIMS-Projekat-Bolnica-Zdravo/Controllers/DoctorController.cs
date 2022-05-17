@@ -46,6 +46,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             DoctorCrAppDTO docDTO = new DoctorCrAppDTO(d.name, d.surname, d.userID);
             return docDTO;
         }
+
+        public int getDocsVacDays(int doctorid)
+        {
+            return getDoctorById(doctorid).VacationDays;
+        }
         public void AddDoct(Doctor d)
         {
             DS.AddDoctor(d);

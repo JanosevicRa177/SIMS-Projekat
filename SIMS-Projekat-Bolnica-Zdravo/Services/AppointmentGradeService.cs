@@ -24,12 +24,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo
             return AGFS.CreateAppointmentGrade(appointmentGrade);
         }
       
-        public AppointmentGrade GetAppointmentGradeById(int appGID)
+        public AppointmentGrade GetAppointmentGradeById(int appointmentGradeId)
         {
            throw new NotImplementedException();
         }
       
-        public List<AppointmentGrade> GetAppointmentGradeByAppId(int appoId)
+        public List<AppointmentGrade> GetAppointmentGradeByAppId(int appointmentId)
         {
            throw new NotImplementedException();
         }
