@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OperationWindow" Height="768" Width="1024" WindowStyle="None">
     <Grid Loaded="isLoaded">
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="768" Width="1024">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="auto"/>
@@ -35,7 +35,6 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
             </Grid.RowDefinitions>
-            <Rectangle Grid.Row="0" Grid.ColumnSpan="10" Grid.Column="0" Height="35" Fill="Silver" Panel.ZIndex="0" Width="1024" />
 
             <DataGrid x:Name="PatientGrid" FontSize="17" Grid.Column="4" Margin="5" Grid.ColumnSpan="3" VerticalAlignment="Center"  AutoGenerateColumns="False" SelectionMode="Single"  ItemsSource="{Binding pcad}" Grid.Row="4" Width="400" Height="150"  >
                 <DataGrid.Columns>

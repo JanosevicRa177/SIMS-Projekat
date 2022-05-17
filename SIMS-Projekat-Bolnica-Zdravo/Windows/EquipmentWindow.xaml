@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         Title="Equipment" Height="768" Width="1024" WindowStyle="None">
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Height="768" Width="1024" >
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
@@ -20,8 +20,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -33,9 +33,9 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="3" Grid.Column="5" Width="auto" Margin="15" Content="Equipment type:" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
-        <TextBox Name="equipmentTypeTextBox" Grid.Row="3" Margin="15" Grid.Column="6" Width="150" FontSize="17" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
-        <StackPanel Grid.Row="9" Grid.Column="4" HorizontalAlignment="Center" Margin="15" VerticalAlignment="Center" Grid.ColumnSpan="3">
+        <Label Grid.Row="3" Grid.Column="4" Width="auto" Margin="15" Content="Equipment type:" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <TextBox Name="equipmentTypeTextBox" Grid.Row="3" Margin="15" Grid.Column="5" Width="150" FontSize="17" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
+        <StackPanel Grid.Row="9" Grid.Column="4" HorizontalAlignment="Center" Margin="15" VerticalAlignment="Center" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="registerButton" Content="Register" FontSize="17" Margin="5" Width="86" Height="25" Click="registerButton_Click"  />
             </StackPanel>
@@ -46,28 +46,26 @@
                 <Button x:Name="cancelButton" Content="Cancel"  Margin="5" FontSize="17"  Width="86" Height="25" Click="cancelButton_Click"  />
             </StackPanel>
         </StackPanel>
-        <DataGrid Name="equipmentStorage" FontSize="17" Grid.Row="6" Margin="15" HorizontalAlignment="Center" AutoGenerateColumns="False" SelectionMode="Single" Grid.Column="5"  Width="auto" Height="250" ItemsSource="{Binding storedEquipments}" Grid.RowSpan="2">
+        <DataGrid Name="equipmentStorage" FontSize="17" Grid.Row="6" Margin="15" HorizontalAlignment="Center" AutoGenerateColumns="False" SelectionMode="Single" Grid.Column="4"  Width="auto" Height="250" ItemsSource="{Binding storedEquipments}" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Equipment Type" Binding="{Binding equipmentType }"></DataGridTextColumn>
                 <DataGridTextColumn Header="Amount" Binding="{Binding amount }"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="equipmentWait" Grid.Row="6" FontSize="17" Margin="15" HorizontalAlignment="Center" AutoGenerateColumns="False" SelectionMode="Single" Grid.Column="6" Width="auto" Height="250" ItemsSource="{Binding equipments}" Grid.RowSpan="2">
+        <DataGrid Name="equipmentWait" Grid.Row="6" FontSize="17" Margin="15" HorizontalAlignment="Center" AutoGenerateColumns="False" SelectionMode="Single" Grid.Column="5" Width="auto" Height="250" ItemsSource="{Binding equipments}" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Equipment Type" Binding="{Binding equipmentType }"></DataGridTextColumn>
                 <DataGridTextColumn Header="Amount" Binding="{Binding amount }"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="9" Grid.Column="0" Height="35" Fill="Silver" Panel.ZIndex="0" Width="1024" Margin="0,0,0,33" Grid.RowSpan="2" />
 
         <Slider Grid.Column="8" HorizontalAlignment="Left" Margin="578,5,0,0" Grid.Row="4" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
         <TextBox x:Name="duration" IsReadOnly="True"
-                FontSize="17" Grid.Row="4"  Width="50" Grid.Column="5" Margin="15" Text="{Binding ElementName=equipmentAmount,Path=Value,UpdateSourceTrigger=LostFocus}"/>
+                FontSize="17" Grid.Row="4"  Width="50" Grid.Column="4" Margin="15" Text="{Binding ElementName=equipmentAmount,Path=Value,UpdateSourceTrigger=LostFocus}"/>
         <Slider TickFrequency="1" IsSnapToTickEnabled="True" x:Name="equipmentAmount" VerticalAlignment="Center"
-                FontSize="17" Grid.Row="4" Grid.Column="6" Width="150" Margin="15" Value="{Binding This.dur, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="1" Maximum="100"/>
+                FontSize="17" Grid.Row="4" Grid.Column="5" Width="150" Margin="15" Value="{Binding This.dur, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="1" Maximum="100"/>
 
-
-
+       
 
 
     </Grid>

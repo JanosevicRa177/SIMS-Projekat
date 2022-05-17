@@ -6,13 +6,11 @@
         xmlns:val="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.Windows"
         mc:Ignorable="d"
         Title="Secretary" Height="768" Width="1024" Loaded="Window_Loaded" WindowStyle="None">
-    <Grid VerticalAlignment="Center" Height="768" Width="1024" HorizontalAlignment="Center">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -32,7 +30,6 @@
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.ColumnSpan="10" Grid.Column="0" Height="35" Fill="Silver" Panel.ZIndex="0" Width="1024" />
 
         <Label Content="Name:" FontSize="17"  Grid.Row="1" Margin="5" Height="28"  Grid.Column="2"/>
         <TextBox x:Name="nameTextBox" Grid.Row="1"  VerticalAlignment="Center" FontSize="17" HorizontalAlignment="Left" Margin="51,0,0,0" Width="170" Grid.Column="3">
@@ -287,13 +284,15 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding email}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid GotFocus="secretaryGrid_GotFocus" FontSize="17" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding sdt}" x:Name="secretaryGrid" Margin="5" Grid.RowSpan="4" HorizontalAlignment="Right" SelectionChanged="secretaryGrid_SelectionChanged" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="10" IsReadOnly="True">
+        <DataGrid GotFocus="secretaryGrid_GotFocus" FontSize="17" AutoGenerateColumns="False" SelectionMode="Single" ItemsSource="{Binding sdt}" x:Name="secretaryGrid" Margin="5" Grid.RowSpan="4" HorizontalAlignment="Left" SelectionChanged="secretaryGrid_SelectionChanged" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="10" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding surname}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding email}"/>
             </DataGrid.Columns>
         </DataGrid>
+        
+
 
 
     </Grid>
