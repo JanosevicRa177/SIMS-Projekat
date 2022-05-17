@@ -50,5 +50,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             eq.Show();
             this.Close();
         }
+
+        private void Emergency_Click(object sender, RoutedEventArgs e)
+        {
+            EmergencyWindow em = new EmergencyWindow();
+            em.Show();
+            this.Close();
+        }
     }
 }

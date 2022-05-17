@@ -35,6 +35,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return DFS.GetAllDoctors();
         }
+        public ObservableCollection<Doctor> GetAllDoctorsBySpecialization(Specialization specialization)
+        {
+            return DFS.GetAllDoctorsBySpecialization(specialization);
+        }
         public void DeleteDoct(DoctorSecDTO d)
         {
             DoctorFileStorage dfs = new DoctorFileStorage();

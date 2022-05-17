@@ -11,6 +11,7 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\Notification.Wpf.xml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.Drawing.Common.xml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\bin\Debug\System.ValueTuple.xml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.AssemblyReference.cache
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\AddMedicine.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DialogWindow.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\MedicalRecordDoc.g.cs
@@ -24,9 +25,11 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AppointmentsForGrading.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ChangeAppointment.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DateChanger.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\GradingHospital.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\GradingAppointment.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu2.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu1.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\InformationDialog.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\LoginPatient.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\MainHamburgerMenu.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.g.cs
@@ -41,6 +44,7 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorsAppointments.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\doctorShowAppointment.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorWindow.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\EmergencyWindow.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\EquipmentWindow.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ManagerWindow.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientWindow.g.cs
@@ -67,9 +71,11 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\AppointmentsForGrading.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\ChangeAppointment.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\DateChanger.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\GradingHospital.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\GradingAppointment.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu2.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\HamburgerMenu1.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\InformationDialog.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\LoginPatient.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\MainHamburgerMenu.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\NotePage.baml
@@ -84,6 +90,7 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorsAppointments.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\doctorShowAppointment.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\DoctorAll\DoctorWindows\DoctorWindow.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\EmergencyWindow.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\EquipmentWindow.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\ManagerWindow.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\PatientWindow.baml
@@ -99,8 +106,3 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CopyComplete
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.AssemblyReference.cache
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\GradingHospital.g.cs
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\GradingHospital.baml
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\InformationDialog.g.cs
-C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\PatientWindows\InformationDialog.baml

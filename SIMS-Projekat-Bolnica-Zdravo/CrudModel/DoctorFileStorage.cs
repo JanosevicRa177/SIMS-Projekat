@@ -105,6 +105,17 @@ namespace CrudModel
             }
             return doctors;
       }
-   
-   }
+    public ObservableCollection<Doctor> GetAllDoctorsBySpecialization(Specialization specialization)
+    {
+        ObservableCollection<Doctor> doctors = new ObservableCollection<Doctor>();
+        Serializer<Doctor> doctorserialzer = new Serializer<Doctor>();
+        foreach (Doctor doc in doctorserialzer.fromCSV("../../TxtFajlovi/doctors.txt"))
+        {
+            if(doc.specialization.specialization.Equals(specialization.specialization))
+            doctors.Add(doc);
+        }
+        return doctors;
+    }
+
+    }
 }
