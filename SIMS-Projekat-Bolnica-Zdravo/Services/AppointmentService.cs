@@ -35,6 +35,45 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             AFS.RemoveAppointment(app.patientID.ToString(),app.Time,app.Date); 
         }
+        public ObservableCollection<Appointment> getAllExceptEmergencys()
+        {
+            
+            return AFS.getAllExceptEmergencys();
+        }
+        public ObservableCollection<int> getAllAppointmentsBetween(Time timeStart,int duration)
+        {
+            ObservableCollection<int> appList = new ObservableCollection<int>();
+            Time timeEnd = new Time(0,0);
+            int halfhours = duration / 30;
+            if(halfhours%2 != 0)
+            {
+                int hours = (halfhours - 1) / 2;
+                int minute = 30;
+                timeEnd.hour = timeStart.hour + hours;
+                timeEnd.minute = minute;
+            }
+            else
+            {
+                int hours = halfhours / 2;
+                int minute = 0;
+                timeEnd.hour = timeStart.hour + hours;
+                timeEnd.minute = minute;
+
+            }
+
+            
+            
+            foreach(Appointment appointment in AFS.getAllAppointmentDTO())
+            {
+                if(((appointment.time.hour > timeStart.hour) || (appointment.time.hour == timeStart.hour && appointment.time.minute > timeStart.minute)) && (appointment.time.hour < timeEnd.hour) || ((appointment.time.hour == timeEnd.hour) && (appointment.time.minute < timeEnd.minute)))
+                {
+                    appList.Add(appointment.appointmentID);
+                }
+                if (appointment.time.hour == timeStart.hour && appointment.time.minute == timeStart.minute)
+                    appList.Add(appointment.appointmentID);
+            }
+            return appList;
+        }
 
         //DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
         public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid,int appointmentID) 
@@ -140,6 +179,26 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return filterDoctorsDayByHisAppointmentsforDoctor(times, doctorID, forDate, duration, appoID,roomID);
         }
+        public BindingList<Time> getTwoTermsFromNow()
+        {
+            BindingList<Time> times = new BindingList<Time>();
+            for (int i = 0, h = 7; h < 16 || i < 16;)
+            {
+                times.Add(new Time(h, 0, i++));
+                times.Add(new Time(h++, 30, i++));
+            }
+            return twoTermsFromNow(times);
+        }
+        public BindingList<Time> GetTimesForEmergency(int duration, int appoID,Specialization specialization = null)
+        {
+            BindingList<Time> times = new BindingList<Time>();
+            for (int i = 0, h = 7; h < 16 || i < 16;)
+            {
+                times.Add(new Time(h, 0, i++));
+                times.Add(new Time(h++, 30, i++));
+            }
+            return getTimeForEmergency(times, duration, appoID,specialization);
+        }
         public BindingList<TimePatient> GetDoctorTermsByDoctor(int doctorID, DateTime forDate,int duration, int appoID)
         {
             Doctor d = DFS.GetDoctorByID(doctorID);
@@ -168,6 +227,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return times;
         }
+
         public BindingList<TimePatient> getDoctorsFreeTerms(DoctorCrAppDTO doctor, DateTime forDate, int duration1, int appoID)
         {
             BindingList<TimePatient> times = new BindingList<TimePatient>();
@@ -392,8 +452,256 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return times;
         }
+        public BindingList<Time> twoTermsFromNow(BindingList<Time> times)
+        {
+            BindingList<Time> returnTerms = new BindingList<Time>();
+            DateTime forDate = DateTime.Now;
+            int i = 0;
+            
+            foreach (Time time in times)
+            {
+                if (forDate.Minute > 30)
+                {
+                    if ((time.hour == forDate.Hour - 3) && (time.minute == 00))
+                    {
+                        returnTerms.Add(time);
+                        if (i == 2) break;
+                        i++;
+                    }
+                    else if ((time.hour == forDate.Hour - 3) && (time.minute == 30))
+                    {
+                        returnTerms.Add(time);
+                        if (i == 2) break;
+                        i++;
+                    }
+                    
+                }
+                else
+                {
+                    if ((time.hour == forDate.Hour - 4) && (time.minute == 30))
+                    {
+                        returnTerms.Add(time);
+                        if (i == 2) break;
+                        i++;
+                    }
+                    else if ((time.hour == forDate.Hour - 3) && (time.minute == 00))
+                    {
+                        returnTerms.Add(time);
+                        if (i == 2) break;
+                        i++;
+                    }
+                  
+                }
+                
 
 
+            }
+            int first = 0;
+            int second = 0;
+            foreach(Appointment a in getAllAppointmentDTO())
+            {
+                if(a.description.Equals("Emergency"))
+                {
+                    if (returnTerms.ElementAt(0) != null)
+                        if (a.time.hour == returnTerms.ElementAt(0).hour && a.time.minute == returnTerms.ElementAt(0).minute)
+                        {
+                            first++;
+                            
+                        }
+                    if (returnTerms.ElementAt(1) != null)
+                        if (a.time.hour == returnTerms.ElementAt(1).hour && a.time.minute == returnTerms.ElementAt(1).minute)
+                        {
+                            second++;
+                        }
+                }
+            }
+ 
+            if (returnTerms.Count == 2)
+                if (returnTerms.ElementAt(0) != null)
+                    if (first == 2)
+                    {
+                     
+                        returnTerms.RemoveAt(0);
+                    }
+            if (returnTerms.Count == 1)
+                if (returnTerms.ElementAt(0) != null)
+                    if (second == 2)
+                    {
+
+                     
+                        returnTerms.RemoveAt(0);
+                    }
+          
+            return returnTerms;
+        }
+
+        public BindingList<Time> getTimeForEmergency(BindingList<Time> times, int duration1, int appoID, Specialization specialization = null)
+        {
+
+            List<int> array = new List<int>();
+            int duration = duration1 / 30;
+            List<int> rettarray = new List<int>();
+            List<int> retarray = new List<int>();
+
+            BindingList<SecretaryTimer> listTimer = new BindingList<SecretaryTimer>();
+            
+
+            DateTime forDate = DateTime.Now;
+
+            ObservableCollection<Room> roomList = RFS.GetAllRooms();
+            int temp = 0;
+
+
+            
+
+            foreach (int id in array)
+            {
+                foreach (var t in times)
+                {
+                    if (t.ID == id)
+                    {
+  
+                        times.Remove(t);
+                        break;
+                    }
+
+                }
+            }
+            
+
+
+            array.Clear();
+            
+            
+            ObservableCollection<Doctor> doctorList = DFS.GetAllDoctorsBySpecialization(specialization);
+            foreach (Doctor doctor in doctorList)
+            {
+                
+                foreach (Appointment a in AFS.getAllDoctorsAppointments((doctor.userID)))
+                {
+                    if (doctor.userID == -1) break;
+                    if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
+                    {
+                        foreach (Time t in times)
+                        {
+                            if (t.hour == a.time.hour && t.minute == a.time.minute)
+                            {
+                                int remid = t.ID;
+                                for (int j = 0; j < (a.duration / 30); j++)
+                                {
+                                    if (duration1 > 30)
+                                    {
+                                        for (int i = 1; i < duration; i++)
+                                        {
+
+                                            if (!array.Contains(remid + i))
+                                            {
+                                                array.Add(remid + i);
+                                            }
+
+                                            if (rettarray.Contains(remid + j))
+                                            {
+                                                if (!array.Contains(remid + j))
+                                                    array.Add(remid + j);
+                                            }
+                                            else
+                                                rettarray.Add(remid + j);
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        if (rettarray.Contains(remid + j))
+                                        {
+                                            if (!array.Contains(remid + j))
+                                                array.Add(remid + j);
+
+                                        }
+                                        else
+                                            rettarray.Add(remid + j);
+                                    }
+                                }
+                                temp++;
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+
+            for (int i = 1; i < duration; i++)
+            {
+                array.Add(18 - i);
+            }
+            foreach (int id in array)
+            {
+                foreach (var t in times)
+                {
+                    if (t.ID == id)
+                    {
+                        times.Remove(t);
+                        break;
+                    }
+
+                }
+            }
+            
+            BindingList<Time> returnTimes = new BindingList<Time>();
+
+
+
+                foreach (Time time in times)
+                {
+                    if (forDate.Minute > 30)
+                    {
+                        if ((time.hour == forDate.Hour -2) && (time.minute == 00))
+                        {
+                            returnTimes.Add(time);
+                        }
+                        else if ((time.hour == forDate.Hour - 2) && (time.minute == 30))
+                        {
+                            returnTimes.Add(time);
+                        }
+                    }
+                    else
+                    {
+                        if ((time.hour == forDate.Hour - 3 ) && (time.minute == 30))
+                        {
+                            returnTimes.Add(time);
+                        }
+                        else if ((time.hour == forDate.Hour - 2) && (time.minute == 00))
+                        {
+                            returnTimes.Add(time);
+                        }
+                    }
+                   
+                    
+                }
+
+           
+
+
+
+            return returnTimes;
+        }
+        public ObservableCollection<Appointment> getAllEmergency()
+        {
+            return AFS.getAllEmergency(); 
+        }
+        public ObservableCollection<Appointment> getAllRoomAppointments(int roomID)
+        {
+            return AFS.getAllRoomAppointments(roomID);
+        }
+        public bool changeTime(Appointment time, Time timee)
+        {
+            return AFS.changeTime(time, timee);
+        }
+        public Appointment GetAppointmentById(int appointmentID)
+        {
+            return AFS.getAppointmentById(appointmentID);
+        }
         public int CreateAppointment(DateTime dt, Time t, int dur, int roomID, int DoctorID, string desc, int patientID)
         {
             Appointment newApp = new Appointment(dt, t, dur, roomID, DoctorID, desc, patientID, MRFS.getMedialRecordByPatientID(patientID).medicalRecordID);

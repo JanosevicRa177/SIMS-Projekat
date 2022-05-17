@@ -67,7 +67,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return AS.GetDoctorTermsByDate(dt, duration, appoID);
         }
-
+       
         public BindingList<Time> GetDoctorTimesforDoctor(int docID, DateTime dt, int duration, int appoID,RoomCrAppDTO r = null)
         {
             int xd;
@@ -75,7 +75,35 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             else xd = r.id;
             return AS.GetDoctorTimesforDoctor(docID , dt, duration, appoID, xd);
         }
+        public ObservableCollection<Appointment> getAllRoomAppointments(int roomID)
+        {
+            return AS.getAllRoomAppointments(roomID);
+        }
+        public BindingList<Time> GetTimesForEmergency( int duration, int appoID,Specialization specialization = null)
+        {
         
+        
+            return AS.GetTimesForEmergency( duration, appoID, specialization);
+        }
+        public ObservableCollection<int> getAllAppointmentsBetween(Time timeStart, int duration)
+        {
+            return AS.getAllAppointmentsBetween(timeStart, duration);
+        }
+        public bool changeTime(Appointment time, Time timee)
+        {
+            return AS.changeTime(time, timee);
+        }
+        public ObservableCollection<Appointment> getAllExceptEmergencys()
+        {
+
+            return AS.getAllExceptEmergencys();
+        }
+        public Appointment GetAppointmentById(int appointmentID)
+        {
+            return AS.GetAppointmentById(appointmentID);
+        }
+
+
         public bool ChangeAppointment(Time t, DateTime dt, int appointmentID, RoomCrAppDTO rcdto = null, int dur = -1) 
         {
             return AS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
@@ -117,6 +145,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             ObservableCollection<ShowAppointmentDTO> tmp = new ObservableCollection<ShowAppointmentDTO>();
             ObservableCollection<Appointment> list = AS.getAllAppointmentDTO();
+            foreach (Appointment a in list)
+            {
+                if (a.operation != true)
+                    tmp.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, a.patientID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
+
+            }
+            return tmp;
+        }
+        public ObservableCollection<ShowAppointmentDTO> getAllEmergency()
+        {
+            ObservableCollection<ShowAppointmentDTO> tmp = new ObservableCollection<ShowAppointmentDTO>();
+            ObservableCollection<Appointment> list = AS.getAllEmergency();
             foreach (Appointment a in list)
             {
                 if (a.operation != true)
@@ -206,8 +246,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Appointment a = AS.getAppointmentById(appID);
             return new StartAppointmentDTO(a.description, a.therapy, a.condition, a.medicineList, a.appointmentID);
         }
+        public BindingList<Time> getTwoTermsFromNow()
+        {
+            return AS.getTwoTermsFromNow();
+        }
 
-        public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
+            public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
             return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID, RC.getRoomById(a.roomID).name, a.date,a.timeString,a.description,appoID);

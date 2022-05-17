@@ -93,3 +93,5 @@ D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-B
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.csproj.CopyComplete
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.exe
 D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\SIMS-Projekat-Bolnica-Zdravo.pdb
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\EmergencyWindow.g.cs
+D:\PROJSIMS\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\EmergencyWindow.baml

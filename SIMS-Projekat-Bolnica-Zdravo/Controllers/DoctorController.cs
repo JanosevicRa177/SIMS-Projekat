@@ -59,6 +59,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             DS.DeleteDoct(d);
         }
+        public ObservableCollection<Doctor> GetAllDoctorsBySpecialization(Specialization specialization)
+        {
+            return DS.GetAllDoctorsBySpecialization(specialization);
+        }
         public void UpdateDoctor(Doctor d)
         {
             DS.UpdateDoctor(d);

@@ -63,7 +63,22 @@ namespace CrudModel
             appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
             return true;
         }
-     
+        public bool changeTime(Appointment time,Time timee)
+        {
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            ObservableCollection<Appointment> appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
+            foreach(Appointment app in appointmentList)
+            {
+                if (app.appointmentID == time.appointmentID)
+                {
+                    app.time.hour = timee.hour;
+                    app.time.minute = timee.minute;
+                }
+            }
+            appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
+            return true;
+        }
+
         public ObservableCollection<Appointment> getAllDoctorsAppointments(int doctorID)
         {
             ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();
@@ -103,6 +118,7 @@ namespace CrudModel
             }
             return doctorApps;
         }
+
         public ObservableCollection<Appointment> getAllAppointmentDTO()
         {
             ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();
@@ -112,6 +128,52 @@ namespace CrudModel
                 
                     doctorApps.Add(a);
                     
+            }
+            return doctorApps;
+        }
+        public ObservableCollection<Appointment> getAllExceptEmergencys()
+        {
+            ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();
+            Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
+            foreach (Appointment a in doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            {
+                if(!a.description.Equals("Emergency"))
+                doctorApps.Add(a);
+
+            }
+            return doctorApps;
+        }
+        public Appointment getAppointmentById(int appointmentID)
+        {
+            ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();
+            Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
+            Appointment app = null;
+            foreach (Appointment a in doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            {
+                if (a.appointmentID == appointmentID)
+                {
+
+                    app = a;
+                }
+                
+
+            }
+            return app;
+        }
+        public ObservableCollection<Appointment> getAllEmergency()
+        {
+            ObservableCollection<Appointment> doctorApps = new ObservableCollection<Appointment>();
+            Serializer<Appointment> doctorserialzer = new Serializer<Appointment>();
+            Appointment app = null;
+            foreach (Appointment a in doctorserialzer.fromCSV("../../TxtFajlovi/appointments.txt"))
+            {
+                if (a.description.Equals("Emergency"))
+                {
+
+                    doctorApps.Add(a);
+                }
+
+
             }
             return doctorApps;
         }

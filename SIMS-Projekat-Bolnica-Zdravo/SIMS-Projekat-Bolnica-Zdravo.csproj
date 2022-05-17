@@ -85,6 +85,7 @@
     <Compile Include="CrudModel\AppointmentGradeFileStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorage.cs" />
     <Compile Include="CrudModel\EquipmentStorageFileStorage.cs" />
+    <Compile Include="CrudModel\SecretaryTimer.cs" />
     <Compile Include="PatientWindows\HamburgerMenu2.xaml.cs">
       <DependentUpon>HamburgerMenu2.xaml</DependentUpon>
     </Compile>
@@ -187,6 +188,9 @@
     </Compile>
     <Compile Include="DoctorAll\DoctorWindows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EmergencyWindow.xaml.cs">
+      <DependentUpon>EmergencyWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EquipmentWindow.xaml.cs">
       <DependentUpon>EquipmentWindow.xaml</DependentUpon>
@@ -349,6 +353,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorAll\DoctorWindows\DoctorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EmergencyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
