@@ -72,7 +72,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
             date2C = DateTime.Today.AddDays(3);
             this.exp = "";
             InitializeComponent();
-            DocsDays = DC.getDoctorById(DoctorWindow.loggedDoc).VacationDays;
+            DocsDays = DC.getDocsVacDays(DoctorWindow.loggedDoc);
             this.DataContext = this;
         }
 
@@ -99,7 +99,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
             }
             if (!VRC.CreateVacationRequest(new VacationRequest((DateTime)date1.SelectedDate, (DateTime)date2.SelectedDate,exp),(bool)check.IsChecked))
             {
-                var dia2 = new DialogWindow("Doctor with same specialization requested vacation!", "Cancel", "Ok");
+                var dia2 = new DialogWindow("Doctors with same specialization requested vacation!", "Cancel", "Ok");
                 dia2.ShowDialog();
                 return;
             }

@@ -18,7 +18,8 @@ namespace CrudModel
         }
       public bool CreateVacationRequest(VacationRequest crVR,bool b)
       {
-            if (!b) { 
+            if (!b) 
+            { 
                 int countreq = 0;
                 foreach(VacationRequest vr in VRFS.GetAllVacationRequests())
                 {
@@ -27,7 +28,7 @@ namespace CrudModel
                             countreq++;
                 }   
                 if (countreq > 1) return false;
-                }
+            }
             return VRFS.CreateVacationRequest(crVR);
       }
       
