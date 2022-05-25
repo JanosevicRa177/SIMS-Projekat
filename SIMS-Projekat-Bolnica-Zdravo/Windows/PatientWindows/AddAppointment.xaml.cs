@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
@@ -146,7 +147,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 {
                     TimePatient TimePat = (TimePatient)TimeselectDG.SelectedItem;
                     Time t = new Time(TimePat.hour, TimePat.minute);
-                    if (!AC.CheckCreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, PatientWindow.loggedPatient))
+                    if (!AC.CheckCreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, PatientWindow.LoggedPatient))
                     {
                         var patientWindow = Window.GetWindow(this);
                         InformationDialog informationDialog = new InformationDialog("U medjuvremenu neko je zakazao pregled, molim izaberite drugi termin");
@@ -157,7 +158,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                         informationDialog.ShowDialog();
                         return;
                     }
-                    AC.CreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, desc.Text, PatientWindow.loggedPatient);
+                    AC.CreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, desc.Text, PatientWindow.LoggedPatient);
                     selectedDoctor = -1;
                     initialize = true;
                     empty = false;

@@ -2,6 +2,7 @@
 using ConsoleApp.serialization;
 using System;
 using System.Collections.ObjectModel;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace CrudModel
 {
@@ -26,7 +27,7 @@ namespace CrudModel
             appointmentNotificationList = appointmentNotificationSerializer.fromCSV("../../TxtFajlovi/appointmentNotifications.txt");
             foreach (AppointmentNotification an in appointmentNotificationList)
             {
-                if (an.notificationID == appointmentNotificationID)
+                if (an.NotificationID == appointmentNotificationID)
                 {
                     appointmentNotificationList.Remove(an);
                     break;
@@ -43,7 +44,7 @@ namespace CrudModel
             appointmentNotificationList = appointmentNotificationSerializer.fromCSV("../../TxtFajlovi/appointmentNotifications.txt");
             foreach (AppointmentNotification an in appointmentNotificationList)
             {
-                if (an.notificationID == appointmentNotification.notificationID)
+                if (an.NotificationID == appointmentNotification.NotificationID)
                 {
                     appointmentNotificationList.Remove(an);
                     appointmentNotificationList.Add(appointmentNotification);
@@ -60,7 +61,7 @@ namespace CrudModel
             Serializer<AppointmentNotification> appointmentNotificationSerializer = new Serializer<AppointmentNotification>();
             foreach (AppointmentNotification an in appointmentNotificationSerializer.fromCSV("../../TxtFajlovi/appointmentNotifications.txt"))
             {
-                if (an.userID == patientID)
+                if (an.UserID == patientID)
                 {
                     appointmentNotificationList.Add(an);
                 }
@@ -74,7 +75,7 @@ namespace CrudModel
             Serializer<AppointmentNotification> appointmentNotificationSerializer = new Serializer<AppointmentNotification>();
             foreach (AppointmentNotification an in appointmentNotificationSerializer.fromCSV("../../TxtFajlovi/appointmentNotifications.txt"))
             {
-                if (an.userID == doctorID)
+                if (an.UserID == doctorID)
                 {
                     appointmentNotificationList.Add(an);
                 }

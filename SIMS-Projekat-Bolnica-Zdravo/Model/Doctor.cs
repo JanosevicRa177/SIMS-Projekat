@@ -7,6 +7,7 @@ using ConsoleApp.serialization;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace CrudModel
 {

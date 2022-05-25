@@ -32,7 +32,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC = new AppointmentController();
             InitializeComponent();
             this.DataContext = new {
-                loggedPatient = PatientWindow.loggedPatient,
+                loggedPatient = PatientWindow.LoggedPatient,
                 appointment = SAP
             };
         }
@@ -43,7 +43,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             InitializeComponent();
             this.DataContext = new
             {
-                loggedPatient = PatientWindow.loggedPatient,
+                loggedPatient = PatientWindow.LoggedPatient,
                 appointment = appointment
             };
         }

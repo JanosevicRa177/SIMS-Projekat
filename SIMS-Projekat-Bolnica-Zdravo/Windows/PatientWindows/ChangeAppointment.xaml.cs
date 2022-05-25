@@ -113,7 +113,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             ShowAppointment.appointment.Date = TimePat.date;
             ShowAppointment.appointment.Time = t.time;
             Room r = RC.getRoomByName(ShowAppointment.appointment.roomName);
-            if (!AC.CheckCreateAppointment(TimePat.date, t, 30, new RoomCrAppDTO(r.name, r.roomID), TimePat.doctor, PatientWindow.loggedPatient, ShowAppointment.appointment.id))
+            if (!AC.CheckCreateAppointment(TimePat.date, t, 30, new RoomCrAppDTO(r.name, r.roomID), TimePat.doctor, PatientWindow.LoggedPatient, ShowAppointment.appointment.id))
             {
                 var patientWindow = Window.GetWindow(this);
                 InformationDialog informationDialog = new InformationDialog("U medjuvremenu neko je zakazao pregled, molim izaberite drugi termin");
@@ -124,7 +124,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 informationDialog.ShowDialog();
                 return;
             }
-            if (!PC.CheckForTrolling(PatientWindow.loggedPatient.id)) 
+            if (!PC.CheckForTrolling(PatientWindow.LoggedPatient.id)) 
             {
                 InformationDialog informationDialog = new InformationDialog("Nalog vam je blokiran zbog zloupotrebe izmene/brisanja termina");
                 informationDialog.Top = patientWindow.Top + 270;

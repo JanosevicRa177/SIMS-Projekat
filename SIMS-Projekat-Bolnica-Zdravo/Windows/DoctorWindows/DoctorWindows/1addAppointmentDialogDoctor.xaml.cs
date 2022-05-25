@@ -21,7 +21,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
     public partial class _1addAppointmentDialogDoctor : Window
     {
-        public addAppointmentDialogDoctor nextW
+        public AddAppointmentDialogDoctor nextW
         {
             set;get;
         }
@@ -70,7 +70,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             this.Hide();
             if (nextW == null)
             {
-                var dia = new addAppointmentDialogDoctor((PatientCrAppDTO)PatientsG.SelectedItem, desc.Text, this);
+                var dia = new AddAppointmentDialogDoctor((PatientCrAppDTO)PatientsG.SelectedItem, desc.Text, this);
                 dia.Show();
             }
             else nextW.Show();

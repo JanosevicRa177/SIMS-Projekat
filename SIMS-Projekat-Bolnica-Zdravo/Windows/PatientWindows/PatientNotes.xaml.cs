@@ -27,14 +27,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         public PatientNotes()
         {
             NC = new NoteController();
-            patientNotes = NC.getAllPatientNotes(PatientWindow.loggedPatient.id);
+            patientNotes = NC.getAllPatientNotes(PatientWindow.LoggedPatient.id);
             this.DataContext = patientNotes;
             InitializeComponent();
         }
 
         private void Add_Note(object sender, RoutedEventArgs e)
         {
-            Note n = new Note("Prazno", "",PatientWindow.loggedPatient.id);
+            Note n = new Note("Prazno", "",PatientWindow.LoggedPatient.id);
             patientNotes.Add(n);
             NC.CreateNote(n);
         }

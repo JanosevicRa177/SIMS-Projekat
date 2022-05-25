@@ -46,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void HospitalGrading_Click(object sender, RoutedEventArgs e)
         {
-            if (!AC.IsPatientEligibleToGradeHospital(PatientWindow.loggedPatient.id)) 
+            if (!AC.IsPatientEligibleToGradeHospital(PatientWindow.LoggedPatient.id)) 
             {
                 InformationDialog informationDialog = new InformationDialog("Niste kvalifikovani da ocenite bolnicu, morate imati barem 3 odradjena pregleda");
                 informationDialog.Top = patientWindow.Top + 270;
@@ -56,7 +56,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 informationDialog.ShowDialog();
                 return;
             }
-            if (HGC.DidPatientGradeHospital(PatientWindow.loggedPatient.id))
+            if (HGC.DidPatientGradeHospital(PatientWindow.LoggedPatient.id))
             {
                 InformationDialog informationDialog = new InformationDialog("Već ste ocenili bolnicu");
                 informationDialog.Top = patientWindow.Top + 270;
@@ -70,6 +70,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
 
+        }
+
+        private void Notifications_Click(object sender, RoutedEventArgs e)
+        {
+            patientWindow.PatientFrame.NavigationService.Navigate(new NotificationPage());
+            PatientWindow.menuClosed = true;
+            mainMenu.Close_menu();
         }
     }
 }

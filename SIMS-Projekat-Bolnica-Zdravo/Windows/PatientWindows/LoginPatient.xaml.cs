@@ -46,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 informationDialog.ShowDialog();
                 return;
             }*/
-            if (PC.IsAccountBlocked(6)) 
+            if (PC.IsAccountBlocked(5)) 
             {
                 var patientWindow = Window.GetWindow(this);
                 InformationDialog informationDialog = new InformationDialog("Vas nalog je blokiran zbog zloupotrebe");

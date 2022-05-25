@@ -75,7 +75,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return appList;
         }
 
-        //DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
+        //DateTime dt, Time t, int Duration, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
         public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid,int appointmentID) 
         {
             List<Time> array = new List<Time>();

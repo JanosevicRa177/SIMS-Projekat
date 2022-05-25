@@ -8,6 +8,7 @@ using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace CrudModel
 {

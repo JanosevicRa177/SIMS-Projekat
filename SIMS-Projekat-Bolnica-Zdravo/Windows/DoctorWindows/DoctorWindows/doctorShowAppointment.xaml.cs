@@ -53,7 +53,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         private void EtitA_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new addAppointmentDialogDoctor(appointmentID,this);
+            var dia = new AddAppointmentDialogDoctor(appointmentID,this);
             dia.Show();
         }
 

@@ -33,7 +33,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         public GradingHospital(PatientWindow patientWindow1)
         {
             HGC = new HospitalGradeController();
-            hospitalGradeID = PatientWindow.loggedPatient.id;
+            hospitalGradeID = PatientWindow.LoggedPatient.id;
             patientWindow = patientWindow1;
             InitializeComponent();
         }

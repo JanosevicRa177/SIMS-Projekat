@@ -31,14 +31,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             patientWindow = patientWindow1;
             AC = new AppointmentController();
             ANC = new AppointmentNotificationController();
-            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.loggedPatient.id);
+            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
             InitializeComponent();
         }
         public PatientAppointments()
         {
             AC = new AppointmentController();
             ANC = new AppointmentNotificationController();
-            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.loggedPatient.id);
+            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
             InitializeComponent();
         }
         private void Show_Appointment(object sender, RoutedEventArgs e)

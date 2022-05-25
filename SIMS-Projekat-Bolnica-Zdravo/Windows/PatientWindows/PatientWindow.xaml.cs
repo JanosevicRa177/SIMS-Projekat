@@ -20,6 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
@@ -30,7 +31,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public static NavigationService NavigatePatient;
         MainHamburgerMenu MainHamburger;
         public static Boolean menuClosed = true;
-        static public PatientCrAppDTO loggedPatient
+        static public PatientCrAppDTO LoggedPatient
         {
             get;
             set;
@@ -45,28 +46,28 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             LP = LP2;
             InitializeComponent();
             NavigatePatient = PatientFrame.NavigationService;
-            loggedPatient = PC.GetPatientDTOByID(patientID);
+            LoggedPatient = PC.GetPatientDTOByID(patientID);
             PatientFrame.Content = new PatientAppointments(this);
-            this.DataContext = loggedPatient;
+            this.DataContext = LoggedPatient;
             ShowNotes();
         }
         private async void ShowNotes()
         {
             var notificationManager = new NotificationManager();
             await Task.Delay(1000);
-            ObservableCollection<AppointmentNotification> notifications = ANC.GetAppointmentNotificationrByPatientID(loggedPatient.id);
+            ObservableCollection<AppointmentNotification> notifications = ANC.GetAppointmentNotificationrByPatientID(LoggedPatient.id);
             foreach (AppointmentNotification an in notifications)
             {
-                if (an.viewed)
+                if (an.Viewed)
                 {
                     continue;
                 }
-                NotificationWindow nw = new NotificationWindow(an.title, an.content);
+                NotificationWindow nw = new NotificationWindow(an.Title, an.Content);
                 nw.Top = this.Top + 84;
                 nw.Left = this.Left;
                 nw.Topmost = true;
                 nw.Show();
-                an.viewed = true;
+                an.Viewed = true;
                 await Task.Delay(3000);
                 nw.Close();
                 ANC.UpdateAppointmentNotification(an);
@@ -90,7 +91,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public void SignOut()
         {
             LP.Show();
-            loggedPatient = null;
+            LoggedPatient = null;
             this.Close();
         }
 

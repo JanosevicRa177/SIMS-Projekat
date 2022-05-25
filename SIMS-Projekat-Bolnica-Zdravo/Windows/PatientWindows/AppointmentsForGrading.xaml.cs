@@ -26,13 +26,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             patientWindow = patientWindow1;
             AC = new AppointmentController();
-            this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.loggedPatient.id);
+            this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.LoggedPatient.id);
             InitializeComponent();
         }
         public AppointmentsForGrading() 
         {
             AC = new AppointmentController();
-            this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.loggedPatient.id);
+            this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.LoggedPatient.id);
             InitializeComponent();
         }
 

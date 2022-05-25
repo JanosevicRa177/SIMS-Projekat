@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace CrudModel
 {
@@ -34,7 +35,7 @@ namespace CrudModel
             noteids = Note.getids();
             roomids = Room.getids();
             warehousids = Warehouse.getids();
-            appointmentNotificationids = AppointmentNotification.getids();
+            appointmentNotificationids = AppointmentNotification.Getids();
             Vacationsids = VacationRequest.getids();
             Medicineids = Medicine.getids();
             IDS = new ObservableCollection<IdsStorage>();
@@ -82,7 +83,7 @@ namespace CrudModel
             Note.setids(noteids);
             Room.setids(roomids);
             Warehouse.setids(warehousids);
-            AppointmentNotification.setids(appointmentNotificationids);
+            AppointmentNotification.Setids(appointmentNotificationids);
             VacationRequest.setids(Vacationsids);
             Medicine.setids(Medicineids);
         }
