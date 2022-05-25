@@ -5,3 +5,5 @@
 4|Noz|1|True
 5|Stetoskop|60|True
 6|NESTO|62|True
+7|kkk|2|True
+8|dddd|33|True

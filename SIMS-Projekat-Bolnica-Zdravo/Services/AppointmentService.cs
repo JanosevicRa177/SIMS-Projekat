@@ -473,13 +473,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             {
                 if (forDate.Minute > 30)
                 {
-                    if ((time.hour == forDate.Hour - 3) && (time.minute == 00))
+                    if ((time.hour == forDate.Hour - 2) && (time.minute == 00))
                     {
                         returnTerms.Add(time);
                         if (i == 2) break;
                         i++;
                     }
-                    else if ((time.hour == forDate.Hour - 3) && (time.minute == 30))
+                    else if ((time.hour == forDate.Hour - 2) && (time.minute == 30))
                     {
                         returnTerms.Add(time);
                         if (i == 2) break;
@@ -489,13 +489,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                 }
                 else
                 {
-                    if ((time.hour == forDate.Hour - 4) && (time.minute == 30))
+                    if ((time.hour == forDate.Hour - 3) && (time.minute == 30))
                     {
                         returnTerms.Add(time);
                         if (i == 2) break;
                         i++;
                     }
-                    else if ((time.hour == forDate.Hour - 3) && (time.minute == 00))
+                    else if ((time.hour == forDate.Hour - 2) && (time.minute == 00))
                     {
                         returnTerms.Add(time);
                         if (i == 2) break;

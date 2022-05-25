@@ -46,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 informationDialog.ShowDialog();
                 return;
             }*/
-            if (PC.IsAccountBlocked(5)) 
+            if (PC.IsAccountBlocked(6)) 
             {
                 var patientWindow = Window.GetWindow(this);
                 InformationDialog informationDialog = new InformationDialog("Vas nalog je blokiran zbog zloupotrebe");
@@ -60,7 +60,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             Mail.Text = "";
             Password.Clear();
             PassText.Visibility = Visibility.Visible;
-            PatientWindow pt = new PatientWindow(this, 5);
+            PatientWindow pt = new PatientWindow(this, 6);
             pt.Show();
             this.Hide();
         }

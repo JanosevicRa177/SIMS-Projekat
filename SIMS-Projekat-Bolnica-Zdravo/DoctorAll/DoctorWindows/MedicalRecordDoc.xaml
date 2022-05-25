@@ -65,7 +65,6 @@
                                     <DataGridTextColumn Header="Time" Width="230" x:Name="xd" Binding="{Binding Time}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button HorizontalAlignment="Left" FontSize="35" Content="Back" Grid.Row="1" Margin="5" Style="{StaticResource doctorButtons}"></Button>
                             <Button HorizontalAlignment="Right" FontSize="35" Content="Open" Grid.Row="1" Margin="5" Style="{StaticResource doctorButtons}" Name="openA" Click="openA_Click"></Button>
                         </Grid>
                     </TabItem>

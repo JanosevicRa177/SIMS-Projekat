@@ -71,7 +71,7 @@
             </TabItem>
         </TabControl>
         <StackPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" Grid.ColumnSpan="5" Width="593">
-            <Button FontSize="35" Content="Back" Margin="5" Style="{StaticResource doctorButtons}"></Button>
+            <Button FontSize="35" Content="Cancel" Name="cancel" Margin="5" Style="{StaticResource doctorButtons}" Click="cancel_Click"></Button>
             <Button Click="adda_Click" FontSize="35" Name="adda" Content="Add Appointment" Grid.Row="1" Height="auto" Margin="5" Style="{StaticResource doctorButtons}" Width="322" />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="6" HorizontalAlignment="right" Orientation="Horizontal">
