@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
@@ -74,7 +75,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Notifications_Click(object sender, RoutedEventArgs e)
         {
-            patientWindow.PatientFrame.NavigationService.Navigate(new NotificationPage());
+            patientWindow.PatientFrame.NavigationService.Navigate(new NotificationPageView());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
         }

@@ -21,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIMS_Projekat_Bolnica_Zdravo.Model;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {

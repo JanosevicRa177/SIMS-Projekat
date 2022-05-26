@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindableBase.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\EquipmentStorageController.cs" />
@@ -92,6 +93,8 @@
     <Compile Include="FileStorages\MedicineFileStorage.cs" />
     <Compile Include="Model\SecretaryTimer.cs" />
     <Compile Include="Model\TakingMedicine.cs" />
+    <Compile Include="MyICommand.cs" />
+    <Compile Include="VML\ViewModelLocator.cs" />
     <Compile Include="Windows\DoctorWindows\DoctorWindows\MedicineWindow.xaml.cs">
       <DependentUpon>MedicineWindow.xaml</DependentUpon>
     </Compile>
@@ -119,8 +122,10 @@
     <Compile Include="Windows\PatientWindows\MainHamburgerMenu.xaml.cs">
       <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\PatientWindows\NotificationPage.xaml.cs">
-      <DependentUpon>NotificationPage.xaml</DependentUpon>
+    <Compile Include="Windows\PatientWindows\ViewModel\NotePageViewModel.cs" />
+    <Compile Include="Windows\PatientWindows\ViewModel\NotificationPageViewModel.cs" />
+    <Compile Include="Windows\PatientWindows\Views\NotificationPageView.xaml.cs">
+      <DependentUpon>NotificationPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PatientWindows\NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
@@ -167,8 +172,8 @@
     <Compile Include="Windows\PatientWindows\DateChanger.xaml.cs">
       <DependentUpon>DateChanger.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\PatientWindows\NotePage.xaml.cs">
-      <DependentUpon>NotePage.xaml</DependentUpon>
+    <Compile Include="Windows\PatientWindows\Views\NotePageView.xaml.cs">
+      <DependentUpon>NotePageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PatientWindows\AddAppointment.xaml.cs">
       <DependentUpon>AddAppointment.xaml</DependentUpon>
@@ -361,7 +366,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\PatientWindows\NotePage.xaml">
+    <Page Include="Windows\PatientWindows\Views\NotePageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -373,7 +378,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\PatientWindows\NotificationPage.xaml">
+    <Page Include="Windows\PatientWindows\Views\NotificationPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
