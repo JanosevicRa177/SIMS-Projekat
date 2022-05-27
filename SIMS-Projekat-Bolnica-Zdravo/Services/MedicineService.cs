@@ -3,13 +3,14 @@
 // Created: Thursday, May 12, 2022 7:14:11 PM
 // Purpose: Definition of Class MedicineService
 
+using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 
-namespace CrudModel
+namespace SIMS_Projekat_Bolnica_Zdravo.Services
 {
    public class MedicineService
    {

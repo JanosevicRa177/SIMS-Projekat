@@ -1,0 +1,52 @@
+﻿<Page x:Class="SIMS_Projekat_Bolnica_Zdravo.PatientWindows.ShowAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.PatientWindows"
+      mc:Ignorable="d" 
+      d:DesignHeight="530" d:DesignWidth="430"
+      Title="Appointment">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="530" Width="430" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="410"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Otkaži pregled" HorizontalAlignment="Left" Margin="10,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Click="Cancel_Appointment"/>
+        <Button Content="Promeni termin" HorizontalAlignment="Left" Margin="131.4,340,0,0" Grid.Row="1" VerticalAlignment="Top" Width="142" Grid.ColumnSpan="2" Height="40" Grid.Column="1" Click="Change_Date"/>
+
+        <Button Grid.Row="2" Grid.ColumnSpan="3" Margin="120,10,120,10" Content="Nazad na preglede" Click="Show_Home" />
+        <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="450" Margin="0,0,-0.2,0" Width="425"/>
+        <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="350" Margin="9.4,10,0,0" Width="264" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Right" TextAlignment="Left" Margin="0,29,137.2,0" FontSize="20" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="331" Width="136" Grid.ColumnSpan="2" Grid.RowSpan="2"><Run Text="Ime:"/><LineBreak/><Run/><LineBreak/><Run Text="Prezime:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Soba:"/><LineBreak/><Run/><LineBreak/><Run Text="Datum i vreme:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Opis Pregleda:"/><LineBreak/><Run/><LineBreak/><LineBreak/><Run Text="Doktor:"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+        <TextBlock x:Name="Name" FontSize="20" Text="{Binding loggedPatient.name}" Grid.Row="0" Grid.Column="1" Margin="21,29,20.4,0" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Surname" FontSize="20" Text="{Binding loggedPatient.surname}" Grid.Row="1" Grid.Column="1" Margin="21,21,20.4,355.6" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="RoomName" FontSize="20" Text="{Binding appointment.roomName}"  Grid.Row="1" Grid.Column="1" Margin="21,75,20.4,300" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="DateAndTime" FontSize="20"  Grid.Row="1" Grid.Column="1" Margin="21,128,20.4,247" Grid.ColumnSpan="2">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0:dd/MM/yyyy} | {1}">
+                    <Binding Path="appointment.Date"/>
+                    <Binding Path="appointment.Time"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock x:Name="Description" HorizontalAlignment="Center" TextWrapping="Wrap" Width="243" FontSize="20" Text="{Binding appointment.desc}" Grid.Row="1" Grid.Column="1" Margin="22,168,21.4,155.6" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Doctor" FontSize="20"  Grid.Row="1" Grid.Column="1" Margin="20,259,21.4,116" Grid.ColumnSpan="2">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} {1}">
+                    <Binding Path="appointment.doctorName"/>
+                    <Binding Path="appointment.doctorSurname"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <Border BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="86" Margin="20,168,0,0" Width="245" Grid.Row="1" Grid.Column="1"/>
+    </Grid>
+</Page>

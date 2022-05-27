@@ -1,0 +1,20 @@
+﻿SIMS-Projekat-Bolnica-Zdravo
+
+
+winexe
+C#
+.cs
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\
+SIMS_Projekat_Bolnica_Zdravo
+none
+false
+DEBUG;TRACE
+C:\Users\duros\Desktop\SIMS\Sims projekat\SIMS-Projekat\SIMS-Projekat-Bolnica-Zdravo\App.xaml
+441809419681
+
+135-1180487105
+171728566829
+Windows\DoctorWindows\DoctorWindows\AddMedicine.xaml;Windows\DoctorWindows\DoctorWindows\DialogWindow.xaml;Windows\DoctorWindows\DoctorWindows\MedicalRecordDoc.xaml;Windows\DoctorWindows\DoctorWindows\MedicineWindow.xaml;Windows\DoctorWindows\DoctorWindows\ShowMedicine.xaml;Windows\DoctorWindows\DoctorWindows\TherapyDia.xaml;Windows\DoctorWindows\DoctorWindows\VacationWindow.xaml;MainWindow.xaml;Windows\DoctorWindows\DoctorWindows\1addAppointmentDialogDoctor.xaml;Windows\DoctorWindows\DoctorWindows\addAppointmentDialogDoctor.xaml;Windows\PatientWindows\AppointmentsForGrading.xaml;Windows\PatientWindows\ChangeAppointment.xaml;Windows\PatientWindows\DateChanger.xaml;Windows\PatientWindows\GradingHospital.xaml;Windows\PatientWindows\GradingAppointment.xaml;Windows\PatientWindows\HamburgerMenu2.xaml;Windows\PatientWindows\HamburgerMenu1.xaml;Windows\PatientWindows\InformationDialog.xaml;Windows\PatientWindows\LoginPatient.xaml;Windows\PatientWindows\MainHamburgerMenu.xaml;Windows\PatientWindows\Views\MedicineView.xaml;Windows\PatientWindows\Views\NotePageView.xaml;Windows\PatientWindows\AddAppointment.xaml;Windows\PatientWindows\DatePicker.xaml;Windows\PatientWindows\Views\NotificationPageView.xaml;Windows\PatientWindows\NotificationWindow.xaml;Windows\PatientWindows\ShowAppointment.xaml;Windows\PatientWindows\PatientNotes.xaml;Windows\PatientWindows\PatientAppointments.xaml;Windows\PatientWindows\Views\TherapyView.xaml;Windows\SecretaryWindows\AddAlergenWindow.xaml;Windows\SecretaryWindows\CreateRoomDialog.xaml;Windows\DoctorWindows\DoctorWindows\DoctorsAppointments.xaml;Windows\DoctorWindows\DoctorWindows\doctorShowAppointment.xaml;Windows\DoctorWindows\DoctorWindows\DoctorWindow.xaml;Windows\SecretaryWindows\EmergencyWindow.xaml;Windows\SecretaryWindows\EquipmentWindow.xaml;Windows\SecretaryWindows\ManagerWindow.xaml;Windows\PatientWindows\PatientWindow.xaml;Windows\SecretaryWindows\NoAccountAppointment.xaml;Windows\SecretaryWindows\OperationWindow.xaml;Windows\SecretaryWindows\SecretaryPacientAppointment.xaml;Windows\SecretaryWindows\SecretaryWindow.xaml;Windows\SecretaryWindows\StaffRegistrationWindow.xaml;
+
+False
+

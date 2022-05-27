@@ -3,9 +3,11 @@
 // Created: Saturday, April 30, 2022 12:35:15 PM
 // Purpose: Definition of Class AppointmentNotificationController
 
+using SIMS_Projekat_Bolnica_Zdravo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace CrudModel
 {

@@ -8,3 +8,5 @@
 7|12|ab+|perje-kraj
 8|13|ab+|empty-kraj
 9|13|ab+|empty-kraj
+10|14|ab+|empty-kraj
+11|14|ab+|empty-kraj

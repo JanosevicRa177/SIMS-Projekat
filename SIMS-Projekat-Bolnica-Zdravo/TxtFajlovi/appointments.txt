@@ -1,6 +1,0 @@
-0|0|7|5|2022|30|7|0|1|0|5|dec|44|False|||
-0|0|12|5|2022|30|7|0|1|1|5|Good|75|False|xfcndslfkjfds|XD|1,,;0,bnv mbnvm,bnvbnv
-1|0|14|5|2022|30|7|0|1|1|6|XD|76|False|||0,,sdgfdsf;0,dfgdfg,dsfdfs;0,dfgdfdgf,fdgdfgdfg;0,,;0,dfdsf,sdfdsf;0,xd,xd
-1|0|13|5|2022|60|7|0|1|1|6||77|False|||0,ghfgfhhgf,grrfhgf
-2|0|15|5|2022|30|7|0|1|1|7||78|False|||
-0|0|28|5|2022|60|7|0|1|1|5||79|False|||

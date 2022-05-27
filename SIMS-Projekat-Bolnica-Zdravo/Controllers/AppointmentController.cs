@@ -39,6 +39,23 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 
         }
 
+        public ObservableCollection<String> GetAllPatientsTherapies(int patientID)
+        {
+            return AS.GetAllPatientsTherapies(patientID);
+        }
+
+        public ObservableCollection<TakingMedicineDTO> GetAllPatientsMedicines(int patientID)
+        {
+            ObservableCollection<Appointment> appointments = AS.getAllPatientsAppointments(patientID);
+            List<TakingMedicineDTO> medicineList = new List<TakingMedicineDTO>();
+            foreach (Appointment appointment in appointments)
+            {
+                medicineList.AddRange(convertTMtoTMDTO(appointment.medicineList).ToList());
+            }
+            ObservableCollection<TakingMedicineDTO> medicines = new ObservableCollection<TakingMedicineDTO>(medicineList);
+            return medicines;
+        }
+
         public void RemoveAppointment(int appid)
         {
             AS.removeAppointment(appid);
@@ -53,10 +70,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return docdto;
         }
-
-        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto)
+        public bool IsPatientEligibleToGradeHospital(int patientID) 
         {
-            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id);
+           return AS.IsPatientEligibleToGradeHospital(patientID);
+        }
+        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto,int appointmentID = -1)
+        {
+            return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id, appointmentID);
         }
         public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID)
         {
@@ -71,7 +91,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             return AS.GetDoctorTermsByDate(dt, duration, appoID);
         }
-
+       
         public BindingList<Time> GetDoctorTimesforDoctor(int docID, DateTime dt, int duration, int appoID,RoomCrAppDTO r = null)
         {
             int xd;
@@ -79,7 +99,35 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             else xd = r.id;
             return AS.GetDoctorTimesforDoctor(docID , dt, duration, appoID, xd);
         }
+        public ObservableCollection<Appointment> getAllRoomAppointments(int roomID)
+        {
+            return AS.getAllRoomAppointments(roomID);
+        }
+        public BindingList<Time> GetTimesForEmergency( int duration, int appoID,Specialization specialization = null)
+        {
         
+        
+            return AS.GetTimesForEmergency( duration, appoID, specialization);
+        }
+        public ObservableCollection<int> getAllAppointmentsBetween(Time timeStart, int duration)
+        {
+            return AS.getAllAppointmentsBetween(timeStart, duration);
+        }
+        public bool changeTime(Appointment time, Time timee)
+        {
+            return AS.changeTime(time, timee);
+        }
+        public ObservableCollection<Appointment> getAllExceptEmergencys()
+        {
+
+            return AS.getAllExceptEmergencys();
+        }
+        public Appointment GetAppointmentById(int appointmentID)
+        {
+            return AS.GetAppointmentById(appointmentID);
+        }
+
+
         public bool ChangeAppointment(Time t, DateTime dt, int appointmentID, RoomCrAppDTO rcdto = null, int dur = -1) 
         {
             return AS.ChangeAppointment(t, dt, appointmentID,rcdto,dur);
@@ -121,6 +169,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             ObservableCollection<ShowAppointmentDTO> tmp = new ObservableCollection<ShowAppointmentDTO>();
             ObservableCollection<Appointment> list = AS.getAllAppointmentDTO();
+            foreach (Appointment a in list)
+            {
+                if (a.operation != true)
+                    tmp.Add(new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, a.patientID, RC.getRoomById(a.roomID).name, a.date, a.timeString, a.description, a.appointmentID));
+
+            }
+            return tmp;
+        }
+        public ObservableCollection<ShowAppointmentDTO> getAllEmergency()
+        {
+            ObservableCollection<ShowAppointmentDTO> tmp = new ObservableCollection<ShowAppointmentDTO>();
+            ObservableCollection<Appointment> list = AS.getAllEmergency();
             foreach (Appointment a in list)
             {
                 if (a.operation != true)
@@ -183,7 +243,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration, a.isNotGraded);
         }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {
@@ -192,7 +252,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in appointmentsPatent)
             {
                 Doctor d = DS.GetDoctorByID(a.doctorID);
-                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration));
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration,a.isNotGraded));
+            }
+            return patientAppointmentsListDTO;
+        }
+        public ObservableCollection<ShowAppointmentPatientDTO> GetExecutedPatientsAppointments(int patientID)
+        {
+            ObservableCollection<ShowAppointmentPatientDTO> patientAppointmentsListDTO = new ObservableCollection<ShowAppointmentPatientDTO>();
+            ObservableCollection<Appointment> appointmentsPatent = AS.GetExecutedPatientsAppointments(patientID);
+            foreach (Appointment a in appointmentsPatent)
+            {
+                Doctor d = DS.GetDoctorByID(a.doctorID);
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration, a.isNotGraded));
             }
             return patientAppointmentsListDTO;
         }
@@ -210,8 +281,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Appointment a = AS.getAppointmentById(appID);
             return new StartAppointmentDTO(a.description, a.therapy, a.condition, convertTMtoTMDTO(a.medicineList), a.appointmentID);
         }
+        public BindingList<Time> getTwoTermsFromNow()
+        {
+            return AS.getTwoTermsFromNow();
+        }
 
-        public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
+            public ShowAppointmentDTO GetShowAppointmentDTO(int appoID)
         {
             Appointment a = AS.getAppointmentById(appoID);
             return new ShowAppointmentDTO(PC.GetPatientByID(a.patientID).name, PC.GetPatientByID(a.patientID).surname, PC.GetPatientByID(a.patientID).userID, RC.getRoomById(a.roomID).name, a.date,a.timeString,a.description,appoID);
@@ -224,7 +299,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration, a.isNotGraded);
         }
         
         public ObservableCollection<TakingMedicine> convertTMDTOtoTM(ObservableCollection<TakingMedicineDTO> octmdto)
@@ -284,6 +359,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return tmp;
         }
+
         public class StartAppointmentDTO
         {
             public string desc { set; get; }
@@ -291,7 +367,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             public string condition { set; get; }
             public ObservableCollection<TakingMedicineDTO> medicineList { set; get; }
             public int id { set; get; }
-            public StartAppointmentDTO(string desc,string therapy,string condition, ObservableCollection<TakingMedicineDTO> medList,int id)
+
+            public StartAppointmentDTO(string desc, string therapy, string condition,
+                ObservableCollection<TakingMedicineDTO> medList, int id)
             {
                 this.desc = desc;
                 this.therapy = therapy;
@@ -300,6 +378,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
                 this.id = id;
             }
         }
+
         public ObservableCollection<ShowAppointmentDTO> getAllOperationsAppointmentDTO()
         {
             ObservableCollection<ShowAppointmentDTO> tmp = new ObservableCollection<ShowAppointmentDTO>();
@@ -390,14 +469,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public string desc { set; get; }
         public int id { set; get; }
         public int duration { set; get; }
+        public Boolean isNotGraded { set; get; }
 
-        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string time, string desc, int id, DateTime Date,int duration)
+        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string time, string desc, int id, DateTime Date,int duration,Boolean isNotGraded)
         {
             doctorName = dName;
             doctorSurname = dSurname;
             doctorID = dID;
             roomName = rName;
             this.Date = Date;
+            this.isNotGraded = isNotGraded;
             Time = time;
             this.desc = desc;
             this.id = id;
