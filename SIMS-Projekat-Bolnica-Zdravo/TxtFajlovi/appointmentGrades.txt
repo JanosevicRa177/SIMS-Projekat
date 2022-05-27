@@ -2,3 +2,4 @@
 4|5|2|5|Jako kvalitetan komentar|75
 4|5|4|5||77
 4|5|2|4|neki komentar|76
+3|3|3|3||7

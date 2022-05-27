@@ -8,7 +8,7 @@
       d:DesignHeight="530" d:DesignWidth="430"
       Title="Appointment">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="530" Width="430">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="530" Width="430" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="410"/>
@@ -25,7 +25,7 @@
         <Button Grid.Row="2" Grid.ColumnSpan="3" Margin="120,10,120,10" Content="Nazad na preglede" Click="Show_Home" />
         <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="450" Margin="0,0,-0.2,0" Width="425"/>
         <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="350" Margin="9.4,10,0,0" Width="264" Grid.Row="0" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Right" TextAlignment="Right" Margin="0,29,137.2,0" FontSize="20" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="331" Width="136" Grid.ColumnSpan="2" Grid.RowSpan="2"><Run Text="Ime:"/><LineBreak/><Run/><LineBreak/><Run Text="Prezime:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Soba:"/><LineBreak/><Run/><LineBreak/><Run Text="Datum i vreme:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Opis Pregleda:"/><LineBreak/><Run/><LineBreak/><LineBreak/><Run Text="Doktor:"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Right" TextAlignment="Left" Margin="0,29,137.2,0" FontSize="20" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="331" Width="136" Grid.ColumnSpan="2" Grid.RowSpan="2"><Run Text="Ime:"/><LineBreak/><Run/><LineBreak/><Run Text="Prezime:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Soba:"/><LineBreak/><Run/><LineBreak/><Run Text="Datum i vreme:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="Opis Pregleda:"/><LineBreak/><Run/><LineBreak/><LineBreak/><Run Text="Doktor:"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
 
         <TextBlock x:Name="Name" FontSize="20" Text="{Binding loggedPatient.name}" Grid.Row="0" Grid.Column="1" Margin="21,29,20.4,0" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="Surname" FontSize="20" Text="{Binding loggedPatient.surname}" Grid.Row="1" Grid.Column="1" Margin="21,21,20.4,355.6" Grid.ColumnSpan="2"/>

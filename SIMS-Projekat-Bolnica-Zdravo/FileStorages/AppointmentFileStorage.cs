@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
 using System.Diagnostics;
+using System.Linq;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 
 namespace CrudModel
@@ -48,6 +49,20 @@ namespace CrudModel
                 }
             }
             appoitmentSerializer.toCSV("../../TxtFajlovi/appointments.txt", appointmentList);
+        }
+        public ObservableCollection<String> GetAllPatientsTherapies(int patientID)
+        {
+            ObservableCollection<String> Therapies = new ObservableCollection<String>();
+            Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
+            appointmentList = appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt");
+            foreach (Appointment a in appointmentList)
+            {
+                if (a.patientID == patientID)
+                {
+                    Therapies.Add(a.therapy);
+                }
+            }
+            return Therapies;
         }
         public void ExecutedAppointment(string cond,string ther,int appointmentID, ObservableCollection<TakingMedicine> ocMed,string desc)
         {
@@ -332,8 +347,6 @@ namespace CrudModel
 
                 if (a.appointmentID == patid)
                 {
-
-               
                     app = a;
                     return app;
                 }

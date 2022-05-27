@@ -19,9 +19,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" TextWrapping="Wrap" Text="Doktor:" VerticalAlignment="Top" Height="40" Width="101" RenderTransformOrigin="0.618,-0.136" Margin="0,33,0,0" Grid.RowSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,32,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Height="40" Width="101"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" Height="42" Width="101"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Left" TextWrapping="Wrap" Text="Doktor:" VerticalAlignment="Top" Height="40" Width="101" RenderTransformOrigin="0.618,-0.136" Margin="10,33,0,0" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Left" Margin="10,32,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Height="40" Width="101"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Left" Margin="10,101,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" Height="42" Width="101"/>
         <ComboBox ItemsSource="{Binding docs}" SelectionChanged="doctor_Date_Changed" Height="40" x:Name="doctorsCB" FontSize="25" Margin="106,33,15.4,396.6" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -40,7 +40,7 @@
 
         <TextBox x:Name="Date" IsEnabled="False"  TextAlignment="Center" Text="{Binding This.date, Mode=OneWay,  StringFormat='dd/MM/yyyy'}" HorizontalAlignment="Left" FontSize="25" Height="39" Margin="106,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Grid.ColumnSpan="2"/>
         <Button Content="Izaberi datum" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,33,15.4,0" Grid.Row="1" VerticalAlignment="Top" Width="141" Height="39" Click="Pick_Date" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Right" Margin="0,249,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Opis:" VerticalAlignment="Top" Height="42" Width="101"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="25" TextAlignment="Left" Margin="10,249,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Opis:" VerticalAlignment="Top" Height="42" Width="101"/>
         <TextBox x:Name="desc" MaxLength="42" TextWrapping="Wrap" AcceptsReturn="True" BorderThickness="3" BorderBrush="Gray" Background="LightGray" FontSize="15" Grid.Row="1" Grid.ColumnSpan="3" Margin="106,249,15.4,66.6"/>
 
         <Button Grid.Row="2" Margin="15,10,0,10" Content="Odustani od pregleda" Click="Cancel_Add_Appointment"/>

@@ -122,8 +122,13 @@
     <Compile Include="Windows\PatientWindows\MainHamburgerMenu.xaml.cs">
       <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PatientWindows\ViewModel\MedicineViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\NotePageViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\NotificationPageViewModel.cs" />
+    <Compile Include="Windows\PatientWindows\ViewModel\TherapyViewModel.cs" />
+    <Compile Include="Windows\PatientWindows\Views\MedicineView.xaml.cs">
+      <DependentUpon>MedicineView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PatientWindows\Views\NotificationPageView.xaml.cs">
       <DependentUpon>NotificationPageView.xaml</DependentUpon>
     </Compile>
@@ -161,7 +166,7 @@
     </Compile>
     <Compile Include="Services\AppointmentNotificationService.cs" />
     <Compile Include="Model\Gender.cs" />
-    <Compile Include="Model\IdsStorage.cs" />
+    <Compile Include="FileStorages\IdsStorage.cs" />
     <Compile Include="Model\TimePatient.cs" />
     <Compile Include="Windows\DoctorWindows\DoctorWindows\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
@@ -207,6 +212,9 @@
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\SecretaryService.cs" />
     <Compile Include="Services\SpecializationService.cs" />
+    <Compile Include="Windows\PatientWindows\Views\TherapyView.xaml.cs">
+      <DependentUpon>TherapyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SecretaryWindows\AddAlergenWindow.xaml.cs">
       <DependentUpon>AddAlergenWindow.xaml</DependentUpon>
     </Compile>
@@ -366,6 +374,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\PatientWindows\Views\MedicineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\PatientWindows\Views\NotePageView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -395,6 +407,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\PatientWindows\PatientAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PatientWindows\Views\TherapyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

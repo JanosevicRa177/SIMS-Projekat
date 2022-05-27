@@ -55,11 +55,11 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Ocena lekara:" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,5,5" FontSize="15"/>
-                    <TextBlock Text="Ljubaznost lekara:" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,5,5" FontSize="15"/>
-                    <TextBlock Text="Tačnost lekara:" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,5,5" FontSize="15"/>
-                    <TextBlock Text="Higijena:" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,5,5" FontSize="15"/>
-                    <TextBlock Text="Dodatni komentar:" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Margin="5,15,5,5" FontSize="15"/>
+                    <TextBlock Text="Ocena lekara:" HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,5,5" FontSize="15"/>
+                    <TextBlock Text="Ljubaznost lekara:" HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,5,5" FontSize="15"/>
+                    <TextBlock Text="Tačnost lekara:" HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,5,5" FontSize="15"/>
+                    <TextBlock Text="Higijena:" HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,5,5" FontSize="15"/>
+                    <TextBlock Text="Dodatni komentar:" HorizontalAlignment="Left" TextAlignment="Left" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Margin="10,15,5,5" FontSize="15"/>
                     <TextBox x:Name="desc" MaxLength="42" TextWrapping="Wrap" AcceptsReturn="True" BorderThickness="3" BorderBrush="Gray" Background="LightGray" FontSize="15" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Margin="10,15">
 
                     </TextBox>

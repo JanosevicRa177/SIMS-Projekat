@@ -60,7 +60,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             Mail.Text = "";
             Password.Clear();
             PassText.Visibility = Visibility.Visible;
-            PatientWindow pt = new PatientWindow(this, 6);
+            PatientWindow pt = new PatientWindow(this, 5);
             pt.Show();
             this.Hide();
         }
