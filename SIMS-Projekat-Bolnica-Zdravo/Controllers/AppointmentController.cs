@@ -39,6 +39,23 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 
         }
 
+        public ObservableCollection<String> GetAllPatientsTherapies(int patientID)
+        {
+            return AS.GetAllPatientsTherapies(patientID);
+        }
+
+        public ObservableCollection<TakingMedicineDTO> GetAllPatientsMedicines(int patientID)
+        {
+            ObservableCollection<Appointment> appointments = AS.getAllPatientsAppointments(patientID);
+            List<TakingMedicineDTO> medicineList = new List<TakingMedicineDTO>();
+            foreach (Appointment appointment in appointments)
+            {
+                medicineList.AddRange(convertTMtoTMDTO(appointment.medicineList).ToList());
+            }
+            ObservableCollection<TakingMedicineDTO> medicines = new ObservableCollection<TakingMedicineDTO>(medicineList);
+            return medicines;
+        }
+
         public void RemoveAppointment(int appid)
         {
             AS.removeAppointment(appid);
@@ -342,6 +359,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return tmp;
         }
+
         public class StartAppointmentDTO
         {
             public string desc { set; get; }
@@ -349,7 +367,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             public string condition { set; get; }
             public ObservableCollection<TakingMedicineDTO> medicineList { set; get; }
             public int id { set; get; }
-            public StartAppointmentDTO(string desc,string therapy,string condition, ObservableCollection<TakingMedicineDTO> medList,int id)
+
+            public StartAppointmentDTO(string desc, string therapy, string condition,
+                ObservableCollection<TakingMedicineDTO> medList, int id)
             {
                 this.desc = desc;
                 this.therapy = therapy;
@@ -358,6 +378,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
                 this.id = id;
             }
         }
+
         public ObservableCollection<ShowAppointmentDTO> getAllOperationsAppointmentDTO()
         {
             ObservableCollection<ShowAppointmentDTO> tmp = new ObservableCollection<ShowAppointmentDTO>();

@@ -31,6 +31,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             MRFS = new MedicalRecordFileStorage();
             
         }
+        public ObservableCollection<String> GetAllPatientsTherapies(int patientID)
+        {
+            return AFS.GetAllPatientsTherapies(patientID);
+        }
         public void DeleteAppointment(ShowAppointmentDTO app)
         {
             AFS.RemoveAppointment(app.patientID.ToString(),app.Time,app.Date); 

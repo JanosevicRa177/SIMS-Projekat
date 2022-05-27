@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
@@ -39,6 +40,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void Show_executed_click(object sender, RoutedEventArgs e)
         {
             patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading(patientWindow));
+            PatientWindow.menuClosed = true;
+            mainMenu.Close_menu();
+        }
+
+        private void Therapy_Click(object sender, RoutedEventArgs e)
+        {
+            patientWindow.PatientFrame.NavigationService.Navigate(new TherapyView());
+            PatientWindow.menuClosed = true;
+            mainMenu.Close_menu();
+        }
+
+        private void Medicine_Click(object sender, RoutedEventArgs e)
+        {
+            patientWindow.PatientFrame.NavigationService.Navigate(new MedicineView());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
         }
