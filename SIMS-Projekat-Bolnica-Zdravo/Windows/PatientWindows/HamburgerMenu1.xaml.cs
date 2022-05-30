@@ -79,5 +79,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
         }
+
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            patientWindow.PatientFrame.NavigationService.Navigate(new AccountView());
+            PatientWindow.menuClosed = true;
+            mainMenu.Close_menu();
+        }
     }
 }

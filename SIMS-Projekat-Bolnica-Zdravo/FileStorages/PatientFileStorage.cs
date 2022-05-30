@@ -39,8 +39,20 @@ namespace CrudModel
       
       public bool UpdatePatient(Patient patient)
       {
-         throw new NotImplementedException();
-      }
+          Serializer<Patient> patientSerializer = new Serializer<Patient>();
+          ObservableCollection<Patient> patients = patientSerializer.fromCSV("../../TxtFajlovi/patients.txt");
+          foreach (Patient p in patients)
+          {
+              if (p.userID == patient.userID)
+              {
+                  patients.Remove(p);
+                  patients.Add(patient);
+                  break;
+              }
+          }
+          patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
+          return true;
+        }
         public bool IsAccountBlocked(int patientID)
         {
             Serializer<Patient> patientSerializer = new Serializer<Patient>();

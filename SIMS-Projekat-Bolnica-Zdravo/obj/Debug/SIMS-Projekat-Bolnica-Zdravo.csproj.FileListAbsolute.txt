@@ -221,3 +221,5 @@ C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIM
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindows\Views\TherapyView.g.cs
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindows\Views\MedicineView.baml
 C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindows\Views\TherapyView.baml
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindows\Views\AccountView.g.cs
+C:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\obj\Debug\Windows\PatientWindows\Views\AccountView.baml
