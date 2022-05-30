@@ -122,10 +122,14 @@
     <Compile Include="Windows\PatientWindows\MainHamburgerMenu.xaml.cs">
       <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PatientWindows\ViewModel\AccountViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\MedicineViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\NotePageViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\NotificationPageViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\TherapyViewModel.cs" />
+    <Compile Include="Windows\PatientWindows\Views\AccountView.xaml.cs">
+      <DependentUpon>AccountView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PatientWindows\Views\MedicineView.xaml.cs">
       <DependentUpon>MedicineView.xaml</DependentUpon>
     </Compile>
@@ -371,6 +375,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\PatientWindows\MainHamburgerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PatientWindows\Views\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

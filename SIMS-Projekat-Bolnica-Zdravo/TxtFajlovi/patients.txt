@@ -1,4 +1,3 @@
-Jovan|Jovanovic|Serbia|Novi Sad|Milsa Obilica|21a|lozinka123|0624563211|jovanjovanoviczmaj@gmail.com|5|||0|-10000|M
 Pera|Peric|Serbia|Novi Sad|Kisacka|19a|lozinka124|069595959|peradetlic123@gmail.com|6|||1|5|M
 Zoran|Zoranovic|Serbia|Novi Sad|Vojvode misica|5b|lozinka125|0601011011|zokizmija420@gmail.com|7|||0|0|M
 Mira|Miric|Serbia|Novi Sad|Nikole Tesle|3|lozinka126|064586748|Miricleptiric@gmail.com|8|||0|0|Z
@@ -8,3 +7,4 @@ Lazar|Lakic|temp|temp|temp|temp|temp|temp|temp@gmail.com|11|||0|0|M
 Aca|Jovic|temp|temp|temp|temp|temp|temp|temp@gmail.com|12|||0|0|M
 dusan|janosevic|temp|temp|temp|temp|temp|temp|temp@gmail.com|13|||0|0|M
 Jovan|Slobenovic|temp|temp|temp|temp|temp|temp|temp@gmail.com|14|||0|0|M
+Jovan|Jovanovic|Serbia|Novi Sad|Milsa Obilica|21a|lozinka123|0624563211|jovanjovanoviczmaj@gmail.com|5|||0|-9997|M

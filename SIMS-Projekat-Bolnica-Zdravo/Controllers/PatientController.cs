@@ -60,6 +60,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             PS.CreatePatient(pat);
             return true;
         }
+        public bool UpdatePatient(Patient pat)
+        {
+            return PS.UpdatePatient(pat); ;
+        }
     }
 
     public class PatientCrAppDTO
