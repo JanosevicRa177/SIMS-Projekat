@@ -26,19 +26,46 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private AppointmentController AC;
         private AppointmentNotificationController ANC;
         public static PatientWindow patientWindow;
+        public ObservableCollection<ShowAppointmentPatientDTO> patientAppointmens;
         public PatientAppointments(PatientWindow patientWindow1)
         {
             patientWindow = patientWindow1;
             AC = new AppointmentController();
             ANC = new AppointmentNotificationController();
-            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
+            patientAppointmens = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
+            ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
+            foreach (var appoinment in patientAppointmens)
+            {
+                if (appoinment.Date < DateTime.Today)
+                {
+                    removeAppointmens.Add(appoinment);
+                }
+            }
+            foreach (var appoinment in removeAppointmens)
+            {
+                patientAppointmens.Remove(appoinment);
+            }
+            this.DataContext = patientAppointmens;
             InitializeComponent();
         }
         public PatientAppointments()
         {
             AC = new AppointmentController();
             ANC = new AppointmentNotificationController();
-            this.DataContext = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
+            patientAppointmens = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
+            ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
+            foreach (var appoinment in patientAppointmens)
+            {
+                if (appoinment.Date < DateTime.Today)
+                {
+                    removeAppointmens.Add(appoinment);
+                }
+            }
+            foreach (var appoinment in removeAppointmens)
+            {
+                patientAppointmens.Remove(appoinment);
+            }
+            this.DataContext = patientAppointmens;
             InitializeComponent();
         }
         private void Show_Appointment(object sender, RoutedEventArgs e)

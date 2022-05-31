@@ -37,10 +37,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             patientWindow = patientWindow1;
             InitializeComponent();
         }
-        private void Cancel_Grading_Click(object sender, RoutedEventArgs e)
-        {
-            patientWindow.PatientFrame.NavigationService.Navigate(new PatientAppointments());
-        }
 
         private void StaffKindnessGrade_Checked(object sender, RoutedEventArgs e)
         {

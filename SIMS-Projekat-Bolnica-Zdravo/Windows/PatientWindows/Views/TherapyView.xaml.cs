@@ -15,10 +15,7 @@ using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views
 {
-    /// <summary>
-    /// Interaction logic for TherapyView.xaml
-    /// </summary>
-    public partial class TherapyView : Page
+    public partial class TherapyView : UserControl
     {
         public TherapyView()
         {

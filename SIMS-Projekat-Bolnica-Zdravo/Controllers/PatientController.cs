@@ -27,6 +27,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return ocp;
         }
+        public void UpdatePassword(int patientID, String password)
+        {
+            PS.UpdatePassword(patientID, password);
+        }
+        public bool CheckPatientsPasswordInput(int patientID,String password)
+        {
+            return PS.CheckPatientsPasswordInput(patientID, password);
+        }
+
         public bool IsAccountBlocked(int patientID) 
         {
             return PS.IsAccountBlocked(patientID);

@@ -165,7 +165,6 @@
                     </Grid>
                 </ScrollViewer>
             </Border>
-            <Button Content="Odustani" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="120" Height="40" Click="Cancel_Grading_Click"/>
             <Button Content="Oceni" HorizontalAlignment="Left"  Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" VerticalAlignment="Center" Width="120" Height="40" Click="Grade_Click"/>
 
         </Grid>

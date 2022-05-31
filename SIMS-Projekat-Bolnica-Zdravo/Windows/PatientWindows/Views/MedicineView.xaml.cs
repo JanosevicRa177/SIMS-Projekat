@@ -18,7 +18,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views
     /// <summary>
     /// Interaction logic for MedicineView.xaml
     /// </summary>
-    public partial class MedicineView : Page
+    public partial class MedicineView : UserControl
     {
         public MedicineView()
         {

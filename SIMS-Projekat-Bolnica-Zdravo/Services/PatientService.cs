@@ -24,6 +24,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return PFS.getAllPatientsFS();
         }
+        public bool CheckPatientsPasswordInput(int patientID, String password)
+        {
+            return PFS.CheckPatientsPasswordInput(patientID, password);
+        }
+        public void UpdatePassword(int patientID, String password)
+        {
+            PFS.UpdatePassword(patientID, password);
+        }
         public bool CheckForTrolling(int patientID)
         {
             return PFS.CheckForTrolling(patientID);

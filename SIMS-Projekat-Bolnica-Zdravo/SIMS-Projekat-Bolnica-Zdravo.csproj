@@ -122,6 +122,12 @@
     <Compile Include="Windows\PatientWindows\MainHamburgerMenu.xaml.cs">
       <DependentUpon>MainHamburgerMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\PatientWindows\PasswordConfirm.xaml.cs">
+      <DependentUpon>PasswordConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PatientWindows\PasswordChange.xaml.cs">
+      <DependentUpon>PasswordChange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PatientWindows\ViewModel\AccountViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\MedicineViewModel.cs" />
     <Compile Include="Windows\PatientWindows\ViewModel\NotePageViewModel.cs" />
@@ -378,6 +384,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\PatientWindows\PasswordConfirm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\PatientWindows\PasswordChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\PatientWindows\Views\AccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -533,6 +547,8 @@
   <ItemGroup>
     <Resource Include="Windows\PatientWindows\SignOut.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Windows\PatientWindows\icons8-back-100.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

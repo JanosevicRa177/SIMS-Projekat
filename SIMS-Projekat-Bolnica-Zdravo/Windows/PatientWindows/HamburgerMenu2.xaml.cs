@@ -39,6 +39,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Show_executed_click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading(patientWindow));
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
@@ -46,6 +49,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Therapy_Click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             patientWindow.PatientFrame.NavigationService.Navigate(new TherapyView());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
@@ -53,6 +59,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Medicine_Click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             patientWindow.PatientFrame.NavigationService.Navigate(new MedicineView());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();

@@ -1,10 +1,7 @@
 Beleska4|Neki kontent 4|3|5
 Beleska1|Neki kontent 1|0|5
-Prazno||4|5
-Prazno||5|5
 Beleska3|Neki kontent 3|2|5
 Prazno|jhghgjhg|6|6
-Prazno||8|5
 Beleska2|Neki kontent 2|1|5
 Prazno|gddbgbdg|4|5
 beleska1||7|6
@@ -12,3 +9,4 @@ Prazno13|asdasddas|11|6
 Prazno12|adfadfadfa|10|6
 Prazno|fsggfsfsggsf|12|6
 Prazno|asasdasddas|14|6
+Prazno|fgsfgsfgs|18|5

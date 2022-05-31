@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Navigation;
 
 namespace MVVM
 {
     public class BindableBase : INotifyPropertyChanged
     {
-
         protected virtual void SetProperty<T>(ref T member, T val,
            [CallerMemberName] string propertyName = null)
         {

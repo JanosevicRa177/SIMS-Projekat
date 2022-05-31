@@ -25,10 +25,10 @@
         <Frame x:Name="PatientFrame" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Fill="Silver" Panel.ZIndex="0" Margin="0,0,-0.2,0" />
         <Rectangle Grid.Row="3" Grid.ColumnSpan="3" Fill="Silver" Grid.RowSpan="1" />
-        <Button FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Click="Show_Notes">
+        <Button FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Click="Navigation_back">
             <StackPanel Orientation="Vertical">
-                <Image Source="icons8-note-64.png" Width="60" Height="60" Margin="0,5,0,5"/>
-                <TextBlock Text="Beleške" TextAlignment="Center" VerticalAlignment="Center" />
+                <Image Source="icons8-back-100.png" Width="60" Height="60" Margin="0,5,0,5"/>
+                <TextBlock Text="Nazad" TextAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
         </Button>
         <Button FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1" Click="Show_Home">

@@ -108,7 +108,7 @@
                 <TextBlock x:Name="min" 
                 FontSize="34" Grid.Row="0" Grid.Column="2" Width="55" Margin="5" Text="min"/>
                 <Slider ValueChanged="slider1_GotFocus" TickFrequency="30" IsSnapToTickEnabled="True" x:Name="slider1" VerticalAlignment="Center"
-                FontSize="34" Grid.Row="0" Grid.Column="3" Width="300" Margin="10,21,10,10" Value="{Binding This.dur, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="30" Maximum="180"/>
+                FontSize="34" Grid.Row="0" Grid.Column="3" Width="300" Margin="10,21,10,10" Value="{Binding This.Duration, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="30" Maximum="180"/>
             </Grid>
         </Grid>
         <Button Name="cancel" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Row = "8" Content="Back" FontSize="33" Grid.ColumnSpan="2"

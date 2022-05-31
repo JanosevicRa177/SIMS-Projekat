@@ -31,7 +31,7 @@ namespace CrudModel
             patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
             return true;
       }
-      
+
       public bool DeletePatient(int userID)
       {
          throw new NotImplementedException();
@@ -64,6 +64,36 @@ namespace CrudModel
                 }
             }
             return false;
+        }
+        public bool CheckPatientsPasswordInput(int patientID, String password)
+        {
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt"))
+            {
+                if (p.userID == patientID)
+                {
+                    if (p.password.Equals(password))
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+        public void UpdatePassword(int patientID, String password)
+        {
+            Serializer<Patient> patientSerializer = new Serializer<Patient>();
+            ObservableCollection<Patient> patients = patientSerializer.fromCSV("../../TxtFajlovi/patients.txt");
+            foreach (Patient p in patients)
+            {
+                if (p.userID == patientID)
+                {
+                    p.password = password;
+                    break;
+                }
+            }
+            patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
         }
         public int LoginPatient(String mail, String password)
         {

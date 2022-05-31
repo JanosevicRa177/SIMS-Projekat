@@ -198,6 +198,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
         }
         private void OnConfirm()
         {
+            InformationDialog informationDialog;
+            PasswordConfirm passwordConfirm = new PasswordConfirm();
+            passwordConfirm.Top = HamburgerMenu1.patientWindow.Top + 270;
+            passwordConfirm.Left = HamburgerMenu1.patientWindow.Left + 25;
+            passwordConfirm.ShowDialog();
+            if (!PasswordConfirm.isValid)
+            {
+                informationDialog = new InformationDialog("Pogrešna šifra, nalog nije ažuriran!");
+                informationDialog.Top = HamburgerMenu1.patientWindow.Top + 270;
+                informationDialog.Left = HamburgerMenu1.patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
+                return;
+            }
+
             PC.UpdatePatient(LoggedPatient);
             PatientWindow.LoggedPatient.name = Name;
             PatientWindow.LoggedPatient.surname = Surname;
@@ -209,9 +225,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
             oldPhoneNumber = LoggedPatient.mobilePhone;
             oldAddress = LoggedPatient.address.street;
 
-            InformationDialog informationDialog = new InformationDialog("Uspešno ste ažurirali vaše podatke!");
-            informationDialog.Top = 50 + 270;
-            informationDialog.Left = 555 + 25;
+            informationDialog = new InformationDialog("Uspešno ste ažurirali vaše podatke!");
+            informationDialog.Top = HamburgerMenu1.patientWindow.Top + 270;
+            informationDialog.Left = HamburgerMenu1.patientWindow.Left + 25;
             informationDialog.Activate();
             informationDialog.Topmost = true;
             informationDialog.ShowDialog();

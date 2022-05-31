@@ -9,7 +9,7 @@ using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views
 {
-    public partial class NotePageView : Page
+    public partial class NotePageView : UserControl
     {
         public NotePageView(Note note)
         {

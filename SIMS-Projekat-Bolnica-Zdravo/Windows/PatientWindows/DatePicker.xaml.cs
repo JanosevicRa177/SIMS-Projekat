@@ -27,6 +27,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             changed = false;
             InitializeComponent();
             DatePicker_Date.SelectedDate = DateTime.Today.AddDays(1);
+            DatePicker_Date.SelectedDate = AddAppointment.date;
         }
         public DateTime date
         {
@@ -37,10 +38,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             get;
             set;
-        }
-        private void Cancel_Date(object sender, RoutedEventArgs e)
-        {
-            PatientWindow.NavigatePatient.Navigate(new AddAppointment());
         }
         private void Confirm_Date(object sender, RoutedEventArgs e)
         {

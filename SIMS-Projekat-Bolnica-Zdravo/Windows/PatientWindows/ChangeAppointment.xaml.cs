@@ -98,14 +98,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             PatientWindow.NavigatePatient.Navigate(new DateChanger());
         }
 
-        private void Cancel_Change_Appointment(object sender, RoutedEventArgs e)
-        {
-            date = DateTime.MinValue;
-            initialize = true;
-            empty = false;
-            PatientWindow.NavigatePatient.Navigate(new ShowAppointment());
-        }
-
         private void Confirm_Change_appointment(object sender, RoutedEventArgs e)
         {
             TimePatient TimePat = (TimePatient)TimeselectDG.SelectedItem;

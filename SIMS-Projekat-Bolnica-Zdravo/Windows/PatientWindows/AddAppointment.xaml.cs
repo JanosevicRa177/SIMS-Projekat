@@ -119,14 +119,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             PatientWindow.NavigatePatient.Navigate(new DatePicker());
         }
 
-        private void Cancel_Add_Appointment(object sender, RoutedEventArgs e)
-        {
-            selectedDoctor = -1;
-            initialize = true;
-            empty = false;
-            PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
-        }
-
         private void Confirm_Add_appointment(object sender, RoutedEventArgs e)
         {
             if ((DoctorCrAppDTO)doctorsCB.SelectedItem == null)

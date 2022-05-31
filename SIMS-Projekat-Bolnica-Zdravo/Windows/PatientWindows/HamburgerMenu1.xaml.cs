@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows;
 using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
@@ -42,11 +43,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Medical_Record_Show_Click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             MainHamburgerMenu.NavigateMenu.Navigate(new HamburgerMenu2(patientWindow, mainMenu));
         }
 
         private void HospitalGrading_Click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             if (!AC.IsPatientEligibleToGradeHospital(PatientWindow.LoggedPatient.id)) 
             {
                 InformationDialog informationDialog = new InformationDialog("Niste kvalifikovani da ocenite bolnicu, morate imati barem 3 odradjena pregleda");
@@ -75,6 +82,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Notifications_Click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             patientWindow.PatientFrame.NavigationService.Navigate(new NotificationPageView());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
@@ -82,9 +92,35 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 
         private void Account_Click(object sender, RoutedEventArgs e)
         {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
             patientWindow.PatientFrame.NavigationService.Navigate(new AccountView());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
+        }
+        private void Show_Notes_Click(object sender, RoutedEventArgs e)
+        {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
+            patientWindow.PatientFrame.NavigationService.Navigate(new PatientNotes());
+            PatientWindow.menuClosed = true;
+            mainMenu.Close_menu();
+        }
+
+        private void Password_Change_Click(object sender, RoutedEventArgs e)
+        {
+            AddAppointment.selectedDoctor = -1;
+            AddAppointment.initialize = true;
+            AddAppointment.empty = false;
+            PasswordChange PC = new PasswordChange();
+            PC.Top = patientWindow.Top + 270;
+            PC.Left = patientWindow.Left + 25;
+            mainMenu.Close_menu();
+            PC.ShowDialog();
+            PatientWindow.menuClosed = true;
+            PC.Topmost = true;
         }
     }
 }

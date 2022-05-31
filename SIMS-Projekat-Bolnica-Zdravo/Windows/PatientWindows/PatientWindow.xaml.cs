@@ -74,12 +74,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 ANC.UpdateAppointmentNotification(an);
             }
         }
-        private void Show_Notes(object sender, RoutedEventArgs e)
+        private void Navigation_back(object sender, RoutedEventArgs e)
         {
             AddAppointment.selectedDoctor = -1;
             AddAppointment.initialize = true;
             AddAppointment.empty = false;
-            PatientFrame.NavigationService.Navigate(new PatientNotes());
+            if (!menuClosed)
+            {
+                menuClosed = true;
+                MainHamburger.Close_menu();
+            }
+            if (PatientFrame.NavigationService.CanGoBack)
+            {
+                PatientFrame.NavigationService.GoBack();
+            }
         }
         private void Show_Home(object sender, RoutedEventArgs e)
         {
@@ -87,6 +95,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             AddAppointment.initialize = true;
             AddAppointment.empty = false;
             PatientFrame.NavigationService.Navigate(new PatientAppointments());
+            if (!menuClosed)
+            {
+                menuClosed = true;
+                MainHamburger.Close_menu();
+            }
         }
 
         public void SignOut()

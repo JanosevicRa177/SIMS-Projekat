@@ -24,8 +24,6 @@
 
         <TextBox x:Name="Date" TextChanged="Date_TextChanged" IsEnabled="False"  TextAlignment="Center" Text="{Binding This.date, Mode=OneWay,  StringFormat='dd/MM/yyyy'}" HorizontalAlignment="Left" FontSize="25" Height="39" Margin="106,60,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Grid.ColumnSpan="2"/>
         <Button Content="Izaberi datum" FontSize="15" Grid.Column="1" HorizontalAlignment="Right" Margin="0,60,15.4,0" Grid.Row="1" VerticalAlignment="Top" Width="138" Height="39" Click="Pick_Date" Grid.ColumnSpan="2"/>
-
-        <Button Grid.Row="2" Margin="15,10,0,10" Content="Odustani od izmene" Click="Cancel_Change_Appointment"/>
         <Button Grid.Row="2" Grid.Column="2" Margin="0,10,15,10" Content="Izmeni pregled" Click="Confirm_Change_appointment"/>
         <DataGrid x:Name="TimeselectDG" IsReadOnly="true" SelectionMode="Single" AutoGenerateColumns="False" Margin="106,125,14.8,0" Height="140" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="1" FontSize="15" ItemsSource="{Binding Path = DoctorTerms,  Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>

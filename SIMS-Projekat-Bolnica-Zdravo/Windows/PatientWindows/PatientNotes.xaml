@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Dodaj belešku" FontSize="20" HorizontalAlignment="Left" Margin="20,20,0,0" Grid.Row="2" VerticalAlignment="Top" Width="170" Height="40" Grid.ColumnSpan="2" Click="Add_Note"/>
+        <Button Content="Dodaj belešku" FontSize="20" HorizontalAlignment="Right" Margin="0,20,20,0" Grid.Row="2" VerticalAlignment="Top" Width="170" Height="40" Grid.ColumnSpan="2" Grid.Column="1" Click="Add_Note"/>
         <DataGrid Name="NotesListGrid" IsReadOnly="True" ItemsSource = "{Binding ''}" HorizontalAlignment="Left" Height="450" Grid.Row="0" AutoGenerateColumns="False" VerticalAlignment="Top" Width="430" SelectionMode="Single" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ime Beleške" Width="*" FontSize="20" Binding="{Binding noteName}"/>
