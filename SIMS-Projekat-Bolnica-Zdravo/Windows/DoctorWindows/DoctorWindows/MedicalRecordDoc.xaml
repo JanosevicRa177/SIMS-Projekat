@@ -61,8 +61,8 @@
                             <DataGrid IsReadOnly="True" Name="PatientsApps"  AutoGenerateColumns="False" Margin="5" ItemsSource="{Binding Pat}"  FontSize="35" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Description" Width="*" x:Name="Patname" Binding="{Binding desc}"/>
-                                    <DataGridTextColumn Header="Date" Width="170" x:Name="Patsurname" Binding="{Binding Date}"/>
                                     <DataGridTextColumn Header="Time" Width="230" x:Name="xd" Binding="{Binding Time}"/>
+                                    <DataGridTextColumn Header="Date" Width="170" x:Name="Patsurname" Binding="{Binding Date.Date}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button HorizontalAlignment="Right" FontSize="35" Content="Open" Grid.Row="1" Margin="5" Style="{StaticResource doctorButtons}" Name="openA" Click="openA_Click"></Button>

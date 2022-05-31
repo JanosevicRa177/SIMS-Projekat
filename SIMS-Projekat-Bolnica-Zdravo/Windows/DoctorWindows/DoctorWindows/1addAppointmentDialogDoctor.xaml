@@ -20,6 +20,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <Frame x:Name="EmergencyFrame" Panel.ZIndex="1" Grid.RowSpan="100" Grid.ColumnSpan="100" NavigationUIVisibility="Hidden"/>
         <StackPanel Grid.Row="1">
             <TextBlock Height="auto" FontSize="45">
                 Search:
@@ -54,7 +55,7 @@
         </StackPanel>
         <Button BorderBrush="Black" BorderThickness="3" VerticalAlignment="Bottom" Foreground="White"  Background="#4C1130" HorizontalAlignment="Right" x:Name="nextButton" Content="Next" Grid.Column="4" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="nextButton_Click"></Button>
         <Button BorderBrush="Black" BorderThickness="3" VerticalAlignment="Bottom" Foreground="White"  Background="#4C1130" HorizontalAlignment="Left" x:Name="cancel" Content="Cancel" Grid.Row="3" FontSize="60" Height="100" Width="300" Click="cancel_Click"/>
-        <Button BorderBrush="Black" BorderThickness="3" Foreground="White" Width="400" Background="#E06666" Grid.Row="8" Grid.ColumnSpan="5" Grid.Column="0" Height="140" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Emergency!" FontSize="60"/>
+        <Button BorderBrush="Black" BorderThickness="3" Foreground="White" Height="100" Width="auto" Background="#E06666" Grid.Row="8" Grid.ColumnSpan="5" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Emergency!" FontSize="60" Click="Button_Click"/>
 
     </Grid>
 </Window>

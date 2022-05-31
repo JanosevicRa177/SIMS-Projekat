@@ -382,14 +382,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return times;
         }
 
-        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID,int roomID = -1)
+        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID,int roomID)
         {
             List<int> array = new List<int>();
             int duration = duration1 / 30;
-
             foreach (Appointment a in AFS.getAllRoomAppointments(roomID))
             {
-                if (roomID == -1) continue;
                 if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
                 {
                     foreach (Time t in times)
@@ -399,7 +397,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                             int remid = t.ID;
                             for (int j = 0; j < (a.duration / 30); j++)
                             {
-                                array.Add(remid + j);
+                                if (!array.Contains(remid + j))
+                                {
+                                    array.Add(remid + j);
+                                }
+                                for (int i = 1; i < duration; i++)
+                                {
+                                    if (!array.Contains(remid + j - i))
+                                    {
+                                        array.Add(remid + j - i);
+                                    }
+                                }
                             }
                         }
                     }

@@ -233,7 +233,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private void Spec_Loaded(object sender, RoutedEventArgs e)
         {
             if(editAppId == -1)
-                Spec.SelectedIndex = 0 ;
+                Spec.SelectedIndex = 0;
         }
 
         private void roomID_Loaded(object sender, RoutedEventArgs e)
@@ -269,7 +269,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
             if (doc == null) return;
             if ((RoomCrAppDTO)roomID.SelectedItem == null) roomID.SelectedIndex = 0;
-            tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, Duration, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+            tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, this.Duration, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
             TimeselectDG.ItemsSource = tims;
             if (editAppId != -1 && (DateTime)appointmentDate.SelectedDate == AC.getEditAppointmentDTOById(editAppId).dt )
             {
@@ -297,7 +297,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 }
                 DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
                 if ((RoomCrAppDTO)roomID.SelectedItem == null) roomID.SelectedIndex = 0;
-                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, Duration, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, this.Duration, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
                 TimeselectDG.ItemsSource = tims;
             }
 
@@ -313,7 +313,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 }
                 DoctorCrAppDTO doc = (DoctorCrAppDTO)doctorsCB.SelectedItem;
                 if ((RoomCrAppDTO)roomID.SelectedItem == null) roomID.SelectedIndex = 0;
-                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, Duration, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
+                tims = AC.GetDoctorTimesforDoctor(doc.id, (DateTime)appointmentDate.SelectedDate, this.Duration, editAppId, (RoomCrAppDTO)roomID.SelectedItem);
                 TimeselectDG.ItemsSource = tims;
             }
         }

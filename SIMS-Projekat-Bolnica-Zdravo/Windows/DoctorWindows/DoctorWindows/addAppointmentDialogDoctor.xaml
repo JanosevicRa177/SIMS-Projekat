@@ -86,15 +86,14 @@
             <ComboBox Loaded="roomID_Loaded" DisplayMemberPath="name" x:Name="roomID" Grid.Column="3" Grid.Row="4" FontSize="34" Margin="5" SelectionChanged="roomID_SelectionChanged" ItemsSource="{Binding Rooms}">
 
             </ComboBox>
-            <TextBlock Grid.Column="1" Grid.Row="2" FontSize="34" Grid.ColumnSpan="2">Specialization:</TextBlock>
+            <TextBlock HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" FontSize="34" Grid.ColumnSpan="2">Specialization:</TextBlock>
             <ComboBox SelectionChanged="Spec_SelectionChanged"  Loaded="Spec_Loaded" DisplayMemberPath="specialization" Name="Spec" Grid.Column="3" Grid.Row="2" FontSize="34" Margin="5" ItemsSource="{Binding Specs}"></ComboBox>
-            <TextBlock HorizontalAlignment="Right" Grid.Column="2"
-               FontSize="34" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0,469,0">Doctor:</TextBlock>
+            <TextBlock HorizontalAlignment="Left" Grid.Column="1"
+               FontSize="34" Grid.Row="3" Grid.ColumnSpan="3" Margin="0,0,469,0">Doctor:</TextBlock>
             <TextBlock
-              HorizontalAlignment="Right" FontSize="34" Grid.Row="4" Grid.Column="2">Room:</TextBlock>
+              HorizontalAlignment="Left" FontSize="34" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">Room:</TextBlock>
 
-            <TextBlock
-             HorizontalAlignment="Right"  FontSize="34" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,469,0">Duration:</TextBlock>
+            <TextBlock HorizontalAlignment="Left"  FontSize="34" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,469,0">Duration:</TextBlock>
             <Grid Grid.Column="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5"/>
@@ -108,7 +107,7 @@
                 <TextBlock x:Name="min" 
                 FontSize="34" Grid.Row="0" Grid.Column="2" Width="55" Margin="5" Text="min"/>
                 <Slider ValueChanged="slider1_GotFocus" TickFrequency="30" IsSnapToTickEnabled="True" x:Name="slider1" VerticalAlignment="Center"
-                FontSize="34" Grid.Row="0" Grid.Column="3" Width="300" Margin="10,21,10,10" Value="{Binding This.dur, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="30" Maximum="180"/>
+                FontSize="34" Grid.Row="0" Grid.Column="3" Width="300" Margin="10,21,10,10" Value="{Binding This.Duration, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Minimum="30" Maximum="180"/>
             </Grid>
         </Grid>
         <Button Name="cancel" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Row = "8" Content="Back" FontSize="33" Grid.ColumnSpan="2"
