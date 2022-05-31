@@ -74,22 +74,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
            return AS.IsPatientEligibleToGradeHospital(patientID);
         }
-        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto,int appointmentID = -1)
+        public bool CheckCreateAppointment(DateTime dt, Time t, int dur, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto,int appointmentID =-1)
         {
             return AS.CheckCreateAppointment(dt, t, dur, rcadto.id, dcadto.id, pcdto.id, appointmentID);
         }
-        public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID)
+        public BindingList<TimePatient> GetDoctorTimes(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID,String roomName = "No Room")
         {
-            if (doc == null) return AS.GetDoctorTimes(0, dt, duration, appoID);
-            return AS.GetDoctorTimes(doc.id, dt, duration, appoID);
+            if (doc == null) return AS.GetDoctorTimes(0, dt, duration, appoID,roomName);
+            return AS.GetDoctorTimes(doc.id, dt, duration, appoID, roomName);
         }
-        public BindingList<TimePatient> GetDoctorTermsByDoctor(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID)
+        public BindingList<TimePatient> GetDoctorTermsByDoctor(DoctorCrAppDTO doc, DateTime dt, int duration, int appoID,String roomName = "No Room")
         {
-            return AS.GetDoctorTermsByDoctor(doc.id, dt, duration, appoID);
+            return AS.GetDoctorTermsByDoctor(doc.id, dt, duration, appoID, roomName);
         }
-        public BindingList<TimePatient> GetDoctorTermsByDate(DateTime dt, int duration, int appoID)
+        public BindingList<TimePatient> GetDoctorTermsByDate(DateTime dt, int duration, int appoID, String roomName = "No Room")
         {
-            return AS.GetDoctorTermsByDate(dt, duration, appoID);
+            return AS.GetDoctorTermsByDate(dt, duration, appoID, roomName);
         }
        
         public BindingList<Time> GetDoctorTimesforDoctor(int docID, DateTime dt, int duration, int appoID,RoomCrAppDTO r = null)

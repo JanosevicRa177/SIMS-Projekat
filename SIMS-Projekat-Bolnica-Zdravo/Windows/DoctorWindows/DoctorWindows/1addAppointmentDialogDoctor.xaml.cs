@@ -1,6 +1,7 @@
 ﻿using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Controllers;
 using SIMS_Projekat_Bolnica_Zdravo.DoctorWindows;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.DoctorWindows.DoctorWindows.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
     public partial class _1addAppointmentDialogDoctor : Window
     {
+        public static NavigationService NavigationEmergency;
+
         public AddAppointmentDialogDoctor nextW
         {
             set;get;
@@ -39,6 +42,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         public _1addAppointmentDialogDoctor(int patID)
         {
             InitializeComponent();
+            NavigationEmergency = EmergencyFrame.NavigationService;
+            EmergencyFrame.Content = this;
             PC = new PatientController();
             this.nextW = null;
             ObservableCollection<PatientCrAppDTO> pcp = PC.getAllPatientsChooseDTO();
@@ -129,6 +134,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             var dia = new DialogWindow("Are you sure you wanna cancel?", "No", "Yes", this, nextW);
             dia.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EmergencyFrame.NavigationService.Navigate(new EmergencyView(1));
         }
     }
 }

@@ -79,7 +79,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return appList;
         }
 
-        //DateTime dt, Time t, int Duration, RoomCrAppDTO rcadto, DoctorCrAppDTO dcadto, PatientCrAppDTO pcdto
         public bool CheckCreateAppointment(DateTime dt,Time t,int dur, int roomid,int docid, int patid,int appointmentID) 
         {
             List<Time> array = new List<Time>();
@@ -171,7 +170,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             MedicalRecord m = MRFS.getMedialRecordByPatientID(patientID);
             return AFS.GetExecutedPatientsAppointments(m.medicalRecordID);
         }
-        public BindingList<TimePatient> GetDoctorTimes(int doctorID, DateTime forDate,int duration, int appoID)
+        public BindingList<TimePatient> GetDoctorTimes(int doctorID, DateTime forDate,int duration, int appoID,String roomName)
         {
             Doctor d = DFS.GetDoctorByID(doctorID);
             BindingList<TimePatient> times = new BindingList<TimePatient>();
@@ -181,7 +180,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                 times.Add(new TimePatient(h, 0, i++, dDTO, forDate));
                 times.Add(new TimePatient(h++, 30, i++, dDTO, forDate));
             }
-            return filterDoctorsDayByHisAppointments(times, doctorID, forDate, duration, appoID);
+            return filterDoctorsDayByHisAppointments(times, doctorID, forDate, duration, appoID, roomName);
         }
 
         public BindingList<Time> GetDoctorTimesforDoctor(int doctorID, DateTime forDate, int duration, int appoID, int roomID = -1)
@@ -214,13 +213,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return getTimeForEmergency(times, duration, appoID,specialization);
         }
-        public BindingList<TimePatient> GetDoctorTermsByDoctor(int doctorID, DateTime forDate,int duration, int appoID)
+        public BindingList<TimePatient> GetDoctorTermsByDoctor(int doctorID, DateTime forDate,int duration, int appoID,String roomName)
         {
             Doctor d = DFS.GetDoctorByID(doctorID);
             DoctorCrAppDTO dDTO = new DoctorCrAppDTO(d.name, d.surname, d.userID);
-            return getDoctorsFreeTerms(dDTO,  forDate, duration, appoID);
+            return getDoctorsFreeTerms(dDTO,  forDate, duration, appoID, roomName);
         }
-        public BindingList<TimePatient> GetDoctorTermsByDate(DateTime forDate,int duration, int appoID)
+        public BindingList<TimePatient> GetDoctorTermsByDate(DateTime forDate,int duration, int appoID,String roomName)
         {
             ObservableCollection<Doctor> doctors = DFS.GetAllDoctors();
             ObservableCollection<Doctor> filteredDoctors = filterDoctorsForPatient(doctors);
@@ -234,7 +233,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                     doctorsTimes.Add(new TimePatient(h, 0, i++, dDTO, forDate));
                     doctorsTimes.Add(new TimePatient(h++, 30, i++, dDTO, forDate));
                 }
-                BindingList<TimePatient> filterredTimes = filterDoctorsDayByHisAppointments(doctorsTimes, d.userID, forDate, duration, appoID);
+                BindingList<TimePatient> filterredTimes = filterDoctorsDayByHisAppointments(doctorsTimes, d.userID, forDate, duration, appoID, roomName);
                 foreach (TimePatient tp in filterredTimes)
                 {
                     times.Add(tp);
@@ -243,7 +242,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return times;
         }
 
-        public BindingList<TimePatient> getDoctorsFreeTerms(DoctorCrAppDTO doctor, DateTime forDate, int duration1, int appoID)
+        public BindingList<TimePatient> getDoctorsFreeTerms(DoctorCrAppDTO doctor, DateTime forDate, int duration1, int appoID,String roomName)
         {
             BindingList<TimePatient> times = new BindingList<TimePatient>();
             int duration = duration1 / 30;
@@ -270,8 +269,39 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                     else 
                     {
                         List<int> array = new List<int>();
-
-                         foreach (Appointment a in appointments)
+                        int roomID = RFS.GetRoomByName(roomName).roomID;
+                        foreach (Appointment a in AFS.getAllRoomAppointments(roomID))
+                        {
+                            if (a.appointmentID == appoID)
+                            {
+                                continue;
+                            }
+                            if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
+                            {
+                                foreach (TimePatient t in times)
+                                {
+                                    if (t.hour == a.time.hour && t.minute == a.time.minute)
+                                    {
+                                        int remid = t.ID;
+                                        for (int j = 0; j < (a.duration / 30); j++)
+                                        {
+                                            if (!array.Contains(remid + j))
+                                            {
+                                                array.Add(remid + j);
+                                            }
+                                            for (int k = 1; k < duration; k++)
+                                            {
+                                                if (!array.Contains(remid + j - k))
+                                                {
+                                                    array.Add(remid + j - k);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        foreach (Appointment a in appointments)
                          {
                             if (a.appointmentID == appoID)
                             {
@@ -328,10 +358,51 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return times;
         }
-        public BindingList<TimePatient> filterDoctorsDayByHisAppointments(BindingList<TimePatient> times, int doctorID, DateTime forDate,int duration1, int appoID)
+        public BindingList<TimePatient> filterDoctorsDayByHisAppointments(BindingList<TimePatient> times, int doctorID, DateTime forDate,int duration1, int appoID,String roomName)
         {
             List<int> array = new List<int>();
             int duration = duration1 / 30;
+            int roomID = RFS.GetRoomByName(roomName).roomID;
+            foreach (Appointment a in AFS.getAllRoomAppointments(roomID))
+            {
+                if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
+                {
+                    foreach (TimePatient t in times)
+                    {
+                        if (t.hour == a.time.hour && t.minute == a.time.minute)
+                        {
+                            int remid = t.ID;
+                            for (int j = 0; j < (a.duration / 30); j++)
+                            {
+                                if (!array.Contains(remid + j))
+                                {
+                                    array.Add(remid + j);
+                                }
+                                for (int i = 1; i < duration; i++)
+                                {
+                                    if (!array.Contains(remid + j - i))
+                                    {
+                                        array.Add(remid + j - i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            foreach (int id in array)
+            {
+                foreach (var t in times)
+                {
+                    if (t.ID == id)
+                    {
+                        times.Remove(t);
+                        break;
+                    }
+
+                }
+            }
+            array.Clear();
             foreach (Appointment a in AFS.getAllDoctorsAppointments(doctorID))
             {
                 if (a.appointmentID == appoID)
@@ -382,14 +453,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             return times;
         }
 
-        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID,int roomID = -1)
+        public BindingList<Time> filterDoctorsDayByHisAppointmentsforDoctor(BindingList<Time> times, int doctorID, DateTime forDate, int duration1, int appoID,int roomID)
         {
             List<int> array = new List<int>();
             int duration = duration1 / 30;
-
             foreach (Appointment a in AFS.getAllRoomAppointments(roomID))
             {
-                if (roomID == -1) continue;
                 if (a.timeBegin.Year == forDate.Year && a.timeBegin.Month == forDate.Month && a.timeBegin.Day == forDate.Day)
                 {
                     foreach (Time t in times)
@@ -399,7 +468,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                             int remid = t.ID;
                             for (int j = 0; j < (a.duration / 30); j++)
                             {
-                                array.Add(remid + j);
+                                if (!array.Contains(remid + j))
+                                {
+                                    array.Add(remid + j);
+                                }
+                                for (int i = 1; i < duration; i++)
+                                {
+                                    if (!array.Contains(remid + j - i))
+                                    {
+                                        array.Add(remid + j - i);
+                                    }
+                                }
                             }
                         }
                     }

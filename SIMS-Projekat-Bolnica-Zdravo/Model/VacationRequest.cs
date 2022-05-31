@@ -6,6 +6,7 @@
 using ConsoleApp.serialization;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
 using System;
+using System.Windows;
 
 namespace CrudModel
 {
@@ -23,7 +24,7 @@ namespace CrudModel
             this.state = StateEnum.waiting;
             this.doctorID = DoctorWindow.loggedDoc;
             this.explanation = exp;
-            this.id = ids++;
+            this.id = ++ids;
         }
         public static int getids()
         {

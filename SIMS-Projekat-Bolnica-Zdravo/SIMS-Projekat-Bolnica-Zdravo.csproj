@@ -101,6 +101,10 @@
     <Compile Include="Windows\DoctorWindows\DoctorWindows\ShowMedicine.xaml.cs">
       <DependentUpon>ShowMedicine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\ViewModel\EmergencyViewModel.cs" />
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\EmergencyView.xaml.cs">
+      <DependentUpon>EmergencyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\PatientWindows\AppointmentsForGrading.xaml.cs">
       <DependentUpon>AppointmentsForGrading.xaml</DependentUpon>
     </Compile>
@@ -341,6 +345,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DoctorWindows\DoctorWindows\addAppointmentDialogDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DoctorWindows\DoctorWindows\Views\EmergencyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

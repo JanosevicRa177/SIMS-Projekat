@@ -137,7 +137,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private void Date_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (doctorTerms != null) doctorTerms.Clear();
-            foreach (TimePatient t in AC.GetDoctorTimes(doctor, date, selectedAppointment.duration, selectedAppointment.id))
+            foreach (TimePatient t in AC.GetDoctorTimes(doctor, date, selectedAppointment.duration, selectedAppointment.id,selectedAppointment.roomName))
             {
                 doctorTerms.Add(t);
             }
@@ -146,14 +146,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 empty = true;
                 if ((bool)DoctorPriority.IsChecked)
                 {
-                    foreach (TimePatient tp in AC.GetDoctorTermsByDoctor(doctor, date, selectedAppointment.duration, selectedAppointment.id))
+                    foreach (TimePatient tp in AC.GetDoctorTermsByDoctor(doctor, date, selectedAppointment.duration, selectedAppointment.id, selectedAppointment.roomName))
                     {
                         doctorTerms.Add(tp);
                     }
                 }
                 else
                 {
-                    foreach (TimePatient tp in AC.GetDoctorTermsByDate(date, selectedAppointment.duration, selectedAppointment.id))
+                    foreach (TimePatient tp in AC.GetDoctorTermsByDate(date, selectedAppointment.duration, selectedAppointment.id, selectedAppointment.roomName))
                     {
                         doctorTerms.Add(tp);
                     }
