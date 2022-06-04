@@ -58,7 +58,7 @@
                                 <DataGridTextColumn Header="Frequency" Width="*" x:Name="ak2" Binding="{Binding freq}"/>
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button Name="AddMed" Click="AddMed_Click" Grid.Column="0" FontSize="35" HorizontalAlignment="Center" Content="Add Medicine" Grid.Row="0" Margin="5" Style="{StaticResource doctorButtons}"></Button>
+                        <Button Name="AddMed" Click="AddMed_Click" Grid.Column="0" FontSize="35" HorizontalAlignment="Right" Content="Add Medicine" Grid.Row="0" Margin="5" Style="{StaticResource doctorButtons}"></Button>
                     </Grid>
                 </Grid>
             </TabItem>

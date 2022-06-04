@@ -31,7 +31,7 @@
         </Button>
         <Button Style="{StaticResource doctorButtons}" FontFamily="Georgia" Width="372" FontSize="35" Height="auto" Grid.Row="1" Grid.Column="5" Content="Medicine Check" Margin="5" Name="medc" Click="medc_Click"/>
         <Button Style="{StaticResource doctorButtons}" FontFamily="Georgia" Width="372" FontSize="35" Height="150" Grid.Row="3" Grid.Column="1" Content="Vacation" Margin="5" Name="empt1" Click="empt1_Click"/>
-        <Button Style="{StaticResource doctorButtons}" FontFamily="Georgia" Width="372" FontSize="35" Height="auto" Grid.Row="3" Grid.Column="3" Content="Empty" Margin="5" Name="empt2"/>
-        <Button Style="{StaticResource doctorButtons}" FontFamily="Georgia" Width="372" FontSize="35" Height="auto" Grid.Row="3" Grid.Column="5" Content="Empty" Margin="5" Name="empt3"/>
+        <Button Style="{StaticResource doctorButtons}" FontFamily="Georgia" Width="372" FontSize="35" Height="auto" Grid.Row="3" Grid.Column="3" Content="Allergies Statistics" Margin="5" Name="empt2" Click="empt2_Click"/>
+        <Button Style="{StaticResource doctorButtons}" FontFamily="Georgia" Width="372" FontSize="35" Height="auto" Grid.Row="3" Grid.Column="5" Content="Report of Patient in pdf" Margin="5" Name="empt3" Click="empt3_Click"/>
     </Grid>
 </Window>

@@ -43,7 +43,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             InitializeComponent();
             NavigationEmergency = EmergencyFrame.NavigationService;
-            EmergencyFrame.Content = this;
             PC = new PatientController();
             this.nextW = null;
             ObservableCollection<PatientCrAppDTO> pcp = PC.getAllPatientsChooseDTO();
@@ -138,7 +137,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EmergencyFrame.NavigationService.Navigate(new EmergencyView(1));
+            var em = new EmergencyView((PatientCrAppDTO)PatientsG.SelectedItem,this);
+            EmergencyFrame.NavigationService.Navigate(em);
         }
     }
 }

@@ -84,7 +84,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows
         private void adda_Click(object sender, RoutedEventArgs e)
         {
             var dia = new _1addAppointmentDialogDoctor(AC.getEditAppointmentDTOById(appoID).patientID);
-            dia.ShowDialog();
+            dia.Show();
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
