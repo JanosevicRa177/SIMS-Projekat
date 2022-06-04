@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using SIMS_Projekat_Bolnica_Zdravo.Model;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.SecretaryWindows.Views;
+using System.Windows;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
@@ -7,6 +9,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     /// </summary>
     public partial class SecretaryWindow : Window
     {
+        private object meeting;
+
         public SecretaryWindow()
         {
            
@@ -32,9 +36,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void AddAlergen_Click(object sender, RoutedEventArgs e)
         {
-            AddAlergenWindow aaw = new AddAlergenWindow();
-            aaw.Show();
+            AddAlergenView alergens = new AddAlergenView();
+            alergens.Show();
             this.Close();
+            
         }
 
         private void SignOut_Click(object sender, RoutedEventArgs e)
@@ -46,7 +51,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void Equipment_Click(object sender, RoutedEventArgs e)
         {
-            EquipmentWindow eq = new EquipmentWindow();
+            EquipmentView eq = new EquipmentView();
             eq.Show();
             this.Close();
         }
@@ -55,6 +60,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             EmergencyWindow em = new EmergencyWindow();
             em.Show();
+            this.Close();
+        }
+
+        private void Meeting_Click(object sender, RoutedEventArgs e)
+        {
+            MeetingScheduleView schedulingMeeting = new MeetingScheduleView();
+            schedulingMeeting.Show();
+            this.Close();
+        }
+
+        private void Vacation_Click(object sender, RoutedEventArgs e)
+        {
+            VacationApprovingView vacationApproving = new VacationApprovingView();
+            vacationApproving.Show();
             this.Close();
         }
     }

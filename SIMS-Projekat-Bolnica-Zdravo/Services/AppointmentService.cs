@@ -179,6 +179,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
             }
             return filterDoctorsDayByHisAppointments(times, doctorID, forDate, duration, appoID);
         }
+        public BindingList<TimePatient> getAllTimes()
+        {
+            Doctor d = DFS.GetDoctorByID(0);
+            DateTime forDate = DateTime.Now;
+            BindingList<TimePatient> times = new BindingList<TimePatient>();
+            DoctorCrAppDTO dDTO = new DoctorCrAppDTO(d.name, d.surname, d.userID);
+            for (int i = 0, h = 7; h < 16 || i < 16;)
+            {
+                times.Add(new TimePatient(h, 0, i++, dDTO, forDate));
+                times.Add(new TimePatient(h++, 30, i++, dDTO, forDate));
+            }
+            return times;
+        }
+
 
         public BindingList<Time> GetDoctorTimesforDoctor(int doctorID, DateTime forDate, int duration, int appoID, int roomID = -1)
         {

@@ -3,19 +3,27 @@
 // Created: Sunday, April 3, 2022 7:55:27 PM
 // Purpose: Definition of Class MeetingFileStorage
 
+using ConsoleApp.serialization;
+using SIMS_Projekat_Bolnica_Zdravo.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
    public class MeetingFileStorage
    {
-        static public List<Meeting> meetingList = new List<Meeting>();
-      public bool CreateMeeting(Meeting newMeeting)
+      public bool CreateMeeting(SchedulingMeeting newMeeting)
       {
-         throw new NotImplementedException();
-      }
-      
+            ObservableCollection<SchedulingMeeting> mrList = new ObservableCollection<SchedulingMeeting>();
+            Serializer<SchedulingMeeting> medicalRecordSerializer = new Serializer<SchedulingMeeting>();
+            mrList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/meetings.txt");
+            mrList.Add(newMeeting);
+            medicalRecordSerializer.toCSV("../../TxtFajlovi/meetings.txt", mrList);
+            return true;
+
+        }
+
       public bool DeleteMeeting(int meetingID)
       {
          throw new NotImplementedException();
@@ -31,10 +39,13 @@ namespace CrudModel
          throw new NotImplementedException();
       }
       
-      public List<Meeting> GetAllMeeting()
+      public ObservableCollection<SchedulingMeeting> GetAllMeeting()
       {
-         throw new NotImplementedException();
-      }
+            ObservableCollection<SchedulingMeeting> mrList;
+            Serializer<SchedulingMeeting> medicalRecordSerializer = new Serializer<SchedulingMeeting>();
+            mrList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/meetings.txt");
+            return mrList;
+        }
    
    }
 }

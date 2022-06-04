@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using System;
 using SIMS_Projekat_Bolnica_Zdravo.Services;
+using System.Collections.ObjectModel;
 
 namespace CrudModel
 {
@@ -21,8 +22,12 @@ namespace CrudModel
       {
             return VRS.CreateVacationRequest(crVR,b);
       }
-      
-      public VacationRequest GetVacationRequestById(int userID)
+        public bool updateVacationState(int vacationID, StateEnum enumVr)
+        {
+            return VRS.updateVacationState(vacationID, enumVr);
+        }
+
+        public VacationRequest GetVacationRequestById(int userID)
       {
          throw new NotImplementedException();
       }
@@ -31,8 +36,12 @@ namespace CrudModel
       {
          throw new NotImplementedException();
       }
-      
-      public VacationRequestService vacationRequestService;
+        public ObservableCollection<VacationRequest> getAllVacations()
+        {
+            return VRS.getAllVacations();
+        }
+
+        public VacationRequestService vacationRequestService;
    
    }
 }

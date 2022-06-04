@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using CrudModel;
+using System.Collections.ObjectModel;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Services
 {
@@ -33,13 +34,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
       {
          throw new NotImplementedException();
       }
+      public bool updateVacationState(int vacationID,StateEnum enumVr)
+        {
+            return VRFS.UpdateVacationState(vacationID, enumVr);
+        }
       
       public List<VacationRequest> GetAllVacationRequestsByDoctorId(int doctorID)
       {
          throw new NotImplementedException();
       }
-      
-      public VacationRequesFileStorage vacationRequesFileStorage;
+    public ObservableCollection<VacationRequest> getAllVacations()
+    {
+            return VRFS.GetAllVacations();
+    }
+
+        public VacationRequesFileStorage vacationRequesFileStorage;
    
    }
 }

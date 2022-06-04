@@ -2,6 +2,7 @@
 using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.PatientWindows;
 using SIMS_Projekat_Bolnica_Zdravo.Windows;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.SecretaryWindows.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -68,7 +69,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo
 
             if (xd.Equals("Sekretar"))
             {
-                SecretaryWindow sc = new SecretaryWindow();
+                SecretaryView sc = new SecretaryView();
                 sc.Show();
             }
             else if (xd.Equals("Lekar"))

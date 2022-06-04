@@ -1,6 +1,6 @@
 0|5|a-|polen-perje-kraj
-1|6|a-|polen-prasina-kraj
-2|7|a-|polen-kraj
+1|6|a-|-polen-prasina-poen-kraj
+2|7|a-|-polen-pero-kraj
 3|8|a-|polen-kraj
 4|9|a-|polen-kraj
 5|10|a-|polen-kraj
