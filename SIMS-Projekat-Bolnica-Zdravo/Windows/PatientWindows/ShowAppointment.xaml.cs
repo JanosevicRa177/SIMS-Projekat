@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
@@ -53,16 +54,17 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         }
         private void Cancel_Appointment(object sender, RoutedEventArgs e)
         {
-            if (appointment.Date.Date < DateTime.Today)
+            ConfirmDialog Confirm = new ConfirmDialog();
+            Confirm.Top = patientWindow.Top + 270;
+            Confirm.Left = patientWindow.Left + 25;
+            Confirm.ShowDialog();
+            if (!ConfirmDialog.confirm)
             {
-                var patientWindow = Window.GetWindow(this);
-                InformationDialog informationDialog = new InformationDialog("Ne Možete menjati odradjene preglede");
-                informationDialog.Top = patientWindow.Top + 270;
-                informationDialog.Left = patientWindow.Left + 25;
-                informationDialog.Activate();
-                informationDialog.Topmost = true;
-                informationDialog.ShowDialog();
                 return;
+            }
+            while (PatientWindow.NavigatePatient.CanGoBack)
+            {
+                PatientWindow.NavigatePatient.RemoveBackEntry();
             }
             AC.RemoveAppointment(appointment.id);
             PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
@@ -81,10 +83,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                 return;
             }
             PatientWindow.NavigatePatient.Navigate(new ChangeAppointment(int.Parse(appointment.doctorID), appointment.Date, appointment.id, patientWindow));
-        }
-        private void Show_Home(object sender, RoutedEventArgs e)
-        {
-            PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
         }
     }
 }

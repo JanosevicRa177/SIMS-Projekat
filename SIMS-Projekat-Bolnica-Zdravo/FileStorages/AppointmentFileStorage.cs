@@ -139,7 +139,7 @@ namespace CrudModel
             Serializer<Appointment> appoitmentSerializer = new Serializer<Appointment>();
             foreach (Appointment a in appoitmentSerializer.fromCSV("../../TxtFajlovi/appointments.txt"))
             {
-                if ((a.medicalRecordID == medicalRecordID) && (DateTime.Now > a.timeBegin))
+                if ((a.medicalRecordID == medicalRecordID) && (DateTime.Now.AddDays(-1) > a.timeBegin) && (DateTime.Now.AddDays(-31) < a.timeBegin))
                 {
                     patientsApps.Add(a);
                 }

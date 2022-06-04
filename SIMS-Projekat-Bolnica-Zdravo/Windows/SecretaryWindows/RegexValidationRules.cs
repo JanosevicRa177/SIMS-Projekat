@@ -46,7 +46,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             try
             {
-                Regex r = new Regex("[A-Z]{1}[a-z]+[1-9]+");
+                Regex r = new Regex("[A-Z]{1}[a-z]+[1-9]*");
                 if (r.IsMatch((string)value) || ((string)value == ""))
                     return ValidationResult.ValidResult;
                 else

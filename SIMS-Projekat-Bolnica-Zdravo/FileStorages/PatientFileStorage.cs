@@ -31,8 +31,21 @@ namespace CrudModel
             patientSerializer.toCSV("../../TxtFajlovi/patients.txt", patients);
             return true;
       }
+      public Patient GetPatientbyMail(String mail, int patientID)
+      {
+          ObservableCollection<Patient> patients = new ObservableCollection<Patient>();
+          Serializer<Patient> patientSerializer = new Serializer<Patient>();
+          foreach (Patient p in patientSerializer.fromCSV("../../TxtFajlovi/patients.txt"))
+          {
+              if (p.mail.Equals(mail) && p.userID != patientID)
+              {
+                  return p;
+              }
+          }
+          return null;
+      }
 
-      public bool DeletePatient(int userID)
+        public bool DeletePatient(int userID)
       {
          throw new NotImplementedException();
       }

@@ -20,8 +20,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
 
         public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
         {
-            MRS.CreateMedicalRecord(newMedicalRecord);
-            return true;
+            return MRS.CreateMedicalRecord(newMedicalRecord);
         }
         public ObservableCollection<MedicalRecord> GetAllMedicalRecord()
         {

@@ -19,7 +19,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="AppointmentsListGrid" IsReadOnly="True" HorizontalAlignment="Left" Height="530" Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" VerticalAlignment="Top" Width="430" SelectionMode="Single" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="0,0,0,-0.4">
+        <DataGrid x:Name="AppointmentsListGrid" IsReadOnly="True" HorizontalAlignment="Left" Height="530" Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" VerticalAlignment="Top" Width="430" SelectionMode="Single" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="Doctor" FontSize="15" Header="Doktor" Width="auto">
                     <DataGridTextColumn.ElementStyle>
@@ -42,7 +42,13 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Datum" Width="85" Binding="{Binding Date, StringFormat='dd/MM/yyyy'}" FontSize="15"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button FontSize="15" Margin="10,10,10,10" Content="Prikaži" Click="Show_Executed_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

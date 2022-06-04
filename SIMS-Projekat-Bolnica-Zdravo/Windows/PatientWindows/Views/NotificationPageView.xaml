@@ -13,7 +13,7 @@
     <Grid Background="White">
         <DataGrid ItemsSource="{Binding Notifications}" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Notifikacija" Width="430" FontSize="15" Binding="{Binding Content}"/>
+                <DataGridTextColumn Header="Notifikacija" Width="423" FontSize="15" Binding="{Binding Content}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

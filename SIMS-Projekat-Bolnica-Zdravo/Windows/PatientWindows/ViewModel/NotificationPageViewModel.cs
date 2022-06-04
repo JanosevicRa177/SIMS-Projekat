@@ -7,8 +7,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
 {
     class NotificationPageViewModel : BindableBase
     {
-        private AppointmentNotificationController ANC = new AppointmentNotificationController();
-        public ObservableCollection<AppointmentNotification> Notifications { get; set; }
+        private NotificationController ANC = new NotificationController();
+        public ObservableCollection<Model.Notification> Notifications { get; set; }
         public NotificationPageViewModel()
         {
             Notifications = ANC.GetAppointmentNotificationrByPatientID(PatientWindow.LoggedPatient.id);

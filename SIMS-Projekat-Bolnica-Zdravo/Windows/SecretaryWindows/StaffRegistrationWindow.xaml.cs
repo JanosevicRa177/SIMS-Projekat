@@ -22,7 +22,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             if (PropertyChanged != null)
             {
-                
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
@@ -94,8 +93,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 if (value != _test1)
                 {
-                    
-                        _test1 = value;
+                    _test1 = value;
                         OnPropertyChanged("Test1");
                     
                 }

@@ -16,45 +16,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
     public partial class AppointmentsForGrading : Page
     {
         private AppointmentController AC;
-        private static PatientWindow patientWindow;
         public ObservableCollection<ShowAppointmentPatientDTO> executedAppointments;
-        public AppointmentsForGrading(PatientWindow patientWindow1)
-        {
-            patientWindow = patientWindow1;
-            AC = new AppointmentController();
-            executedAppointments = AC.GetExecutedPatientsAppointments(PatientWindow.LoggedPatient.id);
-            ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
-            foreach (var appoinment in executedAppointments)
-            {
-                if (appoinment.Date < DateTime.Today.AddDays(-21))
-                {
-                    removeAppointmens.Add(appoinment);
-                }
-            }
-            foreach (var appoinment in removeAppointmens)
-            {
-                executedAppointments.Remove(appoinment);
-            }
-            this.DataContext = executedAppointments;
-            InitializeComponent();
-        }
         public AppointmentsForGrading() 
         {
             AC = new AppointmentController();
-            this.DataContext = AC.GetExecutedPatientsAppointments(PatientWindow.LoggedPatient.id);
+            executedAppointments = AC.GetExecutedPatientsAppointments(PatientWindow.LoggedPatient.id);
+            this.DataContext = executedAppointments;
             InitializeComponent();
         }
 
         private void Grade_Click(object sender, RoutedEventArgs e)
         {
             ShowAppointmentPatientDTO appointment = (ShowAppointmentPatientDTO)AppointmentsListGrid.SelectedItem;
-            patientWindow.PatientFrame.NavigationService.Navigate(new GradingAppointment(patientWindow, appointment.id));
+            PatientWindow.NavigatePatient.Navigate(new GradingAppointment(appointment.id));
+        }
+        private void Show_Executed_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAppointmentPatientDTO appointment = (ShowAppointmentPatientDTO)AppointmentsListGrid.SelectedItem;
+            PatientWindow.NavigatePatient.Navigate(new ShowExecutedAppointment(appointment));
         }
     }
 }

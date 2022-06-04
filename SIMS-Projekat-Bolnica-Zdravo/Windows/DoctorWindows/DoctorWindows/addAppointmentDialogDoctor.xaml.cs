@@ -28,7 +28,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         private SpecializationController SC;
         private AppointmentController AC;
         private PatientController PC;
-        private AppointmentNotificationController ANC;
+        private NotificationController ANC;
 
         public int editAppId
         {
@@ -104,7 +104,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             SC = new SpecializationController();
             AC = new AppointmentController();
             PC = new PatientController();
-            ANC = new AppointmentNotificationController();
+            ANC = new NotificationController();
             tims = new BindingList<Time>();
             this.edAP = edAP;
             roomsDTO = RC.getAllRoomsDTO();
@@ -166,7 +166,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             DC = new DoctorController();
             SC = new SpecializationController();
             AC = new AppointmentController();
-            ANC = new AppointmentNotificationController();
+            ANC = new NotificationController();
             tims = new BindingList<Time>();
             this.prevW = prevW;
             this.prevW.nextW = this;
@@ -224,7 +224,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             Time t = (Time)TimeselectDG.SelectedItem;
             DateTime d = appointmentDate.SelectedDate.Value;
             String notContent = " Doktor: " + doctor.name + " " + doctor.surname + " Datum " + d.Day + "/" + d.Month + "/" + d.Year + " Vreme: " + t.time;
-            ANC.CreateAppointmentNotification(new AppointmentNotification(title, notContent, DateTime.Today.AddDays(14), false, pat.id));
+            ANC.CreateAppointmentNotification(new Model.Notification(title, notContent, DateTime.Today.AddDays(14), false, pat.id));
             AC.CreateAppointment(appointmentDate.SelectedDate.Value, (Time)TimeselectDG.SelectedItem, this.Duration, (RoomCrAppDTO)roomID.SelectedItem, (DoctorCrAppDTO)doctorsCB.SelectedItem, desc, pat);
             this.Close();
             prevW.Close();

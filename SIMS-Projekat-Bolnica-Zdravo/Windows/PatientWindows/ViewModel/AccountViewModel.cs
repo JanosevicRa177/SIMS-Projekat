@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using CrudModel;
@@ -157,12 +159,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
                 }
             }
         }
-
         public String gender { get; set; }
+        public ObservableCollection<String> countries { get; set; }
 
         public AccountViewModel()
         {
             LoggedPatient = PC.GetPatientByID(PatientWindow.LoggedPatient.id);
+            countries = new ObservableCollection<string>();
+            countries.Add("Serbia");
+            countries.Add("Azerbaijan");
             ReverseCommand = new MyICommand(OnReverse);
             ConfirmCommand = new MyICommand(OnConfirm);
             if (LoggedPatient.gender == Gender.male)
@@ -174,7 +179,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
                 gender = "Ž";
 
             }
-
             oldName = LoggedPatient.name;
             oldSurname = LoggedPatient.surname;
             oldCountry = LoggedPatient.address.country;
@@ -199,6 +203,37 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
         private void OnConfirm()
         {
             InformationDialog informationDialog;
+
+            Regex upperCaseRegex = new Regex("[A-Z]{1}[a-z]+");
+            Regex phoneNumberRegex = new Regex("\\+[0-9]{1,12}");
+            Regex streetAddressRegex = new Regex("[A-Z]{1}[a-z]+[1-9]*");
+            Regex streetNumberRegex = new Regex("[1-9]{1}[0-9]*[a-z]?");
+            Regex mailRegex = new Regex("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+
+            if (!upperCaseRegex.IsMatch(LoggedPatient.name) || !upperCaseRegex.IsMatch(LoggedPatient.surname)
+                || !upperCaseRegex.IsMatch(LoggedPatient.address.city) || !streetAddressRegex.IsMatch(LoggedPatient.address.street)
+                || !streetNumberRegex.IsMatch(LoggedPatient.address.number) || !mailRegex.IsMatch(LoggedPatient.mail) || !phoneNumberRegex.IsMatch(LoggedPatient.mobilePhone))
+            {
+                informationDialog = new InformationDialog("Neki od podataka nisu dobro popunjeni, ime, prezime, grad i adresa moraju počinjati velikim slovom, mail je formata (mail@gmail.com) i broj telefona počinje plusom (+)");
+                informationDialog.Top = HamburgerMenu1.patientWindow.Top + 270;
+                informationDialog.Left = HamburgerMenu1.patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
+                return;
+            }
+
+            if (PC.GetPatientbyMail(LoggedPatient.mail,LoggedPatient.userID) != null)
+            {
+                informationDialog = new InformationDialog("Već postoji osoba sa priloženom mail adresom.");
+                informationDialog.Top = HamburgerMenu1.patientWindow.Top + 270;
+                informationDialog.Left = HamburgerMenu1.patientWindow.Left + 25;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
+                return;
+            }
+
             PasswordConfirm passwordConfirm = new PasswordConfirm();
             passwordConfirm.Top = HamburgerMenu1.patientWindow.Top + 270;
             passwordConfirm.Left = HamburgerMenu1.patientWindow.Left + 25;
@@ -213,7 +248,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
                 informationDialog.ShowDialog();
                 return;
             }
-
             PC.UpdatePatient(LoggedPatient);
             PatientWindow.LoggedPatient.name = Name;
             PatientWindow.LoggedPatient.surname = Surname;

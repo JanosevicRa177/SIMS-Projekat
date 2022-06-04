@@ -24,14 +24,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
     public partial class PatientAppointments : Page
     {
         private AppointmentController AC;
-        private AppointmentNotificationController ANC;
+        private NotificationController ANC;
         public static PatientWindow patientWindow;
         public ObservableCollection<ShowAppointmentPatientDTO> patientAppointmens;
         public PatientAppointments(PatientWindow patientWindow1)
         {
             patientWindow = patientWindow1;
             AC = new AppointmentController();
-            ANC = new AppointmentNotificationController();
+            ANC = new NotificationController();
             patientAppointmens = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
             ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
             foreach (var appoinment in patientAppointmens)
@@ -51,12 +51,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         public PatientAppointments()
         {
             AC = new AppointmentController();
-            ANC = new AppointmentNotificationController();
+            ANC = new NotificationController();
             patientAppointmens = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
             ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
             foreach (var appoinment in patientAppointmens)
             {
-                if (appoinment.Date < DateTime.Today)
+                if (appoinment.Date < DateTime.Today || appoinment.Date > DateTime.Today.AddDays(31))
                 {
                     removeAppointmens.Add(appoinment);
                 }

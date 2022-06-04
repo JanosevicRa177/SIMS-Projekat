@@ -29,7 +29,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         private AppointmentController AC;
         private DoctorController DC;
         private RoomController RC;
-        private AppointmentNotificationController ANC;
+        private NotificationController ANC;
         public int hours
         {
             set;
@@ -59,7 +59,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC = new AppointmentController();
             DC = new DoctorController();
             RC = new RoomController();
-            ANC = new AppointmentNotificationController();
+            ANC = new NotificationController();
             if (init1)
             {
                 init1 = false;
@@ -137,6 +137,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             {
                 if (r.name.Equals("No Room"))
                 {
+                    while (PatientWindow.NavigatePatient.CanGoBack)
+                    {
+                        PatientWindow.NavigatePatient.RemoveBackEntry();
+                    }
                     TimePatient TimePat = (TimePatient)TimeselectDG.SelectedItem;
                     Time t = new Time(TimePat.hour, TimePat.minute);
                     if (!AC.CheckCreateAppointment(TimePat.date, t, 30, r, TimePat.doctor, PatientWindow.LoggedPatient))
@@ -156,7 +160,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                     empty = false;
                     String title = "Zakazan pregled";
                     String notContent = " Dotkor: " + TimePat.doctor.name + " " + TimePat.doctor.surname + " Datum " + TimePat.dateString + " Vreme: " + TimePat.time;
-                    ANC.CreateAppointmentNotification(new AppointmentNotification(title, notContent, DateTime.Today.AddDays(14),false, TimePat.doctor.id));
+                    ANC.CreateAppointmentNotification(new Model.Notification(title, notContent, DateTime.Today.AddDays(14),false, TimePat.doctor.id));
                     PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
                 }
             }

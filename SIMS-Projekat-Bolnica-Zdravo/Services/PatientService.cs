@@ -44,10 +44,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         {
             return PFS.LoginPatient(mail, password);
         }
+        public Patient GetPatientbyMail(String mail,int patientID)
+        {
+            return PFS.GetPatientbyMail(mail,patientID);
+        }
         public bool CreatePatient(Patient pat)
         {
-            PFS.CreatePatient(pat);
-            return true;
+            return PFS.CreatePatient(pat);
         }
         public bool UpdatePatient(Patient pat)
         {

@@ -35,7 +35,7 @@ namespace CrudModel
             noteids = Note.getids();
             roomids = Room.getids();
             warehousids = Warehouse.getids();
-            appointmentNotificationids = AppointmentNotification.Getids();
+            appointmentNotificationids = SIMS_Projekat_Bolnica_Zdravo.Model.Notification.Getids();
             Vacationsids = VacationRequest.getids();
             Medicineids = Medicine.getids();
             IDS = new ObservableCollection<IdsStorage>();
@@ -83,7 +83,7 @@ namespace CrudModel
             Note.setids(noteids);
             Room.setids(roomids);
             Warehouse.setids(warehousids);
-            AppointmentNotification.Setids(appointmentNotificationids);
+            SIMS_Projekat_Bolnica_Zdravo.Model.Notification.Setids(appointmentNotificationids);
             VacationRequest.setids(Vacationsids);
             Medicine.setids(Medicineids);
         }

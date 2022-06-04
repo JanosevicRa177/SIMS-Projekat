@@ -28,7 +28,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
     public partial class PatientWindow : Window
     {
         private PatientController PC = new PatientController();
-        private AppointmentNotificationController ANC = new AppointmentNotificationController();
+        private NotificationController ANC = new NotificationController();
         public static NavigationService NavigatePatient;
         MainHamburgerMenu MainHamburger;
         public static Boolean menuClosed = true;
@@ -48,7 +48,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             InitializeComponent();
             NavigatePatient = PatientFrame.NavigationService;
             LoggedPatient = PC.GetPatientDTOByID(patientID);
-            PatientFrame.Content = new PatientAppointments(this);
+            NavigatePatient.Navigate(new PatientAppointments(this));
             this.DataContext = LoggedPatient;
             ShowNotes();
         }
@@ -56,8 +56,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         {
             var notificationManager = new NotificationManager();
             await Task.Delay(1000);
-            ObservableCollection<AppointmentNotification> notifications = ANC.GetAppointmentNotificationrByPatientID(LoggedPatient.id);
-            foreach (AppointmentNotification an in notifications)
+            ObservableCollection<Model.Notification> notifications = ANC.GetAppointmentNotificationrByPatientID(LoggedPatient.id);
+            foreach (Model.Notification an in notifications)
             {
                 if (an.Viewed)
                 {
@@ -84,9 +84,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
                 menuClosed = true;
                 MainHamburger.Close_menu();
             }
-            if (PatientFrame.NavigationService.CanGoBack)
+            if (NavigatePatient.CanGoBack)
             {
-                PatientFrame.NavigationService.GoBack();
+                NavigatePatient.GoBack();
             }
         }
         private void Show_Home(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             AddAppointment.selectedDoctor = -1;
             AddAppointment.initialize = true;
             AddAppointment.empty = false;
-            PatientFrame.NavigationService.Navigate(new PatientAppointments());
+            NavigatePatient.Navigate(new PatientAppointments());
             if (!menuClosed)
             {
                 menuClosed = true;

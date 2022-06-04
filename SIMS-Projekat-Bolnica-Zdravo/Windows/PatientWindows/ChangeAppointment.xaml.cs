@@ -84,6 +84,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC = new AppointmentController();
             DC = new DoctorController();
             RC = new RoomController();
+            PC = new PatientController();
             InitializeComponent();
             this.DataContext = new
             {

@@ -42,7 +42,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AddAppointment.selectedDoctor = -1;
             AddAppointment.initialize = true;
             AddAppointment.empty = false;
-            patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading(patientWindow));
+            patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading());
             PatientWindow.menuClosed = true;
             mainMenu.Close_menu();
         }

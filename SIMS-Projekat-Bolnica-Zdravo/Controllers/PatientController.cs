@@ -17,6 +17,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             PS = new PatientService();
         }
+        public Patient GetPatientbyMail(String mail, int patientID = -1)
+        {
+            return PS.GetPatientbyMail(mail, patientID);
+        }
         public ObservableCollection<PatientCrAppDTO> getAllPatientsChooseDTO()
         {
             ObservableCollection<PatientCrAppDTO> ocp = new ObservableCollection<PatientCrAppDTO>();
@@ -66,8 +70,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         }
         public bool CreatePatient(Patient pat)
         {
-            PS.CreatePatient(pat);
-            return true;
+            return PS.CreatePatient(pat);
         }
         public bool UpdatePatient(Patient pat)
         {

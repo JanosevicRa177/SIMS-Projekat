@@ -92,7 +92,7 @@ namespace CrudModel
             set;
             get;
         }
-        public ObservableCollection<AppointmentNotification> appointmentNotification
+        public ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> appointmentNotification
         {
             get;
             set;
@@ -115,12 +115,12 @@ namespace CrudModel
                 }
             }
         }
-        public ObservableCollection<AppointmentNotification> AppointmentNotification
+        public ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> AppointmentNotification
         {
             get
             {
                 if (appointmentNotification == null)
-                    appointmentNotification = new ObservableCollection<AppointmentNotification>();
+                    appointmentNotification = new ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>();
                 return appointmentNotification;
             }
             set
@@ -128,7 +128,7 @@ namespace CrudModel
                 RemoveAllAppointmentNotification();
                 if (value != null)
                 {
-                    foreach (AppointmentNotification oAppointmentNotification in value)
+                    foreach (SIMS_Projekat_Bolnica_Zdravo.Model.Notification oAppointmentNotification in value)
                         AddAppointmentNotification(oAppointmentNotification);
                 }
             }
@@ -142,14 +142,14 @@ namespace CrudModel
             if (!this.notes.Contains(newNote))
                 this.notes.Add(newNote);
         }
-        public void AddAppointmentNotification(AppointmentNotification newAppointmentNotification)
+        public void AddAppointmentNotification(SIMS_Projekat_Bolnica_Zdravo.Model.Notification newNotification)
         {
-            if (newAppointmentNotification == null)
+            if (newNotification == null)
                 return;
             if (this.appointmentNotification == null)
-                this.appointmentNotification = new ObservableCollection<AppointmentNotification>();
-            if (!this.appointmentNotification.Contains(newAppointmentNotification))
-                this.appointmentNotification.Add(newAppointmentNotification);
+                this.appointmentNotification = new ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>();
+            if (!this.appointmentNotification.Contains(newNotification))
+                this.appointmentNotification.Add(newNotification);
         }
         public void RemoveNote(Note oldNote)
         {

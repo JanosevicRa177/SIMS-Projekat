@@ -51,6 +51,12 @@ namespace CrudModel
             
             this.bloodType = BloodType.ab1;
         }
+        public MedicalRecord(int patiendID)
+        {
+            medicalRecordID = ids++;
+            this.patientID = patiendID;
+            this.bloodType = BloodType.ab1;
+        }
 
         public MedicalRecord(int patiendID, int medicalRecordid)
         {

@@ -399,7 +399,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
                         times.Remove(t);
                         break;
                     }
-
                 }
             }
             array.Clear();

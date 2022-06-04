@@ -20,8 +20,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
 
         public bool CreateMedicalRecord(MedicalRecord newMedicalRecord)
         {
-            MRFS.CreateMedicalRecord(newMedicalRecord);
-            return true;
+            return MRFS.CreateMedicalRecord(newMedicalRecord);
         }
         public ObservableCollection<MedicalRecord> GetAllMedicalRecord()
         {

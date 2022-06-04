@@ -1,9 +1,10 @@
 using System;
 using ConsoleApp.serialization;
+using CrudModel;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Model
 {
-   public class AppointmentNotification : Serializable
+   public class Notification : Serializable
     {
       private static int ids = -1;
       public String Title
@@ -44,10 +45,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
             get;
             set;
         }
-        public AppointmentNotification()
+
+        public NotificationType notificationType
+        {
+            get;
+            set;
+        }
+        public Notification()
         {
         }
-        public AppointmentNotification(string title, string content, DateTime deleteDate, bool viewed,int userID)
+        public Notification(string title, string content, DateTime deleteDate, bool viewed,int userID)
         {
             this.Title = title;
             this.Content = content;
@@ -55,26 +62,47 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
             this.Viewed = viewed;
             this.UserID = userID;
             this.NotificationID = ++ids;
+            notificationType = NotificationType.appointment;
         }
 
         public string[] toCSV()
         {
-            if (Viewed)
+            if (notificationType == NotificationType.appointment)
             {
-                string[] csvValues =
+                if (Viewed)
                 {
-                    Title,
-                    Content,
-                    DeleteDate.Day.ToString(),
-                    DeleteDate.Month.ToString(),
-                    DeleteDate.Year.ToString(),
-                    "1",
-                    NotificationID.ToString(),
-                    UserID.ToString()
-                };
-                return csvValues;
+                    string[] csvValues =
+                    {
+                        Title,
+                        Content,
+                        DeleteDate.Day.ToString(),
+                        DeleteDate.Month.ToString(),
+                        DeleteDate.Year.ToString(),
+                        "1",
+                        NotificationID.ToString(),
+                        UserID.ToString(),
+                        "appointment"
+                    };
+                    return csvValues;
+                }
+                else
+                {
+                    string[] csvValues =
+                    {
+                        Title,
+                        Content,
+                        DeleteDate.Day.ToString(),
+                        DeleteDate.Month.ToString(),
+                        DeleteDate.Year.ToString(),
+                        "0",
+                        NotificationID.ToString(),
+                        UserID.ToString(),
+                        "appointment"
+                    };
+                    return csvValues;
+                }
             }
-            else 
+            else
             {
                 string[] csvValues =
                 {
@@ -83,9 +111,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
                     DeleteDate.Day.ToString(),
                     DeleteDate.Month.ToString(),
                     DeleteDate.Year.ToString(),
+                    DeleteDate.Hour.ToString(),
                     "0",
                     NotificationID.ToString(),
-                    UserID.ToString()
+                    UserID.ToString(),
+                    "note"
                 };
                 return csvValues;
             }
@@ -106,7 +136,14 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
             }
             this.NotificationID = int.Parse(values[6]);
             this.UserID = int.Parse(values[7]);
-
+            if (values[8].Equals("note"))
+            {
+                this.notificationType = NotificationType.note;
+            }
+            else
+            {
+                this.notificationType = NotificationType.appointment;
+            }
         }
     }
 }

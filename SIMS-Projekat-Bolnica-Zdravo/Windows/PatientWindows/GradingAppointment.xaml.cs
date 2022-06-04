@@ -20,18 +20,16 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
     public partial class GradingAppointment : Page
     {
-        public static PatientWindow patientWindow;
         private AppointmentGradeController AGC;
         public int doctorGrade;
         public int kindnessGrade;
         public int accuracyGrade;
         public int hyigieneGrade;
         public int appointmentGradeID;
-        public GradingAppointment(PatientWindow patientWindow1, int appointmentID)
+        public GradingAppointment(int appointmentID)
         {
             appointmentGradeID = appointmentID;
             AGC = new AppointmentGradeController();
-            patientWindow = patientWindow1;
             InitializeComponent();
         }
 
@@ -71,7 +69,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
         {
             AppointmentGrade appointmentGrade = new AppointmentGrade(kindnessGrade,accuracyGrade,doctorGrade,hyigieneGrade, desc.Text,appointmentGradeID);
             AGC.CreateAppointmentGrade(appointmentGrade);
-            patientWindow.PatientFrame.NavigationService.Navigate(new AppointmentsForGrading());
+            PatientWindow.NavigatePatient.Navigate(new AppointmentsForGrading());
         }
     }
 }

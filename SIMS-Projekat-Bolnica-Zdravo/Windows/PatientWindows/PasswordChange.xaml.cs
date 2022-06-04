@@ -44,6 +44,27 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows
                 return;
             }
 
+            if (newPassword.Password.ToString().Length < 5)
+            {
+                informationDialog = new InformationDialog("Nova šifra mora biti duža od 5 karaktera!");
+                informationDialog.Top = patientWindow.Top;
+                informationDialog.Left = patientWindow.Left;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
+                return;
+            }
+            if (!newPassword.Password.ToString().Equals(newPasswordConfirm.Password.ToString()))
+            {
+                informationDialog = new InformationDialog("Nova šifra i potvrda šifre se moraju poklapati!");
+                informationDialog.Top = patientWindow.Top;
+                informationDialog.Left = patientWindow.Left;
+                informationDialog.Activate();
+                informationDialog.Topmost = true;
+                informationDialog.ShowDialog();
+                return;
+            }
+
             PC.UpdatePassword(PatientWindow.LoggedPatient.id, newPassword.Password.ToString());
             informationDialog = new InformationDialog("Uspešno ste promenili šifru!");
             informationDialog.Top = patientWindow.Top;

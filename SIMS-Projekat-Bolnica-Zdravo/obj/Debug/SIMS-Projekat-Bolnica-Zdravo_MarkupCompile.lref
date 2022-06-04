@@ -13,6 +13,7 @@ FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SI
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\DoctorWindows\DoctorWindows\Views\EmergencyView.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\AppointmentsForGrading.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\ChangeAppointment.xaml;;
+FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\ConfirmDialog.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\DateChanger.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\GradingHospital.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\GradingAppointment.xaml;;
@@ -20,9 +21,12 @@ FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SI
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\HamburgerMenu1.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\InformationDialog.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\LoginPatient.xaml;;
+FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\LoginPatientPage.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\MainHamburgerMenu.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\PasswordConfirm.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\PasswordChange.xaml;;
+FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\RegisterPatient.xaml;;
+FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\ShowExecutedAppointment.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\Views\AccountView.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\Views\MedicineView.xaml;;
 FC:\Users\Dusan\OneDrive\Desktop\Faks\3. Godina\6 Semestar\SIMS\SIMS Projekat\SIMS-Projekat-Bolnica-Zdravo\Windows\PatientWindows\Views\NotePageView.xaml;;
