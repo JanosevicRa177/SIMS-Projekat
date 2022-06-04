@@ -91,7 +91,7 @@
                                         <DataGridTextColumn Header="Allergen" Width="*" x:Name="ak" Binding="{Binding name}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <Button Grid.Column="1" FontSize="35" HorizontalAlignment="Center" Content="Add allergen" Grid.Row="0" Margin="5" Style="{StaticResource doctorButtons}"></Button>
+                                <Button Grid.Column="1" FontSize="35" HorizontalAlignment="Right" Content="Add allergen" Grid.Row="0" Margin="5" Style="{StaticResource doctorButtons}"></Button>
                             </Grid>
                         </Grid>
                     </TabItem>

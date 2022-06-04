@@ -40,6 +40,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             return PS.CheckPatientsPasswordInput(patientID, password);
         }
 
+        public int NumberPatientsAllergicTO(string allergen)
+        {
+            return PS.NumberPatientsAllergicTO(allergen);
+        }
+
         public bool IsAccountBlocked(int patientID) 
         {
             return PS.IsAccountBlocked(patientID);

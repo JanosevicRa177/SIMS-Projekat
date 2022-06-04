@@ -38,14 +38,57 @@
     <ApplicationIcon>hospital.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>packages\DevExpress.Data.21.2.7\lib\net452\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetProjects.DataVisualization.Toolkit, Version=6.1.94.0, Culture=neutral, PublicKeyToken=79778c5f2eed289b, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetProjects.WpfToolkit.DataVisualization.6.1.94\lib\net40\DotNetProjects.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.37\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="Notification.Wpf, Version=6.1.0.4, Culture=neutral, PublicKeyToken=1acac493089262b5, processorArchitecture=MSIL">
       <HintPath>packages\Notification.Wpf.6.1.0.4\lib\net47\Notification.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Sparrow.Chart.Wpf.35">
+      <HintPath>packages\Sparrow.Chart.Wpf.13.1.0.118\lib\net35\Sparrow.Chart.Wpf.35.dll</HintPath>
+    </Reference>
+    <Reference Include="Sparrow.Chart.Wpf.40, Version=13.1.0.118, Culture=neutral, PublicKeyToken=50f33fb8697e9a92, processorArchitecture=MSIL">
+      <HintPath>packages\Sparrow.Chart.Wpf.13.1.0.118\lib\net40\Sparrow.Chart.Wpf.40.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Compression.Base.20.1.0.58\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Data.WPF, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Data.WPF.20.1.0.58\lib\net46\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Licensing.20.1.0.58\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Pdf.Wpf.20.1.0.58\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.SfGrid.WPF.20.1.0.58\lib\net46\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGridConverter.WPF, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.DataGridExcelExport.Wpf.20.1.0.58\lib\net46\Syncfusion.SfGridConverter.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.Shared.WPF.20.1.0.58\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.XlsIO.Base, Version=20.1460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>packages\Syncfusion.XlsIO.Wpf.20.1.0.58\lib\net46\Syncfusion.XlsIO.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
@@ -64,6 +107,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -99,12 +157,31 @@
     <Compile Include="Windows\DoctorWindows\DoctorWindows\MedicineWindow.xaml.cs">
       <DependentUpon>MedicineWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\PDFWindow.xaml.cs">
+      <DependentUpon>PDFWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DoctorWindows\DoctorWindows\ShowMedicine.xaml.cs">
       <DependentUpon>ShowMedicine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\ViewModel\ChartofAllergiesViewModel.cs" />
     <Compile Include="Windows\DoctorWindows\DoctorWindows\ViewModel\EmergencyViewModel.cs" />
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\ViewModel\MedicineCheckViewModel.cs" />
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\ViewModel\ReportOfPatientpdfViewModel.cs" />
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\ViewModel\ShowMedicineViewModel.cs" />
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\ChartofAllergiesView.xaml.cs">
+      <DependentUpon>ChartofAllergiesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\EmergencyView.xaml.cs">
       <DependentUpon>EmergencyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\MedicineCheckView.xaml.cs">
+      <DependentUpon>MedicineCheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\ReportOfPatientpdfView.xaml.cs">
+      <DependentUpon>ReportOfPatientpdfView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\ShowMedicineView.xaml.cs">
+      <DependentUpon>ShowMedicineView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PatientWindows\AppointmentsForGrading.xaml.cs">
       <DependentUpon>AppointmentsForGrading.xaml</DependentUpon>
@@ -302,6 +379,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Windows\DoctorWindows\DoctorWindows\PDFWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DoctorWindows\DoctorWindows\ShowMedicine.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -361,7 +442,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\DoctorWindows\DoctorWindows\Views\ChartofAllergiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\DoctorWindows\DoctorWindows\Views\EmergencyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DoctorWindows\DoctorWindows\Views\MedicineCheckView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DoctorWindows\DoctorWindows\Views\ReportOfPatientpdfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DoctorWindows\DoctorWindows\Views\ShowMedicineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

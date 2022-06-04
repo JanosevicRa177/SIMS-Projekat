@@ -11,10 +11,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
     public class PatientService
     {
         private PatientFileStorage PFS;
+        private MedicalRecordFileStorage MRFS;
 
         public PatientService()
         {
             PFS = new PatientFileStorage();
+            MRFS = new MedicalRecordFileStorage();
         }
         public bool IsAccountBlocked(int patientID)
         {
@@ -27,6 +29,21 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Services
         public bool CheckPatientsPasswordInput(int patientID, String password)
         {
             return PFS.CheckPatientsPasswordInput(patientID, password);
+        }
+
+        public int NumberPatientsAllergicTO(string allergen)
+        {
+            int retVal = 0;
+            ObservableCollection<Patient> Ocp = PFS.getAllPatientsFS();
+            foreach(Patient p in Ocp)
+            {
+                ObservableCollection<string> list = MRFS.getAlergensByPatientId(p.userID);
+                foreach(string s in list)
+                {
+                    if (s.Equals(allergen)) retVal++;
+                }
+            }
+            return retVal;
         }
         public void UpdatePassword(int patientID, String password)
         {

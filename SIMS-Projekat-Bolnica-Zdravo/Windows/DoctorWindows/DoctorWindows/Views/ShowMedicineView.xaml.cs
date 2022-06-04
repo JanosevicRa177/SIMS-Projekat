@@ -1,4 +1,4 @@
-﻿using SIMS_Projekat_Bolnica_Zdravo.Controllers;
+﻿using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.Windows.DoctorWindows.DoctorWindows.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -12,36 +12,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows.DoctorWindows.DoctorWindows.Views
 {
     /// <summary>
-    /// Interaction logic for EmergencyView.xaml
+    /// Interaction logic for ShowMedicineView.xaml
     /// </summary>
-    public partial class EmergencyView : UserControl
+    public partial class ShowMedicineView : Window
     {
-        public Window th
+        public ShowMedicineView(Medicine med)
         {
-            set;
-            get;
-        }
-        public EmergencyView(PatientCrAppDTO pat,Window th)
-        {
-            this.th = th;
             InitializeComponent();
-            this.DataContext = new EmergencyViewModel(pat);
+            this.DataContext = new ShowMedicineViewModel(med);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void approve_Click(object sender, RoutedEventArgs e)
         {
-            th.Close();
+            this.Close();
         }
 
-        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void deny_Click(object sender, RoutedEventArgs e)
         {
-            rooms.SelectedIndex = 0;
+            this.Close();
         }
     }
 }

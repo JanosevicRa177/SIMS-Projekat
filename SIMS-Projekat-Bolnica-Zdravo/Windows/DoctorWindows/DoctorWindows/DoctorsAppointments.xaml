@@ -17,7 +17,7 @@
                 <DataGridTextColumn x:Name="patsurname" Header="Patients surname" Width="auto" Binding="{Binding patientSurname}"/>
                 <DataGridTextColumn x:Name="patid" Header="Patients ID" Width="auto" Binding="{Binding patientID}"/>
                 <DataGridTextColumn x:Name="room" Header="Room" Width="auto" Binding="{Binding  roomName}"/>
-                <DataGridTextColumn x:Name="date" Header="Date" Width="auto" Binding="{Binding Date}"/>
+                <DataGridTextColumn x:Name="date" Header="Date" Width="auto" Binding="{Binding Date , StringFormat={}{0:MM/dd/yyyy}}"/>
                 <DataGridTextColumn x:Name="time" Header="Time" Width="auto" Binding="{Binding Time}"/>
                 <DataGridTextColumn x:Name="description" Header="Description" Width="*" Binding="{Binding desc}"/>
                 <DataGridTemplateColumn x:Name="show" Header="Show" Width="150">

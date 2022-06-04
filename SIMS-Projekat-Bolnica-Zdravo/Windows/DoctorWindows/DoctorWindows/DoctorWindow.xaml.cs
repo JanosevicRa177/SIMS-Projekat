@@ -1,5 +1,6 @@
 ﻿using CrudModel;
 using SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows;
+using SIMS_Projekat_Bolnica_Zdravo.Windows.DoctorWindows.DoctorWindows.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,8 +66,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 
         private void medc_Click(object sender, RoutedEventArgs e)
         {
-            var dia = new MedicineWindow();
+            var dia = new MedicineCheckView();
             dia.ShowDialog();
+        }
+
+        private void empt2_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new ChartofAllergiesView();
+            dia.Show();
+        }
+
+        private void empt3_Click(object sender, RoutedEventArgs e)
+        {
+            var dia = new ReportOfPatientpdfView();
+            dia.Show();
         }
     }
 }

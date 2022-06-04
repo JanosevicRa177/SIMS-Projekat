@@ -36,7 +36,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
             foreach (var appoinment in patientAppointmens)
             {
-                if (appoinment.Date < DateTime.Today)
+                if (appoinment.Date < DateTime.Today || appoinment.Date > DateTime.Today.AddDays(31))
                 {
                     removeAppointmens.Add(appoinment);
                 }

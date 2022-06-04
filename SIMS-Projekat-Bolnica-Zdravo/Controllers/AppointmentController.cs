@@ -243,7 +243,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         {
             Appointment a = AS.getAppointmentById(appoID);
             Doctor d = DS.GetDoctorByID(a.doctorID);
-            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration, a.isNotGraded);
+            return new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, appoID, a.timeBegin, a.duration, a.isNotGraded,a.condition,a.patientID);
         }
         public ObservableCollection<ShowAppointmentPatientDTO> getAllPatientsAppointments(int patientID)
         {
@@ -252,7 +252,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment a in appointmentsPatent)
             {
                 Doctor d = DS.GetDoctorByID(a.doctorID);
-                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration,a.isNotGraded));
+                patientAppointmentsListDTO.Add(new ShowAppointmentPatientDTO(d.name, d.surname, d.userID.ToString(), RC.getRoomById(a.roomID).name, a.timeString, a.description, a.appointmentID, a.timeBegin, a.duration,a.isNotGraded,a.condition, a.patientID));
             }
             return patientAppointmentsListDTO;
         }
@@ -471,7 +471,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public int duration { set; get; }
         public Boolean isNotGraded { set; get; }
 
-        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string time, string desc, int id, DateTime Date,int duration,Boolean isNotGraded)
+        public int patientsID { set; get; }
+
+        public string condition { set; get; }
+
+        public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string time, string desc, int id, DateTime Date,int duration,Boolean isNotGraded,string condition = "",int patid = -1)
         {
             doctorName = dName;
             doctorSurname = dSurname;
@@ -483,6 +487,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             this.desc = desc;
             this.id = id;
             this.duration = duration;
+            this.condition = condition;
+            this.patientsID = patid;
         }
     }
 }
