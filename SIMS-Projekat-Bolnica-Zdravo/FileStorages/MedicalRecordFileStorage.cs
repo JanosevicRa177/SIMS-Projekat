@@ -77,7 +77,6 @@ namespace CrudModel
             Serializer<MedicalRecord> medicalRecordSerializer = new Serializer<MedicalRecord>();
             mrList = medicalRecordSerializer.fromCSV("../../TxtFajlovi/medicalRecords.txt");
             mrList.Add(newMedicalRecord);
-            MessageBox.Show(newMedicalRecord.patientID + "!" + newMedicalRecord.medicalRecordID);
             medicalRecordSerializer.toCSV("../../TxtFajlovi/medicalRecords.txt", mrList);
             return true;
 

@@ -76,7 +76,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
             note.noteName = NameNote;
             note.noteContent = ContentNote;
             NS.UpdateNote(note);
-            PatientWindow.NavigatePatient.Navigate(new PatientNotes()); ;
+            PatientWindow.NavigatePatient.Navigate(new PatientNotes()); 
         }
     }
 }

@@ -136,6 +136,7 @@
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MedicalRecordController.cs" />
     <Compile Include="Controllers\MedicineController.cs" />
+    <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
@@ -149,10 +150,12 @@
     <Compile Include="Model\HospitalGrade.cs" />
     <Compile Include="FileStorages\HospitalGradeFileStorage.cs" />
     <Compile Include="FileStorages\MedicineFileStorage.cs" />
+    <Compile Include="Model\SchedulingMeeting.cs" />
     <Compile Include="Model\SecretaryTimer.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\TakingMedicine.cs" />
     <Compile Include="MyICommand.cs" />
+    <Compile Include="Services\MeetingService.cs" />
     <Compile Include="VML\ViewModelLocator.cs" />
     <Compile Include="Windows\DoctorWindows\DoctorWindows\MedicineWindow.xaml.cs">
       <DependentUpon>MedicineWindow.xaml</DependentUpon>
@@ -183,6 +186,10 @@
     <Compile Include="Windows\DoctorWindows\DoctorWindows\Views\ShowMedicineView.xaml.cs">
       <DependentUpon>ShowMedicineView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ManagerWindows\CreateRoomDialog.xaml.cs">
+      <DependentUpon>CreateRoomDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ManagerWindows\CreateRoomValidationRules.cs" />
     <Compile Include="Windows\PatientWindows\AppointmentsForGrading.xaml.cs">
       <DependentUpon>AppointmentsForGrading.xaml</DependentUpon>
     </Compile>
@@ -322,10 +329,6 @@
     <Compile Include="Windows\SecretaryWindows\AddAlergenWindow.xaml.cs">
       <DependentUpon>AddAlergenWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\SecretaryWindows\CreateRoomDialog.xaml.cs">
-      <DependentUpon>CreateRoomDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\SecretaryWindows\CreateRoomValidationRules.cs" />
     <Compile Include="Windows\DoctorWindows\DoctorWindows\DoctorsAppointments.xaml.cs">
       <DependentUpon>DoctorsAppointments.xaml</DependentUpon>
     </Compile>
@@ -362,6 +365,26 @@
     </Compile>
     <Compile Include="Windows\SecretaryWindows\StaffRegistrationWindow.xaml.cs">
       <DependentUpon>StaffRegistrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SecretaryWindows\ViewModel\AddAlergenViewModel.cs" />
+    <Compile Include="Windows\SecretaryWindows\ViewModel\EquipmentViewModel.cs" />
+    <Compile Include="Windows\SecretaryWindows\ViewModel\MeetingScheduleViewModel.cs" />
+    <Compile Include="Windows\SecretaryWindows\ViewModel\SecretaryViewModel.cs" />
+    <Compile Include="Windows\SecretaryWindows\ViewModel\VacationApprovingViewModel.cs" />
+    <Compile Include="Windows\SecretaryWindows\Views\AddAlergenView.xaml.cs">
+      <DependentUpon>AddAlergenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SecretaryWindows\Views\EquipmentView.xaml.cs">
+      <DependentUpon>EquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SecretaryWindows\Views\MeetingScheduleView.xaml.cs">
+      <DependentUpon>MeetingScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SecretaryWindows\Views\SecretaryView.xaml.cs">
+      <DependentUpon>SecretaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SecretaryWindows\Views\VacationApprovingView.xaml.cs">
+      <DependentUpon>VacationApprovingView.xaml</DependentUpon>
     </Compile>
     <Page Include="Windows\DoctorWindows\DoctorWindows\AddMedicine.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -461,6 +484,10 @@
     <Page Include="Windows\DoctorWindows\DoctorWindows\Views\ShowMedicineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ManagerWindows\CreateRoomDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\PatientWindows\AppointmentsForGrading.xaml">
       <SubType>Designer</SubType>
@@ -574,10 +601,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Windows\SecretaryWindows\CreateRoomDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Windows\DoctorWindows\DoctorWindows\DoctorsAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -623,6 +646,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SecretaryWindows\StaffRegistrationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SecretaryWindows\Views\AddAlergenView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SecretaryWindows\Views\EquipmentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SecretaryWindows\Views\MeetingScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SecretaryWindows\Views\SecretaryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SecretaryWindows\Views\VacationApprovingView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

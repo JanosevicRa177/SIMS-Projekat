@@ -281,6 +281,10 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             Appointment a = AS.getAppointmentById(appID);
             return new StartAppointmentDTO(a.description, a.therapy, a.condition, convertTMtoTMDTO(a.medicineList), a.appointmentID);
         }
+        public BindingList<TimePatient> getAllTimes()
+        {
+            return AS.getAllTimes();
+        }
         public BindingList<Time> getTwoTermsFromNow()
         {
             return AS.getTwoTermsFromNow();
@@ -359,7 +363,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             }
             return tmp;
         }
-
         public class StartAppointmentDTO
         {
             public string desc { set; get; }

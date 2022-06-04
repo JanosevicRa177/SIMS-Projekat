@@ -252,7 +252,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows
             PC.CreatePatient(newPatient);
             MedicalRecord newMedicalRecord = new MedicalRecord(newPatient.userID);
             MRC.CreateMedicalRecord(newMedicalRecord);
-            LoginPatient.NavigateLogin.Navigate(new LoginPatientPage());
+            LoginPatient.NavigateLogin.Navigate(new LoginPatientPage(newPatient.userID));
         }
     }
 }

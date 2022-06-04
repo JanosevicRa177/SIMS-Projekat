@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System;
 using System.Collections.ObjectModel;
 using ConsoleApp.serialization;
+using System.Windows;
 
 namespace CrudModel
 {
@@ -24,7 +25,7 @@ namespace CrudModel
             return true;
       }
 
-        public VacationRequest GetVacationRequestById(int userID)
+      public VacationRequest GetVacationRequestById(int userID)
       {
          throw new NotImplementedException();
       }
@@ -40,6 +41,34 @@ namespace CrudModel
             }
             return vacreq;
        }
+        public bool UpdateVacationState(int vacationID,StateEnum enumVr)
+        {
+            ObservableCollection<VacationRequest> vacations = new ObservableCollection<VacationRequest>();
+            Serializer<VacationRequest> patientSerializer = new Serializer<VacationRequest>();
+            vacations = patientSerializer.fromCSV("../../TxtFajlovi/vacationrequests.txt");
+            foreach (VacationRequest p in vacations)
+            {
+                if (p.id == vacationID)
+                {
+                   
+                    p.state = enumVr;
+                    break;
+                }
+            }
+            patientSerializer.toCSV("../../TxtFajlovi/vacationrequests.txt", vacations);
+            return true;
+           
+        }
+        public ObservableCollection<VacationRequest> GetAllVacations()
+        {
+            ObservableCollection<VacationRequest> vacreq = new ObservableCollection<VacationRequest>();
+            Serializer<VacationRequest> patientSerializer = new Serializer<VacationRequest>();
+            foreach (VacationRequest p in patientSerializer.fromCSV("../../TxtFajlovi/vacationrequests.txt"))
+            {
+                    vacreq.Add(p);
+            }
+            return vacreq;
+        }
 
         public ObservableCollection<VacationRequest> GetAllVacationRequests()
         {

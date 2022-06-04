@@ -41,15 +41,22 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows
             Mail.Text = "";
             Password.Clear();
             PassText.Visibility = Visibility.Visible;
+            autoLogin(patientID);
+        }
+
+        private async void autoLogin(int patientID)
+        {
+            await Task.Delay(10);
             PatientWindow pt = new PatientWindow((LoginPatient)System.Windows.Window.GetWindow(this), patientID);
             pt.Show();
             WindowLogin = (LoginPatient)System.Windows.Window.GetWindow(this);
-            if (WindowLogin == null)
+            /*(if (WindowLogin == null)
             {
                 return;
-            }
+            }*/
             WindowLogin.Hide();
         }
+
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             /*int patientID = PC.LoginPatient(Mail.Text, Password.Password.ToString());
@@ -80,11 +87,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows
             PatientWindow pt = new PatientWindow((LoginPatient)System.Windows.Window.GetWindow(this), 5);
             pt.Show();
             WindowLogin = (LoginPatient)System.Windows.Window.GetWindow(this);
-            if (WindowLogin == null)
-            {
-                return;
-            }
-
             WindowLogin.Hide();
         }
         private void Back_Click(object sender, RoutedEventArgs e)
