@@ -34,8 +34,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo
       {
             return ANSF.GetAppointmentNotificationrByPatientID(patientID);
       }
-      
-      public ObservableCollection<Model.Notification> GetAppointmentNotificationrByDoctorID(int doctorID)
+
+        public Model.Notification GetNoteNotificationrByNoteID(int noteID)
+        {
+            return ANSF.GetNoteNotificationrByNoteID(noteID);
+        }
+
+        public ObservableCollection<Model.Notification> GetAppointmentNotificationrByDoctorID(int doctorID)
       {
             return ANSF.GetAppointmentNotificationrByDoctorID(doctorID);
       }

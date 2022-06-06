@@ -16,19 +16,20 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
     class NotePageViewModel : BindableBase
     {
         private NoteService NS;
+        private NotificationService notificationService;
         public MyICommand ConfirmCommand { get; set; }
         public MyICommand ReverseCommand { get; set; }
-        Note note
+        public Note note
         {
             get;
             set;
         }
-        String oldNoteContent
+        public String oldNoteContent
         {
             get;
             set;
         }
-        String oldNoteName
+        public String oldNoteName
         {
             get;
             set;
@@ -57,14 +58,81 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
                 }
             }
         }
+        public int _frequency
+        {
+            get;
+            set;
+        }
+        public int Frequency
+        {
+            get { return _frequency; }
+            set
+            {
+                if (value != _frequency)
+                {
+                    _frequency = value;
+                    OnPropertyChanged("Frequency");
+                }
+            }
+        }
+
+        public bool isNotification
+        {
+            get;
+            set;
+        }
+
+        public bool IsNotification
+        {
+            get { return isNotification; }
+            set
+            {
+                if (value != isNotification)
+                {
+                    isNotification = value;
+                    OnPropertyChanged("IsNotification");
+                }
+            }
+        }
+
+        public bool begginningIsNotification
+        {
+            get;
+            set;
+        }
+
+        public Model.Notification notification
+        {
+            get;
+            set;
+        }
+
         public NotePageViewModel(Note note)
         {
+            NS = new NoteService();
+            notificationService = new NotificationService();
+            notification = notificationService.GetNoteNotificationrByNoteID(note.noteID);
+            if (notification == null)
+            {
+                IsNotification = false;
+            }
+            else
+            {
+                IsNotification = true;
+            }
             ReverseCommand = new MyICommand(OnReverse);
             ConfirmCommand = new MyICommand(OnConfirm);
             oldNoteName = note.noteName;
             oldNoteContent = note.noteContent;
             this.note = note;
-            NS = new NoteService();
+
+        }
+        private async void ShowNotes()
+        {
+            while (true)
+            { 
+                await Task.Delay(1000);
+            }
         }
         private void OnReverse()
         {

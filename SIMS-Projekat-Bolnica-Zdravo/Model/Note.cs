@@ -1,7 +1,3 @@
-// File:    Note.cs
-// Author:  Dusan
-// Created: Wednesday, April 6, 2022 12:08:33 PM
-// Purpose: Definition of Class Note
 
 using ConsoleApp.serialization;
 using System;

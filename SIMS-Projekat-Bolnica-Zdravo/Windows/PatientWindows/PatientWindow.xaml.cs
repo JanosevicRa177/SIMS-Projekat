@@ -54,24 +54,28 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
         }
         private async void ShowNotes()
         {
-            var notificationManager = new NotificationManager();
-            await Task.Delay(1000);
-            ObservableCollection<Model.Notification> notifications = ANC.GetAppointmentNotificationrByPatientID(LoggedPatient.id);
-            foreach (Model.Notification an in notifications)
+            while (true)
             {
-                if (an.Viewed)
+                var notificationManager = new NotificationManager();
+                await Task.Delay(1000);
+                ObservableCollection<Model.Notification> notifications = ANC.GetAppointmentNotificationrByPatientID(LoggedPatient.id);
+                foreach (Model.Notification an in notifications)
                 {
-                    continue;
+                    if (an.Viewed)
+                    {
+                        continue;
+                    }
+                    NotificationWindow nw = new NotificationWindow(an.Title, an.Content);
+                    nw.Top = this.Top + 84;
+                    nw.Left = this.Left;
+                    nw.Topmost = true;
+                    nw.Show();
+                    an.Viewed = true;
+                    await Task.Delay(3000);
+                    nw.Close();
+                    ANC.UpdateAppointmentNotification(an);
                 }
-                NotificationWindow nw = new NotificationWindow(an.Title, an.Content);
-                nw.Top = this.Top + 84;
-                nw.Left = this.Left;
-                nw.Topmost = true;
-                nw.Show();
-                an.Viewed = true;
-                await Task.Delay(3000);
-                nw.Close();
-                ANC.UpdateAppointmentNotification(an);
+                await Task.Delay(900000);
             }
         }
         private void Navigation_back(object sender, RoutedEventArgs e)

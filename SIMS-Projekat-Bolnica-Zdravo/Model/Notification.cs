@@ -51,6 +51,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
             get;
             set;
         }
+
+        public int Frequency
+        {
+            get;
+            set;
+        }
+
         public Notification()
         {
         }
@@ -59,9 +66,12 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
             this.Title = title;
             this.Content = content;
             this.DeleteDate = deleteDate;
+            TimeSpan TimeSettings = new TimeSpan(0, 0, 0);
+            this.DeleteDate = this.DeleteDate.Date + TimeSettings;
             this.Viewed = viewed;
             this.UserID = userID;
             this.NotificationID = ++ids;
+            Frequency = 0;
             notificationType = NotificationType.appointment;
         }
 
@@ -81,7 +91,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
                         "1",
                         NotificationID.ToString(),
                         UserID.ToString(),
-                        "appointment"
+                        "appointment",
+                        Frequency.ToString(),
+                        DeleteDate.Hour.ToString()
                     };
                     return csvValues;
                 }
@@ -97,7 +109,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
                         "0",
                         NotificationID.ToString(),
                         UserID.ToString(),
-                        "appointment"
+                        "appointment",
+                        Frequency.ToString(),
+                        DeleteDate.Hour.ToString()
                     };
                     return csvValues;
                 }
@@ -115,7 +129,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
                     "0",
                     NotificationID.ToString(),
                     UserID.ToString(),
-                    "note"
+                    "note", 
+                    Frequency.ToString(),
+                    DeleteDate.Hour.ToString()
                 };
                 return csvValues;
             }
@@ -144,6 +160,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
             {
                 this.notificationType = NotificationType.appointment;
             }
+            this.Frequency = int.Parse(values[9]);
+            TimeSpan TimeSettings = new TimeSpan(int.Parse(values[10]), 0, 0);
+            this.DeleteDate = this.DeleteDate.Date + TimeSettings;
         }
     }
 }

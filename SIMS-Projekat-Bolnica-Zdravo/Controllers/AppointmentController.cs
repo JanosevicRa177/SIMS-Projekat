@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,19 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             foreach (Appointment appointment in appointments)
             {
                 medicineList.AddRange(convertTMtoTMDTO(appointment.medicineList).ToList());
+            }
+            ObservableCollection<TakingMedicineDTO> medicines = new ObservableCollection<TakingMedicineDTO>(medicineList);
+            return medicines;
+        }
+        public ObservableCollection<TakingMedicineDTO> GetAllPatientsMedicinesForWeek(int patientID)
+        {
+            ObservableCollection<Appointment> appointments = AS.getAllPatientsAppointments(patientID);
+            List<TakingMedicineDTO> medicineList = new List<TakingMedicineDTO>();
+            foreach (Appointment appointment in appointments)
+            {
+                if (appointment.timeBegin > DateTime.Today.AddDays(-7) &&
+                    appointment.timeBegin < DateTime.Today.AddDays(-1))
+                    medicineList.AddRange(convertTMtoTMDTO(appointment.medicineList).ToList());
             }
             ObservableCollection<TakingMedicineDTO> medicines = new ObservableCollection<TakingMedicineDTO>(medicineList);
             return medicines;

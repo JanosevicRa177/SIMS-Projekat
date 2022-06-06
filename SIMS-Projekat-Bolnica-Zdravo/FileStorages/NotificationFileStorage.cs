@@ -19,8 +19,20 @@ namespace CrudModel
             appointmentNotificationSerializer.toCSV("../../TxtFajlovi/appointmentNotifications.txt", appointmentNotificationList);
             return true;
         }
-      
-      public bool DeleteAppointmentNotification(int appointmentNotificationID)
+      public SIMS_Projekat_Bolnica_Zdravo.Model.Notification GetNoteNotificationrByNoteID(int noteID)
+      {
+          ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> appointmentNotificationList = new ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>();
+          Serializer<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> appointmentNotificationSerializer = new Serializer<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>();
+          foreach (SIMS_Projekat_Bolnica_Zdravo.Model.Notification an in appointmentNotificationSerializer.fromCSV("../../TxtFajlovi/appointmentNotifications.txt"))
+          {
+              if (an.NotificationID == noteID && an.notificationType == NotificationType.note)
+              {
+                  return an;
+              }
+          }
+          return null;
+      }
+        public bool DeleteAppointmentNotification(int appointmentNotificationID)
       {
             ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> appointmentNotificationList = new ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>();
             Serializer<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> appointmentNotificationSerializer = new Serializer<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>();

@@ -93,7 +93,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.DoctorWindows.DoctorWindows
             //Draw grid to the page of PDF document.
             pdfGrid.Draw(page, new PointF(10, 10));
             //Save the document.
-            doc.Save("C:/Users/duros/Desktop/SIMS/Sims projekat/SIMS-Projekat/SIMS-Projekat-Bolnica-Zdravo/PDFIzvestaji/" + PC.GetPatientByID(obcc[0].patientsID).name + PC.GetPatientByID(obcc[0].patientsID).surname + date1.Day.ToString() + "-" + date1.Month.ToString() + "-" + date1.Year.ToString() + "to" + date2.Day.ToString() + "-" + date2.Month.ToString() + "-" + date2.Year.ToString() + ".pdf");
+            doc.Save("../../PDFIzvestaji/" + PC.GetPatientByID(obcc[0].patientsID).name + PC.GetPatientByID(obcc[0].patientsID).surname + date1.Day.ToString() + "-" + date1.Month.ToString() + "-" + date1.Year.ToString() + "to" + date2.Day.ToString() + "-" + date2.Month.ToString() + "-" + date2.Year.ToString() + ".pdf");
             //close the document
             doc.Close(true);
 
