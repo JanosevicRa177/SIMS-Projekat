@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainHamburgerMenu" Height="530" Width="300" WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="True">
     <Grid Background="DarkGray">
-    <Frame x:Name="MenuFrame" NavigationUIVisibility="Hidden"/>
+        <Border BorderThickness="0,5,5,5" BorderBrush="Black"/>
+            <Frame x:Name="MenuFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

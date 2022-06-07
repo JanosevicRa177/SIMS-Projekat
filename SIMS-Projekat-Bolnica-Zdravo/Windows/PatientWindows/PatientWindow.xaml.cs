@@ -27,13 +27,16 @@ using NotificationType = CrudModel.NotificationType;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
-    public partial class PatientWindow : Window
+    public partial class PatientWindow : Window,INotifyPropertyChanged
     {
         private PatientController PC = new PatientController();
         private NotificationController ANC = new NotificationController();
         public static NavigationService NavigatePatient;
         MainHamburgerMenu MainHamburger;
         public static Boolean menuClosed = true;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         static public PatientCrAppDTO LoggedPatient
         {
             get;
@@ -44,6 +47,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             set;
             get;
         }
+
         public PatientWindow(LoginPatient LP2, int patientID)
         {
             LP = LP2;
@@ -51,7 +55,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             NavigatePatient = PatientFrame.NavigationService;
             LoggedPatient = PC.GetPatientDTOByID(patientID);
             NavigatePatient.Navigate(new PatientAppointments(this));
-            this.DataContext = LoggedPatient;
+            this.DataContext = this;
             ShowNotes();
         }
         private async void ShowNotes()
