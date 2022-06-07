@@ -1,14 +1,15 @@
-﻿<Page x:Class="SIMS_Projekat_Bolnica_Zdravo.PatientWindows.PatientAppointments"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SIMS_Projekat_Bolnica_Zdravo.PatientWindows"
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="SIMS_Projekat_Bolnica_Zdravo.PatientWindows.PatientAppointments"
       mc:Ignorable="d" 
       d:DesignHeight="530" d:DesignWidth="430"
       Title="PatientAppointments">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="530" Width="430">
+    <Grid HorizontalAlignment="Center" Background="White" VerticalAlignment="Center" Height="530" Width="430">
         <Grid.RowDefinitions>
             <RowDefinition Height="450"/>
             <RowDefinition Height="80"/>
@@ -18,7 +19,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" IsReadOnly="True" FontSize="12" SelectionMode="Single" Name="Appointments"  Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.ColumnSpan="10" SelectionChanged="Appointments_SelectionChanged" >
+        <!--<DataGrid Grid.Column="0" IsReadOnly="True" FontSize="12" SelectionMode="Single" Name="Appointments"  Grid.Row="0" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.ColumnSpan="10" SelectionChanged="Appointments_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="Doctor" FontSize="14" Header="Doktor" Width="1.4*">
                     <DataGridTextColumn.Binding>
@@ -39,7 +40,18 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
         <Button Content="Zakaži pregled" FontSize="20" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231" Height="60" Grid.ColumnSpan="3" Click="AddAppointment"/>
+        <syncfusion:SfScheduler Name="Scheduler" Grid.ColumnSpan="3" HorizontalAlignment="Left" ViewType="Day" VerticalAlignment="Top" ItemsSource="{Binding}">
+            <syncfusion:SfScheduler.AppointmentMapping>
+                <syncfusion:AppointmentMapping
+                    Subject="content"
+                    StartTime="Date"
+                    EndTime="DateEnd"
+                    Id ="id"
+                    AppointmentBackground="BackgroundColor"
+                    Foreground="ForegroundColor"/>
+            </syncfusion:SfScheduler.AppointmentMapping>
+        </syncfusion:SfScheduler>
     </Grid>
 </Page>

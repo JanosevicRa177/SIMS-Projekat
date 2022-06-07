@@ -17,7 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Syncfusion.UI.Xaml.Scheduler;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
+using SelectionChangedEventArgs = System.Windows.Controls.SelectionChangedEventArgs;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
@@ -47,6 +49,29 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             }
             this.DataContext = patientAppointmens;
             InitializeComponent();
+            this.Scheduler.AppointmentEditorOpening += Schedule_AppointmentEditorOpening;
+            this.Scheduler.AppointmentDragStarting += Schedule_AppointmentDragStarting;
+        }
+        private void Schedule_AppointmentDragStarting(object sender, AppointmentDragStartingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+        private void Schedule_AppointmentEditorOpening(object sender, AppointmentEditorOpeningEventArgs e)
+        {
+            e.Cancel = true;
+            ShowAppointmentPatientDTO selectedAppointment = null;
+            if (e.Appointment != null)
+            {
+                foreach(ShowAppointmentPatientDTO appointment in patientAppointmens)
+                {
+                    if (e.Appointment.Id.GetHashCode() == appointment.id)
+                    {
+                         selectedAppointment = appointment;
+                         break;
+                    }
+                }
+                PatientWindow.NavigatePatient.Navigate(new ShowAppointment(selectedAppointment, patientWindow));
+            }
         }
         public PatientAppointments()
         {
@@ -67,10 +92,8 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             }
             this.DataContext = patientAppointmens;
             InitializeComponent();
-        }
-        private void Show_Appointment(object sender, RoutedEventArgs e)
-        {
-            PatientWindow.NavigatePatient.Navigate(new ShowAppointment((ShowAppointmentPatientDTO)Appointments.SelectedItem, patientWindow));
+            this.Scheduler.AppointmentEditorOpening += Schedule_AppointmentEditorOpening;
+            this.Scheduler.AppointmentDragStarting += Schedule_AppointmentDragStarting;
         }
         private void Appointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

@@ -11,8 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
 using SIMS_Projekat_Bolnica_Zdravo.CrudModel;
+using SIMS_Projekat_Bolnica_Zdravo.DoctorAll.DoctorWindows;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.EditAppointmentDTO;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
@@ -452,6 +454,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public string Time { set; get; }
         public string desc { set; get; }
         public int id { set; get; }
+
         public ShowAppointmentDTO(string pName, string pSurname, int pID, string rName, string date, string time, string desc, int id)
         {
             patientName = pName;
@@ -463,17 +466,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             this.desc = desc;
             this.id = id;
         }
-        public ShowAppointmentDTO(string pName, string pSurname, int pID, string rName, string date, string time, string desc)
-        {
-            patientName = pName;
-            patientSurname = pSurname;
-            patientID = pID;
-            roomName = rName;
-            Date = date;
-            Time = time;
-            this.desc = desc;
-        }
-
     }
     public class ShowAppointmentPatientDTO
     {
@@ -482,15 +474,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
         public string doctorID { set; get; }
         public string roomName { set; get; }
         public DateTime Date { set; get; }
+        public DateTime DateEnd { set; get; }
         public string Time { set; get; }
         public string desc { set; get; }
         public int id { set; get; }
         public int duration { set; get; }
-        public Boolean isNotGraded { set; get; }
-
+        public bool isNotGraded { set; get; }
         public int patientsID { set; get; }
-
         public string condition { set; get; }
+        public string content { get; set; }
+        public Brush BackgroundColor { get; set; }
+        public Brush ForegroundColor { get; set; }
+
 
         public ShowAppointmentPatientDTO(string dName, string dSurname, string dID, string rName, string time, string desc, int id, DateTime Date,int duration,Boolean isNotGraded,string condition = "",int patid = -1)
         {
@@ -499,6 +494,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             doctorID = dID;
             roomName = rName;
             this.Date = Date;
+            string[] times = time.Split('-');
+            string[] times1 = times[0].Split(':');
+            TimeSpan TimeSettings = new TimeSpan(int.Parse(times1[0]), int.Parse(times1[1]), 0);
+            this.Date = this.Date.Date + TimeSettings;
+            this.DateEnd = this.Date.AddMinutes(duration);
             this.isNotGraded = isNotGraded;
             Time = time;
             this.desc = desc;
@@ -506,6 +506,9 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             this.duration = duration;
             this.condition = condition;
             this.patientsID = patid;
+            this.content = "Zakazan pregled kod doktora: " + doctorName + " " + doctorSurname + " " + "Soba: " + roomName + " " + " Opis pregleda: " + desc;
+            this.BackgroundColor = new SolidColorBrush(Colors.DarkGray);
+            this.ForegroundColor = new SolidColorBrush(Colors.Black);
         }
     }
 }

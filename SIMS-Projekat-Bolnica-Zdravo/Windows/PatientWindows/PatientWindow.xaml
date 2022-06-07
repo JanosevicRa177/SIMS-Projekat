@@ -27,20 +27,20 @@
         <Rectangle Grid.Row="3" Grid.ColumnSpan="3" Fill="Silver" Grid.RowSpan="1" />
         <Button FontSize="20" HorizontalAlignment="Right" Margin="10,9.6,10,11" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Click="Navigation_back">
             <StackPanel Orientation="Vertical">
-                <Image Source="icons8-back-100.png" Width="60" Height="60" Margin="0,5,0,5"/>
+                <Image Source="icons8-back-100.png" Width="60" Height="60"/>
                 <TextBlock Text="Nazad" TextAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
         </Button>
         <Button FontSize="20" HorizontalAlignment="Center" Margin="10,9.6,10,0" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="1" Click="Show_Home">
             <StackPanel Orientation="Vertical">
-                <Image Source="icons8-home-page-64.png" Width="70" Height="70"/>
+                <Image Source="icons8-home-page-64.png" Width="60" Height="60"/>
                 <TextBlock Text="Glavni prozor" TextAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
         </Button>
         <Button FontSize="20" HorizontalAlignment="Left" Margin="10,9.6,10,0" Grid.Row="3" VerticalAlignment="Top" Width="122" Height="111" Grid.Column="2">
             <StackPanel Orientation="Vertical">
-                <Image Source="icons8-account-60.png" Width="70" Height="70"/>
-                <TextBlock Text="Nalog" TextAlignment="Center" VerticalAlignment="Center" />
+                <Image Source="tutorial.png" Width="60" Height="60"/>
+                <TextBlock Text="Tutorijal" TextAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
         </Button>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" FontSize="20"  TextAlignment="Center" Text="Bolnica Zdravo" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="131.4,27,0,27" Width="144"/>
