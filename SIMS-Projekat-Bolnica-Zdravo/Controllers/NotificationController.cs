@@ -11,35 +11,53 @@ using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace CrudModel
 {
-   public class NotificationController
-   {
+    public class NotificationController
+    {
         private NotificationService ANS;
-        public NotificationController() 
+
+        public NotificationController()
         {
             ANS = new NotificationService();
         }
-        public bool CreateAppointmentNotification(SIMS_Projekat_Bolnica_Zdravo.Model.Notification newNotification)
-      {
-            return ANS.CreateAppointmentNotification(newNotification);
-      }
-      
-      public bool DeleteAppointmentNotification(int appointmentNotificationID)
-      {
-            return ANS.DeleteAppointmentNotification(appointmentNotificationID);
-      }  
-      public bool UpdateAppointmentNotification(SIMS_Projekat_Bolnica_Zdravo.Model.Notification notification)
-      {
+        public SIMS_Projekat_Bolnica_Zdravo.Model.Notification GetNoteNotificationByNoteID(int noteID)
+        {
+            return ANS.GetNoteNotificationByNoteID(noteID);
+        }
+        public bool CreateNotification(SIMS_Projekat_Bolnica_Zdravo.Model.Notification newNotification)
+        {
+            return ANS.CreateNotification(newNotification);
+        }
+
+        public bool DeleteAppointmentNotification(int notificationID)
+        {
+            return ANS.DeleteAppointmentNotification(notificationID);
+        }
+
+        public bool DeleteNoteNotification(int notificationID)
+        {
+            return ANS.DeleteNoteNotification(notificationID);
+        }
+
+        public bool UpdateAppointmentNotification(SIMS_Projekat_Bolnica_Zdravo.Model.Notification notification)
+        {
             return ANS.UpdateAppointmentNotification(notification);
-      }
-      
-      public ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> GetAppointmentNotificationrByPatientID(int patientID)
-      {
-            return ANS.GetAppointmentNotificationrByPatientID(patientID);
-      }
-      
-      public ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification> GetAppointmentNotificationrByDoctorID(int doctorID)
-      {
-            return ANS.GetAppointmentNotificationrByDoctorID(doctorID);
-      }
-   }
+        }
+
+        public bool UpdateNoteNotification(SIMS_Projekat_Bolnica_Zdravo.Model.Notification notification)
+        {
+            return ANS.UpdateNoteNotification(notification);
+        }
+
+        public ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>
+            GetAppointmentNotificationsByPatientID(int patientID)
+        {
+            return ANS.GetAppointmentNotificationsByPatientID(patientID);
+        }
+
+        public ObservableCollection<SIMS_Projekat_Bolnica_Zdravo.Model.Notification>
+            GetAppointmentNotificationsByDoctorID(int doctorID)
+        {
+            return ANS.GetAppointmentNotificationsByDoctorID(doctorID);
+        }
+    }
 }

@@ -11,7 +11,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.ViewModel
         public ObservableCollection<Model.Notification> Notifications { get; set; }
         public NotificationPageViewModel()
         {
-            Notifications = ANC.GetAppointmentNotificationrByPatientID(PatientWindow.LoggedPatient.id);
+            Notifications = ANC.GetAppointmentNotificationsByPatientID(PatientWindow.LoggedPatient.id);
         }
     }
 }

@@ -60,41 +60,40 @@ namespace SIMS_Projekat_Bolnica_Zdravo
         {
             ComboBoxItem cbi = (ComboBoxItem)cb.SelectedItem;
             string xd = cbi.Content.ToString();
-            if (xd.Equals("Selektuj ulogu!"))
+            if (xd.Equals("Select user type!"))
             {
                 MessageBox.Show("SELEKTUJ ULOGU XD!");
                 return;
             }
   
 
-            if (xd.Equals("Sekretar"))
+            if (xd.Equals("Secretary"))
             {
                 SecretaryView sc = new SecretaryView();
                 sc.Show();
             }
-            else if (xd.Equals("Lekar"))
+            else if (xd.Equals("Doctor"))
             {
                 DoctorWindow dr = new DoctorWindow(this);
                 dr.Show();
             }
-            else if (xd.Equals("Pacijent"))
+            else if (xd.Equals("Patient"))
             {
                 LoginPatient pt = new LoginPatient(this);
                 pt.Show();
             }
-            else if (xd.Equals("Upravnik"))
+            else if (xd.Equals("Manager"))
             {
                 ManagerWindow m = new ManagerWindow();
                 m.Show();
             }
-
-
             this.Hide();
+            cb.Text = "Select user type!";
         }
 
         private void cb_Loaded(object sender, RoutedEventArgs e)
         {
-            cb.Text = "Selektuj ulogu!";
+            cb.Text = "Select user type!";
         }
     }
 }

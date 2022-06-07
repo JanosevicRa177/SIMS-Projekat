@@ -22,6 +22,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SIMS_Projekat_Bolnica_Zdravo.Model;
 using SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views;
+using Syncfusion.Windows.Shared;
+using NotificationType = CrudModel.NotificationType;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.Windows
 {
@@ -58,22 +60,46 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             {
                 var notificationManager = new NotificationManager();
                 await Task.Delay(1000);
-                ObservableCollection<Model.Notification> notifications = ANC.GetAppointmentNotificationrByPatientID(LoggedPatient.id);
+                ObservableCollection<Model.Notification> notifications = ANC.GetAppointmentNotificationsByPatientID(LoggedPatient.id);
                 foreach (Model.Notification an in notifications)
                 {
-                    if (an.Viewed)
+                    if (an.notificationType == NotificationType.appointment)
                     {
-                        continue;
+                        if (an.DeleteDate < DateTime.Now)
+                        {
+                            MessageBox.Show("Usao");
+                            ANC.DeleteAppointmentNotification(an.NotificationID);
+                            continue;
+                        }
+                        if (an.Viewed)
+                        {
+                            continue;
+                        }
+                        NotificationWindow nw = new NotificationWindow(an.Title, an.Content);
+                        nw.Top = this.Top + 84;
+                        nw.Left = this.Left;
+                        nw.Topmost = true;
+                        nw.Show();
+                        an.Viewed = true;
+                        await Task.Delay(3000);
+                        nw.Close();
+                        ANC.UpdateAppointmentNotification(an);
                     }
-                    NotificationWindow nw = new NotificationWindow(an.Title, an.Content);
-                    nw.Top = this.Top + 84;
-                    nw.Left = this.Left;
-                    nw.Topmost = true;
-                    nw.Show();
-                    an.Viewed = true;
-                    await Task.Delay(3000);
-                    nw.Close();
-                    ANC.UpdateAppointmentNotification(an);
+                    else
+                    {
+                        if (an.DeleteDate < DateTime.Now)
+                        {
+                            NotificationWindow nw = new NotificationWindow(an.Title, an.Content);
+                            nw.Top = this.Top + 84;
+                            nw.Left = this.Left;
+                            nw.Topmost = true;
+                            nw.Show();
+                            an.addHours();
+                            await Task.Delay(3000);
+                            nw.Close();
+                            ANC.UpdateNoteNotification(an);
+                        }
+                    }
                 }
                 await Task.Delay(900000);
             }

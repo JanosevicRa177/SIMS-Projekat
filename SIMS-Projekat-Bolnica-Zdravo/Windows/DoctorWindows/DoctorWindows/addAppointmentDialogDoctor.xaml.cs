@@ -224,7 +224,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows
             Time t = (Time)TimeselectDG.SelectedItem;
             DateTime d = appointmentDate.SelectedDate.Value;
             String notContent = " Doktor: " + doctor.name + " " + doctor.surname + " Datum " + d.Day + "/" + d.Month + "/" + d.Year + " Vreme: " + t.time;
-            ANC.CreateAppointmentNotification(new Model.Notification(title, notContent, DateTime.Today.AddDays(14), false, pat.id));
+            ANC.CreateNotification(new Model.Notification(title, notContent, DateTime.Today.AddDays(14), false, pat.id,NotificationType.appointment));
             AC.CreateAppointment(appointmentDate.SelectedDate.Value, (Time)TimeselectDG.SelectedItem, this.Duration, (RoomCrAppDTO)roomID.SelectedItem, (DoctorCrAppDTO)doctorsCB.SelectedItem, desc, pat);
             this.Close();
             prevW.Close();

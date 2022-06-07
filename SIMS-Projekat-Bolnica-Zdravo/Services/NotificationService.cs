@@ -7,42 +7,53 @@ using SIMS_Projekat_Bolnica_Zdravo.Model;
 
 namespace SIMS_Projekat_Bolnica_Zdravo
 {
-   public class NotificationService
-   {
+    public class NotificationService
+    {
         public NotificationFileStorage ANSF;
 
-        public NotificationService() 
+        public NotificationService()
         {
             ANSF = new NotificationFileStorage();
         }
-        public bool CreateAppointmentNotification(Model.Notification newNotification)
-      {
-            return ANSF.CreateAppointmentNotification(newNotification);
-      }
-      
-      public bool DeleteAppointmentNotification(int appointmentNotificationID)
-      {
-            return ANSF.DeleteAppointmentNotification(appointmentNotificationID);
-      }
-      
-      public bool UpdateAppointmentNotification(Model.Notification notification)
-      {
-            return ANSF.UpdateAppointmentNotification(notification);
-      }
 
-        public ObservableCollection<Model.Notification> GetAppointmentNotificationrByPatientID(int patientID)
-      {
-            return ANSF.GetAppointmentNotificationrByPatientID(patientID);
-      }
-
-        public Model.Notification GetNoteNotificationrByNoteID(int noteID)
+        public bool CreateNotification(Model.Notification newNotification)
         {
-            return ANSF.GetNoteNotificationrByNoteID(noteID);
+            return ANSF.CreateNotification(newNotification);
         }
 
-        public ObservableCollection<Model.Notification> GetAppointmentNotificationrByDoctorID(int doctorID)
-      {
-            return ANSF.GetAppointmentNotificationrByDoctorID(doctorID);
-      }
-   }
+        public bool DeleteAppointmentNotification(int NotificationID)
+        {
+            return ANSF.DeleteAppointmentNotification(NotificationID);
+        }
+
+        public bool DeleteNoteNotification(int NotificationID)
+        {
+            return ANSF.DeleteNoteNotification(NotificationID);
+        }
+
+        public bool UpdateAppointmentNotification(Model.Notification notification)
+        {
+            return ANSF.UpdateAppointmentNotification(notification);
+        }
+
+        public bool UpdateNoteNotification(Model.Notification notification)
+        {
+            return ANSF.UpdateNoteNotification(notification);
+        }
+
+        public ObservableCollection<Model.Notification> GetAppointmentNotificationsByPatientID(int patientID)
+        {
+            return ANSF.GetAppointmentNotificationsByPatientID(patientID);
+        }
+
+        public Model.Notification GetNoteNotificationByNoteID(int noteID)
+        {
+            return ANSF.GetNoteNotificationByNoteID(noteID);
+        }
+
+        public ObservableCollection<Model.Notification> GetAppointmentNotificationsByDoctorID(int doctorID)
+        {
+            return ANSF.GetAppointmentNotificationsByDoctorID(doctorID);
+        }
+    }
 }

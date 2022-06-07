@@ -10,11 +10,13 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views
     public partial class PatientNotes : Page
     {
         private NoteController NC;
+        private NotificationController notificationController;
         private ObservableCollection<Note> patientNotes { get; set; }
         private Note _selectedNote;
         public PatientNotes()
         {
             NC = new NoteController();
+            notificationController = new NotificationController();
             patientNotes = NC.getAllPatientNotes(PatientWindow.LoggedPatient.id);
             InitializeComponent();
             this.DataContext = patientNotes;
@@ -36,10 +38,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows.Views
         }
         private void DeleteNote(object sender, RoutedEventArgs e)
         {
-            Note n = new Note();
+            Note n;
             n = (Note)NotesListGrid.SelectedItem;
             patientNotes.Remove((Note)NotesListGrid.SelectedItem);
             NC.DeleteNote(n.noteID);
+            notificationController.DeleteNoteNotification(n.noteID);
         }
         private void NotesListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

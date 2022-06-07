@@ -61,18 +61,31 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
         public Notification()
         {
         }
-        public Notification(string title, string content, DateTime deleteDate, bool viewed,int userID)
+        public Notification(string title, string content, DateTime deleteDate, bool viewed,int userID, NotificationType notivicationType,int NotificationID = 0, int Frequency = 0)
         {
             this.Title = title;
             this.Content = content;
             this.DeleteDate = deleteDate;
-            TimeSpan TimeSettings = new TimeSpan(0, 0, 0);
-            this.DeleteDate = this.DeleteDate.Date + TimeSettings;
+            if (notivicationType == NotificationType.appointment)
+            {
+                TimeSpan TimeSettings = new TimeSpan(DateTime.Now.Hour, 0, 0);
+                this.DeleteDate = this.DeleteDate.Date + TimeSettings;
+                this.NotificationID = ++ids;
+            }
+            else
+            {
+                this.NotificationID = NotificationID;
+            }
             this.Viewed = viewed;
             this.UserID = userID;
-            this.NotificationID = ++ids;
-            Frequency = 0;
-            notificationType = NotificationType.appointment;
+            this.Frequency = Frequency;
+            notificationType = notivicationType;
+        }
+
+        public void addHours()
+        {
+            while (DeleteDate < DateTime.Now)
+                DeleteDate = DeleteDate.AddHours(Frequency);
         }
 
         public string[] toCSV()
@@ -125,7 +138,6 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Model
                     DeleteDate.Day.ToString(),
                     DeleteDate.Month.ToString(),
                     DeleteDate.Year.ToString(),
-                    DeleteDate.Hour.ToString(),
                     "0",
                     NotificationID.ToString(),
                     UserID.ToString(),

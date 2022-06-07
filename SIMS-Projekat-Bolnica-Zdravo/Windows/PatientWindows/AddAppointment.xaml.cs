@@ -21,6 +21,7 @@ using System.Windows.Shapes;
 using SIMS_Projekat_Bolnica_Zdravo.Model;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.AppointmentController;
 using static SIMS_Projekat_Bolnica_Zdravo.Controllers.RoomController;
+using NotificationType = CrudModel.NotificationType;
 
 namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
 {
@@ -160,7 +161,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
                     empty = false;
                     String title = "Zakazan pregled";
                     String notContent = " Dotkor: " + TimePat.doctor.name + " " + TimePat.doctor.surname + " Datum " + TimePat.dateString + " Vreme: " + TimePat.time;
-                    ANC.CreateAppointmentNotification(new Model.Notification(title, notContent, DateTime.Today.AddDays(14),false, TimePat.doctor.id));
+                    ANC.CreateNotification(new Model.Notification(title, notContent, DateTime.Today.AddDays(14),false, TimePat.doctor.id,NotificationType.appointment));
                     PatientWindow.NavigatePatient.Navigate(new PatientAppointments());
                 }
             }

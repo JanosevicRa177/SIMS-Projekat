@@ -28,20 +28,20 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="80" Width="500" Grid.Column="1" Grid.Row="1" Margin="5">Dobrodošli!</TextBlock>
-        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="2" Margin="5">Logovanje</TextBlock>
+        <TextBlock FontSize="80" Width="500" Grid.Column="1" Grid.Row="1" Margin="5" TextAlignment="Center" HorizontalAlignment="Center">Welcome!</TextBlock>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="2" Margin="5">Login</TextBlock>
         <ComboBox Loaded="cb_Loaded" Name="cb"  FontSize="30" Grid.Column="1" Grid.Row="3" Margin="5">
-            <ComboBoxItem Name="SU" Content="Selektuj ulogu!" Tag="x"></ComboBoxItem>
-            <ComboBoxItem Name="Lekar" Content="Lekar" Tag="x"></ComboBoxItem>
-            <ComboBoxItem Name="Sekretar" Content="Sekretar" Tag="y"></ComboBoxItem>
-            <ComboBoxItem Name="Pacijent" Content="Pacijent" Tag="z"></ComboBoxItem>
-            <ComboBoxItem Name="Upravnik" Content="Upravnik" Tag="j"></ComboBoxItem>
+            <ComboBoxItem Name="SU" Content="Select user type!" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="Lekar" Content="Doctor" Tag="x"></ComboBoxItem>
+            <ComboBoxItem Name="Sekretar" Content="Secretary" Tag="y"></ComboBoxItem>
+            <ComboBoxItem Name="Pacijent" Content="Patient" Tag="z"></ComboBoxItem>
+            <ComboBoxItem Name="Upravnik" Content="Manager" Tag="j"></ComboBoxItem>
         </ComboBox>
         <TextBlock FontSize="30" Grid.Column="1" Grid.Row="4" Margin="5">Email</TextBlock>
         <TextBox FontSize="30" Grid.Column="1" Grid.Row="5" Margin="5"></TextBox>
-        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="6" Margin="5" >Lozinka</TextBlock>
+        <TextBlock FontSize="30" Grid.Column="1" Grid.Row="6" Margin="5" >Password</TextBlock>
         <TextBox FontSize="30" Grid.Column="1" Grid.Row="7" Margin="5"></TextBox>
-        <Button HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" Margin="5" FontSize="25">Zaboravljena lozinka?</Button>
-        <Button Name="Login" Click="Login_Click" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Column="1" Grid.Row="10" Margin="5" FontSize="40">Logovanje</Button>
+        <Button HorizontalAlignment="Center" Grid.Column="1" Grid.Row="8" Margin="5" FontSize="25">Forgotten password?</Button>
+        <Button Name="Login" Click="Login_Click" BorderBrush="Black" BorderThickness="3" Foreground="White"  Background="#4C1130" Grid.Column="1" Grid.Row="10" Margin="5" FontSize="40">Login</Button>
     </Grid>
 </Window>
