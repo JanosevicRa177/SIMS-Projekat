@@ -16,5 +16,6 @@ Zakazan pregled| Doktor: Milica Milutinovic Datum 9/6/2022 Vreme: 08:00|21|6|202
 Zakazan pregled| Doktor: Milica Milutinovic Datum 8/6/2022 Vreme: 09:00|21|6|2022|1|81|5|appointment|0|20
 Zakazan pregled| Doktor: Milica Milutinovic Datum 10/6/2022 Vreme: 08:30|21|6|2022|1|82|5|appointment|0|20
 Zakazan pregled| Dotkor: Milica Milutinovic Datum 9/6/2022 Vreme: 14:30|22|6|2022|0|83|0|appointment|0|1
-Beleska1|Neki kontent 1|8|6|2022|0|0|5|note|1|10
-Beleska 4|Neki kontent 4|8|6|2022|0|3|5|note|1|10
+Zakazan pregled| Doktor: Milica Milutinovic Datum 23/6/2022 Vreme: 07:30|22|6|2022|0|84|6|appointment|0|14
+Beleska1|Neki kontent 1|8|6|2022|0|0|5|note|1|17
+Beleska 4|Neki kontent 4|8|6|2022|0|3|5|note|1|17

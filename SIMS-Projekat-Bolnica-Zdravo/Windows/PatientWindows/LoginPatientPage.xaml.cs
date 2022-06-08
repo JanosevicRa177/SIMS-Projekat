@@ -59,23 +59,23 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            /*int patientID = PC.LoginPatient(Mail.Text, Password.Password.ToString());
+            int patientID = PC.LoginPatient(Mail.Text, Password.Password.ToString());
+            var patientWindow = Window.GetWindow(this);
             if (patientID == -1)
             {
-                var patientWindow = Window.GetWindow(this);
-                InformationDialog informationDialog = new InformationDialog("Pogresan mail ili sifra");
+                InformationDialog informationDialog = new InformationDialog("Pogrešan mail ili šifra");
                 informationDialog.Top = patientWindow.Top + 270;
                 informationDialog.Left = patientWindow.Left + 25;
                 informationDialog.Activate();
                 informationDialog.Topmost = true;
                 informationDialog.ShowDialog();
                 return;
-            }*/
-            if (PC.IsAccountBlocked(5))
+            }
+            if (PC.IsAccountBlocked(patientID))
             {
-                InformationDialog informationDialog = new InformationDialog("Vas nalog je blokiran zbog zloupotrebe");
-                informationDialog.Top = WindowLogin.Top + 270;
-                informationDialog.Left = WindowLogin.Left + 25;
+                InformationDialog informationDialog = new InformationDialog("Vaš nalog je blokiran zbog zloupotrebe");
+                informationDialog.Top = patientWindow.Top + 270;
+                informationDialog.Left = patientWindow.Top + 25;
                 informationDialog.Activate();
                 informationDialog.Topmost = true;
                 informationDialog.ShowDialog();
@@ -84,7 +84,7 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Windows.PatientWindows
             Mail.Text = "";
             Password.Clear();
             PassText.Visibility = Visibility.Visible;
-            PatientWindow pt = new PatientWindow((LoginPatient)System.Windows.Window.GetWindow(this), 5);
+            PatientWindow pt = new PatientWindow((LoginPatient)System.Windows.Window.GetWindow(this), patientID);
             pt.Show();
             WindowLogin = (LoginPatient)System.Windows.Window.GetWindow(this);
             WindowLogin.Hide();

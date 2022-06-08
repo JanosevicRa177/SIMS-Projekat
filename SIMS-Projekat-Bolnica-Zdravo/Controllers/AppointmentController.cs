@@ -510,5 +510,15 @@ namespace SIMS_Projekat_Bolnica_Zdravo.Controllers
             this.BackgroundColor = new SolidColorBrush(Colors.DarkGray);
             this.ForegroundColor = new SolidColorBrush(Colors.Black);
         }
+
+        public ShowAppointmentPatientDTO()
+        {
+            doctorName = "";
+            doctorSurname = "";
+            doctorID = "";
+            this.Date = DateTime.Now;
+            this.DateEnd = DateTime.Now;
+            this.content = "";
+        }
     }
 }

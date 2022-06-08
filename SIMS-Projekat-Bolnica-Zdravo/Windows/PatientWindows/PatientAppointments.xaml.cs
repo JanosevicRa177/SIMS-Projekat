@@ -35,6 +35,11 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             AC = new AppointmentController();
             ANC = new NotificationController();
             patientAppointmens = AC.getAllPatientsAppointments(PatientWindow.LoggedPatient.id);
+            if (patientAppointmens.Count == 0)
+            {
+                patientAppointmens.Add(new ShowAppointmentPatientDTO());
+            }
+
             ObservableCollection<ShowAppointmentPatientDTO> removeAppointmens = new ObservableCollection<ShowAppointmentPatientDTO>();
             foreach (var appoinment in patientAppointmens)
             {

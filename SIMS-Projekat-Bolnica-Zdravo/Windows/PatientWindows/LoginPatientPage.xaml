@@ -52,7 +52,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        <Button Grid.Row="2" Margin="60,419.4,60,-22.2" Grid.Column="0"  FontSize="25" Width="300" Content="Potvrda prijave" HorizontalAlignment="Center" Grid.ColumnSpan="3" Click="Login_Click" Grid.RowSpan="2"/>
+        <Button Grid.Row="2" Margin="60,419.4,60,-22.2" Grid.Column="0"  FontSize="25" Width="300" Content="Prijava" HorizontalAlignment="Center" Grid.ColumnSpan="3" Click="Login_Click" Grid.RowSpan="2"/>
         <Button Grid.Row="3" Margin="60,47,60,-100.2" Grid.Column="0"  FontSize="25" Width="300" Content="Registracija" HorizontalAlignment="Center" Grid.ColumnSpan="3" Click="Register_Click"/>
         <Button Margin="59.067,10,10.533,16.8" FontSize="25" Content="Back" Click="Back_Click" Grid.Column="2"/>
         <PasswordBox x:Name="Password" Grid.Column="0"  GotFocus="Password_GotFocus" LostFocus="Password_LostFocus"  HorizontalAlignment="Center" FontSize="20" BorderBrush="DarkGray" BorderThickness="0,0,0,3" Height="37" Margin="29,278.4,33.533,0" Grid.Row="2" VerticalAlignment="Top" Width="362" Grid.ColumnSpan="3">
