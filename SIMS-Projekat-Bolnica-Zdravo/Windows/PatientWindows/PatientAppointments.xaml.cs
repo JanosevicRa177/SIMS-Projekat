@@ -51,6 +51,18 @@ namespace SIMS_Projekat_Bolnica_Zdravo.PatientWindows
             InitializeComponent();
             this.Scheduler.AppointmentEditorOpening += Schedule_AppointmentEditorOpening;
             this.Scheduler.AppointmentDragStarting += Schedule_AppointmentDragStarting;
+            this.Scheduler.DaysViewSettings.SpecialTimeRegions.Add(new SpecialTimeRegion
+            {
+                StartTime = DateTime.MinValue.AddHours(0),
+                EndTime = DateTime.MinValue.AddHours(7),
+                RecurrenceRule = "FREQ=DAILY;INTERVAL=1"
+            });
+            this.Scheduler.DaysViewSettings.SpecialTimeRegions.Add(new SpecialTimeRegion
+            {
+                StartTime = DateTime.MinValue.AddHours(16),
+                EndTime = DateTime.MinValue.AddHours(23),
+                RecurrenceRule = "FREQ=DAILY;INTERVAL=1"
+            });
         }
         private void Schedule_AppointmentDragStarting(object sender, AppointmentDragStartingEventArgs e)
         {
